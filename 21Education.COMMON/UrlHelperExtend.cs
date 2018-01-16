@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Web.Mvc;
 namespace _21Education.COMMON
 {
     public class UrlHelperExtend
     {
-        public static string Page(this IUrlHelper helper, int pageIndex)
+        public static string PageLink(this UrlHelper helper, int pageIndex)
         {
-            var category = helper.ActionContext.RouteData.GetCategory();
-            if (category > 0)
-            {
-                return helper.ActionContext.RouteData.GetPath() +
-                    "/" + StringKeys.PathFormat(StringKeys.RouteValue_Category) + category +
-                    "/" + StringKeys.PathFormat(StringKeys.RouteValue_Page) + pageIndex;
-            }
-            return helper.ActionContext.RouteData.GetPath() + "/" + StringKeys.PathFormat(StringKeys.RouteValue_Page) + pageIndex;
+            return helper.RequestContext.RouteData.GetPath() + "/" + StringKeys.PathFormat(StringKeys.RouteValue_Page) + pageIndex;
         }
 
     }

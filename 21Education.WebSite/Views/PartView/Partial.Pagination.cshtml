@@ -1,6 +1,6 @@
 ﻿@model Pagination
 
-@if (Model.AllPage > 0)
+@if (Model.PageCount > 0)
 {
     <ul class="pagination">
         @if (Model.PageIndex >= 1)
@@ -22,25 +22,25 @@
             if (Model.PageIndex < 3)
             {
                 start = 0;
-                if (Model.AllPage > 5)
+                if (Model.PageCount > 5)
                 {
                     end = 4;
                 }
             }
-            if (Model.AllPage - Model.PageIndex < 3 && Model.AllPage > 5)
+            if (Model.PageCount - Model.PageIndex < 3 && Model.PageCount > 5)
             {
-                end = Model.AllPage;
-                start = Model.AllPage - 5;
+                end = Model.PageCount;
+                start = Model.PageCount - 5;
             }
-            for (; start < Model.AllPage && start <= end; start++)
+            for (; start < Model.PageCount && start <= end; start++)
             {
                 <li class="@(start == Model.PageIndex ? "active" : "")">
                     <a href="@Url.Page(start)">@(start + 1)</a>
                 </li>
             }
         }
-        <li class="count"><b>/ @(Model.AllPage)</b></li>
-        @if (Model.PageIndex < Model.AllPage - 1)
+        <li class="count"><b>/ @(Model.PageCount)</b></li>
+        @if (Model.PageIndex < Model.PageCount - 1)
         {
             <li class="next">
                 <a href="@Url.Page(Model.PageIndex + 1)">></a>
@@ -60,7 +60,7 @@
         </li>
     </ul>
     <script>
-        var pageCount =@Model.AllPage;
+        var pageCount =@Model.PageCount;
         var pagePath = "@Url.Page(0)";
         pagePath = pagePath.substring(0, pagePath.length - 1);
         $("#jump").click(function () {

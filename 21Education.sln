@@ -20,108 +20,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21Education.DALTest", "21Education.DALTest\21Education.DALTest.csproj", "{D3822B3A-3867-43D9-AC31-3A5ED1CBCD68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design", "Design", "{C4A9A7F1-E851-44B0-B4C3-F652C464FC27}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{AF20E429-0EF6-40E6-884C-569203942DD5}"
 	ProjectSection(SolutionItems) = preProject
-		images\a_bg.jpg = images\a_bg.jpg
-		images\a_bg2.jpg = images\a_bg2.jpg
-		images\about_01.jpg = images\about_01.jpg
-		images\about_06.jpg = images\about_06.jpg
-		images\about_10.jpg = images\about_10.jpg
-		images\about_14.jpg = images\about_14.jpg
-		images\about_17.jpg = images\about_17.jpg
-		images\about_20.jpg = images\about_20.jpg
-		images\about_23.jpg = images\about_23.jpg
-		images\about_26.jpg = images\about_26.jpg
-		images\advan2.jpg = images\advan2.jpg
-		images\advan_03.jpg = images\advan_03.jpg
-		images\advan_08.jpg = images\advan_08.jpg
-		images\advan_11.jpg = images\advan_11.jpg
-		images\advan_15.jpg = images\advan_15.jpg
-		images\advan_17.jpg = images\advan_17.jpg
-		images\banner1.jpg = images\banner1.jpg
-		images\banner2.jpg = images\banner2.jpg
-		images\banner3.jpg = images\banner3.jpg
-		images\banner4.jpg = images\banner4.jpg
-		images\cloud.jpg = images\cloud.jpg
-		images\contact.png = images\contact.png
-		images\contact_06.png = images\contact_06.png
-		images\contact_08.png = images\contact_08.png
-		images\contact_10.jpg = images\contact_10.jpg
-		images\data.jpg = images\data.jpg
-		images\dian.png = images\dian.png
-		images\dian2.png = images\dian2.png
-		images\friend_link_img.jpg = images\friend_link_img.jpg
-		images\high_bg.png = images\high_bg.png
-		images\honor1.jpg = images\honor1.jpg
-		images\honor2.jpg = images\honor2.jpg
-		images\honor3.jpg = images\honor3.jpg
-		images\honor4.jpg = images\honor4.jpg
-		images\icon.png = images\icon.png
-		images\images.lnk = images\images.lnk
-		images\intel.jpg = images\intel.jpg
-		images\line_img.jpg = images\line_img.jpg
-		images\login.jpg = images\login.jpg
-		images\logo.png = images\logo.png
-		images\map_img.png = images\map_img.png
-		images\nav_bg.jpg = images\nav_bg.jpg
-		images\new_img.jpg = images\new_img.jpg
-		images\next.png = images\next.png
-		images\pcpj.jpg = images\pcpj.jpg
-		images\phone.png = images\phone.png
-		images\prev.png = images\prev.png
-		images\serve_03.png = images\serve_03.png
-		images\serve_05.png = images\serve_05.png
-		images\serve_08.png = images\serve_08.png
-		images\serve_14.png = images\serve_14.png
-		images\serve_15.png = images\serve_15.png
-		images\serve_17.png = images\serve_17.png
-		images\serve_21.png = images\serve_21.png
-		images\serve_23.png = images\serve_23.png
-		images\serve_26.png = images\serve_26.png
-		images\serve_28.jpg = images\serve_28.jpg
-		images\success_03.jpg = images\success_03.jpg
-		images\success_07.jpg = images\success_07.jpg
-		images\success_11.jpg = images\success_11.jpg
-		images\success_14.jpg = images\success_14.jpg
-		images\success_16.jpg = images\success_16.jpg
-		images\success_18.jpg = images\success_18.jpg
-		images\success_25.jpg = images\success_25.jpg
-		images\success_29.jpg = images\success_29.jpg
-		images\success_32.jpg = images\success_32.jpg
-		images\tab_bg.jpg = images\tab_bg.jpg
-		images\tk_system.jpg = images\tk_system.jpg
-		images\znks.jpg = images\znks.jpg
-		images\zx_dd.png = images\zx_dd.png
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Index_images", "Index_images", "{926EE311-5E23-4DA9-B12C-A130267E9CC0}"
-	ProjectSection(SolutionItems) = preProject
-		index_images\a_bg.png = index_images\a_bg.png
-		index_images\bg.png = index_images\bg.png
-		index_images\blue_t_bg.jpg = index_images\blue_t_bg.jpg
-		index_images\carouselbg.jpg = index_images\carouselbg.jpg
-		index_images\index_03.png = index_images\index_03.png
-		index_images\index_07.png = index_images\index_07.png
-		index_images\index_09.png = index_images\index_09.png
-		index_images\index_11.png = index_images\index_11.png
-		index_images\index_13.png = index_images\index_13.png
-		index_images\index_17.png = index_images\index_17.png
-		index_images\index_21.png = index_images\index_21.png
-		index_images\index_23.png = index_images\index_23.png
-		index_images\index_26.jpg = index_images\index_26.jpg
-		index_images\index_27.png = index_images\index_27.png
-		index_images\index_30.png = index_images\index_30.png
-		index_images\index_32.png = index_images\index_32.png
-		index_images\index_34.jpg = index_images\index_34.jpg
-		index_images\index_37.png = index_images\index_37.png
-		index_images\index_40.png = index_images\index_40.png
-		index_images\index_42.png = index_images\index_42.png
-		index_images\index_ban1.png = index_images\index_ban1.png
-		index_images\index_ban2.png = index_images\index_ban2.png
-		index_images\index_ban3.png = index_images\index_ban3.png
-		index_images\index_dl_bg.png = index_images\index_dl_bg.png
-		index_images\product_tit_bg.jpg = index_images\product_tit_bg.jpg
+		C:\Users\Administrator\Desktop\页面png图片\产品服务.png = C:\Users\Administrator\Desktop\页面png图片\产品服务.png
+		C:\Users\Administrator\Desktop\页面png图片\关于我们.png = C:\Users\Administrator\Desktop\页面png图片\关于我们.png
+		C:\Users\Administrator\Desktop\页面png图片\成功案例.png = C:\Users\Administrator\Desktop\页面png图片\成功案例.png
+		C:\Users\Administrator\Desktop\页面png图片\新闻内容页.png = C:\Users\Administrator\Desktop\页面png图片\新闻内容页.png
+		C:\Users\Administrator\Desktop\页面png图片\新闻列表页面.png = C:\Users\Administrator\Desktop\页面png图片\新闻列表页面.png
+		C:\Users\Administrator\Desktop\页面png图片\网站首页.png = C:\Users\Administrator\Desktop\页面png图片\网站首页.png
+		C:\Users\Administrator\Desktop\页面png图片\联系我们.png = C:\Users\Administrator\Desktop\页面png图片\联系我们.png
 	EndProjectSection
 EndProject
 Global
@@ -165,9 +71,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{AF20E429-0EF6-40E6-884C-569203942DD5} = {C4A9A7F1-E851-44B0-B4C3-F652C464FC27}
-		{926EE311-5E23-4DA9-B12C-A130267E9CC0} = {C4A9A7F1-E851-44B0-B4C3-F652C464FC27}
 	EndGlobalSection
 EndGlobal

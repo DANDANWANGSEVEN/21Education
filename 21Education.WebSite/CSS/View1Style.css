@@ -1,0 +1,40 @@
+﻿
+        body{
+            margin:0px;
+            padding:0px;
+            background-color:#efefef;
+        }
+        #head{
+            width:100%;
+        }
+        #nav{
+            width:1000px;
+            margin:auto;
+            height:80px;
+            border-bottom:1px solid #0057be;
+        }
+        #navtitle{
+            width:80%;
+            float:right;
+            color:#666666;
+        }
+        #navtitle td{
+            padding:15px 10px;
+        }
+        #navtitle td a:hover{
+            color:#0057be;
+            font-size:18px;
+        }
+        #foot{
+            height:160px;
+            background-color:#0057be;
+            color:white;
+            text-align:center;
+            font-size:14px;
+        }
+        #footnav td{
+            padding:18px 10px;
+        }
+        #footnav td :hover{
+            border-bottom:2px solid white;
+        }

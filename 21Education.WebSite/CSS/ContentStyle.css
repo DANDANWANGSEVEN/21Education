@@ -1,0 +1,41 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+#contentpage{
+    margin:auto;
+    width:1000px;
+}
+#position{
+    height:60px;
+    border-bottom:1px solid #dddddd;
+}
+#position p{
+    color:#0057be;
+    padding:10px 0;
+}
+#contenttitle{
+    height:100px;
+    border-bottom:1px dashed #dddddd;
+}
+#title{
+    color:#0057be;
+}
+#titleinfo{
+    color:#666666;
+}
+#titleinfo span{
+    float:right;
+}
+#content{
+    height:auto;
+}
+#tooltip{
+    height:60px;
+    border-top:1px dashed #dddddd;
+}
+#tooltip p{
+    padding:10px 0px;
+}
+
+

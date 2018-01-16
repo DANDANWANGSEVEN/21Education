@@ -2,11 +2,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-@*<link href="~/CSS/style.css" rel="stylesheet" />*@
+
 
 <style>
    
-
+   /*轮播图*/
     #carousel {
         margin-top:10px;
         width: 100%;
@@ -27,27 +27,77 @@
         top:0;
 	    left:0;
     }
-    #newslist{
+    #newstable,#businesstable,#successtable{
          width:1000px;
          height:600px;
          margin:auto; 
     }
-   
+  .firsttr{
+      height:100px;
+      text-align:center;
+  }
+  /*产品服务新闻*/
+
+
+  /*产品展示*/
+  #producttable{
+      width:1000px;
+      height:400px;
+      margin:auto;
+  }
+  #productimage{
+      width:600px;
+      height:220px;
+  }
+  /*成功案例*/
+  #caseinfo{
+      border-bottom:2px solid #0057be;
+  }
+
+
+  /*品牌优势*/
+  #brandtable{
+       width:1000px;
+       height:400px;
+       margin:auto; 
+       color:white;
+  }
+  #advantage dl {
+	float: left;
+	width: 300px;
+	overflow: hidden;
+}
+#advantage dl dt {
+	width: 100%;
+	text-align: center;
+	line-height: 48px;
+	color: #FFF;
+	font-size: 22px;
+}
+    #advantage dl dd {
+        text-align: center;
+        color: #FFF;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+
+
 </style>
 
 @*轮播图*@
 <div id="carousel">
        <ul id="lunbo">
-           <li><img style="width:1000px;height:300px;" src="~/index_images/index_ban1.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/index_images/index_ban2.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/index_images/index_ban3.png" /></li>
+           <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
+           <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
+           <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
        </ul>
 </div>
 
 @*产品服务新闻*@
 <div id="news">
-    <table id="newslist" border="1">
-        <tr style="height:100px;text-align:center;">
+    <table id="newstable" border="1">
+        <tr class="firsttr">
             <td colspan="2">
                 <h3>产品服务新闻</h3> 
                 <span>PRODUCT SERVICE NEWS</span>
@@ -94,10 +144,7 @@
             </td>
             <td style="width:300px;">
                 <div class="new_rt">
-                    <dl>
-                        <dt><img src="~/index_images/index_32.png" /></dt>
-                        <dd><img src="~/index_images/index_34.jpg" /></dd>
-                    </dl>
+                 
                     <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
                     <p>
                         <a href="#" target="_blank">数据扫描产品</a>
@@ -108,11 +155,177 @@
                         <a href="#" target="_blank">数据中心托管服务</a>
                     </p>
                 </div>
-
             </td>
         </tr>
     </table>
 
 </div>
+
+@*主营业务*@
+<div id="business">
+    <table id="businesstable">
+        <tr class="firsttr">
+            <td>
+                <h3>主营业务</h3>
+                <span>MAIN BUSINESS</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              
+            </td>
+        </tr>
+    </table>
+</div>
+
+@*产品展示*@
+<div id="product">
+    <table id="producttable">
+        <tr class="firsttr">
+            <td colspan="2">
+                <h3>产品展示</h3>
+                <span>PROJECT SHOW</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="productimage" style="background-image: url('../../image/index_21.png');">
+
+                </div>
+            </td>
+            <td>
+                <p>云产品服务中心</p>
+                <p>
+                    云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@*成功案例*@
+<div id="success">
+    <table id="successtable">
+        <tr class="firsttr">
+            <td colspan="4">
+                <h3>成功案例</h3>
+                <span>SUCCESSFUL CASE</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+            <td>
+                <div id="caseinfo">
+                    <dl>
+                        <dt></dt>
+                        <dd><span>20年专注教育考试服务领域</span></dd>
+                    </dl>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+@*品牌优势*@
+<div id="brand">
+    <table id="brandtable" style="background-image: url('../../image/index_26.jpg');">
+        <tr class="firsttr">
+            <td colspan="4">
+                <h3>品牌优势</h3>
+                <span>BRAND ADVANTAGE</span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="advantage">
+            <td>
+                <dl>
+                    <dt>安全/稳定/高效</dt>
+                    <dd>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</dd>
+                </dl>
+            </td>
+            <td>
+                <dl>
+                    <dt>高度可配置化</dt>
+                    <dd>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</dd>
+                </dl>
+            </td>
+            <td>
+                <dl>
+                    <dt>高度智能</dt>
+                    <dd>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</dd>
+                </dl>
+            </td>
+            <td>
+                <dl>
+                    <dt>操作灵活方便</dt>
+                    <dd>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</dd>
+                </dl>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
 
 

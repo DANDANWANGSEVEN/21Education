@@ -21,6 +21,10 @@
         #navtitle td{
             padding:15px 10px;
         }
+        #navtitle td a{
+            text-decoration:none;
+            color:#666666;
+        }
         #navtitle td a:hover{
             color:#0057be;
             font-size:18px;

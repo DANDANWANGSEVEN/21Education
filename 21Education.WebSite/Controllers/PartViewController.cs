@@ -15,6 +15,6 @@ namespace _21Education.WebSite.Controllers
         {
             return View();
         }
-
+        
     }
 }

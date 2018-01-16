@@ -207,6 +207,8 @@
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="index_images\bg.png" />
     <Content Include="index_images\carouselbg.jpg" />
+    <Content Include="index_images\index_30.png" />
+    <Content Include="index_images\index_37.png" />
     <Content Include="index_images\index_ban1.png" />
     <Content Include="index_images\index_ban2.png" />
     <Content Include="index_images\index_ban3.png" />

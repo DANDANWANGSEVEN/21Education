@@ -239,7 +239,7 @@
     <Content Include="Views\About\AboutUsPage.cshtml" />
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
-    <Content Include="Views\PartView\PagePage.cshtml" />
+    <Content Include="Views\PartView\Partial.Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -67,7 +67,13 @@ namespace _21Education.WebSite.Models
         /// 页码跳转按钮个数
         /// </summary>
         public int NumBtnSize { get; set; }
+        /// <summary>
+        /// 排序
+        /// </summary>
         public string OrderBy { get; set; }
+        /// <summary>
+        /// 倒序
+        /// </summary>
         public string OrderByDescending { get; set; }
     }
 }

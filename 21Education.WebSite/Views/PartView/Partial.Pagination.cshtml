@@ -1,0 +1,77 @@
+﻿@model Pagination
+
+@if (Model.AllPage > 0)
+{
+    <ul class="pagination">
+        @if (Model.PageIndex >= 1)
+        {
+            <li><a href="@Url.Page(Model.PageIndex - 1)"><</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a href="javascript:void(0)"><</a></li>
+        }
+        @{
+
+            int start = Model.PageIndex - 2;
+            int end = Model.PageIndex + 2;
+            if (start < 0)
+            {
+                start = 0;
+            }
+            if (Model.PageIndex < 3)
+            {
+                start = 0;
+                if (Model.AllPage > 5)
+                {
+                    end = 4;
+                }
+            }
+            if (Model.AllPage - Model.PageIndex < 3 && Model.AllPage > 5)
+            {
+                end = Model.AllPage;
+                start = Model.AllPage - 5;
+            }
+            for (; start < Model.AllPage && start <= end; start++)
+            {
+                <li class="@(start == Model.PageIndex ? "active" : "")">
+                    <a href="@Url.Page(start)">@(start + 1)</a>
+                </li>
+            }
+        }
+        <li class="count"><b>/ @(Model.AllPage)</b></li>
+        @if (Model.PageIndex < Model.AllPage - 1)
+        {
+            <li class="next">
+                <a href="@Url.Page(Model.PageIndex + 1)">></a>
+            </li>
+        }
+        else
+        {
+            <li class="disabled">
+                <a href="javascript:void(0)">></a>
+            </li>
+        }
+        <li class="hidden-m">
+            <input type="text" id="jumpPage" />
+        </li>
+        <li class="hidden-m">
+            <button id="jump">跳到</button>
+        </li>
+    </ul>
+    <script>
+        var pageCount =@Model.AllPage;
+        var pagePath = "@Url.Page(0)";
+        pagePath = pagePath.substring(0, pagePath.length - 1);
+        $("#jump").click(function () {
+            var $pageNum = $("#jumpPage").val();
+            if ($pageNum > pageCount) {
+                $pageNum = pageCount ;
+            }
+            if ($pageNum <0 ) {
+                $pageNum = 0;
+            }
+            location.href = pagePath + ($pageNum-1);
+        });
+    </script>
+}

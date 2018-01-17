@@ -130,6 +130,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Common\PageRouteConstraint.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -342,25 +343,15 @@
     <Content Include="Views\About\AboutUsPage.cshtml" />
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\PartView\Partial.Pagination.cshtml" />
-=======
-    <Content Include="Views\PartView\PagePage.cshtml" />
     <Content Include="Views\Success\SuccessList.cshtml" />
     <Content Include="Views\News\NewsContent.cshtml" />
     <Content Include="Views\Contact\ContactUs.cshtml" />
->>>>>>> upstream/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-<<<<<<< HEAD
-    <Folder Include="Views\Contact\" />
-    <Folder Include="Views\Success\" />
-=======
-    <Folder Include="Models\" />
->>>>>>> upstream/master
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

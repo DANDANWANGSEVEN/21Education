@@ -19,7 +19,7 @@ namespace _21Education.WebSite.Controllers
             return View();
         }
         #region 新闻列表页面
-        public ActionResult NewsList()
+        public ActionResult NewsList(string id)
         {
             return View();
         }

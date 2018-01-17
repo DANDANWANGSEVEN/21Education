@@ -196,6 +196,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\AboutUsStyle.css" />
+    <Content Include="CSS\ContactUsStyle.css" />
     <Content Include="CSS\ContentStyle.css" />
     <Content Include="CSS\ListStyle.css" />
     <Content Include="CSS\style.css" />
@@ -205,6 +207,10 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\AdminHome\Login.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="image\culture_four.png" />
+    <Content Include="image\culture_one.png" />
+    <Content Include="image\culture_three.png" />
+    <Content Include="image\culture_two.png" />
     <Content Include="image\design\产品服务.png" />
     <Content Include="image\design\关于我们.png" />
     <Content Include="image\design\成功案例.png" />
@@ -278,6 +284,7 @@
     <Content Include="image\login.jpg" />
     <Content Include="image\logo.png" />
     <Content Include="image\map_img.png" />
+    <Content Include="image\map_sign.png" />
     <Content Include="image\nav_bg.jpg" />
     <Content Include="image\new_img.jpg" />
     <Content Include="image\next.png" />
@@ -295,6 +302,7 @@
     <Content Include="image\serve_23.png" />
     <Content Include="image\serve_26.png" />
     <Content Include="image\serve_28.jpg" />
+    <Content Include="image\successfulimg.png" />
     <Content Include="image\success_03.jpg" />
     <Content Include="image\success_07.jpg" />
     <Content Include="image\success_11.jpg" />
@@ -304,6 +312,14 @@
     <Content Include="image\success_25.jpg" />
     <Content Include="image\success_29.jpg" />
     <Content Include="image\success_32.jpg" />
+    <Content Include="image\Success_eight.png" />
+    <Content Include="image\Success_five.png" />
+    <Content Include="image\Success_four.png" />
+    <Content Include="image\success_one.png" />
+    <Content Include="image\Success_seven.png" />
+    <Content Include="image\Success_six.png" />
+    <Content Include="image\Success_three.png" />
+    <Content Include="image\Success_two.png" />
     <Content Include="image\tab_bg.jpg" />
     <Content Include="image\tk_system.jpg" />
     <Content Include="image\znks.jpg" />
@@ -337,13 +353,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Shared\View1.cshtml" />
-    <Content Include="Views\About\AboutUsPage.cshtml" />
+    <Content Include="Views\About\AboutUs.cshtml" />
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\PagePage.cshtml" />
     <Content Include="Views\Success\SuccessList.cshtml" />
     <Content Include="Views\News\NewsContent.cshtml" />
     <Content Include="Views\Contact\ContactUs.cshtml" />
+    <Content Include="Views\Product\ProductService.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

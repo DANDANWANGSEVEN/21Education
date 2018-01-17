@@ -3,4 +3,21 @@
     Layout = "~/Views/Shared/View1.cshtml";
 }
 
-<h2>SuccessList</h2>
+<table style="margin:auto;">
+    <tr style="text-align:center;">
+        <td>
+            <h3 style="color:#0057be;">最新案例</h3>
+            <span style="font-size:14px;">LATEST CASE</span>
+        </td>
+    </tr>
+    <tr style="height:30px;">
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <div style="height:auto;">
+                @Html.Partial("~/Views/PartView/ListPage.cshtml")
+            </div>
+        </td>
+    </tr>
+</table>

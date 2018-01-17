@@ -12,7 +12,7 @@ namespace _21Education.COMMON
         {
             if (roteData.Values.ContainsKey(StringKeys.RouteValue_Path))
             {
-                return "/" + roteData.Values[StringKeys.RouteValue_Path].ToString();
+                return roteData.Values[StringKeys.RouteValue_Path].ToString();
             }
             return "/";
         }
@@ -24,6 +24,15 @@ namespace _21Education.COMMON
                 int.TryParse(roteData.Values[StringKeys.RouteValue_Page].ToString(), out page);
             }
             return page;
+        }
+        public static int GetNum(this RouteData roteData)
+        {
+            int num = 0;
+            if (roteData.Values.ContainsKey(StringKeys.RouteValue_Num))
+            {
+                int.TryParse(roteData.Values[StringKeys.RouteValue_Num].ToString(), out num);
+            }
+            return num;
         }
 
     }

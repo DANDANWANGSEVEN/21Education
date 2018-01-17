@@ -2,12 +2,12 @@
     ViewBag.Title = "NewsList";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-
+@model NewsListViewModel
 <table style="margin:auto;">
     <tr>
         <td>
             <div style="height:50px;border-bottom:1px solid #efefef;">
-                <h3 ><img src="~/image/dian2.png" style="padding-right:15px;" />新闻中心</h3>
+                <h3><img src="~/image/dian2.png" style="padding-right:15px;" />新闻中心</h3>
             </div>
         </td>
     </tr>
@@ -18,6 +18,15 @@
             </div>
         </td>
     </tr>
+
+    <tr>
+        <td>
+            <div style="height:auto;">
+                @{Html.Pagin(Model.Pagination);}
+            </div>
+        </td>
+    </tr>
+
 </table>
 
 

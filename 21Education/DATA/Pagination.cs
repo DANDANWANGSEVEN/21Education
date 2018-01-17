@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace _21Education.WebSite.Models
+﻿namespace _21Education.DATA
 {
     /// <summary>
     /// 分页
@@ -13,7 +8,14 @@ namespace _21Education.WebSite.Models
         public Pagination()
         {
             this.PageIndex = 0;
-            this.PageSize = 20;
+            this.PageSize = 8;
+            this.IsLoadNumBtn = true;
+            this.NumBtnSize = 5;
+        }
+        public Pagination(int pageIndex,int recordCount) : this()
+        {
+            this.PageIndex = pageIndex;
+            this.RecordCount = recordCount;
         }
         /// <summary>
         /// 当前页
@@ -23,7 +25,6 @@ namespace _21Education.WebSite.Models
         /// 当前页，索引从0开始。
         /// </summary>
         public int PageIndex { get; set; }
-        public int PageIndexReal { get { return PageIndex + 1; } }
         int _pageSize = 0;
         /// <summary>
         /// 每页条数

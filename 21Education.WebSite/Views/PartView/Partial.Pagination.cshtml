@@ -5,14 +5,13 @@
     <ul class="pagination">
         @if (Model.PageIndex >= 1)
         {
-            <li><a href="@Url.Page(Model.PageIndex - 1)"><</a></li>
+            <li><a href="@Url.PageLink(Model.PageIndex - 1)"><</a></li>
         }
         else
         {
             <li class="disabled"><a href="javascript:void(0)"><</a></li>
         }
         @{
-
             int start = Model.PageIndex - 2;
             int end = Model.PageIndex + 2;
             if (start < 0)
@@ -35,15 +34,15 @@
             for (; start < Model.PageCount && start <= end; start++)
             {
                 <li class="@(start == Model.PageIndex ? "active" : "")">
-                    <a href="@Url.Page(start)">@(start + 1)</a>
+                    <a href="@Url.PageLink(start)">@(start + 1)</a>
                 </li>
             }
+            <li class="count"><b>/ @(Model.PageCount)</b></li>
         }
-        <li class="count"><b>/ @(Model.PageCount)</b></li>
         @if (Model.PageIndex < Model.PageCount - 1)
         {
             <li class="next">
-                <a href="@Url.Page(Model.PageIndex + 1)">></a>
+                <a href="@Url.PageLink(Model.PageIndex + 1)">></a>
             </li>
         }
         else
@@ -61,7 +60,7 @@
     </ul>
     <script>
         var pageCount =@Model.PageCount;
-        var pagePath = "@Url.Page(0)";
+        var pagePath = "@Url.PageLink(0)";
         pagePath = pagePath.substring(0, pagePath.length - 1);
         $("#jump").click(function () {
             var $pageNum = $("#jumpPage").val();

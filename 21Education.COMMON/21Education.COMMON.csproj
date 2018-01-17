@@ -45,11 +45,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomRegex.cs" />
-    <Compile Include="RouteDataExtend.cs" />
-    <Compile Include="StringKeys.cs" />
-    <Compile Include="UrlHelperExtend.cs" />
+    <Compile Include="Extend\HtmlHelperExtend.cs" />
+    <Compile Include="Extend\RouteDataExtend.cs" />
+    <Compile Include="Extend\UrlHelperExtend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\21Education\21Education.csproj">
+      <Project>{421f3842-297a-4504-a55a-39c188291f08}</Project>
+      <Name>21Education</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,52 +11,42 @@ namespace _21Education.WebSite.Common
 {
     public class PageRouteConstraint : IRouteConstraint
     {
+        List<string> AllowPages;
+        public PageRouteConstraint(List<string> allowPages)
+        {
+            AllowPages = allowPages;
+        }
         public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
         {
-            if (parameterName == StringKeys.RouteValue_Path)
+            var controller = values[StringKeys.RouteKey_Controller].ToString();
+            var action = values[StringKeys.RouteKey_Action].ToString();
+
+            if (IsAllowPage(controller, action))
             {
-                string path = "/" + values[StringKeys.RouteValue_Path].ToString();
+                string path = httpContext.Request.Path;
                 int page = 0;
                 if (CustomRegex.PageRegex.IsMatch(path))
                 {
-                    string scheam = "";
                     path = CustomRegex.PageRegex.Replace(path, evaluator =>
                     {
                         int.TryParse(evaluator.Groups[1].Value, out page);
-                        scheam = evaluator.Groups[2].Value;
                         return "";
                     });
-                    if (!string.IsNullOrEmpty(scheam)) path = path.Replace(scheam, "");
-                    if (page == 0) page = 1;
-                    values.Add(StringKeys.RouteValue_Page, page);
                 }
-
-                if (IsAllowPage(path))
-                {
-
-                    values[parameterName] = path;
-                    return true;
-                }
+                if (page == 0) page = 1;
+                values[parameterName] = page;
+                values.Add(StringKeys.RouteValue_Path, path);
+                return true;
             }
             return false;
         }
 
-        public bool IsAllowPage(string path)
+        public bool IsAllowPage(string controller, string action)
         {
-            if (AllowPages.Any(e => { return e == path.ToLower(); }))
+            if (AllowPages.Any(e => { return e == StringKeys.ActionFormatWithFullName(controller, action); }))
                 return true;
             return false;
         }
-        List<string> AllowPages = new List<string>
-        {
-            actionFormatWithFullName(nameof(NewsController), nameof(NewsController.NewsList)),
-            actionFormatWithFullName(nameof(ProductController), nameof(ProductController.Index))
-        };
-
-        static Func<string, string, string> actionFormatWithFullName = (controller, action) =>
-        {
-            return StringKeys.ActionFormatWithFullName(controller, action);
-        };
 
     }
 }

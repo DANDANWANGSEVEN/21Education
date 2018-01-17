@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
-namespace _21Education.COMMON
+namespace _21Education
 {
     public class StringKeys
     {
@@ -12,7 +8,8 @@ namespace _21Education.COMMON
         public const string RouteKey_Action = "action";
         public const string RouteValue_Path = "path";
         public const string RouteValue_Page = "p";
-        
+        public const string RouteValue_Num = "n";
+
         public static string PageFormat(string routeKey, int page)
         {
             return string.Format("{0}{1}", routeKey, page);
@@ -28,4 +25,11 @@ namespace _21Education.COMMON
         }
 
     }
+
+    public static class CustomRegex
+    {
+        public static Regex PageRegex = new Regex(@"/p(\d+)", RegexOptions.IgnoreCase);
+
+    }
+
 }

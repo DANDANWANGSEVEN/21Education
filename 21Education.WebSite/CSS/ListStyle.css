@@ -1,0 +1,27 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+#bigtable{
+    width:1000px;
+    margin:auto;
+}
+#pagetitle{
+    height:80px;
+    border-bottom:1px solid #efefef;
+}
+  .smalltable h4{
+        margin-top:0px;
+    }
+    .smalltable h4 a{
+        text-decoration:none;
+        color:black;
+    }
+    .smalltable h4 a:hover{
+        color:#0057be;
+    }
+    .smalltable span{
+        float:right;color:#666666;
+    }
+
+

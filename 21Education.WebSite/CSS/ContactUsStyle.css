@@ -1,0 +1,36 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+ .table{
+        width:1000px;
+        margin:auto;
+    }
+    .title{
+        width:1000px;
+        margin:auto;
+        height:50px;
+        border-bottom:1px solid #666666;
+        color:#0057be;
+    }
+    #cooperation{
+        text-align:center;
+    }
+    #cooperation dl{
+        border:1px solid #666666;
+    }
+     #cooperation dl img{
+         width:330px;height:130px;
+     }
+     #cooperation dl dd{
+         margin:0;line-height:30px;
+     }
+    #joinus div{
+        font-size:16px;border-bottom:1px dashed #666666;margin-top:10px;
+    }
+    #joinus p{
+        color:#666666;
+    }
+
+
+

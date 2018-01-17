@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "NewsContent";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+<table id="contenttitle">
+    <tr>
+        <td>
+            <div id="position">
+                <p><span>当前位置：</span><a>新闻中心</a>/<a>新闻列表页</a>/<a>新闻详情页</a></p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="height:auto;">
+                @Html.Partial("~/Views/PartView/ContentPage.cshtml")
+            </div>
+        </td>
+    </tr>
+</table>
+

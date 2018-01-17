@@ -333,6 +333,7 @@
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\PagePage.cshtml" />
+    <Content Include="Views\Success\SuccessList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,7 +341,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Contact\" />
-    <Folder Include="Views\Success\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

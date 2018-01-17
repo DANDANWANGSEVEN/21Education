@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace _21Education.WebSite.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class NewsController : Controller
     {
         //

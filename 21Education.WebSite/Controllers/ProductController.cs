@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace _21Education.WebSite.Controllers
 {
+    /// <summary>
+    /// 产品
+    /// </summary>
     public class ProductController : Controller
     {
         //

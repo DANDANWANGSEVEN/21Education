@@ -13,13 +13,22 @@ namespace _21Education.WebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            
+
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{page}/{id}",
+                defaults: new { page = 1, id = UrlParameter.Optional },
+                constraints: new { },
+                namespaces: new[] { "123" }
+            );
+
         }
     }
 }

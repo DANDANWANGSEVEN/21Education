@@ -197,6 +197,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="CSS\ContentStyle.css" />
+    <Content Include="CSS\ListStyle.css" />
     <Content Include="CSS\style.css" />
     <Content Include="CSS\View1Style.css" />
     <Content Include="Global.asax" />
@@ -204,6 +205,13 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\AdminHome\Login.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="image\design\产品服务.png" />
+    <Content Include="image\design\关于我们.png" />
+    <Content Include="image\design\成功案例.png" />
+    <Content Include="image\design\新闻内容页.png" />
+    <Content Include="image\design\新闻列表页面.png" />
+    <Content Include="image\design\网站首页.png" />
+    <Content Include="image\design\联系我们.png" />
     <Content Include="image\images.lnk" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="image\about_01.jpg" />
@@ -333,14 +341,15 @@
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\PagePage.cshtml" />
+    <Content Include="Views\Success\SuccessList.cshtml" />
+    <Content Include="Views\News\NewsContent.cshtml" />
+    <Content Include="Views\Contact\ContactUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Contact\" />
-    <Folder Include="Views\Success\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

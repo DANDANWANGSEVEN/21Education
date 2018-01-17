@@ -15,6 +15,9 @@ namespace _21Education.WebSite.Controllers
         {
             return View();
         }
-
+        public ActionResult SuccessList()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+#bigtable{
+    width:1000px;
+    margin:auto;
+}
+#pagetitle{
+    height:80px;
+    border-bottom:1px solid #efefef;
+}
+.samlltable img{
+    width:220px;
+    height:140px;
+}
+.samlltable a{
+    color:#0057be;
+    text-decoration:none;
+}
+.samlltable p{
+    line-height:30px;
+}
+.samlltable span{
+    color:#666666;
+    float:right;
+}
+
+

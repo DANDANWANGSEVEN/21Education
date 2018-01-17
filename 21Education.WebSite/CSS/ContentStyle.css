@@ -31,13 +31,14 @@
     height:auto;
     font-size:16px;
     line-height:36px;
+    border-bottom:1px dashed #dddddd;
 }
 #tooltip{
-    height:60px;
-    border-top:1px dashed #dddddd;
+    height:80px;
+    line-height:36px;
+    margin-top:10px;
+    
 }
-#tooltip p{
-    padding:10px 0px;
-}
+
 
 

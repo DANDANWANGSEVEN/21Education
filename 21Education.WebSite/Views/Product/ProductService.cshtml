@@ -3,10 +3,12 @@
     Layout = "~/Views/Shared/View1.cshtml";
 }
 <style>
-    #productinfo,#productsystem,#productshow,#productadvantage{
+    #productinfo{
         width:1000px;
+        height:300px;
         margin:auto;
     }
+    /*产品服务*/
     #productimg{
         width:480px;
         height:220px;
@@ -18,8 +20,48 @@
     #productdesc span{
         color:#666666;
     }
+    /*产品系统*/
+    #productsystem{
+        width:1000px;
+        height:350px;
+        margin:auto;
+        margin-top:20px;
+        background-color:#efefef;
+    }
+    .systemimg{
+        width:100px;
+        height:100px;
+        padding:10px 0px;
+    }
+    #productsystem tr td b{
+        list-style:none;
+        line-height:30px;
+        font-size:18px;
+        color:#0057be;
+    }
+
+    #productsystem ul li span{
+        line-height:30px;
+    }
+    /*产品展示*/
+    #productshow{
+        width:1000px;
+        height:500px;
+        margin:auto;
+    }
+    /*品牌优势*/
+    #productadvantage{
+        width:1000px;
+        height:300px;
+        margin:auto;
+    }
+    #productadvantage img{
+        width:240px;
+        height:260px;
+    }
 </style>
-<table id="productinfo">
+@*产品服务*@
+<table id="productinfo" border="1">
     <tr style="text-align:center;">
         <td>
             <h3 style="color:#0057be;">产品服务</h3>
@@ -67,33 +109,91 @@
         </td>
     </tr>
 </table>
-
-<table id="productsystem">
+@*产品系统*@
+<table id="productsystem" border="1">
+    <tr style="text-align:center;">
+        <td><img class="systemimg" src="~/image/serve_03.png" /></td>
+        <td><img class="systemimg" src="~/image/serve_05.png" /></td>
+        <td><img class="systemimg" src="~/image/serve_08.png" /></td>
+    </tr>
+    <tr style="text-align:center;">
+        <td><b>测评与评价系统</b></td>
+        <td><b>云服务中心</b></td>
+        <td><b>数据处理中心</b></td>
+    </tr>
     <tr>
         <td>
-            
+            <ul>
+                <li><span>多层级/多权限管理</span></li>
+                <li><span>软件操作简单易用</span></li>
+                <li><span>支持远程张在线操作</span></li>
+                <li><span>支持多种数据来源</span></li>
+                <li><span>灵活的数据发布方式</span></li>
+                <li><span>提供数据分析</span></li>
+            </ul>
         </td>
         <td>
-            
+            <ul>
+                <li><span>云平台服务</span></li>
+                <li><span>与服务器租用服务</span></li>
+                <li><span>网络设备租用服务</span></li>
+                <li><span>数据备份/数据恢复服务</span></li>
+                <li><span>大数据加密存储服务</span></li>
+                <li><span>数据安全防护</span></li>
+            </ul>
         </td>
         <td>
-            
+            <ul>
+                <li><span>数据处理服务</span></li>
+                <li><span>卷库管理</span></li>
+                <li><span>保密室管理</span></li>
+                <li><span>7*24小时无死角监控</span></li>
+            </ul>
         </td>
     </tr>
 </table>
-<table id="productshow">
-    <tr style="text-align:center;">
-        <td>
+@*产品展示*@
+<table id="productshow" border="1">
+    <tr style="text-align:center;height:70px;">
+        <td colspan="4">
             <h3 style="color:#0057be;">产品展示</h3>
             <span style="font-size:14px;">PRODUCT SHOW</span>
         </td>
     </tr>
+    <tr>
+        <td rowspan="2"><div style="width:240px;height:260px;background:url('/image/index_07.png')"></div></td>
+        <td><div style="width:240px;height:120px;background:url('/image/index_09.png')"></div></td>
+        <td><div style="width:240px;height:120px;background:url('/image/index_11.png')"></div></td>
+        <td rowspan="2"><div style="width:240px;height:260px;background:url('/image/index_13.png')"></div></td>
+    </tr>
+    <tr>
+        <td colspan="2"><div style="width:480px;height:120px;background:url('/image/index_17.png')"></div></td>
+    </tr>
+    <tr>
+        <td colspan="2"><div style="width:480px;height:120px;background:url('/image/index_21.png')"></div></td>
+        <td colspan="2"><div style="width:480px;height:120px;background:url('/image/index_23.png')"></div></td>
+    </tr>
 </table>
-<table id="productadvantage">
+@*品牌优势*@
+<table id="productadvantage" border="1">
     <tr style="text-align:center;">
-        <td>
+        <td colspan="4">
             <h3 style="color:#0057be;">品牌优势</h3>
             <span style="font-size:14px;">PRODUCT ADVANTAGE</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="~/image/about_20one.png" />
+        </td>
+        <td>
+            <img src="~/image/about_20two.png" />
+        </td>
+        <td>
+            <img src="~/image/about_20three.png" />
+        </td>
+        <td>
+            <img src="~/image/about_20four.png" />
         </td>
     </tr>
 </table>

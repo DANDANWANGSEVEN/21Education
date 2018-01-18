@@ -1,64 +1,85 @@
 ﻿@model Pagination
 
-@if (Model.PageCount > 0)
-{
-    <ul class="pagination">
-        @if (Model.PageIndex >= 1)
-        {
-            <li><a href="@Url.PageLink(Model.PageIndex - 1)"><</a></li>
-        }
-        else
-        {
-            <li class="disabled"><a href="javascript:void(0)"><</a></li>
-        }
-        @{
-            int start = Model.PageIndex - 2;
-            int end = Model.PageIndex + 2;
-            if (start < 0)
+
+<style>
+    #pagetable{
+        width:1000px;
+        margin:auto;
+        text-align:center;
+    }
+    .pagination li{
+        list-style:none;
+        
+    }
+    .pagination li a{
+        text-decoration:none;
+    }
+
+
+</style>
+
+<table id="pagetable">
+    <tr>
+        <td>
+            @if (Model.PageCount > 0)
             {
-                start = 0;
-            }
-            if (Model.PageIndex < 3)
-            {
-                start = 0;
-                if (Model.PageCount > 5)
-                {
-                    end = 4;
-                }
-            }
-            if (Model.PageCount - Model.PageIndex < 3 && Model.PageCount > 5)
-            {
-                end = Model.PageCount;
-                start = Model.PageCount - 5;
-            }
-            for (; start < Model.PageCount && start <= end; start++)
-            {
-                <li class="@(start == Model.PageIndex ? "active" : "")">
-                    <a href="@Url.PageLink(start)">@(start + 1)</a>
-                </li>
-            }
-            <li class="count"><b>/ @(Model.PageCount)</b></li>
-        }
-        @if (Model.PageIndex < Model.PageCount - 1)
-        {
-            <li class="next">
-                <a href="@Url.PageLink(Model.PageIndex + 1)">></a>
-            </li>
-        }
-        else
-        {
-            <li class="disabled">
-                <a href="javascript:void(0)">></a>
-            </li>
-        }
-        <li class="hidden-m">
-            <input type="text" id="jumpPage" />
-        </li>
-        <li class="hidden-m">
-            <button id="jump">跳到</button>
-        </li>
-    </ul>
-    <script>
+                <ul class="pagination">
+                    @if (Model.PageIndex >= 1)
+                    {
+                        <li><a href="@Url.PageLink(Model.PageIndex - 1)"><</a></li>
+                    }
+                    else
+                    {
+                        <li class="disabled"><a href="javascript:void(0)"><</a></li>
+                    }
+                    @{
+                        int start = Model.PageIndex - 2;
+                        int end = Model.PageIndex + 2;
+                        if (start < 0)
+                        {
+                            start = 0;
+                        }
+                        if (Model.PageIndex < 3)
+                        {
+                            start = 0;
+                            if (Model.PageCount > 5)
+                            {
+                                end = 4;
+                            }
+                        }
+                        if (Model.PageCount - Model.PageIndex < 3 && Model.PageCount > 5)
+                        {
+                            end = Model.PageCount;
+                            start = Model.PageCount - 5;
+                        }
+                        for (; start < Model.PageCount && start <= end; start++)
+                        {
+                            <li class="@(start == Model.PageIndex ? "active" : "")">
+                                <a href="@Url.PageLink(start)">@(start + 1)</a>
+                            </li>
+                        }
+                        <li class="count"><b>/ @(Model.PageCount)</b></li>
+                    }
+                    @if (Model.PageIndex < Model.PageCount - 1)
+                    {
+                        <li class="next">
+                            <a href="@Url.PageLink(Model.PageIndex + 1)">></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="disabled">
+                            <a href="javascript:void(0)">></a>
+                        </li>
+                    }
+                    <li class="hidden-m">
+                        <input style="width:50px;height:30px;" type="text" id="jumpPage" />
+                    </li>
+                    <li class="hidden-m">
+                        <button id="jump">跳到</button>
+                    </li>
+                </ul>
+                <script>
         var pageCount =@Model.PageCount;
         var pagePath = "@Url.PageLink(0)";
         pagePath = pagePath.substring(0, pagePath.length - 1);
@@ -72,5 +93,8 @@
             }
             location.href = pagePath + ($pageNum-1);
         });
-    </script>
-}
+                </script>
+                        }
+        </td>
+    </tr>
+</table>

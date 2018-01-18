@@ -2,12 +2,22 @@
     ViewBag.Title = "NewsList";
     Layout = "~/Views/Shared/View1.cshtml";
 }
+<style>
+      .firsttr{
+      height:100px;
+      text-align:center;
+  }
+  .firsttr h3{
+      color:#0057be;
+  }
+</style>
 @model NewsListViewModel
 <table style="margin:auto;">
-    <tr>
-        <td>
-            <div style="height:50px;border-bottom:1px solid #efefef;">
-                <h3 ><img src="~/image/dian2.png" style="padding-right:15px;" /><span style="color:#0057be;">新闻中心</span></h3>
+    <tr class="firsttr">
+        <td colspan="2">
+            <div style="height:70px;margin-bottom:15px;">
+                <h3>新闻中心</h3>
+                <span>NEWS CENTER</span>
             </div>
         </td>
     </tr>

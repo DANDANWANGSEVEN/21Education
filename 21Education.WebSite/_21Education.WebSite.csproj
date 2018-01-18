@@ -145,6 +145,7 @@
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jquery-1.10.2.min.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -211,6 +212,21 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\AdminHome\Login.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="image\about_20four.png" />
+    <Content Include="image\about_20one.png" />
+    <Content Include="image\about_20three.png" />
+    <Content Include="image\about_20two.png" />
+    <Content Include="image\culture_four.png" />
+    <Content Include="image\culture_one.png" />
+    <Content Include="image\culture_three.png" />
+    <Content Include="image\culture_two.png" />
+    <Content Include="image\design\产品服务.png" />
+    <Content Include="image\design\关于我们.png" />
+    <Content Include="image\design\成功案例.png" />
+    <Content Include="image\design\新闻内容页.png" />
+    <Content Include="image\design\新闻列表页面.png" />
+    <Content Include="image\design\网站首页.png" />
+    <Content Include="image\design\联系我们.png" />
     <Content Include="image\images.lnk" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="image\about_01.jpg" />
@@ -252,6 +268,10 @@
     <Content Include="image\honor3.jpg" />
     <Content Include="image\honor4.jpg" />
     <Content Include="image\icon.png" />
+    <Content Include="image\indexfour.png" />
+    <Content Include="image\indexone.png" />
+    <Content Include="image\indexthree.png" />
+    <Content Include="image\indextwo.png" />
     <Content Include="image\index_03.png" />
     <Content Include="image\index_07.png" />
     <Content Include="image\index_09.png" />
@@ -277,6 +297,7 @@
     <Content Include="image\login.jpg" />
     <Content Include="image\logo.png" />
     <Content Include="image\map_img.png" />
+    <Content Include="image\map_sign.png" />
     <Content Include="image\nav_bg.jpg" />
     <Content Include="image\new_img.jpg" />
     <Content Include="image\next.png" />
@@ -338,7 +359,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Shared\View1.cshtml" />
-    <Content Include="Views\About\AboutUsPage.cshtml" />
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\Partial.Pagination.cshtml" />
@@ -346,6 +366,7 @@
     <Content Include="Views\Product\ProductService.cshtml" />
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\About\AboutUs.cshtml" />
+    <Content Include="Views\News\NewsContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

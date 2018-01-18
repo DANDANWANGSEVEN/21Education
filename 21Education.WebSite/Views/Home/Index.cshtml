@@ -2,7 +2,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-
+<title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 <style>
    
@@ -27,7 +27,17 @@
         top:0;
 	    left:0;
     }
-    #newstable,#businesstable,#successtable{
+    #newstable{
+        width:1000px;
+         height:720px;
+         margin:auto; 
+    }
+    #businesstable{
+         width:1000px;
+         height:400px;
+         margin:auto; 
+    }
+    #successtable{
          width:1000px;
          height:600px;
          margin:auto; 
@@ -36,8 +46,18 @@
       height:100px;
       text-align:center;
   }
-  /*产品服务新闻*/
   .firsttr h3{
+      color:#0057be;
+  }
+  /*产品服务新闻*/
+  #bottom a{
+      text-decoration:none;
+      color:#666666;
+      padding:10px;
+      font-size:20px;
+      line-height:52px;
+  }
+  #bottom a:hover{
       color:#0057be;
   }
  
@@ -63,7 +83,7 @@
   /*品牌优势*/
   #brandtable{
        width:1000px;
-       height:400px;
+       height:300px;
        margin:auto; 
        color:white;
   }
@@ -72,20 +92,28 @@
 	width: 240px;
 	overflow: hidden;
 }
+
+#advantage dl dt img{
+    width:100px;height:80px;margin:auto;
+}
+
 #advantage dl dt {
 	width: 100%;
 	text-align: center;
-	line-height: 48px;
+	line-height: 30px;
 	color: #FFF;
-	font-size: 18px;
+	font-size: 16px;
 }
-    #advantage dl dd {
-        text-align: center;
-        color: #FFF;
-        line-height: 20px;
-        font-size: 12px;
+#advantage dl dd {
+    margin:0;
+    text-align: center;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 10px;
+}
+    #advantage dl dd p {
+        font-weight:bold;font-size:16px;
     }
-
 
 
 </style>
@@ -101,9 +129,9 @@
 
 @*产品服务新闻*@
 <div id="newstable">
-    <table id="newstable">
+    <table id="newstable" border="1">
         <tr class="firsttr">
-            <td>
+            <td colspan="2">
                 <h3>产品服务新闻</h3>
                 <span>PRODUCT SERVICE NEWS</span>
 
@@ -153,35 +181,21 @@
             </td>
             <td style="width:300px;height:600px;">
 
-                <div style="width:300px;height:600px;">
-                    <div id=" top" style="width:300px;height:200px;">
-                        <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                <div style="width:300px;height:600px;background:url('/image/index_34.jpg')">
+                    <div id="top" style="width:280px;height:180px;line-height:46px;padding:0px 10px;">
+                        <span><em style="color:#0057be;font-size:20px;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
                     </div>
-                    <div id="bottom" style="width:300px;height:400px;background:url('/image/index_34.png')">
-                        <p><a href="#" target="_blank">数据扫描产品</a></p>
-                        <p><a href="#" target="_blank">网上阅卷服务</a></p> 
-                        <p><a href="#" target="_blank">软件开发服务</a></p>
-                        <p><a href="#" target="_blank">软件产品</a></p>
-                        <p><a href="#" target="_blank">答题卡设计与印刷</a></p>
-                        <p><a href="#" target="_blank">数据中心托管服务</a></p>
-                        
+                    <div id="bottom" style="width:300px;height:400px;">
+                        <ul>
+                            <li><p><a href="#">数据扫描产品</a></p></li>
+                            <li><p><a href="#">网上阅卷服务</a></p> </li>
+                            <li><p><a href="#">软件开发服务</a></p></li>
+                            <li><p><a href="#">软件产品</a></p></li>
+                            <li><p><a href="#">答题卡设计与印刷</a></p></li>
+                            <li><p><a href="#">数据中心托管服务</a></p></li>
+                        </ul>
                     </div>
                 </div>
-
-               
-                @*<div class="new_rt">
-
-                    <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
-                    <p>
-                        <a href="#" target="_blank">数据扫描产品</a>
-                        <a href="#" target="_blank">网上阅卷服务</a>
-                        <a href="#" target="_blank">软件开发服务</a>
-                        <a href="#" target="_blank">软件产品</a>
-                        <a href="#" target="_blank">答题卡设计与印刷</a>
-                        <a href="#" target="_blank">数据中心托管服务</a>
-                    </p>
-                </div>*@
-
             </td>
         </tr>
     </table>
@@ -189,20 +203,29 @@
 
 @*主营业务*@
 <div id="business">
-    <table id="businesstable">
+    <table id="businesstable" border="1">
         <tr class="firsttr">
-            <td colspan="2">
+            <td colspan="8">
                 <h3>主营业务</h3>
                 <span>MAIN BUSINESS</span>
             </td>
         </tr>
-       
+       <tr>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+       </tr>
     </table>
 </div>
 
 @*产品展示*@
 <div id="product">
-    <table id="producttable">
+    <table id="producttable" border="1">
         <tr class="firsttr">
             <td colspan="2">
                 <h3>产品展示</h3>
@@ -227,7 +250,7 @@
 
 @*成功案例*@
 <div id="success">
-    <table id="successtable">
+    <table id="successtable" border="1">
         <tr class="firsttr">
             <td colspan="4">
                 <h3>成功案例</h3>
@@ -331,43 +354,49 @@
     </table>
 </div>
 @*品牌优势*@
-<div id="brand" style="width:1000px;height:360px;margin:auto; background:url('/image/index_26.jpg') 100% 100%">
-    <table id="brandtable">
+<div id="brand" style="width:1000px;height:360px;margin:auto;background:url('/image/index_26.jpg')">
+    <table id="brandtable" border="1">
         <tr class="firsttr">
-            <td colspan="4">
+            <td colspan="4" >
                 <h3>品牌优势</h3>
                 <span>BRAND ADVANTAGE</span>
             </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
         <tr id="advantage">
             <td>
                 <dl>
-                    <dt>安全/稳定/高效</dt>
-                    <dd>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</dd>
+                    <dt><img src="~/image/indexone.png" /></dt>
+                    <dd>
+                        <p>安全/稳定/高效</p>
+                        <span>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>高度可配置化</dt>
-                    <dd>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</dd>
+                    <dt><img src="~/image/indextwo.png" /></dt>
+                    <dd>
+                        <p>高度可配置化</p>
+                        <span>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>高度智能</dt>
-                    <dd>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</dd>
+                    <dt><img src="~/image/indexthree.png" /></dt>
+                    <dd>
+                        <p>高度智能</p>
+                        <span>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>操作灵活方便</dt>
-                    <dd>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</dd>
+                    <dt><img src="~/image/indexfour.png" /></dt>
+                    <dd>
+                        <p>操作灵活方便</p>
+                        <span>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</span>
+                    </dd>
                 </dl>
             </td>
         </tr>

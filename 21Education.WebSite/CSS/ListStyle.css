@@ -20,8 +20,10 @@
     .smalltable h4 a:hover{
         color:#0057be;
     }
+
     .smalltable span{
-        float:right;color:#666666;
+        float:right;
+        color:#666666;
     }
 
 

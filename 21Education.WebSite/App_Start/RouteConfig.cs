@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using _21Education.WebSite.Controllers;
+using _21Education.WebSite.Common;
 namespace _21Education.WebSite
 {
     public class RouteConfig
@@ -13,13 +14,54 @@ namespace _21Education.WebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            
+            RegisterRoutesWithRoute(
+                routes,
+                StringKeys.RouteValue_Page,
+                new List<string>
+                {
+                    StringKeys.ActionFormatWithFullName(nameof(NewsController),nameof(NewsController.NewsList)),
+                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessList))
+                }
+            );
+
+            RegisterRoutesWithRoute(
+                routes,
+                StringKeys.RouteValue_Num,
+                new List<string>
+                {
+                    StringKeys.ActionFormatWithFullName(nameof(NewsController),nameof(NewsController.NewsContent)),
+                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessContent))
+                }
+            );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
         }
+
+        public static void RegisterRoutesWithRoute(RouteCollection routes, string matchKey, List<string> allowPages)
+        {
+            IDictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                { "controller",UrlParameter.Optional},{ "action",UrlParameter.Optional},{ matchKey,UrlParameter.Optional}
+            };
+
+            Route route = new Route("{controller}/{action}/{*" + matchKey + "}", new MvcRouteHandler())
+            {
+                Defaults = new RouteValueDictionary(dictionary),
+                Constraints = new RouteValueDictionary(new
+                {
+                    p = new PageRouteConstraint(allowPages)
+                }),
+                DataTokens = new RouteValueDictionary()
+            };
+            route.DataTokens["Namespaces"] = typeof(NewsController).Namespace;
+            routes.Add(route);
+        }
+
     }
 }

@@ -1,11 +1,32 @@
-﻿
+﻿@model List<_21Education.MODEL.News>
 <link href="~/CSS/ListStyle.css" rel="stylesheet" />
 
-<style>
-  
-</style>
+
 <table id="bigtable">
-    <tr>
+    @foreach (var news in Model)
+    {
+        <tr>
+            <td>
+                <div id="list">
+                    <table class="smalltable">
+                        <tr>
+                            <td>
+                                <div style="width:240px;height:140px;background:url('@(news.ImgPath)') 100% 100%;border:1px solid #666666;"></div>
+                            </td>
+                            <td>
+                                <div style="margin:0 0 0 10px;">
+                                    <h4 style="margin-top:0px;"><a href="/News/NewsContent/n@(news.NewsId)" style="text-decoration:none;">@(news.Title)</a></h4>
+                                    <p>@(news.Content)</p>
+                                    <span style="float:right;color:#666666;">阅读量：@(news.ReadCount) &nbsp;&nbsp; 时间：@(news.PubDate.ToString("yyyy.MM.dd"))</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    }
+    @*<tr>
         <td>
             <div id="list">
                 <table class="smalltable">
@@ -64,27 +85,7 @@
                 </table>
             </div>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <div id="list">
-                <table class="smalltable">
-                    <tr>
-                        <td>
-                            <div style="width:240px;height:140px;background:url('/image/about_14.jpg') 100% 100%;"></div>
-                        </td>
-                        <td>
-                            <div style="margin:0 0 0 10px;">
-                                <h4><a href="/News/NewsContent">我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题</a></h4>
-                                <p style="line-height:30px;">我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容...</p>
-                                <span>阅读量：300 &nbsp;&nbsp; 时间：2018.01.01</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </td>
-    </tr>
+    </tr>*@
 </table>
 
 

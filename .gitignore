@@ -240,3 +240,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+21Education.WebSite/_21Education.WebSite.csproj
+21Education.WebSite/_21Education.WebSite.csproj
+*.csproj

@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace _21Education.WebSite.Controllers
 {
+    /// <summary>
+    /// 成功案例
+    /// </summary>
     public class SuccessController : Controller
     {
         //
@@ -19,5 +22,11 @@ namespace _21Education.WebSite.Controllers
         {
             return View();
         }
+
+        public ActionResult SuccessContent()
+        {
+            return View();
+        }
+
     }
 }

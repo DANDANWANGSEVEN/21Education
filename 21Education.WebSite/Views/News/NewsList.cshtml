@@ -2,7 +2,7 @@
     ViewBag.Title = "NewsList";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-
+@model NewsListViewModel
 <table style="margin:auto;">
     <tr>
         <td>
@@ -18,13 +18,16 @@
             </div>
         </td>
     </tr>
+
+
     <tr>
         <td>
             <div style="height:auto;">
-                @Html.Partial("~/Views/PartView/ListPage.cshtml")
+                @{Html.Pagin(Model.Pagination);}
             </div>
         </td>
     </tr>
+
 </table>
 
 

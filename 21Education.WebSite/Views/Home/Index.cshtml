@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/View1.cshtml";
 }
 
-
+<link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 <style>
    
    /*轮播图*/
@@ -37,8 +37,10 @@
       text-align:center;
   }
   /*产品服务新闻*/
-
-
+  .firsttr h3{
+      color:#0057be;
+  }
+ 
   /*产品展示*/
   #producttable{
       width:1000px;
@@ -94,60 +96,81 @@
            <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
            <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
            <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
-       </ul>
+       </ul> 
 </div>
 
 @*产品服务新闻*@
-<div id="news">
-    <table id="newstable" border="1">
+<div id="newstable">
+    <table id="newstable">
         <tr class="firsttr">
-            <td colspan="2">
-                <h3>产品服务新闻</h3> 
+            <td>
+                <h3>产品服务新闻</h3>
                 <span>PRODUCT SERVICE NEWS</span>
-                
+
             </td>
         </tr>
         <tr>
-            <td style="width:700px;">
-                <table>
+            <td style="width:700px;height:500px;">
+
+                <table style="width:650px;height:450px;">
                     <tr>
-                        <td colspan="2"><img style="width:700px;height:auto;" src="~/image/index_30.png" /></td>
+                        <td colspan="2">
+                            <div style="width:670px;height:200px;background:url('/image/index_30.png') 100% 100%"></div>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                 </table>
+
             </td>
-            <td style="width:300px;">
-                <div class="new_rt">
-                 
+            <td style="width:300px;height:600px;">
+
+                <div style="width:300px;height:600px;">
+                    <div id=" top" style="width:300px;height:200px;">
+                        <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                    </div>
+                    <div id="bottom" style="width:300px;height:400px;background:url('/image/index_34.png')">
+                        <p><a href="#" target="_blank">数据扫描产品</a></p>
+                        <p><a href="#" target="_blank">网上阅卷服务</a></p> 
+                        <p><a href="#" target="_blank">软件开发服务</a></p>
+                        <p><a href="#" target="_blank">软件产品</a></p>
+                        <p><a href="#" target="_blank">答题卡设计与印刷</a></p>
+                        <p><a href="#" target="_blank">数据中心托管服务</a></p>
+                        
+                    </div>
+                </div>
+
+               
+                @*<div class="new_rt">
+
                     <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
                     <p>
                         <a href="#" target="_blank">数据扫描产品</a>
@@ -157,27 +180,23 @@
                         <a href="#" target="_blank">答题卡设计与印刷</a>
                         <a href="#" target="_blank">数据中心托管服务</a>
                     </p>
-                </div>
+                </div>*@
+
             </td>
         </tr>
     </table>
-
 </div>
 
 @*主营业务*@
 <div id="business">
     <table id="businesstable">
         <tr class="firsttr">
-            <td>
+            <td colspan="2">
                 <h3>主营业务</h3>
                 <span>MAIN BUSINESS</span>
             </td>
         </tr>
-        <tr>
-            <td>
-              
-            </td>
-        </tr>
+       
     </table>
 </div>
 

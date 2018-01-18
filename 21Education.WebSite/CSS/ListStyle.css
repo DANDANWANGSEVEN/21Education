@@ -10,20 +10,18 @@
     height:80px;
     border-bottom:1px solid #efefef;
 }
-.samlltable img{
-    width:220px;
-    height:140px;
-}
-.samlltable a{
-    color:#0057be;
-    text-decoration:none;
-}
-.samlltable p{
-    line-height:30px;
-}
-.samlltable span{
-    color:#666666;
-    float:right;
-}
+  .smalltable h4{
+        margin-top:0px;
+    }
+    .smalltable h4 a{
+        text-decoration:none;
+        color:black;
+    }
+    .smalltable h4 a:hover{
+        color:#0057be;
+    }
+    .smalltable span{
+        float:right;color:#666666;
+    }
 
 

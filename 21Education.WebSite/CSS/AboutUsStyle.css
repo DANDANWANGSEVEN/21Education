@@ -1,0 +1,22 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+ .table{
+        margin:auto;
+        width:1000px;
+    }
+    .table h3{
+        color:#0057be;
+    }
+    .table span{
+        font-size:14px;
+    }
+#companyculture{
+    text-align:center;
+}
+
+.img{
+    width:100px;
+    height:100px;
+}

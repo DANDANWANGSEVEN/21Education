@@ -220,6 +220,9 @@
     <Content Include="image\about_20one.png" />
     <Content Include="image\about_20three.png" />
     <Content Include="image\about_20two.png" />
+    <Content Include="image\About_Honorbg.jpg" />
+    <Content Include="image\About_HonorPic.png" />
+    <Content Include="image\arrows.png" />
     <Content Include="image\culture_four.png" />
     <Content Include="image\culture_one.png" />
     <Content Include="image\culture_three.png" />
@@ -232,6 +235,7 @@
     <Content Include="image\design\网站首页.png" />
     <Content Include="image\design\联系我们.png" />
     <Content Include="image\images.lnk" />
+    <None Include="Properties\PublishProfiles\21EducationWeb.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="image\about_01.jpg" />
     <Content Include="image\about_06.jpg" />
@@ -336,6 +340,11 @@
     <Content Include="image\tk_system.jpg" />
     <Content Include="image\znks.jpg" />
     <Content Include="image\zx_dd.png" />
+    <Content Include="LunBo\css\htmleaf-demo.css" />
+    <Content Include="LunBo\css\normalize.css" />
+    <Content Include="LunBo\css\slider.css" />
+    <Content Include="LunBo\js\jquery-1.11.0.min.js" />
+    <Content Include="LunBo\js\slider.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -382,6 +391,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="fonts\" />
+    <Folder Include="LunBo\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -37,7 +37,7 @@ namespace _21Education.WebSite.Controllers
                 {
                     NewsId = i,
                     Title = "成功案例标题" + i,
-                    Content = "成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容",
+                    Content = "成功案例内容成功案例内容成功案例内容成功案例容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容",
                     ImgPath = "/image/pcpj.jpg",
                     PubDate = DateTime.Now,
                     ReadCount = 100

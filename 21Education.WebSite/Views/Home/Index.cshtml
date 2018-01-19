@@ -4,23 +4,35 @@
 }
 <title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
+<link href="~/LunBo/css/normalize.css" rel="stylesheet" />
+<link href="~/LunBo/css/htmleaf-demo.css" rel="stylesheet" />
+<link href="~/LunBo/css/slider.css" rel="stylesheet" />
+<script src="~/LunBo/js/jquery-1.11.0.min.js"></script></
+<script src="~/LunBo/js/slider.js"></script>
+
 <style>
 
     /*轮播图*/
     #carousel {
         margin-top: 10px;
         width: 100%;
-        height: 300px;
-        background: url('../../image/bg.png') center no-repeat;
+        height: 380px;
+        background: url('../../image/bg.png') 100% 100%;
     }
-
-    #lunbo {
+    .slider__item{
+        margin-top:15px;
+    }
+    .slider__item img{
+        width:1000px;
+        height:400px;
+    }
+    /*#lunbo {
         width: 1000px;
         height: 300px;
         margin: auto;
         padding: 0;
         position: relative;
-    }
+    }*/
 
         #lunbo li {
             list-style: none;
@@ -77,7 +89,7 @@
 
     #productimage {
         width: 600px;
-        height: 220px;
+        height: 180px;
     }
     /*成功案例*/
     .caseinfo {
@@ -129,17 +141,100 @@
                 font-size: 16px;
             }
 </style>
+<style type="text/css">
 
+    .container {
+        width: 1000px;
+        height:300px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .preview {
+        text-align: center;
+        padding: 5px;
+    }
+
+        .preview a {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .preview img {
+            display: block;
+            width: 200px;
+            height: auto;
+        }
+
+    .active {
+        outline: 3px solid #196cd2;
+        box-shadow: 2px 2px 20px 4px rgba(0,0,0,.5);
+    }
+</style>
 @*轮播图*@
 <div id="carousel">
-    <ul id="lunbo">
+    @*<ul id="lunbo">
         <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
         <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
         <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
-    </ul>
-    <div>
+    </ul>*@
+   
 
-    </div>
+        <div class="container">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slider__item">
+                        <img src="~/image/index_ban1.png" />
+                        <span class="slider__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="">Далее >></a> </span>
+                    </div>
+                    <div class="slider__item">
+                        <img src="~/image/index_ban2.png" />
+                        <span class="slider__caption">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, facilis.</span>
+                    </div>
+                    <div class="slider__item">
+                        <img src="~/image/index_ban3.png" />
+                        <span class="slider__caption">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, culpa!</span>
+                    </div>
+                </div>
+                <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
+                    <span><svg  viewBox="0 0 20 20"><path d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" /></svg></span>
+                </div>
+                <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
+                    <span><svg  viewBox="0 0 20 20"><path d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" /></svg></span>
+                </div>
+            </div>
+            <script type="text/javascript">
+		$(".slider-container").ikSlider({
+		  speed: 500
+		});
+		$(".slider-container").on('changeSlide.ikSlider', function (evt) { console.log(evt.currentSlide); });
+            </script>
+            <script type="text/javascript">
+		var $preview = $('.preview a');
+
+		function changeActivePreview(i) {
+		  $('.active').removeClass('active');
+		  $preview.eq(i).addClass('active');
+		}
+
+		$preview.on('click', function(e) {
+		  e.preventDefault();
+		  var index = $(this).index();
+		  $('.slider-container').ikSlider(index);
+		});
+
+		$('.slider-container').on('changeSlide.ikSlider', function(e) {
+		  changeActivePreview(e.currentSlide);
+		});
+
+		changeActivePreview(0)
+            </script>
+            <div class="preview">
+                <a href="#1"><img src="~/image/index_ban1.png" alt="" /></a>
+                <a href="#2"><img src="~/image/index_ban2.png" alt="" /></a>
+                <a href="#3"><img src="~/image/index_ban3.png" alt="" /></a>
+            </div>
+        </div>
 </div>
 
 @*产品服务新闻*@
@@ -253,12 +348,15 @@
 
                 </div>
             </td>
-            <td>
+            <td rowspan="2">
                 <div style="margin:0px 20px;">
                     <h3>云产品服务中心</h3>
                     <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心</p>
                 </div>
             </td>
+        </tr>
+        <tr>
+            <td></td>
         </tr>
     </table>
 </div>
@@ -290,7 +388,7 @@
                         <td><img src="~/image/Success_two.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>20多种职业证书的教务评卷工作</td>
                     </tr>
                 </table>
 
@@ -301,7 +399,7 @@
                         <td><img src="~/image/Success_three.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>核心人员20余年行业经验</td>
                     </tr>
                 </table>
 
@@ -312,7 +410,7 @@
                         <td><img src="~/image/Success_four.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>100余个考试测评项目</td>
                     </tr>
                 </table>
 
@@ -326,7 +424,7 @@
                         <td><img src="~/image/Success_five.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>300多个高校考点密切合作</td>
                     </tr>
                 </table>
 
@@ -337,7 +435,7 @@
                         <td><img src="~/image/Success_six.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>2000余万/年考试测评服务科次</td>
                     </tr>
                 </table>
 
@@ -348,7 +446,7 @@
                         <td><img src="~/image/Success_seven.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>10000余万次累计考试测评服务科次</td>
                     </tr>
                 </table>
 
@@ -359,7 +457,7 @@
                         <td><img src="~/image/Success_eight.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>100万人以上大规模网上服务项目</td>
                     </tr>
                 </table>
 

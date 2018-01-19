@@ -28,7 +28,8 @@
             color:#0057be;
             font-size:18px;
         }
-        #foot{
+        
+       #foot{
             height:160px;
             background-color:#0057be;
             color:white;
@@ -36,12 +37,15 @@
             font-size:14px;
             margin-top:15px;
         }
+    #foot td a{
+        text-align:center;color:white;font-size:14px;
+    }
         
         #footnav td{
             padding:18px 6px;
+            color:white;
         }
         #footnav td a{
-            color:white;
             text-decoration:none;
         }
         #footnav td a:hover{

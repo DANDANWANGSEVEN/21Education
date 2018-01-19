@@ -1,52 +1,8 @@
 ﻿@{
     Layout = null;
 }
-<style>
-
-    .mynav ul {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        list-style-type: none;
-        padding: 0;
-        margin:0;
-    }
-
-    .mynav li:not(:last-child) {
-        margin-right: 0px;
-    }
-
-    .mynav a {
-        display: block;
-        font-size: 18px;
-        color: black;
-        text-decoration: none;
-        padding:0 10px;
-        font-family: 'Open Sans', Arial, sans-serif;
-    }
-
-    .target {
-        position: absolute;
-        border-bottom: 2px solid transparent;
-        z-index: -1;
-        -webkit-transform: translateX(-60px);
-        transform: translateX(-60px);
-    }
-
-    .mynav a,
-    .target {
-        -webkit-transition: all .35s ease-in-out;
-        transition: all .35s ease-in-out;
-    }
-</style>
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -88,31 +44,31 @@
                     <table id="footnav">
                         <tr>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/Home/Index">首页</a></td>
+                            <td><a href="/Home/Index">首页</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/News/NewsList">新闻中心</a></td>
+                            <td><a href="/News/NewsList">新闻中心</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/Success/SuccessList">成功案例</a></td>
+                            <td><a href="/Success/SuccessList">成功案例</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/Product/ProductService">产品服务</a></td>
+                            <td><a href="/Product/ProductService">产品服务</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/About/AboutUs">关于我们</a></td>
+                            <td><a href="/About/AboutUs">关于我们</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/Contact/ContactUs">联系我们</a></td>
+                            <td><a href="/Contact/ContactUs">联系我们</a></td>
                             <td>|</td>
-                            <td><a style="color:white;text-decoration:none;" href="/Contact/JoinUs">招聘信息</a></td>
+                            <td><a href="/Contact/JoinUs">招聘信息</a></td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td>Copyright ©2015 21education software Inc. All Rights Reserved.</td>
+                <td><span>Copyright ©2015 21education software Inc. All Rights Reserved.</span> </td>
             </tr>
             <tr>
-                <td>北京世纪互联软件开发有限公司 版权所有 京ICP备05029160号</td>
+                <td><span>北京世纪互联软件开发有限公司 版权所有 京ICP备05029160号</span> </td>
             </tr>
             <tr>
-                <td> 京公网安备 11010502001746号</td>
+                <td><span>京公网安备 11010502001746号</span></td>
             </tr>
         </table>
     </div>

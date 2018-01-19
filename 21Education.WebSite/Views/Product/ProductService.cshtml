@@ -2,6 +2,9 @@
     ViewBag.Title = "ProductService";
     Layout = "~/Views/Shared/View1.cshtml";
 }
+<script src="~/Content/js.js"></script>
+<link href="~/CSS/css.css" rel="stylesheet" />
+<link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
 <style>
     #productinfo{
         width:1000px;
@@ -54,11 +57,9 @@
         width:1000px;
         height:300px;
         margin:auto;
+        margin-top:20px;
     }
-    #productadvantage img{
-        width:240px;
-        height:260px;
-    }
+
 </style>
 @*产品服务*@
 <table id="productinfo" border="1">
@@ -175,25 +176,92 @@
     </tr>
 </table>
 @*品牌优势*@
-<table id="productadvantage" border="1">
+<table id="productadvantage">
     <tr style="text-align:center;">
-        <td colspan="4">
+        <td>
             <h3 style="color:#0057be;">品牌优势</h3>
             <span style="font-size:14px;">PRODUCT ADVANTAGE</span>
         </td>
     </tr>
     <tr>
         <td>
-            <img src="~/image/about_20one.png" />
+            <div class="mian">
+                <div class="adframe">
+                    <div class="adleft">
+                        <div class="ico">
+                            <img style="width:50px;height:50px;margin-top: 10px;" src="~/image/service_AdvantageOne.png" />
+                        </div>
+                        <span class="title" style="font-size:10px;">
+                            安全/稳定/高效
+                        </span>
+                        <span class="depict">
+                            基于高效的缓存机制，安全，严谨的程序算法开发，支持横向扩展，提升处理能力。
+                        </span>
+                        <div class="right" id="r">
+                            <div class="rbt">
+                                <span>安全/稳定/高效</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adleft">
+                        <div class="ico">
+                            <img style="width:50px;height:50px;margin-top: 10px;" src="~/image/service_AdvantageFour.png" />
+                        </div>
+                        <span class="title">
+                            高度可配置化
+                        </span>
+                        <span class="depict">
+                            快速，智能的实现可定制化的在线考试应用，人工操作加自动处理并行，效率翻倍。
+                        </span>
+                        <div class="right" id="r">
+                            <div class="rbt">
+                                <span>高度可配置化</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adleft">
+                        <div class="ico">
+                            <img style="width:50px;height:50px;margin-top: 10px;" src="~/image/Service_AdvantageThree.png" />
+                        </div>
+                        <span class="title">
+                            高度智能
+                        </span>
+                        <span class="depict">
+                            智能批改，人工干预方便高效，自带核心统计功能，可定制数据分析功能，快速掌握考试情况。
+                        </span>
+                        <div class="right" id="r">
+                            <div class="rbt">
+                                <span>高度智能</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adleft">
+                        <div class="ico">
+                            <img style="width:50px;height:50px;margin-top: 10px;" src="~/image/service_AdvantageTwo.png" />
+                        </div>
+                        <span class="title">
+                            操作灵活方便
+                        </span>
+                        <span class="depict">
+                            优化操作流程，鼠标拖拽，操作灵活方便，数据克隆等技术使得操作简便快捷。
+                        </span>
+                        <div class="right" id="r">
+                            <div class="rbt">
+                                <span>操作灵活方便</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adright"></div>
+                </div>
+            </div>
         </td>
-        <td>
-            <img src="~/image/about_20two.png" />
-        </td>
-        <td>
-            <img src="~/image/about_20three.png" />
-        </td>
-        <td>
-            <img src="~/image/about_20four.png" />
-        </td>
+        
     </tr>
 </table>
+
+
+
+<script>
+    FeiChao.Organ();
+</script>
+

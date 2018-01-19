@@ -28,20 +28,6 @@
          line-height:30px;
          background-color:#efefef;
      }
-     /*招聘信息*/
-    #joinus div{
-        font-size:16px;border-bottom:1px dashed lightgray;margin-top:10px;
-    }
-    #joinus p{
-        color:#666666;
-    }
-
-    /*招聘介绍*/
-    #joinproduce{
-        width:1000px;
-        height:200px;
-        margin:auto;
-    }
 
 
 

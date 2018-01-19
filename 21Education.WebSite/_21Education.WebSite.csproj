@@ -206,6 +206,7 @@
     <Content Include="CSS\IndexStyle.css" />
     <Content Include="CSS\ListStyle.css" />
     <Content Include="CSS\style.css" />
+    <Content Include="CSS\style_old.css" />
     <Content Include="CSS\View1Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -367,6 +368,7 @@
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\About\AboutUs.cshtml" />
     <Content Include="Views\News\NewsContent.cshtml" />
+    <Content Include="Views\Contact\JoinUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

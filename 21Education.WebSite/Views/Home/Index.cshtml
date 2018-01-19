@@ -5,126 +5,141 @@
 <title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 <style>
-   
-   /*轮播图*/
+
+    /*轮播图*/
     #carousel {
-        margin-top:10px;
+        margin-top: 10px;
         width: 100%;
-        height:300px;
+        height: 300px;
         background: url('../../image/bg.png') center no-repeat;
     }
 
-    #lunbo{
-        width:1000px;
-        height:300px;
-        margin:auto;
-        padding:0;
+    #lunbo {
+        width: 1000px;
+        height: 300px;
+        margin: auto;
+        padding: 0;
         position: relative;
     }
-    #lunbo li{
-        list-style:none;
-        position: absolute;
-        top:0;
-	    left:0;
-    }
-    #newstable{
-        width:1000px;
-         height:720px;
-         margin:auto; 
-    }
-    #businesstable{
-         width:1000px;
-         height:400px;
-         margin:auto; 
-    }
-    #successtable{
-         width:1000px;
-         height:600px;
-         margin:auto; 
-    }
-  .firsttr{
-      height:100px;
-      text-align:center;
-  }
-  .firsttr h3{
-      color:#0057be;
-  }
-  /*产品服务新闻*/
-  #bottom a{
-      text-decoration:none;
-      color:#666666;
-      padding:10px;
-      font-size:20px;
-      line-height:52px;
-  }
-  #bottom a:hover{
-      color:#0057be;
-  }
- 
-  /*产品展示*/
-  #producttable{
-      width:1000px;
-      height:400px;
-      margin:auto;
-  }
-  #productimage{
-      width:600px;
-      height:220px;
-  }
-  /*成功案例*/
-  .caseinfo{
-      width:240px;
-      height:150px;
-      text-align:center;
-      border-bottom:2px solid #0057be;
-  }
 
+        #lunbo li {
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-  /*品牌优势*/
-  #brandtable{
-       width:1000px;
-       height:300px;
-       margin:auto; 
-       color:white;
-  }
-  #advantage dl {
-	float: left;
-	width: 240px;
-	overflow: hidden;
-}
+    #newstable {
+        width: 1000px;
+        height: 720px;
+        margin: auto;
+    }
 
-#advantage dl dt img{
-    width:100px;height:80px;margin:auto;
-}
+    #businesstable {
+        width: 1000px;
+        height: 400px;
+        margin: auto;
+    }
 
-#advantage dl dt {
-	width: 100%;
-	text-align: center;
-	line-height: 30px;
-	color: #FFF;
-	font-size: 16px;
-}
-#advantage dl dd {
-    margin:0;
-    text-align: center;
-    color: #FFF;
-    line-height: 20px;
-    font-size: 10px;
-}
-    #advantage dl dd p {
-        font-weight:bold;font-size:16px;
+    #successtable {
+        width: 1000px;
+        height: 600px;
+        margin: auto;
+    }
+
+    .firsttr {
+        height: 100px;
+        text-align: center;
+    }
+
+        .firsttr h3 {
+            color: #0057be;
+        }
+    /*产品服务新闻*/
+    #bottom a {
+        text-decoration: none;
+        color: #666666;
+        padding: 10px;
+        font-size: 20px;
+        line-height: 52px;
+    }
+
+        #bottom a:hover {
+            color: #0057be;
+        }
+
+    /*产品展示*/
+    #producttable {
+        width: 1000px;
+        height: 400px;
+        margin: auto;
+    }
+
+    #productimage {
+        width: 600px;
+        height: 220px;
+    }
+    /*成功案例*/
+    .caseinfo {
+        width: 240px;
+        height: 150px;
+        text-align: center;
+        border-bottom: 2px solid #0057be;
     }
 
 
+    /*品牌优势*/
+    #brandtable {
+        width: 1000px;
+        height: 300px;
+        margin: auto;
+        color: white;
+    }
+
+    #advantage dl {
+        float: left;
+        width: 240px;
+        overflow: hidden;
+    }
+
+        #advantage dl dt img {
+            width: 100px;
+            height: 80px;
+            margin: auto;
+        }
+
+        #advantage dl dt {
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        #advantage dl dd {
+            margin: 0;
+            text-align: center;
+            color: #FFF;
+            line-height: 20px;
+            font-size: 10px;
+        }
+
+            #advantage dl dd p {
+                font-weight: bold;
+                font-size: 16px;
+            }
 </style>
 
 @*轮播图*@
 <div id="carousel">
-       <ul id="lunbo">
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
-       </ul> 
+    <ul id="lunbo">
+        <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
+        <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
+        <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
+    </ul>
+    <div>
+
+    </div>
 </div>
 
 @*产品服务新闻*@
@@ -210,16 +225,16 @@
                 <span>MAIN BUSINESS</span>
             </td>
         </tr>
-       <tr>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-       </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
 </div>
 
@@ -267,7 +282,7 @@
                         <td>20年专注教育考试服务领域</td>
                     </tr>
                 </table>
-               
+
             </td>
             <td>
                 <table class="caseinfo">
@@ -302,7 +317,7 @@
                 </table>
 
             </td>
-            
+
         </tr>
         <tr>
             <td>
@@ -357,7 +372,7 @@
 <div id="brand" style="width:1000px;height:360px;margin:auto;background:url('/image/index_26.jpg')">
     <table id="brandtable" border="1">
         <tr class="firsttr">
-            <td colspan="4" >
+            <td colspan="4">
                 <h3>品牌优势</h3>
                 <span>BRAND ADVANTAGE</span>
             </td>

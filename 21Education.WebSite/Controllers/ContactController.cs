@@ -15,9 +15,20 @@ namespace _21Education.WebSite.Controllers
         {
             return View();
         }
+
+        #region 联系我们页面
         public ActionResult ContactUs()
         {
             return View();
         }
+        #endregion
+
+        #region 招聘信息页面
+        public ActionResult JoinUs()
+        {
+            return View();
+        }
+        #endregion
+
     }
 }

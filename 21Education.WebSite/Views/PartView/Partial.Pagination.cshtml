@@ -1,21 +1,74 @@
 ﻿@model Pagination
 
-
 <style>
-    #pagetable{
-        width:1000px;
-        margin:auto;
-        text-align:center;
+    #pagetable {
+        width: 1000px;
+        margin: auto;
+        text-align: center;
+        display: inline-block;
     }
-    .pagination li{
-        list-style:none;
+
+    .pagination li {
+        list-style: none;
+        float: left;
+    }
+
+    .pagination > li {
+        display: inline;
+        margin: 0 6px;
+    }
+
+    .pagination li a {
+        text-decoration: none;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0;
+        border: none;
+        font-size: 18px;
+        background-color: #ebebeb;
+        color: #666;
+        text-align: center;
+        cursor: pointer;
+        display: inline-block;
         
     }
-    .pagination li a{
-        text-decoration:none;
+    .pagination li span {
+        font-size: 20px;
+        color: #666;
+        line-height: 28px;
+    } 
+    .pagination li a:hover, .pagination li.active a {
+        color: #fff;
+        background-color: #0057be;
     }
 
+    .pagination li.disabled a {
+        color: #999;
+        background-color: #ebebeb;
+        cursor: not-allowed;
+    }
 
+    #jumpPage {
+        width: 35px;
+        height: 26px;
+        margin: 0 4px 0 10px;
+        padding: 0 4px;
+        border: 1px solid #ebebeb;
+        font-size: 12px;
+        outline: none;
+    }
+
+    #jump {
+        width: auto;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        border: none;
+        color: #666;
+        outline: none;
+        font-size: 18px;
+    }
 </style>
 
 <table id="pagetable">
@@ -58,7 +111,6 @@
                                 <a href="@Url.PageLink(start)">@(start + 1)</a>
                             </li>
                         }
-                        <li class="count"><b>/ @(Model.PageCount)</b></li>
                     }
                     @if (Model.PageIndex < Model.PageCount - 1)
                     {
@@ -73,8 +125,9 @@
                         </li>
                     }
                     <li class="hidden-m">
-                        <input style="width:50px;height:30px;" type="text" id="jumpPage" />
+                        <input  type="text" id="jumpPage" />
                     </li>
+                    <li class="count" style="margin-left:0"><span>/@(Model.PageCount)</span></li>
                     <li class="hidden-m">
                         <button id="jump">跳到</button>
                     </li>
@@ -82,19 +135,40 @@
                 <script>
         var pageCount =@Model.PageCount;
         var pagePath = "@Url.PageLink(0)";
-        pagePath = pagePath.substring(0, pagePath.length - 1);
-        $("#jump").click(function () {
-            var $pageNum = $("#jumpPage").val();
-            if ($pageNum > pageCount) {
-                $pageNum = pageCount ;
-            }
-            if ($pageNum <0 ) {
-                $pageNum = 0;
-            }
-            location.href = pagePath + ($pageNum-1);
-        });
-                </script>
+                    pagePath = pagePath.substring(0, pagePath.length - 1);
+                    function isInteger(obj) {
+                        return obj % 1 === 0;
+                    }
+                    $("#jump").click(function () {
+                        GoToPage();
+                    });
+                    $("#jumpPage").keypress(function (event) {
+                        if (event.keyCode == 13) {
+                            GoToPage();
+                            return false;
                         }
+                    });
+                    function GoToPage() {
+                        var $pageNum = $("#jumpPage").val();
+                        if (!isInteger($pageNum) || !$pageNum) {
+                            alert("请输入合法的页码");
+                            $("#jumpPage").focus();
+                            return false;
+                        }
+                        if ($pageNum > pageCount) {
+                            $pageNum = pageCount;
+                        }
+                        if ($pageNum <= 0) {
+                            $pageNum = 1;
+                        }
+                        if (location.search) {
+                            location.href = pagePath + $pageNum + location.search;
+                            return;
+                        }
+                        location.href = pagePath + $pageNum;
+                    }                </script>
+
+            }
         </td>
     </tr>
 </table>

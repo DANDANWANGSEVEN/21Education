@@ -12,10 +12,14 @@
             this.IsLoadNumBtn = true;
             this.NumBtnSize = 5;
         }
-        public Pagination(int pageIndex,int recordCount) : this()
+        public Pagination(int pageIndex, int recordCount) : this()
         {
             this.PageIndex = pageIndex;
             this.RecordCount = recordCount;
+        }
+        public Pagination(int pageIndex, int recordCount,int pageSize) : this(pageIndex, recordCount)
+        {
+            this.PageSize = pageSize;
         }
         /// <summary>
         /// 当前页

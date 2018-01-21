@@ -9,6 +9,7 @@
 <link href="~/LunBo/css/slider.css" rel="stylesheet" />
 <script src="~/LunBo/js/jquery-1.11.0.min.js"></script></
 <script src="~/LunBo/js/slider.js"></script>
+<link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 
 <style>
 
@@ -19,13 +20,15 @@
         height: 380px;
         background: url('../../image/bg.png') 100% 100%;
     }
-    .slider__item{
-        margin-top:15px;
+
+    .slider__item {
+        margin-top: 15px;
     }
-    .slider__item img{
-        width:1000px;
-        height:400px;
-    }
+
+        .slider__item img {
+            width: 1000px;
+            height: 400px;
+        }
     /*#lunbo {
         width: 1000px;
         height: 300px;
@@ -34,12 +37,12 @@
         position: relative;
     }*/
 
-        #lunbo li {
-            list-style: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    #lunbo li {
+        list-style: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
     #newstable {
         width: 1000px;
@@ -83,7 +86,7 @@
     /*产品展示*/
     #producttable {
         width: 1000px;
-        height: 400px;
+        height: 380px;
         margin: auto;
     }
 
@@ -145,7 +148,7 @@
 
     .container {
         width: 1000px;
-        height:300px;
+        height: 300px;
         margin: 0 auto;
         font-size: 14px;
     }
@@ -171,70 +174,120 @@
         box-shadow: 2px 2px 20px 4px rgba(0,0,0,.5);
     }
 </style>
+@*手风琴*@
+<script type="text/javascript">
+    $(function () {
+        $('.xinxi_solution_main ul li:eq(0)').addClass('on');
+        $('.xinxi_solution_main ul li:eq(1)').addClass('b2');
+        $('.xinxi_solution_main ul li:eq(2)').addClass('b3');
+        $('.xinxi_solution_main ul li:eq(3)').addClass('b4');
+        $('.xinxi_solution_main ul li:eq(4)').addClass('b5');
+        $('.xinxi_solution_main ul li:eq(5)').addClass('b6');
+        $('.xinxi_solution_main ul li:eq(6)').addClass('b7');
+        $('.xinxi_solution_main ul li:eq(7)').addClass('b8');
+        $('.xinxi_solution_main ul li:gt(8)').hide();
+        //当三级分类大于7个的是，成两排显示
+        $('.xinxi_solution_main ul li').each(function () {
+            var len = $(this).find('.right dl a').length;
+            if (len > 6) {
+                $(this).find('.right dl a').addClass('yichu');
+            }
+        });
+
+        //解决方案效果
+        $('.xinxi_solution_main ul li').each(function () {
+            var left_h = $(this).find('.left_top').height();
+            $(this).find('.left_top').css({
+                'top': '50%',
+                'margin-top': -left_h / 2
+            });
+
+            var dl_h = $(this).find('.right dl').height();
+            $(this).find('.right dl').css({
+                'margin-top': -dl_h / 2
+            });
+        });
+        $('.xinxi_solution_main ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        $('.xinxi_solution_main_mobile ul li:first-child').addClass('on');
+
+        $('.xinxi_solution_main_mobile ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+
+        $(".solu-category .solu-description").each(function () {
+            var maxwidth = 60;
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '...');
+            }
+        });
+
+    });
+</script>
 @*轮播图*@
 <div id="carousel">
     @*<ul id="lunbo">
-        <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
-        <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
-        <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
-    </ul>*@
-   
-
-        <div class="container">
-            <div class="slider-container">
-                <div class="slider">
-                    <div class="slider__item">
-                        <img src="~/image/index_ban1.png" />
-                        <span class="slider__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="">Далее >></a> </span>
-                    </div>
-                    <div class="slider__item">
-                        <img src="~/image/index_ban2.png" />
-                        <span class="slider__caption">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, facilis.</span>
-                    </div>
-                    <div class="slider__item">
-                        <img src="~/image/index_ban3.png" />
-                        <span class="slider__caption">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, culpa!</span>
-                    </div>
+            <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
+            <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
+            <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
+        </ul>*@
+    <div class="container">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slider__item">
+                    <img src="~/image/index_ban1.png" />
+                    <span class="slider__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href=""></a> </span>
                 </div>
-                <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
-                    <span><svg  viewBox="0 0 20 20"><path d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" /></svg></span>
+                <div class="slider__item">
+                    <img src="~/image/index_ban2.png" />
+                    <span class="slider__caption">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, facilis.</span>
                 </div>
-                <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
-                    <span><svg  viewBox="0 0 20 20"><path d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" /></svg></span>
+                <div class="slider__item">
+                    <img src="~/image/index_ban3.png" />
+                    <span class="slider__caption">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, culpa!</span>
                 </div>
             </div>
-            <script type="text/javascript">
-		$(".slider-container").ikSlider({
-		  speed: 500
-		});
-		$(".slider-container").on('changeSlide.ikSlider', function (evt) { console.log(evt.currentSlide); });
-            </script>
-            <script type="text/javascript">
-		var $preview = $('.preview a');
-
-		function changeActivePreview(i) {
-		  $('.active').removeClass('active');
-		  $preview.eq(i).addClass('active');
-		}
-
-		$preview.on('click', function(e) {
-		  e.preventDefault();
-		  var index = $(this).index();
-		  $('.slider-container').ikSlider(index);
-		});
-
-		$('.slider-container').on('changeSlide.ikSlider', function(e) {
-		  changeActivePreview(e.currentSlide);
-		});
-
-		changeActivePreview(0)
-            </script>
-            <div class="preview">
-                <a href="#1"><img src="~/image/index_ban1.png" alt="" /></a>
-                <a href="#2"><img src="~/image/index_ban2.png" alt="" /></a>
-                <a href="#3"><img src="~/image/index_ban3.png" alt="" /></a>
+            <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
+                <span><svg viewBox="0 0 20 20"><path d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" /></svg></span>
+            </div>
+            <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
+                <span><svg viewBox="0 0 20 20"><path d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" /></svg></span>
             </div>
         </div>
+        <script type="text/javascript">
+            $(".slider-container").ikSlider({
+                speed: 500
+            });
+            $(".slider-container").on('changeSlide.ikSlider', function (evt) { console.log(evt.currentSlide); });
+        </script>
+        <script type="text/javascript">
+            var $preview = $('.preview a');
+
+            function changeActivePreview(i) {
+                $('.active').removeClass('active');
+                $preview.eq(i).addClass('active');
+            }
+
+            $preview.on('click', function (e) {
+                e.preventDefault();
+                var index = $(this).index();
+                $('.slider-container').ikSlider(index);
+            });
+
+            $('.slider-container').on('changeSlide.ikSlider', function (e) {
+                changeActivePreview(e.currentSlide);
+            });
+
+            changeActivePreview(0)
+        </script>
+        <div class="preview">
+            <a href="#1"><img src="~/image/index_ban1.png" alt="" /></a>
+            <a href="#2"><img src="~/image/index_ban2.png" alt="" /></a>
+            <a href="#3"><img src="~/image/index_ban3.png" alt="" /></a>
+        </div>
+    </div>
 </div>
 
 @*产品服务新闻*@
@@ -313,24 +366,172 @@
 
 @*主营业务*@
 <div id="business">
-    <table id="businesstable" border="1">
+    <table id="businesstable" border="0">
         <tr class="firsttr">
-            <td colspan="8">
+            <td>
                 <h3>主营业务</h3>
                 <span>MAIN BUSINESS</span>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                <div class="xinxi_solution_main">
+                    <div class="xinxi_solution_bg">
+                        <div class="main_mobile" >
+                            <ul style="padding-left:0px;">
+                                <li class="one on">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上阅卷</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="信息卡设计与印刷" target="_blank" href="#">
+                                                信息卡设计与印刷
+                                            </a>
+                                            <a title="数据扫描产品" target="_blank" href="#">
+                                                数据扫描产品
+                                            </a>
+                                            <a title="网上阅卷系统" target="_blank" href="#">
+                                                网上阅卷系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>无纸化智能考试</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="通用无纸化智能考试平台" target="_blank" href="#">
+                                                通用无纸化智能考试平台
+                                            </a>
+                                            <a title="大学英语四六级口语考试系统" target="_blank" href="#">
+                                                大学英语四六级口语考试系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上报名管理系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="网上报名系统" target="_blank" href="#">
+                                                网上报名系统
+                                            </a>
+                                            <a title="考务管理系统" target="_blank" href="#">
+                                                考务管理系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>图库系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="系统支持试题的存储/检索/组卷" target="_blank" href="#">
+                                                系统支持试题的存储/检索/组卷
+                                            </a>
+                                            <a title="支持多种形式的试题及答案的管理" target="_blank" href="#">
+                                                支持多种形式的试题及答案的管理
+                                            </a>
+                                            <a title="确保数据体系化的留存" target="_blank" href="#">
+                                                确保数据体系化的留存
+                                            </a>
+                                            <a title="数据加密与备份机制安全可靠" target="_blank" href="#">
+                                                数据加密与备份机制安全可靠
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>评测与评价系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="多层级、多权限管理" target="_blank" href="#">
+                                                多层级、多权限管理
+                                            </a>
+                                            <a title="软件操作简单易用" target="_blank" href="#">
+                                                软件操作简单易用
+                                            </a>
+                                            <a title="支持远程在线操作" target="_blank" href="#">
+                                                支持远程在线操作
+                                            </a>
+                                            <a title="支持多种数据来源" target="_blank" href="#">
+                                                支持多种数据来源
+                                            </a>
+                                            <a title="提供数据分析" target="_blank" href="#">
+                                                提供数据分析
+                                            </a>
+                                            <a title="灵活的数据发布方式" target="_blank" href="#">
+                                                灵活的数据发布方式
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>云服务中心</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="云平台服务" target="_blank" href="#">
+                                                云平台服务
+                                            </a>
+                                            <a title="云服务器租用服务" target="_blank" href="#">
+                                                云服务器租用服务
+                                            </a>
+                                            <a title="网络设备租用服务" target="_blank" href="#">
+                                                网络设备租用服务
+                                            </a>
+                                            <a title="数据备份/数据恢复服务" target="_blank" href="#">
+                                                数据备份/数据恢复服务
+                                            </a>
+                                            <a title="大数据加密存储服务" target="_blank" href="#">
+                                                大数据加密存储服务
+                                            </a>
+                                            <a title="数据安全防护" target="_blank" href="#">
+                                                数据安全防护
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>服务类</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="餐饮行业解决方案" target="_blank" href="#">
+                                                餐饮行业解决方案
+                                            </a>
+                                            <a title="会员解决方案" target="_blank" href="#">
+                                                会员解决方案
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
     </table>
+
 </div>
 
 @*产品展示*@
@@ -348,15 +549,15 @@
 
                 </div>
             </td>
-            <td rowspan="2">
+            <td>
                 <div style="margin:0px 20px;">
                     <h3>云产品服务中心</h3>
                     <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心</p>
                 </div>
             </td>
         </tr>
-        <tr>
-            <td></td>
+        <tr style="height:60px;">
+            <td colspan="2"></td>
         </tr>
     </table>
 </div>

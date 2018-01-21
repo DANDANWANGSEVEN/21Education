@@ -14,6 +14,13 @@ namespace _21Education.WebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "test",
+            //    url: "{*a}",
+            //    defaults: new { controller = "partview", action = "carousel", id = UrlParameter.Optional }
+            //);
+
+
             RegisterRoutesWithRoute(
                 routes,
                 StringKeys.RouteValue_Page,

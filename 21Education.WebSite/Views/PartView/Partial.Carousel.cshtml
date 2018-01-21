@@ -1,0 +1,63 @@
+﻿@model CarouselViewModel
+
+<link href="~/CSS/Carousel-index.css" rel="stylesheet" />
+<style>
+    #carousel {
+        --ImgWidth: @Model.ImgWidth;
+    }
+</style>
+<div id="carousel">
+    <div class="container">
+        <div class="slider-container">
+            @Slider(Model)
+        </div>
+        <div class="carousel-prev carousel-btn">
+            <svg class="hide">
+                <symbol id="prev">
+                    <path fill="#000" d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" />
+                </symbol>
+            </svg>
+            <svg class="icon" viewBox="0 0 20 20"> <use class="use-left" xlink:href="#prev" x="0" y="0" /> </svg>
+        </div>
+        <div class="carousel-next carousel-btn">
+            <svg class="hide">
+                <symbol id="next">
+                    <path fill="#000" d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" />
+                </symbol>
+            </svg>
+            <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
+        </div>
+    </div>
+    <div class="preview">
+        <a href=""><img src="~/image/index_ban1.png" /></a>
+        <a href=""><img src="~/image/index_ban2.png" /></a>
+        <a href=""><img src="~/image/index_ban3.png" /></a>
+    </div>
+    <script src="~/Content/js/Carousel.js"></script>
+    <script>
+$("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
+    </script>
+</div>
+@helper Slider(List<Carousel> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (i == 0)
+            {
+                @Construct(list[list.Count - 1].ImgPath, list[list.Count - 1].Describe)
+            }
+            @Construct(list[i].ImgPath, list[i].Describe)
+            if (i == list.Count - 1)
+            {
+                @Construct(list[0].ImgPath, list[0].Describe)
+            }
+        }
+}
+
+@helper Construct(string src, string describe)
+    {
+        <div class="slider-item">
+            <img src="@src" />
+            <span class="slider__caption">@describe</span>
+        </div>
+}

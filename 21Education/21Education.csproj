@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="DATA\CarouselViewModel.cs" />
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

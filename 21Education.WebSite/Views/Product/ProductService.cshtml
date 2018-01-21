@@ -2,8 +2,7 @@
     ViewBag.Title = "ProductService";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-@*<script src="~/Content/jquery-1.10.2.min.js"></script>*@
-<script src="~/Content/js.js"></script>
+<script src="~/Content/js/js.js"></script>
 <link href="~/CSS/css.css" rel="stylesheet" />
 <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
 <style>
@@ -19,8 +18,8 @@
             width: inherit;
             height: 30px;
             /*background: url(../../image/1px.png) repeat;*/
-            background-color:black;
-            opacity:0.6;
+            background-color: black;
+            opacity: 0.6;
             position: absolute;
             left: 0;
             bottom: 0;
@@ -29,9 +28,9 @@
         }
 
             .zhezhao .txt h4 {
-                font-weight:normal;
+                font-weight: normal;
                 font-size: 18px;
-                margin:0;
+                margin: 0;
                 height: 40px;
                 text-align: center;
                 line-height: 32px;
@@ -43,76 +42,79 @@
             }
 </style>
 <style>
-    #productinfo{
-        width:1000px;
-        height:340px;
-        margin:auto;
+    #productinfo {
+        width: 1000px;
+        height: 340px;
+        margin: auto;
     }
     /*产品服务*/
-    #productimg{
-        width:480px;
-        height:220px;
-    }
-    #productdesc{
-        line-height:30px;
-        margin-left:60px;
-    }
-    #productdesc span{
-        color:#666666;
-    }
-    /*产品系统*/
-    #productsystem{
-        width:1000px;
-        height:350px;
-        margin:auto;
-        margin-top:20px;
-        background-color:#efefef;
-    }
-    .systemimg{
-        width:100px;
-        height:100px;
-        padding:10px 0px;
-    }
-    #productsystem tr td b{
-        list-style:none;
-        line-height:30px;
-        font-size:18px;
-        color:#0057be;
+    #productimg {
+        width: 480px;
+        height: 220px;
     }
 
-    #productsystem ul li span{
-        line-height:30px;
+    #productdesc {
+        line-height: 30px;
+        margin-left: 60px;
+    }
+
+        #productdesc span {
+            color: #666666;
+        }
+    /*产品系统*/
+    #productsystem {
+        width: 1000px;
+        height: 350px;
+        margin: auto;
+        margin-top: 20px;
+        background-color: #efefef;
+    }
+
+    .systemimg {
+        width: 100px;
+        height: 100px;
+        padding: 10px 0px;
+    }
+
+    #productsystem tr td b {
+        list-style: none;
+        line-height: 30px;
+        font-size: 18px;
+        color: #0057be;
+    }
+
+    #productsystem ul li span {
+        line-height: 30px;
     }
     /*产品展示*/
-    #productshow{
-        width:1000px;
-        height:500px;
-        margin:auto;
-        margin-top:20px;
+    #productshow {
+        width: 1000px;
+        height: 500px;
+        margin: auto;
+        margin-top: 20px;
     }
     /*品牌优势*/
-    #productadvantage{
-        width:1000px;
-        height:300px;
-        margin:auto;
-        margin-top:20px;
+    #productadvantage {
+        width: 1000px;
+        height: 300px;
+        margin: auto;
+        margin-top: 20px;
     }
-
 </style>
 <script>
-        $(function(){
-            $(".zhezhao").on({
-                mouseover: function () {
-                    $(this).find(".txt").stop().animate({ height: $(this)[0].clientHeight }, 200);
-                    var paddtop = $(this).attr("top") ? $(this).attr("top") : "60px";
-                    $(this).find(".txt h3").stop().animate({ paddingTop: paddtop }, 200);
-                },
-                mouseout: function () {
-                    $(this).find(".txt").stop().animate({ height: "45px" }, 200);
-                    $(this).find(".txt h3").stop().animate({ paddingTop: "0px" }, 200);
-                }
-            })
+    $(function () {
+        $(".zhezhao").on({
+            mouseover: function () {
+                $(this).find(".txt").stop().animate({ height: $(this)[0].clientHeight }, 200);
+                var paddtop = $(this).attr("top") ? $(this).attr("top") : "60px";
+                $(this).find(".txt h3").stop().animate({ paddingTop: paddtop }, 200);
+            },
+            mouseout: function () {
+                $(this).find(".txt").stop().animate({ height: "45px" }, 200);
+                $(this).find(".txt h3").stop().animate({ paddingTop: "0px" }, 200);
+            }
         })
+    })
 </script>
 
 @*产品服务*@
@@ -157,7 +159,7 @@
                                 <td><span>一卷多评/一致性检测/复评等多种方式,安全性高，保密性强</span></td>
                             </tr>
                         </table>
-                        
+
                     </td>
                 </tr>
             </table>
@@ -180,57 +182,57 @@
     </tr>
     <tr>
         <td rowspan="2">
-         <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_07.png')">
-                 <div class='txt' style="width:100%;height:auto;">
-                     <h4>网上阅卷</h4>
-                     <p>信息卡设计与印刷</p>
-                     <p>数据扫描产品</p>
-                     <p>网上阅卷系统</p>
-                 </div>
-         </div>
+            <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_07.png')">
+                <div class='txt' style="width:100%;height:auto;">
+                    <h4>网上阅卷</h4>
+                    <p>信息卡设计与印刷</p>
+                    <p>数据扫描产品</p>
+                    <p>网上阅卷系统</p>
+                </div>
+            </div>
         </td>
         <td>
-        <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_09.png')">
-            <div class='txt' style="width:100%;height:auto;">
-                <h4>无纸化智能考试</h4>
-                <p>通用无纸化智能考试平台</p>
-                <p>大学英语四六级口语考试系统</p>
+            <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_09.png')">
+                <div class='txt' style="width:100%;height:auto;">
+                    <h4>无纸化智能考试</h4>
+                    <p>通用无纸化智能考试平台</p>
+                    <p>大学英语四六级口语考试系统</p>
+                </div>
             </div>
-        </div>
         </td>
         <td>
-        <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_11.png')">
-            <div class='txt' style="width:100%;height:auto;">
-                <h4>网上报名管理系统</h4>
-                <p>网上报名系统</p>
-                <p>考务管理系统</p>
+            <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_11.png')">
+                <div class='txt' style="width:100%;height:auto;">
+                    <h4>网上报名管理系统</h4>
+                    <p>网上报名系统</p>
+                    <p>考务管理系统</p>
+                </div>
             </div>
-        </div>
         </td>
         <td rowspan="2">
-        <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_13.png')">
-            <div class='txt' style="width:100%;height:auto;">
-                <h4>图库系统</h4>
-                <p>系统支持试题的存储/检索/组卷</p>
-                <p>支持多种形式的试题及答案的管理</p>
-                <p>确保数据体系化的留存</p>
-                <p>数据加密与备份机制安全可靠</p>
+            <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_13.png')">
+                <div class='txt' style="width:100%;height:auto;">
+                    <h4>图库系统</h4>
+                    <p>系统支持试题的存储/检索/组卷</p>
+                    <p>支持多种形式的试题及答案的管理</p>
+                    <p>确保数据体系化的留存</p>
+                    <p>数据加密与备份机制安全可靠</p>
+                </div>
             </div>
-        </div>
         </td>
     </tr>
 
-    
+
 
     <tr>
         <td colspan="2">
-        <div class='zhezhao' style="width:480px;height:120px;background:url('/image/index_17.png')">
-            <div class='txt' style="width:100%;height:auto;">
-                <h4>测评与评价系统</h4>
-                <p>多层级，多权限管理，软件操作简单易用，支持远程在线操作</p>
-                <p>支持多种数据来源   灵活的数据发布方式   提供数据分析</p>
+            <div class='zhezhao' style="width:480px;height:120px;background:url('/image/index_17.png')">
+                <div class='txt' style="width:100%;height:auto;">
+                    <h4>测评与评价系统</h4>
+                    <p>多层级，多权限管理，软件操作简单易用，支持远程在线操作</p>
+                    <p>支持多种数据来源   灵活的数据发布方式   提供数据分析</p>
+                </div>
             </div>
-        </div>
         </td>
     </tr>
     <tr>

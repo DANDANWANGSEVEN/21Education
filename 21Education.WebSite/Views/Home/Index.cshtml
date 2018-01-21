@@ -5,6 +5,7 @@
 @model HomeIndexViewModel
 <title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
+
 <style>
     #carousel {
         margin-top: 10px;
@@ -12,7 +13,7 @@
         height: 380px;
         background: url('../../image/bg.png') 100% 100%;
     }
-
+    
     #newstable {
         width: 1000px;
         height: 720px;
@@ -55,7 +56,7 @@
     /*产品展示*/
     #producttable {
         width: 1000px;
-        height: 400px;
+        height: 380px;
         margin: auto;
     }
 
@@ -113,8 +114,63 @@
                 font-size: 16px;
             }
 </style>
+
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
+
+@*手风琴*@
+<script type="text/javascript">
+    $(function () {
+        $('.xinxi_solution_main ul li:eq(0)').addClass('on');
+        $('.xinxi_solution_main ul li:eq(1)').addClass('b2');
+        $('.xinxi_solution_main ul li:eq(2)').addClass('b3');
+        $('.xinxi_solution_main ul li:eq(3)').addClass('b4');
+        $('.xinxi_solution_main ul li:eq(4)').addClass('b5');
+        $('.xinxi_solution_main ul li:eq(5)').addClass('b6');
+        $('.xinxi_solution_main ul li:eq(6)').addClass('b7');
+        $('.xinxi_solution_main ul li:eq(7)').addClass('b8');
+        $('.xinxi_solution_main ul li:gt(8)').hide();
+        //当三级分类大于7个的是，成两排显示
+        $('.xinxi_solution_main ul li').each(function () {
+            var len = $(this).find('.right dl a').length;
+            if (len > 6) {
+                $(this).find('.right dl a').addClass('yichu');
+            }
+        });
+
+        //解决方案效果
+        $('.xinxi_solution_main ul li').each(function () {
+            var left_h = $(this).find('.left_top').height();
+            $(this).find('.left_top').css({
+                'top': '50%',
+                'margin-top': -left_h / 2
+            });
+
+            var dl_h = $(this).find('.right dl').height();
+            $(this).find('.right dl').css({
+                'margin-top': -dl_h / 2
+            });
+        });
+        $('.xinxi_solution_main ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        $('.xinxi_solution_main_mobile ul li:first-child').addClass('on');
+
+        $('.xinxi_solution_main_mobile ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+
+        $(".solu-category .solu-description").each(function () {
+            var maxwidth = 60;
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '...');
+            }
+        });
+
+    });
+</script>
+
 @*产品服务新闻*@
 <div id="newstable">
     <table id="newstable" border="1">
@@ -191,24 +247,172 @@
 
 @*主营业务*@
 <div id="business">
-    <table id="businesstable" border="1">
+    <table id="businesstable" border="0">
         <tr class="firsttr">
-            <td colspan="8">
+            <td>
                 <h3>主营业务</h3>
                 <span>MAIN BUSINESS</span>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                <div class="xinxi_solution_main">
+                    <div class="xinxi_solution_bg">
+                        <div class="main_mobile" >
+                            <ul style="padding-left:0px;">
+                                <li class="one on">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上阅卷</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="信息卡设计与印刷" target="_blank" href="#">
+                                                信息卡设计与印刷
+                                            </a>
+                                            <a title="数据扫描产品" target="_blank" href="#">
+                                                数据扫描产品
+                                            </a>
+                                            <a title="网上阅卷系统" target="_blank" href="#">
+                                                网上阅卷系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>无纸化智能考试</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="通用无纸化智能考试平台" target="_blank" href="#">
+                                                通用无纸化智能考试平台
+                                            </a>
+                                            <a title="大学英语四六级口语考试系统" target="_blank" href="#">
+                                                大学英语四六级口语考试系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上报名管理系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="网上报名系统" target="_blank" href="#">
+                                                网上报名系统
+                                            </a>
+                                            <a title="考务管理系统" target="_blank" href="#">
+                                                考务管理系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>图库系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="系统支持试题的存储/检索/组卷" target="_blank" href="#">
+                                                系统支持试题的存储/检索/组卷
+                                            </a>
+                                            <a title="支持多种形式的试题及答案的管理" target="_blank" href="#">
+                                                支持多种形式的试题及答案的管理
+                                            </a>
+                                            <a title="确保数据体系化的留存" target="_blank" href="#">
+                                                确保数据体系化的留存
+                                            </a>
+                                            <a title="数据加密与备份机制安全可靠" target="_blank" href="#">
+                                                数据加密与备份机制安全可靠
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>评测与评价系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="多层级、多权限管理" target="_blank" href="#">
+                                                多层级、多权限管理
+                                            </a>
+                                            <a title="软件操作简单易用" target="_blank" href="#">
+                                                软件操作简单易用
+                                            </a>
+                                            <a title="支持远程在线操作" target="_blank" href="#">
+                                                支持远程在线操作
+                                            </a>
+                                            <a title="支持多种数据来源" target="_blank" href="#">
+                                                支持多种数据来源
+                                            </a>
+                                            <a title="提供数据分析" target="_blank" href="#">
+                                                提供数据分析
+                                            </a>
+                                            <a title="灵活的数据发布方式" target="_blank" href="#">
+                                                灵活的数据发布方式
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>云服务中心</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="云平台服务" target="_blank" href="#">
+                                                云平台服务
+                                            </a>
+                                            <a title="云服务器租用服务" target="_blank" href="#">
+                                                云服务器租用服务
+                                            </a>
+                                            <a title="网络设备租用服务" target="_blank" href="#">
+                                                网络设备租用服务
+                                            </a>
+                                            <a title="数据备份/数据恢复服务" target="_blank" href="#">
+                                                数据备份/数据恢复服务
+                                            </a>
+                                            <a title="大数据加密存储服务" target="_blank" href="#">
+                                                大数据加密存储服务
+                                            </a>
+                                            <a title="数据安全防护" target="_blank" href="#">
+                                                数据安全防护
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>服务类</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="餐饮行业解决方案" target="_blank" href="#">
+                                                餐饮行业解决方案
+                                            </a>
+                                            <a title="会员解决方案" target="_blank" href="#">
+                                                会员解决方案
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
     </table>
+
 </div>
 
 @*产品展示*@
@@ -226,15 +430,15 @@
 
                 </div>
             </td>
-            <td rowspan="2">
+            <td>
                 <div style="margin:0px 20px;">
                     <h3>云产品服务中心</h3>
                     <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心</p>
                 </div>
             </td>
         </tr>
-        <tr>
-            <td></td>
+        <tr style="height:60px;">
+            <td colspan="2"></td>
         </tr>
     </table>
 </div>

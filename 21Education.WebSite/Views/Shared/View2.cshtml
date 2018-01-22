@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "View2";
 }
-
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -114,151 +114,162 @@
         }
     </style>
 </head>
-<body style="background-color:#efefef;">
+<body>
+
+    <div id="top" style="width:100%;height:50px;background-color:#000;color:#fff;">
+        <p>北京世纪互联软件开发有限公司后台管理</p>
+    </div>
     <div>
-        <div class="jq22-container" style="width:22%;float:left;background-color:red;">
-            <div class="demo">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                首页
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
+        <div id="left" style="float:left;width:30%;background-color:lightcoral;">
+            <div>
+                <div class="jq22-container" style="width:22%;float:left;">
+                    <div class="demo">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        首页
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        新闻中心
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        成功案例
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                        产品服务
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                        关于我们
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                        联系我们
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                    <p><a href="//">轮播图</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                 </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                新闻中心
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                成功案例
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                产品服务
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                关于我们
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                联系我们
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                            <p><a href="//">轮播图</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+
+            </div>
         </div>
-        <div style="float:right;background-color:green;width:78%;">
+        <div id="right" style="float:right;width:70%;background-color:green;">
             @RenderBody()
         </div>
-        
     </div>
 
-    <script src="~/Content/jquery-1.10.2.min.js"></script>
+
+
+    
+
     <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 </body>
 </html>

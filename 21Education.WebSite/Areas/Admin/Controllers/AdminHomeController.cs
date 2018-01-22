@@ -15,7 +15,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Login()
+        public ActionResult Home()
         {
             return View();
         }

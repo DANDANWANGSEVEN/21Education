@@ -16,7 +16,7 @@
 
         .zhezhao .txt {
             width: inherit;
-            height: 30px;
+            /*height: 30px;*/
             /*background: url(../../image/1px.png) repeat;*/
             background-color: black;
             opacity: 0.6;
@@ -39,6 +39,7 @@
             .zhezhao .txt p {
                 font-size: 14px;
                 text-align: center;
+                line-height:40px;
             }
 </style>
 <style>
@@ -68,6 +69,7 @@
         margin: auto;
         margin-top: 20px;
         background-color: #efefef;
+        /*text-align:center;*/
     }
 
     .systemimg {
@@ -82,9 +84,11 @@
         font-size: 18px;
         color: #0057be;
     }
-
+    #productsystem ul{
+        margin-left:40px;
+    }
     #productsystem ul li span {
-        line-height: 30px;
+        line-height: 40px;
     }
     /*产品展示*/
     #productshow {
@@ -105,23 +109,41 @@
     #FrendLink {
         width: 1000px;
         margin: auto;
+        margin-top:40px;
+        background:url('/image/index_34.jpg');
     }
+    /*#FrendLink tr td{
+        width:30%;
+    }*/
+    #FrendLink h3{
+        color:#0057be;
+    }
+    #FrendLink span{
+        font-size:14px;
+    }
+    #FrendLink ul{
+        width:150px;
+        height:230px;
+        list-style:none;
+        margin-top:40px;
+        margin-left:30%;
+        /*background-image:url('/image/index_34.jpg')*/
+    }
+    #FrendLink ul li a{
+        text-decoration:none;
+        color:#666666;
+        line-height:36px;
+        width:200px;
+    }
+    #FrendLink ul li:hover{
+        list-style-image:url('/image/a_bg.png');
+    }
+
+     #FrendLink ul li a:hover{
+         color:#0057be;
+     }
 </style>
-<script>
-    $(function () {
-        $(".zhezhao").on({
-            mouseover: function () {
-                $(this).find(".txt").stop().animate({ height: $(this)[0].clientHeight }, 200);
-                var paddtop = $(this).attr("top") ? $(this).attr("top") : "60px";
-                $(this).find(".txt h3").stop().animate({ paddingTop: paddtop }, 200);
-            },
-            mouseout: function () {
-                $(this).find(".txt").stop().animate({ height: "45px" }, 200);
-                $(this).find(".txt h3").stop().animate({ paddingTop: "0px" }, 200);
-            }
-        })
-    })
-</script>
+
 
 @*产品服务*@
 <table id="productinfo" border="1">
@@ -262,7 +284,64 @@
         </td>
     </tr>
 </table>
-
+<script>
+    $(function () {
+        $(".zhezhao").on({
+            mouseover: function () {
+                $(this).find(".txt").stop().animate({ height: $(this)[0].clientHeight }, 200);
+                var paddtop = $(this).attr("top") ? $(this).attr("top") : "60px";
+                $(this).find(".txt h3").stop().animate({ paddingTop: paddtop }, 200);
+            },
+            mouseout: function () {
+                $(this).find(".txt").stop().animate({ height: "45px" }, 200);
+                $(this).find(".txt h3").stop().animate({ paddingTop: "0px" }, 200);
+            }
+        })
+    })
+</script>
+@*产品系统*@
+<table id="productsystem" border="1">
+    <tr style="text-align:center;">
+        <td><img class="systemimg" src="~/image/serve_03.png" /></td>
+        <td><img class="systemimg" src="~/image/serve_05.png" /></td>
+        <td><img class="systemimg" src="~/image/serve_08.png" /></td>
+    </tr>
+    <tr style="text-align:center;">
+        <td><b>测评与评价系统</b></td>
+        <td><b>云服务中心</b></td>
+        <td><b>数据处理中心</b></td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li><span>多层级/多权限管理</span></li>
+                <li><span>软件操作简单易用</span></li>
+                <li><span>支持远程张在线操作</span></li>
+                <li><span>支持多种数据来源</span></li>
+                <li><span>灵活的数据发布方式</span></li>
+                <li><span>提供数据分析</span></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><span>云平台服务</span></li>
+                <li><span>与服务器租用服务</span></li>
+                <li><span>网络设备租用服务</span></li>
+                <li><span>数据备份/数据恢复服务</span></li>
+                <li><span>大数据加密存储服务</span></li>
+                <li><span>数据安全防护</span></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><span>数据处理服务</span></li>
+                <li><span>卷库管理</span></li>
+                <li><span>保密室管理</span></li>
+                <li><span>7*24小时无死角监控</span></li>
+            </ul>
+        </td>
+    </tr>
+</table>
 @*品牌优势*@
 <table id="productadvantage">
     <tr style="text-align:center;">
@@ -343,85 +422,57 @@
                 </div>
             </div>
         </td>
-
     </tr>
 </table>
-
-@*特色案例和友情链接*@
-<table id="FrendLink" border="1">
-    <tr>
-        <td>特色案例</td>
-        <td>友情链接</td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li>数据扫描产品</li>
-                <li>数据扫描产品</li>
-                <li>数据扫描产品</li>
-                <li>数据扫描产品</li>
-                <li>数据扫描产品</li>
-                <li>数据扫描产品</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>北京考试中心</li>
-                <li>北京考试中心</li>
-                <li>北京考试中心</li>
-                <li>北京考试中心</li>
-                <li>北京考试中心</li>
-                <li>北京考试中心</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-@*产品系统*@
-<table id="productsystem" border="1">
-    <tr style="text-align:center;">
-        <td><img class="systemimg" src="~/image/serve_03.png" /></td>
-        <td><img class="systemimg" src="~/image/serve_05.png" /></td>
-        <td><img class="systemimg" src="~/image/serve_08.png" /></td>
-    </tr>
-    <tr style="text-align:center;">
-        <td><b>测评与评价系统</b></td>
-        <td><b>云服务中心</b></td>
-        <td><b>数据处理中心</b></td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li><span>多层级/多权限管理</span></li>
-                <li><span>软件操作简单易用</span></li>
-                <li><span>支持远程张在线操作</span></li>
-                <li><span>支持多种数据来源</span></li>
-                <li><span>灵活的数据发布方式</span></li>
-                <li><span>提供数据分析</span></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><span>云平台服务</span></li>
-                <li><span>与服务器租用服务</span></li>
-                <li><span>网络设备租用服务</span></li>
-                <li><span>数据备份/数据恢复服务</span></li>
-                <li><span>大数据加密存储服务</span></li>
-                <li><span>数据安全防护</span></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><span>数据处理服务</span></li>
-                <li><span>卷库管理</span></li>
-                <li><span>保密室管理</span></li>
-                <li><span>7*24小时无死角监控</span></li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-
 <script>
     FeiChao.Organ();
 </script>
+@*特色案例和友情链接*@
+<table id="FrendLink" border="1">
+    <tr style="text-align:center;">
+        <td>
+            <div style="position:relative">
+                <div style="height:120px;background:url('/image/index_32.png') 100% 100%"></div>
+                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
+                    <span><em style="font-size:16px;color:#0b6ae0;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                </div>
+            </div>
+        </td>
+        <td style="width:120px;"></td>
+        <td>
+            <div style="position:relative">
+                <div style="height:120px;background:url('/image/index_17.png') 100% 100%"></div>
+                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
+                    <span style="color:#0b6ae0;font-size:20px;line-height:70px;">友情链接</span>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    <tr style="text-align:center;">
+        <td>
+            <ul id="charactsristiccase" >
+                <li><a href="//">数据扫描产品</a> </li>
+                <li><a href="//">数据扫描产品</a> </li>
+                <li><a href="//">数据扫描产品</a> </li>
+                <li><a href="//">数据扫描产品</a> </li>
+                <li><a href="//">数据扫描产品</a> </li>
+                <li><a href="//">数据扫描产品</a> </li>
+            </ul>
+        </td>
+        <td style="width:120px;"></td>
+        <td>
+            <ul id="friendlylink">
+                <li><a href="//">北京考试中心</a> </li>
+                <li><a href="//">北京考试中心</a></li>
+                <li><a href="//">北京考试中心</a></li>
+                <li><a href="//">北京考试中心</a></li>
+                <li><a href="//">北京考试中心</a></li>
+                <li><a href="//">北京考试中心</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
 

@@ -6,19 +6,25 @@
         width:1000px;
         margin:auto;
     }
-    .title{
-        width:1000px;
-        margin:auto;
-        height:50px;
-        border-bottom:1px solid #666666;
-        color:#0057be;
-    }
+  .table h3{
+      color:#0057be;
+  }
+  .table span
+  {
+      font-size:14px;
+  }
+ /*联系我们*/
+
+  #companyinfo p{
+      line-height:40px;
+  }
+    
     #cooperation{
         text-align:center;
     }
 
      #cooperation dl img{
-         width:330px;height:130px;
+         width:320px;height:130px;
      }
      #cooperation dl dd{
          height:130px;
@@ -30,7 +36,9 @@
         text-decoration:none;width:30px;height:40px;border:1px solid #0057be;border-radius:20px;color:#0057be; padding:0 20px;
      }
 
-
-
+     /*招聘信息*/
+     #joinproduce h3{
+         color:#0057be;
+     }
 
 

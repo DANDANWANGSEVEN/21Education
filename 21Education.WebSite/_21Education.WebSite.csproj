@@ -146,7 +146,6 @@
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Content\js\js.js" />
@@ -228,7 +227,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Areas\Admin\Views\Web.config" />
-    <Content Include="Areas\Admin\Views\AdminHome\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Home.cshtml" />
     <Content Include="image\about_20four.png" />
     <Content Include="image\about_20one.png" />
     <Content Include="image\about_20three.png" />

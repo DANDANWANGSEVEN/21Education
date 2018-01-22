@@ -5,171 +5,10 @@
 @model HomeIndexViewModel
 <title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
-
-<style>
-    #carousel {
-        margin-top: 10px;
-        width: 100%;
-        height: 380px;
-        background: url('../../image/bg.png') 100% 100%;
-    }
-    
-    #newstable {
-        width: 1000px;
-        height: 720px;
-        margin: auto;
-    }
-
-    #businesstable {
-        width: 1000px;
-        height: 400px;
-        margin: auto;
-    }
-
-    #successtable {
-        width: 1000px;
-        height: 600px;
-        margin: auto;
-    }
-
-    .firsttr {
-        height: 100px;
-        text-align: center;
-    }
-
-        .firsttr h3 {
-            color: #0057be;
-        }
-    /*产品服务新闻*/
-    #bottom a {
-        text-decoration: none;
-        color: #666666;
-        padding: 10px;
-        font-size: 20px;
-        line-height: 52px;
-    }
-
-        #bottom a:hover {
-            color: #0057be;
-        }
-
-    /*产品展示*/
-    #producttable {
-        width: 1000px;
-        height: 380px;
-        margin: auto;
-    }
-
-    #productimage {
-        width: 600px;
-        height: 180px;
-    }
-    /*成功案例*/
-    .caseinfo {
-        width: 240px;
-        height: 150px;
-        text-align: center;
-        border-bottom: 2px solid #0057be;
-    }
-
-
-    /*品牌优势*/
-    #brandtable {
-        width: 1000px;
-        height: 300px;
-        margin: auto;
-        color: white;
-    }
-
-    #advantage dl {
-        float: left;
-        width: 240px;
-        overflow: hidden;
-    }
-
-        #advantage dl dt img {
-            width: 100px;
-            height: 80px;
-            margin: auto;
-        }
-
-        #advantage dl dt {
-            width: 100%;
-            text-align: center;
-            line-height: 30px;
-            color: #FFF;
-            font-size: 16px;
-        }
-
-        #advantage dl dd {
-            margin: 0;
-            text-align: center;
-            color: #FFF;
-            line-height: 20px;
-            font-size: 10px;
-        }
-
-            #advantage dl dd p {
-                font-weight: bold;
-                font-size: 16px;
-            }
-</style>
+<link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
-
-@*手风琴*@
-<script type="text/javascript">
-    $(function () {
-        $('.xinxi_solution_main ul li:eq(0)').addClass('on');
-        $('.xinxi_solution_main ul li:eq(1)').addClass('b2');
-        $('.xinxi_solution_main ul li:eq(2)').addClass('b3');
-        $('.xinxi_solution_main ul li:eq(3)').addClass('b4');
-        $('.xinxi_solution_main ul li:eq(4)').addClass('b5');
-        $('.xinxi_solution_main ul li:eq(5)').addClass('b6');
-        $('.xinxi_solution_main ul li:eq(6)').addClass('b7');
-        $('.xinxi_solution_main ul li:eq(7)').addClass('b8');
-        $('.xinxi_solution_main ul li:gt(8)').hide();
-        //当三级分类大于7个的是，成两排显示
-        $('.xinxi_solution_main ul li').each(function () {
-            var len = $(this).find('.right dl a').length;
-            if (len > 6) {
-                $(this).find('.right dl a').addClass('yichu');
-            }
-        });
-
-        //解决方案效果
-        $('.xinxi_solution_main ul li').each(function () {
-            var left_h = $(this).find('.left_top').height();
-            $(this).find('.left_top').css({
-                'top': '50%',
-                'margin-top': -left_h / 2
-            });
-
-            var dl_h = $(this).find('.right dl').height();
-            $(this).find('.right dl').css({
-                'margin-top': -dl_h / 2
-            });
-        });
-        $('.xinxi_solution_main ul li').click(function () {
-            $(this).addClass('on').siblings().removeClass('on');
-        });
-        $('.xinxi_solution_main_mobile ul li:first-child').addClass('on');
-
-        $('.xinxi_solution_main_mobile ul li').click(function () {
-            $(this).addClass('on').siblings().removeClass('on');
-        });
-
-        $(".solu-category .solu-description").each(function () {
-            var maxwidth = 60;
-            if ($(this).text().length > maxwidth) {
-                $(this).text($(this).text().substring(0, maxwidth));
-                $(this).html($(this).html() + '...');
-            }
-        });
-
-    });
-</script>
 
 @*产品服务新闻*@
 <div id="newstable">
@@ -183,40 +22,39 @@
         </tr>
         <tr>
             <td style="width:700px;height:500px;">
-
-                <table style="width:650px;height:450px;">
+                <table style="width:650px;height:600px;">
                     <tr>
                         <td colspan="2">
                             <div style="width:670px;height:200px;background:url('/image/index_30.png') 100% 100%"></div>
                         </td>
                     </tr>
                     <tr>
-                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
+                        <td><img src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin-left:8px;">
-                                <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                            <div class="newsdiv">
+                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
+                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
+                        <td><img src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin-left:8px;">
-                                <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
+                            <div class="newsdiv">
+                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
+                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span>2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
+                        <td><img src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin-left:8px;">
-                                <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
+                            <div class="newsdiv">
+                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
+                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span>2018.01.01</span>
                             </div>
                         </td>
                     </tr>
@@ -225,11 +63,14 @@
             </td>
             <td style="width:300px;height:600px;">
 
-                <div style="width:300px;height:600px;background:url('/image/index_34.jpg')">
-                    <div id="top" style="width:280px;height:180px;line-height:46px;padding:0px 10px;">
-                        <span><em style="color:#0057be;font-size:20px;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                <div style="width:300px;height:600px;background:url('/image/index_34.jpg');position:relative">
+                    <div id="top" style="background:url('/image/index_32.png');">
+                        
                     </div>
-                    <div id="bottom" style="width:300px;height:400px;">
+                    <div id="topdesc">
+                        <span><em>北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                    </div>
+                    <div id="bottom">
                         <ul>
                             <li><p><a href="#">数据扫描产品</a></p></li>
                             <li><p><a href="#">网上阅卷服务</a></p> </li>
@@ -412,7 +253,58 @@
             </td>
         </tr>
     </table>
+    @*手风琴*@
+    <script type="text/javascript">
+    $(function () {
+        $('.xinxi_solution_main ul li:eq(0)').addClass('on');
+        $('.xinxi_solution_main ul li:eq(1)').addClass('b2');
+        $('.xinxi_solution_main ul li:eq(2)').addClass('b3');
+        $('.xinxi_solution_main ul li:eq(3)').addClass('b4');
+        $('.xinxi_solution_main ul li:eq(4)').addClass('b5');
+        $('.xinxi_solution_main ul li:eq(5)').addClass('b6');
+        $('.xinxi_solution_main ul li:eq(6)').addClass('b7');
+        $('.xinxi_solution_main ul li:eq(7)').addClass('b8');
+        $('.xinxi_solution_main ul li:gt(8)').hide();
+        //当三级分类大于7个的是，成两排显示
+        $('.xinxi_solution_main ul li').each(function () {
+            var len = $(this).find('.right dl a').length;
+            if (len > 6) {
+                $(this).find('.right dl a').addClass('yichu');
+            }
+        });
 
+        //解决方案效果
+        $('.xinxi_solution_main ul li').each(function () {
+            var left_h = $(this).find('.left_top').height();
+            $(this).find('.left_top').css({
+                'top': '50%',
+                'margin-top': -left_h / 2
+            });
+
+            var dl_h = $(this).find('.right dl').height();
+            $(this).find('.right dl').css({
+                'margin-top': -dl_h / 2
+            });
+        });
+        $('.xinxi_solution_main ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        $('.xinxi_solution_main_mobile ul li:first-child').addClass('on');
+
+        $('.xinxi_solution_main_mobile ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+
+        $(".solu-category .solu-description").each(function () {
+            var maxwidth = 60;
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '...');
+            }
+        });
+
+    });
+    </script>
 </div>
 
 @*产品展示*@
@@ -426,14 +318,14 @@
         </tr>
         <tr>
             <td>
-                <div id="productimage" style="background-image: url('../../image/index_21.png');">
+                <div id="productimage" style="width:600px;height:170px; background: url('../../image/index_21.png') 100% 100% ;">
 
                 </div>
             </td>
             <td>
                 <div style="margin:0px 20px;">
                     <h3>云产品服务中心</h3>
-                    <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心</p>
+                    <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品</p>
                 </div>
             </td>
         </tr>
@@ -548,6 +440,7 @@
         </tr>
     </table>
 </div>
+
 @*品牌优势*@
 <div id="brand" style="width:1000px;height:360px;margin:auto;background:url('/image/index_26.jpg')">
     <table id="brandtable" border="1">

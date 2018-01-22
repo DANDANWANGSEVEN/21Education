@@ -40,10 +40,13 @@
             font-size:14px;
             margin-top:15px;
         }
+      
     #foot td a{
         text-align:center;color:white;font-size:14px;
     }
-        
+        #footnav{
+            margin-top:20px;
+        }
         #footnav td{
             padding:18px 6px;
             color:white;
@@ -53,4 +56,8 @@
         }
         #footnav td a:hover{
             border-bottom:2px solid white;
+        }
+        #foot tr td span{
+            font-size:14px;
+            line-height:30px;
         }

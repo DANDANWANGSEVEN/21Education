@@ -36,7 +36,7 @@ namespace _21Education.WebSite.Controllers
                 newsList.Add(new MODEL.News
                 {
                     NewsId = i,
-                    Title = "新闻" + i,
+                    Title = "新闻标题" + i,
                     Content = "新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容",
                     ImgPath = "/image/about_14.jpg",
                     PubDate = DateTime.Now,

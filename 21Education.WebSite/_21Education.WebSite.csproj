@@ -142,9 +142,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+
+    <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
+    <Content Include="Content\js\jquery-1.10.2.min.js" />
+    <Content Include="Content\js\js.js" />
+    <Content Include="Content\js\Carousel.js" />
+    <Content Include="Areas\Login\css\styles.css" />
+    <Content Include="Areas\Login\img\bg.jpg" />
+    <Content Include="ceshi\css\unleash.1.2.css" />
+    <Content Include="ceshi\js\jquery-animate-css-rotate-scale.js" />
+    <Content Include="ceshi\js\jquery-css-transform.js" />
+    <Content Include="ceshi\js\jquery.easing.1.3.js" />
+    <Content Include="ceshi\js\jquery.min.js" />
+    <Content Include="ceshi\js\jquery.unleash.min.1.2.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -199,17 +213,30 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\Carousel-index.css" />
     <Content Include="CSS\AboutUsStyle.css" />
     <Content Include="CSS\ContactUsStyle.css" />
     <Content Include="CSS\ContentStyle.css" />
+    <Content Include="CSS\css.css" />
+    <Content Include="CSS\font-awesome.min.css" />
+    <Content Include="CSS\IndexStyle.css" />
     <Content Include="CSS\ListStyle.css" />
+    <Content Include="CSS\MainBussinessstyle.css" />
     <Content Include="CSS\style.css" />
+    <Content Include="CSS\style_old.css" />
     <Content Include="CSS\View1Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\AdminHome\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="image\about_20four.png" />
+    <Content Include="image\about_20one.png" />
+    <Content Include="image\about_20three.png" />
+    <Content Include="image\about_20two.png" />
+    <Content Include="image\About_Honorbg.jpg" />
+    <Content Include="image\About_HonorPic.png" />
+    <Content Include="image\arrows.png" />
+    <Content Include="image\button1.png" />
     <Content Include="image\culture_four.png" />
     <Content Include="image\culture_one.png" />
     <Content Include="image\culture_three.png" />
@@ -222,6 +249,8 @@
     <Content Include="image\design\网站首页.png" />
     <Content Include="image\design\联系我们.png" />
     <Content Include="image\images.lnk" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\21EducationWeb.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="image\about_01.jpg" />
     <Content Include="image\about_06.jpg" />
@@ -262,6 +291,10 @@
     <Content Include="image\honor3.jpg" />
     <Content Include="image\honor4.jpg" />
     <Content Include="image\icon.png" />
+    <Content Include="image\indexfour.png" />
+    <Content Include="image\indexone.png" />
+    <Content Include="image\indexthree.png" />
+    <Content Include="image\indextwo.png" />
     <Content Include="image\index_03.png" />
     <Content Include="image\index_07.png" />
     <Content Include="image\index_09.png" />
@@ -305,7 +338,10 @@
     <Content Include="image\serve_23.png" />
     <Content Include="image\serve_26.png" />
     <Content Include="image\serve_28.jpg" />
-    <Content Include="image\successfulimg.png" />
+    <Content Include="image\Service_AdvantageFour.png" />
+    <Content Include="image\service_AdvantageOne.png" />
+    <Content Include="image\Service_AdvantageThree.png" />
+    <Content Include="image\Service_AdvantageTwo.png" />
     <Content Include="image\success_03.jpg" />
     <Content Include="image\success_07.jpg" />
     <Content Include="image\success_11.jpg" />
@@ -315,18 +351,15 @@
     <Content Include="image\success_25.jpg" />
     <Content Include="image\success_29.jpg" />
     <Content Include="image\success_32.jpg" />
-    <Content Include="image\Success_eight.png" />
-    <Content Include="image\Success_five.png" />
-    <Content Include="image\Success_four.png" />
-    <Content Include="image\success_one.png" />
-    <Content Include="image\Success_seven.png" />
-    <Content Include="image\Success_six.png" />
-    <Content Include="image\Success_three.png" />
-    <Content Include="image\Success_two.png" />
     <Content Include="image\tab_bg.jpg" />
     <Content Include="image\tk_system.jpg" />
     <Content Include="image\znks.jpg" />
     <Content Include="image\zx_dd.png" />
+    <Content Include="LunBo\css\htmleaf-demo.css" />
+    <Content Include="LunBo\css\normalize.css" />
+    <Content Include="LunBo\css\slider.css" />
+    <Content Include="LunBo\js\jquery-1.11.0.min.js" />
+    <Content Include="LunBo\js\slider.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -358,19 +391,24 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Shared\View1.cshtml" />
-    <Content Include="Views\About\AboutUs.cshtml" />
     <Content Include="Views\PartView\ListPage.cshtml" />
     <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\Partial.Pagination.cshtml" />
     <Content Include="Views\Success\SuccessList.cshtml" />
-    <Content Include="Views\News\NewsContent.cshtml" />
-    <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\Product\ProductService.cshtml" />
+    <Content Include="Views\Contact\ContactUs.cshtml" />
+    <Content Include="Views\About\AboutUs.cshtml" />
+    <Content Include="Views\News\NewsContent.cshtml" />
+    <Content Include="Views\Contact\JoinUs.cshtml" />
+    <Content Include="Views\PartView\Partial.Carousel.cshtml" />
+    <Content Include="Views\Shared\View2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="fonts\" />
+    <Folder Include="LunBo\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

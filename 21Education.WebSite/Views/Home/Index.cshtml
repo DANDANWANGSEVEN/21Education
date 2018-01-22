@@ -2,171 +2,252 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-
+@model HomeIndexViewModel
+<title>首页</title>
+<link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 
 <style>
-   
-   /*轮播图*/
     #carousel {
-        margin-top:10px;
+        margin-top: 10px;
         width: 100%;
-        height:300px;
-        background: url('../../image/bg.png') center no-repeat;
+        height: 380px;
+        background: url('../../image/bg.png') 100% 100%;
+    }
+    
+    #newstable {
+        width: 1000px;
+        height: 720px;
+        margin: auto;
     }
 
-    #lunbo{
-        width:1000px;
-        height:300px;
-        margin:auto;
-        padding:0;
-        position: relative;
+    #businesstable {
+        width: 1000px;
+        height: 400px;
+        margin: auto;
     }
-    #lunbo li{
-        list-style:none;
-        position: absolute;
-        top:0;
-	    left:0;
+
+    #successtable {
+        width: 1000px;
+        height: 600px;
+        margin: auto;
     }
-    #newstable,#businesstable,#successtable{
-         width:1000px;
-         height:600px;
-         margin:auto; 
-    }
-  .firsttr{
-      height:100px;
-      text-align:center;
-  }
-  /*产品服务新闻*/
 
-
-  /*产品展示*/
-  #producttable{
-      width:1000px;
-      height:400px;
-      margin:auto;
-  }
-  #productimage{
-      width:600px;
-      height:220px;
-  }
-  /*成功案例*/
-  .caseinfo{
-      width:240px;
-      height:150px;
-      text-align:center;
-      border-bottom:2px solid #0057be;
-  }
-
-
-  /*品牌优势*/
-  #brandtable{
-       width:1000px;
-       height:400px;
-       margin:auto; 
-       color:white;
-  }
-  #advantage dl {
-	float: left;
-	width: 240px;
-	overflow: hidden;
-}
-#advantage dl dt {
-	width: 100%;
-	text-align: center;
-	line-height: 48px;
-	color: #FFF;
-	font-size: 18px;
-}
-    #advantage dl dd {
+    .firsttr {
+        height: 100px;
         text-align: center;
-        color: #FFF;
-        line-height: 20px;
-        font-size: 12px;
+    }
+
+        .firsttr h3 {
+            color: #0057be;
+        }
+    /*产品服务新闻*/
+    #bottom a {
+        text-decoration: none;
+        color: #666666;
+        padding: 10px;
+        font-size: 20px;
+        line-height: 52px;
+    }
+
+        #bottom a:hover {
+            color: #0057be;
+        }
+
+    /*产品展示*/
+    #producttable {
+        width: 1000px;
+        height: 380px;
+        margin: auto;
+    }
+
+    #productimage {
+        width: 600px;
+        height: 180px;
+    }
+    /*成功案例*/
+    .caseinfo {
+        width: 240px;
+        height: 150px;
+        text-align: center;
+        border-bottom: 2px solid #0057be;
     }
 
 
+    /*品牌优势*/
+    #brandtable {
+        width: 1000px;
+        height: 300px;
+        margin: auto;
+        color: white;
+    }
 
+    #advantage dl {
+        float: left;
+        width: 240px;
+        overflow: hidden;
+    }
+
+        #advantage dl dt img {
+            width: 100px;
+            height: 80px;
+            margin: auto;
+        }
+
+        #advantage dl dt {
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        #advantage dl dd {
+            margin: 0;
+            text-align: center;
+            color: #FFF;
+            line-height: 20px;
+            font-size: 10px;
+        }
+
+            #advantage dl dd p {
+                font-weight: bold;
+                font-size: 16px;
+            }
 </style>
 
 @*轮播图*@
-<div id="carousel">
-       <ul id="lunbo">
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban1.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban2.png" /></li>
-           <li><img style="width:1000px;height:300px;" src="~/image/index_ban3.png" /></li>
-       </ul>
-</div>
+@Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
+
+@*手风琴*@
+<script type="text/javascript">
+    $(function () {
+        $('.xinxi_solution_main ul li:eq(0)').addClass('on');
+        $('.xinxi_solution_main ul li:eq(1)').addClass('b2');
+        $('.xinxi_solution_main ul li:eq(2)').addClass('b3');
+        $('.xinxi_solution_main ul li:eq(3)').addClass('b4');
+        $('.xinxi_solution_main ul li:eq(4)').addClass('b5');
+        $('.xinxi_solution_main ul li:eq(5)').addClass('b6');
+        $('.xinxi_solution_main ul li:eq(6)').addClass('b7');
+        $('.xinxi_solution_main ul li:eq(7)').addClass('b8');
+        $('.xinxi_solution_main ul li:gt(8)').hide();
+        //当三级分类大于7个的是，成两排显示
+        $('.xinxi_solution_main ul li').each(function () {
+            var len = $(this).find('.right dl a').length;
+            if (len > 6) {
+                $(this).find('.right dl a').addClass('yichu');
+            }
+        });
+
+        //解决方案效果
+        $('.xinxi_solution_main ul li').each(function () {
+            var left_h = $(this).find('.left_top').height();
+            $(this).find('.left_top').css({
+                'top': '50%',
+                'margin-top': -left_h / 2
+            });
+
+            var dl_h = $(this).find('.right dl').height();
+            $(this).find('.right dl').css({
+                'margin-top': -dl_h / 2
+            });
+        });
+        $('.xinxi_solution_main ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        $('.xinxi_solution_main_mobile ul li:first-child').addClass('on');
+
+        $('.xinxi_solution_main_mobile ul li').click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+
+        $(".solu-category .solu-description").each(function () {
+            var maxwidth = 60;
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '...');
+            }
+        });
+
+    });
+</script>
 
 @*产品服务新闻*@
-<div id="news">
+<div id="newstable">
     <table id="newstable" border="1">
         <tr class="firsttr">
             <td colspan="2">
-                <h3>产品服务新闻</h3> 
+                <h3>产品服务新闻</h3>
                 <span>PRODUCT SERVICE NEWS</span>
-                
+
             </td>
         </tr>
         <tr>
-            <td style="width:700px;">
-                <table>
+            <td style="width:700px;height:500px;">
+
+                <table style="width:650px;height:450px;">
                     <tr>
-                        <td colspan="2"><img style="width:700px;height:auto;" src="~/image/index_30.png" /></td>
+                        <td colspan="2">
+                            <div style="width:670px;height:200px;background:url('/image/index_30.png') 100% 100%"></div>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:220px;"><img src="~/image/index_37.png" /></td>
+                        <td><img style="width:220px;height:125px;" src="~/image/index_37.png" /></td>
                         <td>
-                            <div style="margin:0px 10px;">
+                            <div style="margin-left:8px;">
                                 <p style="margin-top:0px;">2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p style="font-size:14px;color:#666666;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
-                                <span style="font-size:14px;float:right;color:#666666;">2018.01.01</span>
+                                <p style="font-size:12px;color:#666666;line-height:22px;">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
                     </tr>
                 </table>
+
             </td>
-            <td style="width:300px;">
-                <div class="new_rt">
-                 
-                    <span><em>北京世纪</em>互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
-                    <p>
-                        <a href="#" target="_blank">数据扫描产品</a>
-                        <a href="#" target="_blank">网上阅卷服务</a>
-                        <a href="#" target="_blank">软件开发服务</a>
-                        <a href="#" target="_blank">软件产品</a>
-                        <a href="#" target="_blank">答题卡设计与印刷</a>
-                        <a href="#" target="_blank">数据中心托管服务</a>
-                    </p>
+            <td style="width:300px;height:600px;">
+
+                <div style="width:300px;height:600px;background:url('/image/index_34.jpg')">
+                    <div id="top" style="width:280px;height:180px;line-height:46px;padding:0px 10px;">
+                        <span><em style="color:#0057be;font-size:20px;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
+                    </div>
+                    <div id="bottom" style="width:300px;height:400px;">
+                        <ul>
+                            <li><p><a href="#">数据扫描产品</a></p></li>
+                            <li><p><a href="#">网上阅卷服务</a></p> </li>
+                            <li><p><a href="#">软件开发服务</a></p></li>
+                            <li><p><a href="#">软件产品</a></p></li>
+                            <li><p><a href="#">答题卡设计与印刷</a></p></li>
+                            <li><p><a href="#">数据中心托管服务</a></p></li>
+                        </ul>
+                    </div>
                 </div>
             </td>
         </tr>
     </table>
-
 </div>
 
 @*主营业务*@
 <div id="business">
-    <table id="businesstable">
+    <table id="businesstable" border="0">
         <tr class="firsttr">
             <td>
                 <h3>主营业务</h3>
@@ -175,15 +256,168 @@
         </tr>
         <tr>
             <td>
-              
+                <div class="xinxi_solution_main">
+                    <div class="xinxi_solution_bg">
+                        <div class="main_mobile" >
+                            <ul style="padding-left:0px;">
+                                <li class="one on">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上阅卷</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="信息卡设计与印刷" target="_blank" href="#">
+                                                信息卡设计与印刷
+                                            </a>
+                                            <a title="数据扫描产品" target="_blank" href="#">
+                                                数据扫描产品
+                                            </a>
+                                            <a title="网上阅卷系统" target="_blank" href="#">
+                                                网上阅卷系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>无纸化智能考试</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl style="margin-top: -120px;">
+                                            <a title="通用无纸化智能考试平台" target="_blank" href="#">
+                                                通用无纸化智能考试平台
+                                            </a>
+                                            <a title="大学英语四六级口语考试系统" target="_blank" href="#">
+                                                大学英语四六级口语考试系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>网上报名管理系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="网上报名系统" target="_blank" href="#">
+                                                网上报名系统
+                                            </a>
+                                            <a title="考务管理系统" target="_blank" href="#">
+                                                考务管理系统
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>图库系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="系统支持试题的存储/检索/组卷" target="_blank" href="#">
+                                                系统支持试题的存储/检索/组卷
+                                            </a>
+                                            <a title="支持多种形式的试题及答案的管理" target="_blank" href="#">
+                                                支持多种形式的试题及答案的管理
+                                            </a>
+                                            <a title="确保数据体系化的留存" target="_blank" href="#">
+                                                确保数据体系化的留存
+                                            </a>
+                                            <a title="数据加密与备份机制安全可靠" target="_blank" href="#">
+                                                数据加密与备份机制安全可靠
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>评测与评价系统</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="多层级、多权限管理" target="_blank" href="#">
+                                                多层级、多权限管理
+                                            </a>
+                                            <a title="软件操作简单易用" target="_blank" href="#">
+                                                软件操作简单易用
+                                            </a>
+                                            <a title="支持远程在线操作" target="_blank" href="#">
+                                                支持远程在线操作
+                                            </a>
+                                            <a title="支持多种数据来源" target="_blank" href="#">
+                                                支持多种数据来源
+                                            </a>
+                                            <a title="提供数据分析" target="_blank" href="#">
+                                                提供数据分析
+                                            </a>
+                                            <a title="灵活的数据发布方式" target="_blank" href="#">
+                                                灵活的数据发布方式
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>云服务中心</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="云平台服务" target="_blank" href="#">
+                                                云平台服务
+                                            </a>
+                                            <a title="云服务器租用服务" target="_blank" href="#">
+                                                云服务器租用服务
+                                            </a>
+                                            <a title="网络设备租用服务" target="_blank" href="#">
+                                                网络设备租用服务
+                                            </a>
+                                            <a title="数据备份/数据恢复服务" target="_blank" href="#">
+                                                数据备份/数据恢复服务
+                                            </a>
+                                            <a title="大数据加密存储服务" target="_blank" href="#">
+                                                大数据加密存储服务
+                                            </a>
+                                            <a title="数据安全防护" target="_blank" href="#">
+                                                数据安全防护
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li class="one">
+                                    <div class="left"></div>
+                                    <div class="left_top">
+                                        <i>服务类</i><img src="~/image/button1.png" alt="工业" />
+                                    </div>
+                                    <div class="right">
+                                        <dl>
+                                            <a title="餐饮行业解决方案" target="_blank" href="#">
+                                                餐饮行业解决方案
+                                            </a>
+                                            <a title="会员解决方案" target="_blank" href="#">
+                                                会员解决方案
+                                            </a>
+                                        </dl>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
     </table>
+
 </div>
 
 @*产品展示*@
 <div id="product">
-    <table id="producttable">
+    <table id="producttable" border="1">
         <tr class="firsttr">
             <td colspan="2">
                 <h3>产品展示</h3>
@@ -203,12 +437,15 @@
                 </div>
             </td>
         </tr>
+        <tr style="height:60px;">
+            <td colspan="2"></td>
+        </tr>
     </table>
 </div>
 
 @*成功案例*@
 <div id="success">
-    <table id="successtable">
+    <table id="successtable" border="1">
         <tr class="firsttr">
             <td colspan="4">
                 <h3>成功案例</h3>
@@ -225,7 +462,7 @@
                         <td>20年专注教育考试服务领域</td>
                     </tr>
                 </table>
-               
+
             </td>
             <td>
                 <table class="caseinfo">
@@ -233,7 +470,7 @@
                         <td><img src="~/image/Success_two.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>20多种职业证书的教务评卷工作</td>
                     </tr>
                 </table>
 
@@ -244,7 +481,7 @@
                         <td><img src="~/image/Success_three.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>核心人员20余年行业经验</td>
                     </tr>
                 </table>
 
@@ -255,12 +492,12 @@
                         <td><img src="~/image/Success_four.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>100余个考试测评项目</td>
                     </tr>
                 </table>
 
             </td>
-            
+
         </tr>
         <tr>
             <td>
@@ -269,7 +506,7 @@
                         <td><img src="~/image/Success_five.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>300多个高校考点密切合作</td>
                     </tr>
                 </table>
 
@@ -280,7 +517,7 @@
                         <td><img src="~/image/Success_six.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>2000余万/年考试测评服务科次</td>
                     </tr>
                 </table>
 
@@ -291,7 +528,7 @@
                         <td><img src="~/image/Success_seven.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>10000余万次累计考试测评服务科次</td>
                     </tr>
                 </table>
 
@@ -302,7 +539,7 @@
                         <td><img src="~/image/Success_eight.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>100万人以上大规模网上服务项目</td>
                     </tr>
                 </table>
 
@@ -312,43 +549,49 @@
     </table>
 </div>
 @*品牌优势*@
-<div id="brand" style="width:1000px;height:360px;margin:auto; background:url('/image/index_26.jpg') 100% 100%">
-    <table id="brandtable">
+<div id="brand" style="width:1000px;height:360px;margin:auto;background:url('/image/index_26.jpg')">
+    <table id="brandtable" border="1">
         <tr class="firsttr">
             <td colspan="4">
                 <h3>品牌优势</h3>
                 <span>BRAND ADVANTAGE</span>
             </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
         <tr id="advantage">
             <td>
                 <dl>
-                    <dt>安全/稳定/高效</dt>
-                    <dd>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</dd>
+                    <dt><img src="~/image/indexone.png" /></dt>
+                    <dd>
+                        <p>安全/稳定/高效</p>
+                        <span>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>高度可配置化</dt>
-                    <dd>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</dd>
+                    <dt><img src="~/image/indextwo.png" /></dt>
+                    <dd>
+                        <p>高度可配置化</p>
+                        <span>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>高度智能</dt>
-                    <dd>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</dd>
+                    <dt><img src="~/image/indexthree.png" /></dt>
+                    <dd>
+                        <p>高度智能</p>
+                        <span>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</span>
+                    </dd>
                 </dl>
             </td>
             <td>
                 <dl>
-                    <dt>操作灵活方便</dt>
-                    <dd>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</dd>
+                    <dt><img src="~/image/indexfour.png" /></dt>
+                    <dd>
+                        <p>操作灵活方便</p>
+                        <span>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</span>
+                    </dd>
                 </dl>
             </td>
         </tr>

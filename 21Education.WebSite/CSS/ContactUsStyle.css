@@ -16,21 +16,21 @@
     #cooperation{
         text-align:center;
     }
-    #cooperation dl{
-        border:1px solid #666666;
-    }
+
      #cooperation dl img{
          width:330px;height:130px;
      }
      #cooperation dl dd{
-         margin:0;line-height:30px;
+         height:130px;
+         margin:0;
+         line-height:30px;
+         background-color:#efefef;
      }
-    #joinus div{
-        font-size:16px;border-bottom:1px dashed #666666;margin-top:10px;
-    }
-    #joinus p{
-        color:#666666;
-    }
+     #joinlink{
+        text-decoration:none;width:30px;height:40px;border:1px solid #0057be;border-radius:20px;color:#0057be; padding:0 20px;
+     }
+
+
 
 
 

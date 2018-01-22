@@ -15,6 +15,10 @@ namespace _21Education.WebSite.Controllers
         {
             return View();
         }
-        
+        public ActionResult Carousel()
+        {
+            return PartialView("~/Views/PartView/Partial.Carousel.cshtml");
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿@model CarouselViewModel
+﻿@using System.Text.RegularExpressions
+@model CarouselViewModel
 
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
 <style>
@@ -28,7 +29,7 @@
             <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
         </div>
     </div>
-    @Preview(Model)
+    @Preview(Model, Model.PreviewHtml)
     <script src="~/Content/js/Carousel.js"></script>
     <script>
 $("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
@@ -58,13 +59,13 @@ $("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
         </div>
 }
 
-@helper Preview(List<Carousel> list)
+@helper Preview(List<Carousel> list, string html)
     {
 
         <div class="preview">
             @for (int i = 0; i < list.Count; i++)
             {
-                <a href="javascript:;" @(i==0?"class=active":"")><img src="@list[i].ImgPath" /></a>
+                @Html.Raw(string.Format(html, list[i].ImgPath))
             }
         </div>
 }

@@ -42,9 +42,16 @@
                 else {
                     $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow");
                 }
-                $this.find(".preview a").eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
+                $(".preview").each(function () {
+                    $(this).children().eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
+                });
                 SetAutoPlayInterval();
             }
+            void function Init() {
+                $(".preview").each(function () {
+                    $(this).children().eq(0).addClass("active");
+                });
+            }();
             function SetAutoPlayInterval() {
                 autoPlayInterval = setInterval(function () {
                     $this.find(".carousel-next").click();

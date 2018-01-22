@@ -21,7 +21,10 @@ namespace _21Education.WebSite.Controllers
                     new Carousel{Describe="3",ImgPath="/image/index_ban3.png"},
                     new Carousel{Describe="4",ImgPath="/image/index_ban3.png"}
                 })
-                { ImgWidth = 1000 }
+                {
+                    ImgWidth = 1000,
+                    PreviewHtml = "<a href=\"javascript:;\" )><img src=\"{0}\" /></a>"
+                }
             };
             return View(viewModel);
         }

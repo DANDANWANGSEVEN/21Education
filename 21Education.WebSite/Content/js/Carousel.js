@@ -19,7 +19,7 @@
                 options.carouselIndex++;
                 play();
             });
-            $this.find(".preview a").click(function () {
+            $this.find(".preview").children().click(function () {
                 var eq = $(this).index();
                 options.carouselIndex = eq + 1;
                 play();
@@ -35,16 +35,23 @@
                 }
                 else if (options.carouselIndex < defalutIndex) {
                     $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -3 * options.imgWidth + "px")
+                        $(this).css("left", -imgCount * options.imgWidth + "px")
                     });
                     options.carouselIndex = imgCount;
                 }
                 else {
                     $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow");
                 }
-                $this.find(".preview a").eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
+                $(".preview").each(function () {
+                    $(this).children().eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
+                });
                 SetAutoPlayInterval();
             }
+            void function Init() {
+                $(".preview").each(function () {
+                    $(this).children().eq(0).addClass("active");
+                });
+            }();
             function SetAutoPlayInterval() {
                 autoPlayInterval = setInterval(function () {
                     $this.find(".carousel-next").click();

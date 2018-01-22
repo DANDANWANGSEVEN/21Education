@@ -15,5 +15,6 @@ namespace _21Education.DATA
         }
         public int ImgWidth { get; set; }
         public string PreviewHtml { get; set; }
+        public string ClassName { set; get; }
     }
 }

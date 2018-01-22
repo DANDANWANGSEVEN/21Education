@@ -23,7 +23,19 @@ namespace _21Education.WebSite.Controllers
                 })
                 {
                     ImgWidth = 1000,
-                    PreviewHtml = "<a href=\"javascript:;\" )><img src=\"{0}\" /></a>"
+                    PreviewHtml = "<a href=\"javascript:;\" )><img src=\"{0}\" /></a>",
+                    ClassName = "banner"
+                },
+                ProductShow = new CarouselViewModel(new List<MODEL.Carousel>
+                {
+                    new Carousel{Describe="1",ImgPath="/image/index_21.png"},
+                    new Carousel{Describe="2",ImgPath="/image/index_21.png"},
+                    new Carousel{Describe="3",ImgPath="/image/index_21.png"},
+                    new Carousel{Describe="4",ImgPath="/image/index_21.png"}
+                })
+                {
+                    ImgWidth = 600,
+                    ClassName = "productshow"
                 }
             };
             return View(viewModel);

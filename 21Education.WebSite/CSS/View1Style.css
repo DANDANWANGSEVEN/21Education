@@ -44,9 +44,9 @@
     #foot td a{
         text-align:center;color:white;font-size:14px;
     }
-        #footnav{
-            margin-top:20px;
-        }
+        /*#footnav{
+            margin-top:10px;
+        }*/
         #footnav td{
             padding:18px 6px;
             color:white;

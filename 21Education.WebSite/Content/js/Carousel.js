@@ -4,13 +4,16 @@
             var defaults = {
                 carouselIndex: 1,
                 imgWidth: 900,
-                spaceInterval: 3
+                spaceInterval: 3,
+                plugClassName: ""
             }
             var options = $.extend(defaults, options);
             var defalutIndex = 1;
             var $this = $(this);
-            var imgCount = (function () { return $(".slider-container").children().length - 2; })();
             var autoPlayInterval = null;
+            var $container = $this.find(".slider-container");
+            var imgCount = (function () { return $container.children().length - 2; })();
+            var $preview = $(".preview" + options.plugClassName);
             $this.find(".carousel-prev").click(function () {
                 options.carouselIndex--;
                 play();
@@ -19,7 +22,7 @@
                 options.carouselIndex++;
                 play();
             });
-            $this.find(".preview").children().click(function () {
+            $preview.children().click(function () {
                 var eq = $(this).index();
                 options.carouselIndex = eq + 1;
                 play();
@@ -28,27 +31,27 @@
                 clearInterval(autoPlayInterval);
                 var animateLength = options.carouselIndex * (-options.imgWidth) + "px";
                 if (options.carouselIndex > imgCount) {
-                    $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow", function () {
+                    $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
                         $(this).css("left", -options.imgWidth + "px")
                     });
                     options.carouselIndex = defalutIndex;
                 }
                 else if (options.carouselIndex < defalutIndex) {
-                    $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow", function () {
+                    $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
                         $(this).css("left", -imgCount * options.imgWidth + "px")
                     });
                     options.carouselIndex = imgCount;
                 }
                 else {
-                    $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow");
+                    $container.stop(true, true).animate({ "left": animateLength }, "slow");
                 }
-                $(".preview").each(function () {
+                $preview.each(function () {
                     $(this).children().eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
                 });
                 SetAutoPlayInterval();
             }
             void function Init() {
-                $(".preview").each(function () {
+                $preview.each(function () {
                     $(this).children().eq(0).addClass("active");
                 });
             }();

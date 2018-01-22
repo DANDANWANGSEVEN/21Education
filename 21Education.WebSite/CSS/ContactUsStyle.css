@@ -2,10 +2,11 @@
     margin:0;
     padding:0;
 }
- .table{
-        width:1000px;
-        margin:auto;
-    }
+.table {
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+}
   .table h3{
       color:#0057be;
   }
@@ -37,8 +38,23 @@
      }
 
      /*招聘信息*/
-     #joinproduce h3{
-         color:#0057be;
-     }
+
+
+#joinproduce h3 {
+    color: #0057be;
+}
+#joinlink {
+    text-decoration: none;
+    width: 30px;
+    height: 40px;
+    border: 1px solid #0057be;
+    border-radius: 20px;
+    color: #0057be;
+    padding: 0 20px;
+}
+    #joinlink:hover {
+        background-color:#0057be;
+        color: white;
+    }
 
 

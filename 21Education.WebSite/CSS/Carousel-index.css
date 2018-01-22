@@ -1,8 +1,8 @@
-﻿#carousel {
+﻿.carousel {
     --ImgWidth: 900;
 }
 
-    #carousel .container {
+    .carousel .container {
         position: relative;
         width: calc(var(--ImgWidth)*1px);
         height: 300px;
@@ -10,7 +10,7 @@
         overflow: hidden;
     }
 
-        #carousel .container .slider-container {
+        .carousel .container .slider-container {
             position: absolute;
             left: calc(var(--ImgWidth)*-1px);
             top: 0;
@@ -18,7 +18,7 @@
             height: 300px;
         }
 
-            #carousel .container .slider-container .slider-item {
+            .carousel .container .slider-container .slider-item {
                 display: block;
                 width: calc(var(--ImgWidth)*1px);
                 height: 300px;
@@ -26,14 +26,14 @@
                 float:left;
             }
 
-                #carousel .container .slider-container .slider-item img {
+                .carousel .container .slider-container .slider-item img {
                     display: block;
                     width: calc(var(--ImgWidth)*1px);
                     height: 300px;
                     vertical-align:middle;
                 }
 
-                #carousel .container .slider-container .slider-item span {
+                .carousel .container .slider-container .slider-item span {
                     text-align: center;
                     width: calc(var(--ImgWidth)*1px);
                     bottom: 20%;
@@ -42,7 +42,7 @@
                     display: block;
                 }
 
-        #carousel .container .carousel-btn {
+        .carousel .container .carousel-btn {
             height: 60px;
             width: 60px;
             position: absolute;
@@ -67,46 +67,46 @@
     filter: FlipH;
 }
 
-#carousel .container .carousel-prev {
+.carousel .container .carousel-prev {
     left: 20px;
 }
 
-#carousel .container .carousel-next {
+.carousel .container .carousel-next {
     right: 20px;
 }
 
-#carousel svg path {
+.carousel svg path {
     fill: inherit;
 }
 
-#carousel svg.hide {
+.carousel svg.hide {
     display: none;
     width: 60px;
     height: 60px;
 }
 
 
-#carousel use.use-left, #carousel use.use-right {
+.carousel use.use-left, .carousel use.use-right {
     fill: #ffffff;
 }
 
-#carousel .preview {
+.carousel .preview {
     text-align: center;
     padding: 5px;
 }
 
-    #carousel .preview a {
+    .carousel .preview a {
         display: inline-block;
         margin: 5px;
     }
 
-    #carousel .preview img {
+    .carousel .preview img {
         display: block;
         width: 200px;
         height: auto;
     }
 
-    #carousel .preview.active {
+    .carousel .preview.active {
         outline: 3px solid #196cd2;
         box-shadow: 2px 2px 20px 4px rgba(0,0,0,.5);
     }

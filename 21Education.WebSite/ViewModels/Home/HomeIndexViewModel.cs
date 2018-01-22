@@ -8,5 +8,6 @@ namespace _21Education.WebSite.ViewModels
     public class HomeIndexViewModel
     {
         public CarouselViewModel Carousel { get; set; }
+        public CarouselViewModel ProductShow { get; set; }
     }
 }

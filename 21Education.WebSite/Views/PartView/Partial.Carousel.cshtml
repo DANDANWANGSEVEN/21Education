@@ -3,11 +3,11 @@
 
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
 <style>
-    #carousel {
+    .carousel.@Model.ClassName {
         --ImgWidth: @Model.ImgWidth;
     }
 </style>
-<div id="carousel">
+<div class="carousel @Model.ClassName">
     <div class="container">
         <div class="slider-container">
             @Slider(Model)
@@ -29,10 +29,12 @@
             <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
         </div>
     </div>
-    @Preview(Model, Model.PreviewHtml)
-    <script src="~/Content/js/Carousel.js"></script>
+    @if (!string.IsNullOrEmpty(Model.PreviewHtml))
+    {
+        @Preview(Model, Model.PreviewHtml)
+    }
     <script>
-$("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
+        $(".carousel.@Model.ClassName").Carousel({ imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName"});
     </script>
 </div>
 @helper Slider(List<Carousel> list)
@@ -62,7 +64,7 @@ $("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
 @helper Preview(List<Carousel> list, string html)
     {
 
-        <div class="preview">
+        <div class="preview @Model.ClassName">
             @for (int i = 0; i < list.Count; i++)
             {
                 @Html.Raw(string.Format(html, list[i].ImgPath))

@@ -28,11 +28,7 @@
             <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
         </div>
     </div>
-    <div class="preview">
-        <a href=""><img src="~/image/index_ban1.png" /></a>
-        <a href=""><img src="~/image/index_ban2.png" /></a>
-        <a href=""><img src="~/image/index_ban3.png" /></a>
-    </div>
+    @Preview(Model)
     <script src="~/Content/js/Carousel.js"></script>
     <script>
 $("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
@@ -59,5 +55,16 @@ $("#carousel").Carousel({ imgWidth: @Model.ImgWidth });
         <div class="slider-item">
             <img src="@src" />
             <span class="slider__caption">@describe</span>
+        </div>
+}
+
+@helper Preview(List<Carousel> list)
+    {
+
+        <div class="preview">
+            @for (int i = 0; i < list.Count; i++)
+            {
+                <a href="javascript:;" @(i==0?"class=active":"")><img src="@list[i].ImgPath" /></a>
+            }
         </div>
 }

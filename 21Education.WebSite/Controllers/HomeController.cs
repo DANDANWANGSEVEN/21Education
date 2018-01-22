@@ -18,7 +18,8 @@ namespace _21Education.WebSite.Controllers
                 {
                     new Carousel{Describe="1",ImgPath="/image/index_ban1.png"},
                     new Carousel{Describe="2",ImgPath="/image/index_ban2.png"},
-                    new Carousel{Describe="3",ImgPath="/image/index_ban3.png"}
+                    new Carousel{Describe="3",ImgPath="/image/index_ban3.png"},
+                    new Carousel{Describe="4",ImgPath="/image/index_ban3.png"}
                 })
                 { ImgWidth = 1000 }
             };

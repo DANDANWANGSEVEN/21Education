@@ -20,7 +20,6 @@
                 play();
             });
             $this.find(".preview a").click(function () {
-                $(this).addClass("active").siblings().removeClass("active");
                 var eq = $(this).index();
                 options.carouselIndex = eq + 1;
                 play();
@@ -43,7 +42,7 @@
                 else {
                     $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow");
                 }
-
+                $this.find(".preview a").eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
                 SetAutoPlayInterval();
             }
             function SetAutoPlayInterval() {

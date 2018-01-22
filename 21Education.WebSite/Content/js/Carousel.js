@@ -19,7 +19,7 @@
                 options.carouselIndex++;
                 play();
             });
-            $this.find(".preview a").click(function () {
+            $this.find(".preview").children().click(function () {
                 var eq = $(this).index();
                 options.carouselIndex = eq + 1;
                 play();
@@ -35,7 +35,7 @@
                 }
                 else if (options.carouselIndex < defalutIndex) {
                     $(".slider-container").stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -3 * options.imgWidth + "px")
+                        $(this).css("left", -imgCount * options.imgWidth + "px")
                     });
                     options.carouselIndex = imgCount;
                 }

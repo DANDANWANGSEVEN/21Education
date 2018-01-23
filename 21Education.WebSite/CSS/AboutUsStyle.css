@@ -1,33 +1,47 @@
 ﻿body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
- .table{
-        margin:auto;
-        width:1000px;
-        margin-top:20px;
-    }
-    .table p{
-        line-height:36px;
-    }
-    
-    
-    .table h3 {
-        color: #0057be;
-    }
-    .table span{
-        font-size:14px;
-    }
 
-#companyculture p{
-    line-height:60px;
+.table {
+    margin: auto;
+    width: 1000px;
+    margin-top: 20px;
+}
+
+.table p {
+    line-height: 36px;
+}
+
+
+.table h3 {
+    color: #0057be;
+}
+
+.table span {
+    font-size: 14px;
+}
+
+/*公司文化*/
+#companyculture {
+    height: 300px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+#companyculture h3 {
+    margin-top: 15px;
+}
+
+#companyculture p {
+    line-height: 60px;
 }
 
 #companyculture {
     text-align: center;
 }
 
-.img{
-    width:100px;
-    height:100px;
+.img {
+    width: 100px;
+    height: 100px;
 }

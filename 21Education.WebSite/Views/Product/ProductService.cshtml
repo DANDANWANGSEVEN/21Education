@@ -5,48 +5,14 @@
 <script src="~/Content/js/js.js"></script>
 <link href="~/CSS/css.css" rel="stylesheet" />
 <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
-<style>
-    /*遮罩层效果*/
-    .zhezhao {
-        float: left;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    }
+<link href="~/CSS/effects.css" rel="stylesheet" />
 
-        .zhezhao .txt {
-            width: inherit;
-            /*height: 30px;*/
-            /*background: url(../../image/1px.png) repeat;*/
-            background-color: black;
-            opacity: 0.6;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            color: #fff;
-            font-family: "微软雅黑";
-        }
-
-            .zhezhao .txt h4 {
-                font-weight: normal;
-                font-size: 18px;
-                margin: 0;
-                height: 40px;
-                text-align: center;
-                line-height: 32px;
-            }
-
-            .zhezhao .txt p {
-                font-size: 14px;
-                text-align: center;
-                line-height:40px;
-            }
-</style>
 <style>
     #productinfo {
         width: 1000px;
         height: 340px;
         margin: auto;
+        margin-top:30px;
     }
     /*产品服务*/
     #productimg {
@@ -95,7 +61,7 @@
         width: 1000px;
         height: 500px;
         margin: auto;
-        margin-top: 20px;
+        margin-top: 0px;
     }
     /*品牌优势*/
     #productadvantage {
@@ -144,7 +110,113 @@
      }
 </style>
 
+@*产品展示*@
+<table id="productshow" border="0">
+    <tr style="text-align:center;height:70px;">
+        <td colspan="4">
+            <h3 style="color:#0057be;">产品展示</h3>
+            <span style="font-size:14px;">PRODUCT SHOW</span>
+        </td>
+    </tr>
+    <tr style="height:30px;">
+        <td colspan="4"></td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <div style="width:250px;height:260px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_07.png" alt="" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        @*<h2 style="font-size:12px;">1111111111</h2>*@
+                        <button class="info" data-toggle="modal" data-target="#modal1">
+                            网上阅卷
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>
 
+            <div style="width:250px;height:130px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_09.png" alt="" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
+                            通用无纸化智能考试平台
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <div style="width:250px;height:130px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_11.png" alt="" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
+                            网上报名管理系统
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td rowspan="2">
+
+            <div style="width:250px;height:260px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_13.png" alt="图库系统" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1">
+                            图库系统
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="width:500px;height:130px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_17.png" alt="图库系统" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1">
+                            测评与评价系统
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="width:500px;height:130px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_21.png" alt="图库系统" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1">
+                            云服务中心
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td colspan="2">
+            <div style="width:500px;height:130px;">
+                <div class="hover ehover1">
+                    <img class="img-responsive" src="~/image/index_23.png" alt="图库系统" style="width:100%;height:100%;">
+                    <div class="overlay">
+                        <button class="info" data-toggle="modal" data-target="#modal1">
+                            数据处理中心
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
 @*产品服务*@
 <table id="productinfo" border="1">
     <tr style="text-align:center;">
@@ -197,108 +269,7 @@
         <td></td>
     </tr>
 </table>
-@*产品展示*@
-<table id="productshow" border="1">
-    <tr style="text-align:center;height:70px;">
-        <td colspan="4">
-            <h3 style="color:#0057be;">产品展示</h3>
-            <span style="font-size:14px;">PRODUCT SHOW</span>
-        </td>
-    </tr>
-    <tr style="height:30px;">
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td rowspan="2">
-            <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_07.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>网上阅卷</h4>
-                    <p>信息卡设计与印刷</p>
-                    <p>数据扫描产品</p>
-                    <p>网上阅卷系统</p>
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_09.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>无纸化智能考试</h4>
-                    <p>通用无纸化智能考试平台</p>
-                    <p>大学英语四六级口语考试系统</p>
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class='zhezhao' style="width:240px;height:120px;background:url('/image/index_11.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>网上报名管理系统</h4>
-                    <p>网上报名系统</p>
-                    <p>考务管理系统</p>
-                </div>
-            </div>
-        </td>
-        <td rowspan="2">
-            <div class='zhezhao' style="width:240px;height:260px;background:url('/image/index_13.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>图库系统</h4>
-                    <p>系统支持试题的存储/检索/组卷</p>
-                    <p>支持多种形式的试题及答案的管理</p>
-                    <p>确保数据体系化的留存</p>
-                    <p>数据加密与备份机制安全可靠</p>
-                </div>
-            </div>
-        </td>
-    </tr>
 
-
-
-    <tr>
-        <td colspan="2">
-            <div class='zhezhao' style="width:480px;height:120px;background:url('/image/index_17.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>测评与评价系统</h4>
-                    <p>多层级，多权限管理，软件操作简单易用，支持远程在线操作</p>
-                    <p>支持多种数据来源   灵活的数据发布方式   提供数据分析</p>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div class='zhezhao' style="width:480px;height:120px;background:url('/image/index_21.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>云服务中心</h4>
-                    <p>云平台服务   云服务器租用服务   网络设备租用服务</p>
-                    <p>数据备份/数据恢复服务   大数据加密存储服务   数据安全防护</p>
-                </div>
-            </div>
-        </td>
-        <td colspan="2">
-            <div class='zhezhao' style="width:480px;height:120px;background:url('/image/index_23.png')">
-                <div class='txt' style="width:100%;height:auto;">
-                    <h4>数据处理中心</h4>
-                    <p>数据处理服务   卷库管理</p>
-                    <p>保密室管理   7*24小时无死角监控</p>
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
-<script>
-    $(function () {
-        $(".zhezhao").on({
-            mouseover: function () {
-                $(this).find(".txt").stop().animate({ height: $(this)[0].clientHeight }, 200);
-                var paddtop = $(this).attr("top") ? $(this).attr("top") : "60px";
-                $(this).find(".txt h3").stop().animate({ paddingTop: paddtop }, 200);
-            },
-            mouseout: function () {
-                $(this).find(".txt").stop().animate({ height: "45px" }, 200);
-                $(this).find(".txt h3").stop().animate({ paddingTop: "0px" }, 200);
-            }
-        })
-    })
-</script>
 @*产品系统*@
 <table id="productsystem" border="1">
     <tr style="text-align:center;">
@@ -428,7 +399,7 @@
     FeiChao.Organ();
 </script>
 @*特色案例和友情链接*@
-<table id="FrendLink" border="1">
+<table id="FrendLink" border="0">
     <tr style="text-align:center;">
         <td>
             <div style="position:relative">

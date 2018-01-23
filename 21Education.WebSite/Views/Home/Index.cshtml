@@ -7,12 +7,14 @@
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 <link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 <script src="~/Content/js/Carousel.js"></script>
+
+
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
 
 @*产品服务新闻*@
 <div id="newstable">
-    <table id="newstable" border="1">
+    <table id="newstable" border="0">
         <tr class="firsttr">
             <td colspan="2">
                 <h3>产品服务新闻</h3>
@@ -32,8 +34,8 @@
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
                         </td>
@@ -42,8 +44,8 @@
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span>2018.01.01</span>
                             </div>
                         </td>
@@ -52,8 +54,8 @@
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p>2018中高考英语听力首次机考时间确定，一年双考</p>
-                                <p class="newsdivp">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
+                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span>2018.01.01</span>
                             </div>
                         </td>
@@ -63,7 +65,7 @@
             </td>
             <td style="width:300px;height:600px;">
 
-                <div style="width:300px;height:600px;background:url('/image/index_34.jpg');position:relative">
+                <div style="width:300px;height:600px;background-color:#f7f7f7;position:relative;">@*background:url('/image/index_34.jpg');*@
                     <div id="top" style="background:url('/image/index_32.png');">
 
                     </div>
@@ -104,9 +106,10 @@
                                 <li class="one on">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>网上阅卷</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">网上阅卷</i>@*<img src="~/image/button1.png" alt="工业" />*@
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl style="margin-top: -120px;">
                                             <a title="信息卡设计与印刷" target="_blank" href="#">
                                                 信息卡设计与印刷
@@ -123,9 +126,10 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>无纸化智能考试</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">无纸化智能考试</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl style="margin-top: -120px;">
                                             <a title="通用无纸化智能考试平台" target="_blank" href="#">
                                                 通用无纸化智能考试平台
@@ -139,9 +143,10 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>网上报名管理系统</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">网上报名管理系统</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl>
                                             <a title="网上报名系统" target="_blank" href="#">
                                                 网上报名系统
@@ -155,9 +160,10 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>图库系统</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">图库系统</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl>
                                             <a title="系统支持试题的存储/检索/组卷" target="_blank" href="#">
                                                 系统支持试题的存储/检索/组卷
@@ -177,9 +183,10 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>评测与评价系统</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">评测与评价系统</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl>
                                             <a title="多层级、多权限管理" target="_blank" href="#">
                                                 多层级、多权限管理
@@ -205,9 +212,10 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>云服务中心</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">云服务中心</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl>
                                             <a title="云平台服务" target="_blank" href="#">
                                                 云平台服务
@@ -233,15 +241,22 @@
                                 <li class="one">
                                     <div class="left"></div>
                                     <div class="left_top">
-                                        <i>服务类</i><img src="~/image/button1.png" alt="工业" />
+                                        <i style="font-size:20px;">数据处理中心</i>
                                     </div>
                                     <div class="right">
+                                        <img src="~/image/about_14.jpg" />
                                         <dl>
-                                            <a title="餐饮行业解决方案" target="_blank" href="#">
-                                                餐饮行业解决方案
+                                            <a title="数据处理服务" target="_blank" href="#">
+                                                数据处理服务
                                             </a>
-                                            <a title="会员解决方案" target="_blank" href="#">
-                                                会员解决方案
+                                            <a title="卷库管理" target="_blank" href="#">
+                                                卷库管理
+                                            </a>
+                                            <a title="保密室管理" target="_blank" href="#">
+                                                保密室管理
+                                            </a>
+                                            <a title="小时无死角监控" target="_blank" href="#">
+                                                7*24小时无死角监控
                                             </a>
                                         </dl>
                                     </div>
@@ -370,7 +385,6 @@
                         <td>20年专注教育考试服务领域</td>
                     </tr>
                 </table>
-
             </td>
             <td>
                 <table class="caseinfo">

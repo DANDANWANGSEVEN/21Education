@@ -51,6 +51,12 @@
     <Compile Include="IDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
+      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
+      <Name>21Education.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

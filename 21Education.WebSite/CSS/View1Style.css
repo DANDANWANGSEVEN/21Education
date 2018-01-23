@@ -8,6 +8,9 @@
         }
         #head{
             width:100%;
+            background-color:#0057be;
+            color:white;
+            position:fixed;
         }
         #nav{
             width:1000px;
@@ -25,11 +28,10 @@
         }
         #navtitle td a{
             text-decoration:none;
-            color:#666666;
+            color:white;
         }
         #navtitle td a:hover{
-            color:#0057be;
-            font-size:18px;
+            border-bottom:2px solid white;
         }
         
        #foot{
@@ -41,9 +43,9 @@
             margin-top:15px;
         }
       
-    #foot td a{
-        text-align:center;color:white;font-size:14px;
-    }
+       #foot td a{
+           text-align:center;color:white;font-size:14px;
+       }
         /*#footnav{
             margin-top:10px;
         }*/

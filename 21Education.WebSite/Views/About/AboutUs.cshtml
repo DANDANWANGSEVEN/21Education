@@ -4,7 +4,10 @@
 }
 
 <link href="~/CSS/AboutUsStyle.css" rel="stylesheet" />
- <table class="table" id="companyproduce">
+<link href="~/CSS/style_old.css" rel="stylesheet" />
+<script src="~/Content/js/style_old.js"></script>
+@*公司介绍*@
+ <table class="table" id="companyproduce" style="margin-top:0px;">
      <tr style="text-align:center;">
          <td>
              <h3>公司概况</h3>
@@ -25,7 +28,8 @@
      </tr>
  </table>
 
-<table class="table" id="companyculture" style="text-align:center;">
+@*公司文化*@
+<table class="table" id="companyculture" style="background-color:#f7f7f7;">
     <tr>
         <td colspan="4">
             <h3>公司文化</h3>
@@ -55,6 +59,7 @@
     </tr>
 </table>
 
+@*公司荣誉*@
 <table class="table" id="companyhonor">
     <tr style="text-align:center;">
         <td>
@@ -69,15 +74,29 @@
         <td style="width:1000px;height:260px;background:url('/image/successfulimg.png')">
             <table border="0" style="margin:auto;">
                 <tr>
-                    <td style="padding:10px;"><img style="width:40px;height:80px;" src="~/image/prev.png" /></td>
+                    @*<td style="padding:10px;"><img style="width:40px;height:80px;" src="~/image/prev.png" /></td>
                     <td style="padding:10px;"><img style="width:120px;height:160px;" src="~/image/About_HonorPic.png" /></td>
                     <td style="padding:10px;"><img style="width:120px;height:160px;" src="~/image/About_HonorPic.png" /></td>
                     <td style="padding:10px;"><img style="width:120px;height:160px;" src="~/image/About_HonorPic.png" /></td>
                     <td style="padding:10px;"><img style="width:120px;height:160px;" src="~/image/About_HonorPic.png" /></td>
                     <td style="padding:10px;"><img style="width:120px;height:160px;" src="~/image/About_HonorPic.png" /></td>
-                    <td style="padding:10px;"><img style="width:40px;height:80px;"  src="~/image/next.png" /></td>
+                    <td style="padding:10px;"><img style="width:40px;height:80px;"  src="~/image/next.png" /></td>*@
+
+                    <td>
+                        <div id=honor>
+                            <font class="prev"></font><font class="next"></font>
+                            <div class=honor_banner>
+                                <ul>
+                                    <li><img alt="" src="~/image/honor1.jpg"> </li>
+                                    <li><img alt="" src="~/image/honor2.jpg"> </LI>
+                                    <li><img alt="" src="~/image/honor3.jpg"> </LI>
+                                    <li><img alt="" src="~/image/honor4.jpg"> </LI>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </td>
                 </tr>
-                
             </table>
         </td>
     </tr>

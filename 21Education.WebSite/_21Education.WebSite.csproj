@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
+    <Content Include="Content\js\style_old.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Content\js\js.js" />
     <Content Include="Content\js\Carousel.js" />
@@ -217,6 +218,7 @@
     <Content Include="CSS\ContactUsStyle.css" />
     <Content Include="CSS\ContentStyle.css" />
     <Content Include="CSS\css.css" />
+    <Content Include="CSS\effects.css" />
     <Content Include="CSS\font-awesome.min.css" />
     <Content Include="CSS\IndexStyle.css" />
     <Content Include="CSS\ListStyle.css" />
@@ -318,6 +320,7 @@
     <Content Include="image\line_img.jpg" />
     <Content Include="image\login.jpg" />
     <Content Include="image\logo.png" />
+    <Content Include="image\logo_white.png" />
     <Content Include="image\map_img.png" />
     <Content Include="image\map_sign.png" />
     <Content Include="image\nav_bg.jpg" />
@@ -350,6 +353,7 @@
     <Content Include="image\success_25.jpg" />
     <Content Include="image\success_29.jpg" />
     <Content Include="image\success_32.jpg" />
+    <Content Include="image\Success_seven.png" />
     <Content Include="image\tab_bg.jpg" />
     <Content Include="image\tk_system.jpg" />
     <Content Include="image\znks.jpg" />

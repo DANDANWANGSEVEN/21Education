@@ -45,3 +45,13 @@
     width: 100px;
     height: 100px;
 }
+
+
+  /*公司成就*/
+    #companyachievenment{
+        width: 1000px;
+        height: 500px;
+        margin: auto;
+        margin-top: 30px;
+        background-color:#f7f7f7;
+    }

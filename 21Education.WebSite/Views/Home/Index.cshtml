@@ -8,7 +8,7 @@
 <link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
 <script src="~/Content/js/Carousel.js"></script>
-
+<link href="~/CSS/effects.css" rel="stylesheet" />
 
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
@@ -334,7 +334,7 @@
     }
 </style>
 <div id="product">
-    <table id="producttable" border="1">
+    <table id="producttable" border="0">
         <tr class="firsttr">
             <td colspan="2">
                 <h2>产品展示</h2>
@@ -343,14 +343,20 @@
         </tr>
         <tr>
             <td>
-                @*<div id="productimage" style="width:600px;height:170px; background: url('../../image/index_21.png') 100% 100% ;">
+                <div id="productimage" style="width:600px;height:170px; background: url('../../image/index_21.png') 100% 100% ;">
 
-                    </div>*@
-                @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+                    </div>
+                @*@Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)*@
 
             </td>
             <td>
-                <div class="preview @Model.ProductShow.ClassName">
+                <div class="preview">
+                        <div style="margin:0px 20px;">
+                            <h4>云产品服务中心</h4>
+                            <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品</p>
+                        </div>
+                </div>
+                @*<div class="preview @Model.ProductShow.ClassName">
                     @for (int i = 0; i < Model.ProductShow.Count; i++)
                     {
                         <div style="margin:0px 20px;">
@@ -359,7 +365,7 @@
                             <p style="line-height:36px;color:#666666;">云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品服务中心云产品</p>
                         </div>
                     }
-                </div>
+                </div>*@
             </td>
         </tr>
         <tr style="height:60px;">
@@ -368,13 +374,135 @@
     </table>
 </div>
 
-@*成功案例*@
-<div id="success">
-    <table id="successtable" border="1">
+@*产品成就*@
+<div id="product">
+    <table id="productachieventment" border="0">
         <tr class="firsttr">
             <td colspan="4">
-                <h2>成功案例</h2>
-                <span>SUCCESSFUL CASE</span>
+                <h2>产品成就</h2>
+                <span>PRODUCT ACHIEVENMENT</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/about_14.jpg" alt="">
+                        <div class="overlay">
+                            @*<h2 style="align-content:center;"><img style="width:40px;height:40px;" src="~/image/icon5.png" /></h2>*@
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                全国四六级英语考试系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon5.png" />全国四六级英语考试系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/login.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                网上报名管理系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon2.png" />网上报名管理系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/pcpj.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                评测与评价系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon3.png" />评测与评价系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/cloud.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                云服务中心
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon4.png" />云服务中心</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/about_14.jpg" alt="">
+                        <div class="overlay">
+                            @*<h2 style="align-content:center;"><img style="width:40px;height:40px;" src="~/image/icon5.png" /></h2>*@
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                全国四六级英语考试系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon5.png" />全国四六级英语考试系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/login.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                网上报名管理系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon2.png" />网上报名管理系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/pcpj.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                评测与评价系统
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon3.png" />评测与评价系统</p>
+            </td>
+            <td>
+                <div style="width:240px;height:180px;">
+                    <div class="hover ehover5">
+                        <img class="img-responsive" style="width:240px;height:180px;" src="~/image/cloud.jpg" alt="">
+                        <div class="overlay">
+                            <button class="info" data-toggle="modal" data-target="#modal5">
+                                云服务中心
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p style="padding:10px;"><img src="~/image/icon4.png" />云服务中心</p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@*公司成就*@
+<div id="success">
+    <table id="successtable" border="0" style="text-align:center;">
+        <tr class="firsttr">
+            <td colspan="4">
+                <h2>公司成就</h2>
+                <span>COMPANY ACHIEVENMENT</span>
             </td>
         </tr>
         <tr>
@@ -384,7 +512,7 @@
                         <td><img src="~/image/Success_one.png" /></td>
                     </tr>
                     <tr>
-                        <td>20年专注教育考试服务领域</td>
+                        <td>20多种职业证书的教务评卷工作</td>
                     </tr>
                 </table>
             </td>
@@ -454,7 +582,7 @@
                     <tr>
                         <td>10000余万次累计考试测评服务科次</td>
                     </tr>
-                </table>
+                </table> 
 
             </td>
             <td>

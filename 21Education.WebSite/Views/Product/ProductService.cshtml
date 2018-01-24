@@ -13,6 +13,7 @@
         height: 340px;
         margin: auto;
         margin-top:30px;
+        background-color:#f7f7f7;
     }
     /*产品服务*/
     #productimg {
@@ -28,13 +29,16 @@
         #productdesc span {
             color: #666666;
         }
+        #productcarousel{
+            width:100%;
+        }
+
     /*产品系统*/
     #productsystem {
         width: 1000px;
         height: 350px;
         margin: auto;
         margin-top: 20px;
-        background-color: #efefef;
         /*text-align:center;*/
     }
 
@@ -66,48 +70,20 @@
     /*品牌优势*/
     #productadvantage {
         width: 1000px;
-        height: 300px;
+        height: 320px;
         margin: auto;
-        margin-top: 20px;
-
+        margin-top: 30px;
     }
-    /*友情链接*/
-    #FrendLink {
+    /*产品成就*/
+  #productachievenment{
         width: 1000px;
+        height: 320px;
         margin: auto;
-        margin-top:40px;
-        background:url('/image/index_34.jpg');
-    }
-    /*#FrendLink tr td{
-        width:30%;
-    }*/
-    #FrendLink h2{
-        color:#0057be;
-    }
-    #FrendLink span{
-        font-size:14px;
-    }
-    #FrendLink ul{
-        width:150px;
-        height:230px;
-        list-style:none;
-        margin-top:40px;
-        margin-left:30%;
-        /*background-image:url('/image/index_34.jpg')*/
-    }
-    #FrendLink ul li a{
-        text-decoration:none;
-        color:#666666;
-        line-height:36px;
-        width:200px;
-    }
-    #FrendLink ul li:hover{
-        list-style-image:url('/image/a_bg.png');
-    }
+        margin-top: 30px;
+        text-align:center;
+        background-color:#f7f7f7;
+  }
 
-     #FrendLink ul li a:hover{
-         color:#0057be;
-     }
 </style>
 
 @*产品展示*@
@@ -122,13 +98,12 @@
         <td colspan="4"></td>
     </tr>
     <tr>
-        <td rowspan="2">
+        <td rowspan="2">           
             <div style="width:250px;height:260px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_07.png" alt="" style="width:100%;height:100%;">
                     <div class="overlay">
-                        @*<h2 style="font-size:12px;">1111111111</h2>*@
-                        <button class="info" data-toggle="modal" data-target="#modal1">
+                        <button class="info" data-toggle="modal" data-target="#modal5">
                             网上阅卷
                         </button>
                     </div>
@@ -136,9 +111,8 @@
             </div>
         </td>
         <td>
-
             <div style="width:250px;height:130px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_09.png" alt="" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
@@ -151,7 +125,7 @@
         </td>
         <td>
             <div style="width:250px;height:130px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_11.png" alt="" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
@@ -164,7 +138,7 @@
         <td rowspan="2">
 
             <div style="width:250px;height:260px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_13.png" alt="图库系统" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1">
@@ -179,7 +153,7 @@
     <tr>
         <td colspan="2">
             <div style="width:500px;height:130px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_17.png" alt="图库系统" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1">
@@ -193,7 +167,7 @@
     <tr>
         <td colspan="2">
             <div style="width:500px;height:130px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_21.png" alt="图库系统" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1">
@@ -205,7 +179,7 @@
         </td>
         <td colspan="2">
             <div style="width:500px;height:130px;">
-                <div class="hover ehover1">
+                <div class="hover ehover13">
                     <img class="img-responsive" src="~/image/index_23.png" alt="图库系统" style="width:100%;height:100%;">
                     <div class="overlay">
                         <button class="info" data-toggle="modal" data-target="#modal1">
@@ -218,7 +192,7 @@
     </tr>
 </table>
 @*产品服务*@
-<table id="productinfo" border="1">
+<table id="productinfo" border="0">
     <tr style="text-align:center;">
         <td>
             <h2 style="color:#0057be;">产品服务</h2>
@@ -236,7 +210,7 @@
                         <div id="productimg" style="background: url('../../image/serve_14.png') 100% 100%;"></div>
                     </td>
                     <td>
-                        <table id="productdesc">
+                        <table id="productdesc" align="right">
                             <tr style="text-align:center;">
                                 <td><h4 style="margin:auto;">网上阅卷服务</h4></td>
                             </tr>
@@ -262,6 +236,35 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2" style="height:30px;">
+                        <hr style="border:1px dashed #efefef;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id="productdesc" style="margin-left:0px;">
+                            <tr style="text-align:center;">
+                                <td><h4 style="margin:auto;">无纸化智能考试 </h4></td>
+                            </tr>
+                            <tr>
+                                <td><b> 通用无纸化智能考试平台</b></td>
+                            </tr>
+                            <tr>
+                                <td><span>集命题/组卷/考试/阅卷一体,支持多种题型同时考试</span></td>
+                            </tr>
+                            <tr>
+                                <td><b>大学英语四六级口语考试系统</b></td>
+                            </tr>
+                            <tr>
+                                <td><span>系统支持人机/人人对话2种模式,双重备份,数据加密</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <div id="productimg" style="background: url('../../image/intel.jpg') 100% 100%;width:500px;"></div>
+                    </td>
+                </tr>
             </table>
         </td>
     </tr>
@@ -271,7 +274,7 @@
 </table>
 
 @*产品系统*@
-<table id="productsystem" border="1">
+<table id="productsystem" border="0">
     <tr style="text-align:center;">
         <td><img class="systemimg" src="~/image/serve_03.png" /></td>
         <td><img class="systemimg" src="~/image/serve_05.png" /></td>
@@ -319,6 +322,11 @@
         <td>
             <h2 style="color:#0057be;">品牌优势</h2>
             <span style="font-size:14px;">PRODUCT ADVANTAGE</span>
+        </td>
+    </tr>
+    <tr style="text-align:center;">
+        <td style="height:30px;">
+           
         </td>
     </tr>
     <tr>
@@ -398,52 +406,62 @@
 <script>
     FeiChao.Organ();
 </script>
-@*特色案例和友情链接*@
-<table id="FrendLink" border="0">
+
+@*产品成就*@
+<table id="productachievenment" border="0">
+    <tr style="height:15px;">
+        <td colspan="4"></td>
+    </tr>
     <tr style="text-align:center;">
-        <td>
-            <div style="position:relative">
-                <div style="height:120px;background:url('/image/index_32.png') 100% 100%"></div>
-                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
-                    <span><em style="font-size:16px;color:#0b6ae0;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
-                </div>
-            </div>
+        <td colspan="4">
+            <h2 style="color:#0057be;">产品成就</h2>
+            <span style="font-size:14px;">PRODUCT ACHIEVENMENT</span>
         </td>
-        <td style="width:120px;"></td>
+    </tr>
+    <tr style="height:30px;">
+        <td colspan="4"></td>
+    </tr>
+    @*<tr>
         <td>
-            <div style="position:relative">
-                <div style="height:120px;background:url('/image/index_17.png') 100% 100%"></div>
-                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
-                    <span style="color:#0b6ae0;font-size:20px;line-height:70px;">友情链接</span>
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <td>11111</td>
+                    <td rowspan="2"><img style="width:300px;height:200px;" src="~/image/success_25.jpg" /></td>
+                    <td>2222</td>
+                </tr>
+                <tr>
+                    <td>3333</td>
+                    <td>44444</td>
+                </tr>
+            </table>
+            <img style="width:300px;height:200px;" src="~/image/success_25.jpg" />
+            <img style="width:300px;height:200px;" src="~/image/success_29.jpg" />
+            <img style="width:300px;height:200px;" src="~/image/success_32.jpg" />
         </td>
+    </tr>*@
+    <tr>
+        <td style="width:200px;">还没想好该写什么文案</td>
+        <td colspan="2" rowspan="2"><img style="width:600px;height:250px;" src="~/image/success_25.jpg" /></td>
+        <td style="width:200px;">还没想好该写什么文案</td>
+    </tr>
+    <tr>
+        <td>还没想好该写什么文案</td>
+        <td>还没想好该写什么文案</td>
+    </tr>
+    <tr style="height:30px;">
+        <td colspan="4"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="width:400px;"><img style="width:300px;height:200px;" src="~/image/success_29.jpg" /></td>
+        <td colspan="2"style="width:400px;"><img style="width:300px;height:200px;" src="~/image/success_32.jpg" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"style="width:400px;">还没想好该写什么文案还没想好该写什么文案</td>
+        <td colspan="2"style="width:400px;">还没想好该写什么文案还没想好该写什么文案</td>
+    </tr>
+    <tr style="height:30px;">
+        <td colspan="4"></td>
     </tr>
 
-    <tr style="text-align:center;">
-        <td>
-            <ul id="charactsristiccase" >
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">数据扫描产品</a> </li>
-            </ul>
-        </td>
-        <td style="width:120px;"></td>
-        <td>
-            <ul id="friendlylink">
-                <li><a href="//">北京考试中心</a> </li>
-                <li><a href="//">北京考试中心</a></li>
-                <li><a href="//">北京考试中心</a></li>
-                <li><a href="//">北京考试中心</a></li>
-                <li><a href="//">北京考试中心</a></li>
-                <li><a href="//">北京考试中心</a></li>
-            </ul>
-        </td>
-    </tr>
 </table>
-
-
 

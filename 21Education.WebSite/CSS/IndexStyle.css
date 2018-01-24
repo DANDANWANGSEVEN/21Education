@@ -96,17 +96,31 @@
         }
 
     /*产品展示*/
+    #product{
+        margin-top:30px;
+    }
     #producttable {
         width: 1000px;
-        height: 380px;
+        height: 350px;
         margin: auto;
+        background-color:#f7f7f7;
     }
 
     #productimage {
         width: 600px;
         height: 180px;
     }
-    /*成功案例*/
+
+    /*产品成就*/
+    #productachieventment{
+         width: 1000px;
+        height: auto;
+        margin: auto;
+        margin-bottom:30px;
+    }
+
+
+    /*公司成就*/
     .caseinfo {
         width: 240px;
         height: 150px;

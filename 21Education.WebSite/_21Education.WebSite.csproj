@@ -215,6 +215,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="CSS\Carousel-index.css" />
     <Content Include="CSS\AboutUsStyle.css" />
+    <Content Include="CSS\Carousel-ProductService.css" />
     <Content Include="CSS\ContactUsStyle.css" />
     <Content Include="CSS\ContentStyle.css" />
     <Content Include="CSS\css.css" />

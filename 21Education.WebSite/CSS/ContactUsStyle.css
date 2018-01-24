@@ -7,7 +7,7 @@
     margin: auto;
     margin-top: 20px;
 }
-  .table h3{
+  .table h2{
       color:#0057be;
   }
   .table span
@@ -40,7 +40,7 @@
      /*招聘信息*/
 
 
-#joinproduce h3 {
+#joinproduce h2 {
     color: #0057be;
 }
 #joinlink {

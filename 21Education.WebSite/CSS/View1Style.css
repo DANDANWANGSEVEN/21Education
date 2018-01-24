@@ -11,6 +11,7 @@
             background-color:#0057be;
             color:white;
             position:fixed;
+            z-index:999;
         }
         #nav{
             width:1000px;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using _21Education.MODEL;
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
@@ -20,7 +20,21 @@ namespace _21Education.WebSite.Controllers
         }
         public ActionResult AboutUs()
         {
-            return View();
+            var viewModel = new ViewModels.HomeIndexViewModel
+            {
+                ProductShow = new DATA.CarouselViewModel(new List<MODEL.Carousel>
+                {
+                    new Carousel{Describe="1",ImgPath="/image/honor1.jpg"},
+                    new Carousel{Describe="2",ImgPath="/image/honor2.jpg"},
+                    new Carousel{Describe="3",ImgPath="/image/honor3.jpg"},
+                    new Carousel{Describe="4",ImgPath="/image/honor4.jpg"}
+                })
+                {
+                    ImgWidth = 800,
+                    ClassName = "HonorShow"
+                }
+            };
+            return View(viewModel);
         }
     }
 }

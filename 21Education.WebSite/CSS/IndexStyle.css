@@ -6,6 +6,7 @@
         width: 100%;
         height: 380px;
         /*background: url('../../image/bg.png') 100% 100%;*/
+        z-index:900;
     }
     
     #newstable {
@@ -33,7 +34,7 @@
         text-align: center;
     }
 
-        .firsttr h3 {
+        .firsttr h2 {
             color: #0057be;
         }
     /*产品服务新闻*/

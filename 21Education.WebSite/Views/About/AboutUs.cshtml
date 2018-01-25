@@ -29,6 +29,32 @@
     </tr>
 </table>
 
+@*公司荣誉*@
+<table class="table" id="companyhonor">
+    <tr style="text-align:center;">
+        <td>
+            <h2>______ 公司荣誉 ______</h2>
+            <span style="font-size:14px;">你的满意是我们最大的信赖</span>
+        </td>
+    </tr>
+    <tr style="height:30px;">
+        <td></td>
+    </tr>
+    <tr>
+        <td style="width:1000px;height:260px;">
+            @*background:url('/image/successfulimg.png')*@
+        <table border="0" style="margin:auto;">
+            <tr>
+                <td>
+                    @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+
+
 @*公司文化*@
 <table class="table" id="companyculture">
     <tr>
@@ -64,7 +90,7 @@
 <table id="companyachievenment" border="0">
     <tr style="text-align:center;">
         <td>
-            <h2 style="color:#0057be;">公司成就</h2>
+            <h2 style="color:#0057be;">______ 公司成就 ______</h2>
             <span style="font-size:14px;">因为用心，所以专业</span>
         </td>
     </tr>
@@ -122,28 +148,5 @@
 </table>
 
 
-@*公司荣誉*@
-<table class="table" id="companyhonor">
-    <tr style="text-align:center;">
-        <td>
-            <h2>公司荣誉</h2>
-            <span style="font-size:14px;">你的满意是我们最大的信赖</span>
-        </td>
-    </tr>
-    <tr style="height:30px;">
-        <td></td>
-    </tr>
-    <tr>
-        <td style="width:1000px;height:260px;">@*background:url('/image/successfulimg.png')*@
-            <table border="0" style="margin:auto;">
-                <tr>
-                    <td>
-                        @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
 
 

@@ -5,53 +5,13 @@
 
 @model NewsListViewModel
 
-<style>
-    /*友情链接*/
-    #FrendLink {
-        width: 1000px;
-        margin: auto;
-        margin-top:40px;
-        background:url('/image/index_34.jpg');
-    }
-    /*#FrendLink tr td{
-        width:30%;
-    }*/
-    #FrendLink h2{
-        color:#0057be;
-    }
-    #FrendLink span{
-        font-size:14px;
-    }
-    #FrendLink ul{
-        width:150px;
-        list-style:none;
-        margin-top:40px;
-        margin-left:30%;
-        /*background-image:url('/image/index_34.jpg')*/
-    }
-    #FrendLink ul li{
-        width:240px;
-    }
-    #FrendLink ul li a{
-        text-decoration:none;
-        color:#666666;
-        line-height:36px;
-        width:200px;
-    }
-    #FrendLink ul li:hover{
-        list-style-image:url('/image/a_bg.png');
-    }
 
-     #FrendLink ul li a:hover{
-         color:#0057be;
-     }
-</style>
 
 @*成功案例*@
 <table style="margin:auto;margin-top:15px;">
     <tr style="text-align:center;">
         <td>
-            <h2 style="color:#0057be;">最新案例</h2>
+            <h2 style="color:#0057be;">______ 最新案例 ______</h2>
             <span style="font-size:14px;">LATEST CASE</span>
         </td>
     </tr>
@@ -73,61 +33,7 @@
         </td>
     </tr>
 </table>
-@*特色案例和友情链接*@
-<table id="FrendLink" border="0">
-    <tr style="text-align:center;">
-        <td>
-            <div style="position:relative">
-                <div style="height:120px;background:url('/image/index_32.png') 100% 100%"></div>
-                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
-                    <span><em style="font-size:16px;color:#0b6ae0;">北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
-                </div>
-            </div>
-        </td>
-        <td style="width:120px;"></td>
-        <td>
-            <div style="position:relative">
-                <div style="height:120px;background:url('/image/index_17.png') 100% 100%"></div>
-                <div style="width:350px;height:90px;padding:15px; border-radius:10px; background-color:white;margin-left:30px;line-height:30px;position:absolute;top:30px;box-shadow:#b5d2f6 0 6px 10px;">
-                    <span style="color:#0b6ae0;font-size:20px;line-height:70px;">友情链接</span>
-                </div>
-            </div>
-        </td>
-    </tr>
-
-    <tr style="text-align:center;">
-        <td>
-            <ul id="charactsristiccase">
-                <li><a href="//">数据扫描产品</a> </li>
-                <li><a href="//">网上阅卷服务</a> </li>
-                <li><a href="//">软件开发服务</a> </li>
-                <li><a href="//">软件产品</a> </li>
-                <li><a href="//">答题卡设计与印刷</a> </li>
-                <li><a href="//">数据中心托管服务</a> </li>
-                <li><a href="//">通用无纸化智能考试平台</a> </li>
-                <li><a href="//">网上报名管理系统</a> </li>
-                <li><a href="//">测评与评价系统</a> </li>
-                <li><a href="//">云服务中心</a> </li>
-            </ul>
-        </td>
-        <td style="width:120px;"></td>
-        <td>
-            <ul id="friendlylink">
-
-                <li><a href="//">全国大学英语四六级考委会</a></li>
-                <li><a href="//">北京市海淀区招生考试中心</a></li>
-                <li><a href="//">审计考试网</a></li>
-                <li><a href="//">吉林省高等教育自学考试信息网</a></li>
-                <li><a href="//">医学考试中心</a></li>
-                <li><a href="//">北京市人事考试网</a></li>
-                <li><a href="//">教育部综合查询网</a></li>
-                <li><a href="//">中国人事考试网</a></li>
-                <li><a href="//">教育部考试中心</a></li>
-                <li><a href="//">世纪互联数据中心</a></li>
-            </ul>
-        </td>
-    </tr>
-</table>
+@Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml")
 
 
 

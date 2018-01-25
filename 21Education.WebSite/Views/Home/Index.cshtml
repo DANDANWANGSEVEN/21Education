@@ -11,7 +11,11 @@
 <link href="~/CSS/effects.css" rel="stylesheet" />
 
 @*轮播图*@
-@Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
+<table style="width:1000px;margin:auto;">
+    <tr>
+        <td>@Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)</td>
+    </tr>
+</table>
 
 @*产品服务新闻*@
 <div id="newstable">
@@ -25,17 +29,17 @@
         </tr>
         <tr>
             <td style="width:700px;height:500px;">
-                <table style="width:650px;height:600px;">
+                <table style="width:650px;height:600px;margin-left:10px;">
                     <tr>
                         <td colspan="2">
-                            <div style="width:670px;height:200px;background:url('/image/index_30.png') 100% 100%"></div>
+                            <div style="width:680px;height:200px;background:url('/image/index_30.png') 100% 100%"></div>
                         </td>
                     </tr>
                     <tr>
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newstitle"><a href="/News/NewsContent">2018中高考英语听力首次机考时间确定，一年双考</a></p>
                                 <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span style="font-size:12px;float:right;color:#666666;">2018.01.01</span>
                             </div>
@@ -45,7 +49,7 @@
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newstitle"><a href="/News/NewsContent">2018中高考英语听力首次机考时间确定，一年双考</a></p>
                                 <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span>2018.01.01</span>
                             </div>
@@ -55,7 +59,7 @@
                         <td><img src="~/image/index_37.png" /></td>
                         <td>
                             <div class="newsdiv">
-                                <p class="newstitle"><a href="//">2018中高考英语听力首次机考时间确定，一年双考</a></p>
+                                <p class="newstitle"><a href="/News/NewsContent">2018中高考英语听力首次机考时间确定，一年双考</a></p>
                                 <p class="newscontent">近日，北京市教委公布关于《中、高考英语听说计算机考试有关事项的通知》自今年年底开始，北京将实施中高考英语听力口语考试改革...</p>
                                 <span>2018.01.01</span>
                             </div>
@@ -64,13 +68,9 @@
                 </table>
 
             </td>
-            <td style="width:300px;height:600px;">
+            <td style="width:310px;">
 
-                <div style="width:300px;height:600px;background-color:#f7f7f7;position:relative;">
-                    @*background:url('/image/index_34.jpg');*@
-                <div id="top" style="background:url('/image/index_32.png');">
-
-                </div>
+                <div style="width:300px;height:590px;background-color:#f7f7f7;margin-top:10px;">
                 <div id="topdesc">
                     <span><em>北京世纪互联</em>软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务</span>
                 </div>
@@ -375,6 +375,29 @@
 </div>
 
 @*产品成就*@
+@*<div id="product">
+    <table id="productachieventment" border="0" style="text-align:center;">
+        <tr class="firsttr">
+            <td colspan="4">
+                <h2>______ 产品成就 ______</h2>
+                <span>PRODUCT ACHIEVENMENT</span>
+            </td>
+        </tr>
+        <tr style="height:170px">                                                                                                                        
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+        </tr>                                                                                                                
+        <tr style="height:170px">                                                                                                                 
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+            <td><img src="~/image/icon5.png" /> <p><a href="/News/NewsContent">全国四六级英语考试系统</a></p></td>
+        </tr>
+    </table>
+</div>*@
+@*产品成就*@
 <div id="product">
     <table id="productachieventment" border="0">
         <tr class="firsttr">
@@ -495,6 +518,8 @@
         </tr>
     </table>
 </div>
+
+
 
 @*公司成就*@
 <div id="success">

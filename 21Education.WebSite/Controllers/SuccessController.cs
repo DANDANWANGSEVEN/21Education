@@ -43,7 +43,7 @@ namespace _21Education.WebSite.Controllers
                     ReadCount = 100
                 });
             }
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(), pageSize: 4);
+            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(), pageSize: 8);
             return new NewsListViewModel(newsList.Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin

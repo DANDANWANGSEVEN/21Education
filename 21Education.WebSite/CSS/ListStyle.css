@@ -3,13 +3,13 @@
     padding:0;
 }
 #bigtable{
-    width:1000px;
-    margin:auto;
+    width:720px;
+    /*margin:auto;*/
 }
-#pagetitle{
+/*#pagetitle{
     height:80px;
     border-bottom:1px solid #efefef;
-}
+}*/
   .smalltable h4{
         margin-top:0px;
     }

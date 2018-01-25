@@ -2,6 +2,7 @@
     margin:0;
     padding:0;
 }
+
   .carousel.banner {
         width: 100%;
         height: 380px;
@@ -30,7 +31,7 @@
     }
 
     .firsttr {
-        height: 100px;
+        height: 80px;
         text-align: center;
     }
 
@@ -69,7 +70,7 @@
         width:280px;height:180px;line-height:46px;padding:0px 10px;
     }
     #topdesc{
-        width:240px;height:120px;padding:15px; border-radius:10px; background-color:white;margin-left:15px;line-height:30px;position:absolute;top:50px;box-shadow:#b5d2f6 0 6px 10px;
+        width:240px;height:120px;padding:15px; border-radius:10px; background-color:white;margin-left:15px;line-height:30px;box-shadow:#b5d2f6 0 6px 10px;
     } 
     #topdesc em{
         color:#0057be;font-size:18px;
@@ -113,13 +114,27 @@
 
     /*产品成就*/
     #productachieventment{
-         width: 1000px;
-        height: auto;
+        width: 1000px;
+        height: 420px;
         margin: auto;
         margin-bottom:30px;
     }
-
-
+    
+    /*#productachieventment td img{
+        width:80px;height:80px;padding:10px;
+    }*/
+    #productachieventment td p{
+        padding:20px;
+    }
+    /*#productachieventment td p:hover{
+        border-bottom:2px #0057be solid;
+    }*/
+    #productachieventment td a{
+        color:black;
+    }
+    #productachieventment td a:hover{
+        color:#0057be;
+    }
     /*公司成就*/
     .caseinfo {
         width: 240px;

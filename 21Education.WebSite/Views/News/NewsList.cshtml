@@ -3,11 +3,12 @@
     Layout = "~/Views/Shared/View1.cshtml";
 }
 @model NewsListViewModel
-<table style="margin:auto;">
-    <tr class="firsttr">
+
+@*<table style="margin:auto;width:1000px;">
+    <tr class="firsttr" style="text-align:center;">
         <td colspan="2">
             <div style="height:70px;margin-bottom:15px;">
-                <h2>______ 新闻中心 ______</h2>
+                <h2 style="color:#0057be;">______ 新闻中心 ______</h2>
                 <span>NEWS CENTER</span>
             </div>
         </td>
@@ -26,7 +27,39 @@
             </div>
         </td>
     </tr>
+</table>*@
+
+
+<table style="margin:auto;width:1000px;">
+    <tr class="firsttr" style="text-align:center;">
+        <td colspan="2">
+            <div>
+                <h2 style="color:#0057be;">______ 新闻中心 ______</h2>
+                <span>NEWS CENTER</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Partial("~/Views/PartView/ListPage.cshtml")
+            
+        </td>
+        <td>
+            @Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml")
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="height:auto;margin-top:30px;">
+            @{Html.Pagin(Model.Pagination);}
+            </div>
+        </td>
+    </tr>
 </table>
-@Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml")
+
+
+
+
+
 
 

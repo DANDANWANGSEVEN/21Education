@@ -146,6 +146,10 @@
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Areasjs\colResizable-1.3.min.js" />
+    <Content Include="Content\Areasjs\common.js" />
+    <Content Include="Content\Areasjs\jquery.min.js" />
+    <Content Include="Content\Areasjs\jquery.SuperSlide.js" />
     <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
     <Content Include="Content\js\style_old.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
@@ -213,6 +217,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\AreasCSS\areasstyle.css" />
+    <Content Include="CSS\AreasCSS\common.css" />
+    <Content Include="CSS\AreasCSS\main.css" />
     <Content Include="CSS\Carousel-index.css" />
     <Content Include="CSS\AboutUsStyle.css" />
     <Content Include="CSS\Carousel-ProductService.css" />
@@ -298,6 +305,14 @@
     <Content Include="image\honor3.jpg" />
     <Content Include="image\honor4.jpg" />
     <Content Include="image\icon.png" />
+    <Content Include="image\index.V3\indexfour.png" />
+    <Content Include="image\index.V3\indexone.png" />
+    <Content Include="image\index.V3\indexthree.png" />
+    <Content Include="image\index.V3\indextwo.png" />
+    <Content Include="image\index.V3\index_productservice_one.png" />
+    <Content Include="image\index.V3\index_productservice_two.png" />
+    <Content Include="image\index.V3\index_product_next.png" />
+    <Content Include="image\index.V3\index_product_prev.png" />
     <Content Include="image\indexfour.png" />
     <Content Include="image\indexone.png" />
     <Content Include="image\indexthree.png" />

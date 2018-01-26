@@ -1,287 +1,138 @@
 ﻿@{
     ViewBag.Title = "View2";
 }
-<script src="~/Content/js/jquery-1.10.2.min.js"></script>
-<!DOCTYPE html>
-<html lang="zh">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <style type="text/css">
-        .demo {
-            padding: 2em 0;
-            background: #fff;
-        }
 
-        a:hover, a:focus {
-            text-decoration: none;
-            outline: none;
-        }
+    <link href="~/CSS/AreasCSS/common.css" rel="stylesheet" />
+    <link href="~/CSS/AreasCSS/areasstyle.css" rel="stylesheet" />
+    <script src="~/Content/Areasjs/jquery.min.js"></script>
+    <script src="~/Content/Areasjs/jquery.SuperSlide.js"></script>
+    <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
 
-        #accordion:before {
-            content: "";
-            width: 1px;
-            height: 80%;
-            background: #550527;
-            position: absolute;
-            top: 20px;
-            left: 24px;
-            bottom: 20px;
-        }
+    <script type="text/javascript">
+  $(function(){
+	  //给所有的li绑定点击事件
+	  $(".sideMenu ul li").bind('click',function(){
+		  var a= $(this).attr("src");
+		  alert(a);
+		  $("#rightMain").attr("src",a);//修改iframe中的src属性
+		  var b=$("#rightMain").attr("src");
+		  //alert(b);
+		  });
+      $(".sideMenu").slide({
+         titCell:"h3",
+         targetCell:"ul",
+         defaultIndex:0,
+         effect:'slideDown',
+         delayTime:'500' ,
+         trigger:'click',
+         triggerTime:'150',
+         defaultPlay:true,
+         returnDefault:false,
+         easing:'easeInQuint',
+         endFun:function(){
+              scrollWW();
+         }
+       });
+      $(window).resize(function() {
+          scrollWW();
+      });
+  });
+  function scrollWW(){
+    if($(".side").height()<$(".sideMenu").height()){
+       $(".scroll").show();
+       var pos = $(".sideMenu ul:visible").position().top-38;
+       $('.sideMenu').animate({top:-pos});
+    }else{
+       $(".scroll").hide();
+       $('.sideMenu').animate({top:0});
+       n=1;
+    }
+  }
 
-        #accordion .panel {
-            border: none;
-            border-radius: 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-            margin: 0 0 12px 50px;
-            position: relative;
-        }
-
-            #accordion .panel:before {
-                content: "";
-                width: 2px;
-                height: 100%;
-                background: linear-gradient(to bottom, #688e26 0%,#ff816a 100%);
-                position: absolute;
-                top: 0;
-                left: -2px;
-            }
-
-        #accordion .panel-heading {
-            padding: 0;
-            background: #fff;
-            position: relative;
-        }
-
-            #accordion .panel-heading:before {
-                content: "";
-                width: 15px;
-                height: 15px;
-                border-radius: 50px;
-                background: #fff;
-                border: 1px solid #550527;
-                position: absolute;
-                top: 50%;
-                left: -48px;
-                transform: translateY(-50%);
-            }
-
-        #accordion .panel-title a {
-            display: block;
-            padding: 15px 55px 15px 30px;
-            font-size: 20px;
-            font-weight: 600;
-            color: #550527;
-            border: none;
-            margin: 0;
-            position: relative;
-        }
-
-            #accordion .panel-title a:before,
-            #accordion .panel-title a.collapsed:before {
-                content: "\f068";
-                font-family: fontawesome;
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                border-radius: 50%;
-                font-size: 15px;
-                font-weight: normal;
-                color: #688e26;
-                text-align: center;
-                border: 1px solid #688e26;
-                position: absolute;
-                top: 50%;
-                right: 25px;
-                transform: translateY(-50%);
-                transition: all 0.5s ease 0s;
-            }
-
-            #accordion .panel-title a.collapsed:before {
-                content: "\f067";
-            }
-
-        #accordion .panel-body {
-            padding: 0 30px 15px;
-            border: none;
-            font-size: 14px;
-            color: #305275;
-            line-height: 28px;
-        }
-    </style>
+var n=1;
+function menuScroll(num){
+  var Scroll = $('.sideMenu');
+  var ScrollP = $('.sideMenu').position();
+  /*alert(n);
+  alert(ScrollP.top);*/
+  if(num==1){
+     Scroll.animate({top:ScrollP.top-38});
+     n = n+1;
+  }else{
+    if (ScrollP.top > -38 && ScrollP.top != 0) { ScrollP.top = -38; }
+    if (ScrollP.top<0) {
+      Scroll.animate({top:38+ScrollP.top});
+    }else{
+      n=1;
+    }
+    if(n>1){
+      n = n-1;
+    }
+  }
+}
+    </script>
+    <title>后台首页</title>
 </head>
 <body>
-
-    <table id="top" style="width:100%;height:60px;background-color:#0057be;color:#fff;position:fixed;z-index:100;">
-        <tr>
-            <td><img style="width:300px;margin:10px 15%;" src="~/image/logo_white.png" /></td>
-            <td><p style="float:right;margin:15px 15%;">欢迎Admin登陆  【<a href="//" style="color:#fff;">退出登录</a>】</p></td>
-        </tr>
-    </table>
-    <div style="height:70px;">
-
+    <div class="top" style="background-color:#0057be;">
+        <div style="float:left;margin-top:15px;"><img width="240" height="30" src="~/image/logo_white.png"/> </div>
+        <div style="color:white;width:300px;height:45px; margin-top:15px; font-size:16px;float:right;">欢迎Admin登陆</div>
     </div>
-
-    <table>
-        <tr>
-            <td style="width:15%;background-color:lightblue;"></td>
-            <td></td>
-            <td style="width:85%;background-color:lightblue;"></td>
-        </tr>
-    </table>
-
-    @*<div>
-        <div id="left" style="float:left;" class="col-md-3">
-                <div class="jq22-container" style="float:left;">
-                    <div class="demo">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        首页
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        新闻中心
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        成功案例
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                        产品服务
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                        关于我们
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                        联系我们
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                    <p><a href="//">轮播图</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <div class="side">
+        <div class="sideMenu" style="margin:20px auto">
+            <h3><i class="fa fa-home" style="padding:0px 10px;"></i>首页</h3>
+            <ul>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+                <li><a href="//">首页轮播图</a></li>
+            </ul>
+            <h3><i class="fa fa-th" style="padding:0px 10px;"></i>新闻中心</h3>
+            <ul>
+                <li src="11">新闻列表</li>
+            </ul>
+            <h3><i class="fa fa-diamond" style="padding:0px 10px;"></i> 成功案例</h3>
+            <ul>
+                <li src="21">案例列表</li>
+            </ul>
+            <h3><i class="fa fa-paper-plane-o" style="padding:0px 10px;"></i> 产品服务</h3>
+            <ul>
+                <li src="31">产品展示</li>
+                <li src="31">产品展示</li>
+                <li src="31">产品展示</li>
+                <li src="31">产品展示</li>
+            </ul>
+            <h3><i class="fa fa-map-marker" style="padding:0px 10px;"></i>关于我们</h3>
+            <ul>
+                <li src="41">公司介绍</li>
+                <li src="41">公司介绍</li>
+                <li src="41">公司介绍</li>
+            </ul>
+            <h3><i class="fa fa-envelope-o" style="padding:0px 10px;"></i> 联系我们</h3>
+            <ul>
+                <li src="51">公司地址</li>
+                <li src="51">公司地址</li>
+                <li src="51">公司地址</li>
+                <li src="51">公司地址</li>
+            </ul>
         </div>
-        <div id="right" style="float:right;" class="col-md-8">
-            @RenderBody()
-        </div>
-    </div>*@
-
-
-
-    
-
-    <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+    </div>
+    <div class="main" style="background-color:#efefef;">
+        @*<iframe name="right" id="rightMain" src="Home.html" frameborder="no" scrolling="auto" width="100%" height="auto" allowtransparency="true"></iframe>*@
+        @RenderBody()
+    </div>
+    <div class="scroll">
+        <a href="javascript:;" class="per" title="使用鼠标滚轴滚动侧栏" onclick="menuScroll(1);"></a>
+        <a href="javascript:;" class="next" title="使用鼠标滚轴滚动侧栏" onclick="menuScroll(2);"></a>
+    </div>
 </body>
 </html>
+
+

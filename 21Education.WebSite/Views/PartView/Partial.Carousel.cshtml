@@ -7,36 +7,36 @@
         --ImgWidth: @Model.ImgWidth;
     }
 </style>
-<div class="carousel @Model.ClassName">
-    <div class="container">
-        <div class="slider-container">
-            @Slider(Model)
+<div class="carousel @Model.ClassName" style="width:1000px;margin:auto;">
+        <div class="container">
+            <div class="slider-container">
+                @Slider(Model)
+            </div>
+            <div class="carousel-prev carousel-btn">
+                <svg class="hide">
+                    <symbol id="prev">
+                        <path fill="#000" d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" />
+                    </symbol>
+                </svg>
+                <svg class="icon" viewBox="0 0 20 20"> <use class="use-left" xlink:href="#prev" x="0" y="0" /> </svg>
+            </div>
+            <div class="carousel-next carousel-btn">
+                <svg class="hide">
+                    <symbol id="next">
+                        <path fill="#000" d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" />
+                    </symbol>
+                </svg>
+                <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
+            </div>
         </div>
-        <div class="carousel-prev carousel-btn">
-            <svg class="hide">
-                <symbol id="prev">
-                    <path fill="#000" d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" />
-                </symbol>
-            </svg>
-            <svg class="icon" viewBox="0 0 20 20"> <use class="use-left" xlink:href="#prev" x="0" y="0" /> </svg>
-        </div>
-        <div class="carousel-next carousel-btn">
-            <svg class="hide">
-                <symbol id="next">
-                    <path fill="#000" d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" />
-                </symbol>
-            </svg>
-            <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
-        </div>
-    </div>
-    @if (!string.IsNullOrEmpty(Model.PreviewHtml))
-    {
-        @Preview(Model, Model.PreviewHtml)
-    }
-    <script>
+        @if (!string.IsNullOrEmpty(Model.PreviewHtml))
+        {
+            @Preview(Model, Model.PreviewHtml)
+        }
+        <script>
         $(".carousel.@Model.ClassName").Carousel({ imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName"});
-    </script>
-</div>
+        </script>
+    </div>
 @helper Slider(List<Carousel> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -64,12 +64,12 @@
 @helper Preview(List<Carousel> list, string html)
     {
 
-        <div class="preview @Model.ClassName">
-            @for (int i = 0; i < list.Count; i++)
-            {
-                @Html.Raw(string.Format(html, list[i].ImgPath))
-            }
-        </div>
+            <div class="preview @Model.ClassName">
+                @for (int i = 0; i < list.Count; i++)
+                {
+                    @Html.Raw(string.Format(html, list[i].ImgPath))
+                }
+            </div>
 }
 
 

@@ -27,7 +27,8 @@ namespace _21Education.WebSite
                 new List<string>
                 {
                     StringKeys.ActionFormatWithFullName(nameof(NewsController),nameof(NewsController.NewsList)),
-                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessList))
+                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessList)),
+                    StringKeys.ActionFormatWithFullName(nameof(ProductController),nameof(ProductController.ProductService))
                 }
             );
 
@@ -37,7 +38,8 @@ namespace _21Education.WebSite
                 new List<string>
                 {
                     StringKeys.ActionFormatWithFullName(nameof(NewsController),nameof(NewsController.NewsContent)),
-                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessContent))
+                    StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessContent)),
+                    StringKeys.ActionFormatWithFullName(nameof(ProductController),nameof(ProductController.ProductService))
                 }
             );
 

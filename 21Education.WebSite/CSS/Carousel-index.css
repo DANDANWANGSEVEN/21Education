@@ -1,11 +1,12 @@
 ﻿.carousel {
     --ImgWidth: 900;
+    --ImgHeight: 300;
 }
 
     .carousel .container {
         position: relative;
         width: calc(var(--ImgWidth)*1px);
-        height: 300px;
+        height: calc(var(--ImgHeight)*1px);
         margin: 0 auto;
         overflow: hidden;
     }
@@ -15,7 +16,7 @@
             left: calc(var(--ImgWidth)*-1px);
             top: 0;
             width: 10000px;
-            height: 300px;
+            height: calc(var(--ImgHeight)*1px);
         }
 
             .carousel .container .slider-container .slider-item {
@@ -23,14 +24,14 @@
                 width: calc(var(--ImgWidth)*1px);
                 height: 300px;
                 position: relative;
-                float:left;
+                float: left;
             }
 
                 .carousel .container .slider-container .slider-item img {
                     display: block;
                     width: calc(var(--ImgWidth)*1px);
-                    height: 300px;
-                    vertical-align:middle;
+                    height: calc(var(--ImgHeight)*1px);
+                    vertical-align: middle;
                 }
 
                 .carousel .container .slider-container .slider-item span {
@@ -43,20 +44,26 @@
                 }
 
         .carousel .container .carousel-btn {
-            height: 60px;
-            width: 60px;
+            height: 40px;
+            width: 40px;
             position: absolute;
             display: block;
-            top: 40%;
+            top: 42%;
             color: #ffffff;
             cursor: pointer;
-            background-color: #808080;
-            opacity: 0.5;
+            background-color: rgba(0,0,0,.5);
+            opacity: 0.3;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
         }
+
+            .carousel .container .carousel-btn img {
+                height: 40px;
+                width: 40px;
+                opacity:1;
+            }
 
 .flipx {
     -moz-transform: scaleX(-1);
@@ -110,4 +117,3 @@
         outline: 3px solid #196cd2;
         box-shadow: 2px 2px 20px 4px rgba(0,0,0,.5);
     }
-

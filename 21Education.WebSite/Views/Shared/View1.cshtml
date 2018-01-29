@@ -9,7 +9,15 @@
     <title>北京世纪互联软件开发有限公司</title>
     <link href="~/CSS/View1Style.css" rel="stylesheet" />
     <script src="~/Content/js/jquery-1.10.2.min.js"></script>
+
+    <style>
+        #foot table tr td a:hover {
+            border-bottom:2px solid white;
+        }
+    </style>
+
 </head>
+
 <body>
     @*导航*@
 
@@ -41,42 +49,76 @@
     <div>
         @RenderBody()
     </div>
-
-    <div id="foot">
-        <table style="margin:auto;">
+    <div id="foot" style="width:100%;height:120px;background-color:#0057be;margin-top:10px;color:white;">
+        <table style="width:1000px;text-align:center;margin:auto;" >
             <tr>
                 <td>
-                    <table id="footnav">
+                    <table style="color:white;margin:auto;margin-top:15px;">
                         <tr>
-                            <td>|</td>
-                            <td><a href="/Home/Index">首页</a></td>
-                            <td>|</td>
-                            <td><a href="/News/NewsList">新闻中心</a></td>
-                            <td>|</td>
-                            <td><a href="/Success/SuccessList">成功案例</a></td>
-                            <td>|</td>
-                            <td><a href="/Product/ProductService">产品服务</a></td>
-                            <td>|</td>
-                            <td><a href="/About/AboutUs">关于我们</a></td>
-                            <td>|</td>
-                            <td><a href="/Contact/ContactUs">联系我们</a></td>
-                            <td>|</td>
-                            <td><a href="/Contact/JoinUs">招聘信息</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/Home/Index" style="text-decoration:none;color:white;">首页</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/News/NewsList" style="text-decoration:none;color:white;">新闻中心</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/Success/SuccessList" style="text-decoration:none;color:white;">成功案例</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/Product/ProductService" style="text-decoration:none;color:white;">产品服务</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/About/AboutUs" style="text-decoration:none;color:white;">关于我们</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/Contact/ContactUs" style="text-decoration:none;color:white;">联系我们</a></td>
+                            <td style="padding:0 10px;">|</td>
+                            <td style="padding:0 10px;"><a href="/Contact/JoinUs" style="text-decoration:none;color:white;">招聘信息</a></td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td><span style="font-size:14px;line-height:26px;">Copyright ©2015 21education software Inc. All Rights Reserved.</span> </td>
+                <td>
+                    <span style="font-size:14px;line-height:26px;">Copyright ©2015 21education software Inc. All Rights Reserved.</span>
+                    
+                    <span style="font-size:14px;line-height:26px;">京公网安备 11010502001746号</span>
+                </td>
+                
             </tr>
             <tr>
-                <td><span style="font-size:14px;line-height:26px;">北京世纪互联软件开发有限公司 版权所有 京ICP备05029160号</span> </td>
-            </tr>
-            <tr>
-                <td><span style="font-size:14px;line-height:26px;">京公网安备 11010502001746号</span></td>
+                <td><span style="font-size:14px;line-height:26px;">北京世纪互联软件开发有限公司 版权所有 京ICP备05029160号</span></td>
             </tr>
         </table>
     </div>
+
+    @*友情链接*@
+    <div style="width:10%;height:auto;background-color:lightblue;position:fixed;top:35%;">
+        <h4>友情链接</h4>
+        <ul>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+            <li><a href="//">吉林省高等教育自学考试信息网</a></li>
+        </ul>
+    </div>
+
+    @*公司信息*@
+    <div>
+        <p>北京世纪互联软件开发有限公司</p>
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
 
 
 

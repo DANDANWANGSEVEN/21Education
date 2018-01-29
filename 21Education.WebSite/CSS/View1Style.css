@@ -16,7 +16,7 @@
         #nav{
             width:1000px;
             margin:auto;
-            height:80px;
+            height:65px;
             border-bottom:1px solid #0057be;
         }
         #navtitle{
@@ -35,32 +35,4 @@
             border-bottom:2px solid white;
         }
         
-       #foot{
-            height:160px;
-            background-color:#0057be;
-            color:white;
-            text-align:center;
-            font-size:14px;
-            margin-top:15px;
-        }
-      
-       #foot td a{
-           text-align:center;color:white;font-size:14px;
-       }
-        /*#footnav{
-            margin-top:10px;
-        }*/
-        #footnav td{
-            padding:18px 6px;
-            color:white;
-        }
-        #footnav td a{
-            text-decoration:none;
-        }
-        #footnav td a:hover{
-            border-bottom:2px solid white;
-        }
-        #foot tr td span{
-            font-size:14px;
-            line-height:30px;
-        }
+

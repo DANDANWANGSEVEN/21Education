@@ -6,45 +6,197 @@
 <title>首页</title>
 <link href="~/CSS/IndexStyle.css" rel="stylesheet" />
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
+<link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 <script src="~/Content/js/Carousel.js"></script>
 <link href="~/CSS/effects.css" rel="stylesheet" />
 
 <style>
-    .table{
-        width:1000px;margin:auto;border-bottom:2px dashed #666666;
+    .table {
+        width: 1000px;
+        margin: auto;
+        border-bottom: 2px dashed #666666;
     }
-    .newsfriendlyul li a{
-        line-height:30px;
-        text-decoration:none;
-        color:#666666;
+
+    .newsfriendlyul li a {
+        line-height: 30px;
+        text-decoration: none;
+        color: #666666;
     }
-    .newsfriendlyul li:hover{
-        list-style:disc;
+
+    .newsfriendlyul li:hover {
+        list-style: disc;
     }
+
     .newsfriendlyul li a:hover {
-        color:#0057be;
+        color: #0057be;
     }
+
+    /*主营业务*/
+    #mainbusiness a {
+        line-height: 30px;
+    }
+
+    #mainbusiness td:hover {
+        color: white;
+        background-color: #0057be;
+    }
+
+    #mainbusiness td a {
+        width: 100%;
+        display: block;
+    }
+
+        #mainbusiness td a:hover {
+            color: white;
+        }
 </style>
 
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
 
 @*产品服务*@
+<style>
+    .carousel.productshow .container{
+        width:100%;
+    }
+</style>
 <table class="table" id="index.productservice" border="0" style="text-align:center;">
     <tr class="firsttr">
         <td colspan="6">
-            <h3 style="color:#0057be;">产品服务 <span style="color:#666666;">MAIN BUSINESS</span></h3>
+            <h2 style="color:#0057be;">______ 产品服务 ______</h2>
+            <span style="font-size:14px;color:#666666;">PRODUCT SERVICES</span>
         </td>
     </tr>
     <tr>
-        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_prev.png" /></td>
+        @*<td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_prev.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_one.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
-        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_next.png" /></td>
+        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_next.png" /></td>*@
+        <td>
+            @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+        </td>
     </tr>
 </table>
+
+
+@*主营业务*@
+<table class="table" id="index.productservice" border="1" style="text-align:center;">
+    <tr class="firsttr">
+        <td colspan="6">
+            <h2 style="color:#0057be;">______ 主营业务 ______</h2>
+            <span style="font-size:14px;color:#666666;">MAIN BUSINESS</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:250px;" valign="top">
+            <table style="width:100%;height:auto;border-collapse:collapse;background-color:#f7f7f7;" id="mainbusiness" border="1">
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+            </table>
+
+
+
+        </td>
+        <td>
+            <table id="businessdiv">
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/about_14.jpg" /></td>
+                    <td>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                        <p><b>多层级多权限管理</b></p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script>
+
+    $("#mainbusiness a").click(function () {
+        var index = $(this).index("#mainbusiness a");
+        $("#businessdiv tr").eq(index).show().siblings().hide();
+    }).eq(0).click();
+</script>
+
+
+
 
 @*新闻中心和友情链接*@
 <table class="table" id="newsfriendly">
@@ -53,7 +205,7 @@
             <div style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
                 <div style="width:100%;height:40px;background-color:#f6f6f6;">
                     <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">新闻中心 <span style="color:#666666;">NEWS CENTER</span></h3></div>
-                    <div style="float:right;"><a style="font-size:14px;margin-right:0px;">更多...</a></div>
+                    <div style="float:right;margin-top:8px;"><a href="/News/NewsList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
                 </div>
                 <div>
                     <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;">
@@ -65,19 +217,25 @@
                     </ul>
                 </div>
             </div>
-           
         </td>
         <td style="width:50px;"></td>
         <td>
             <div style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
-                <div style="background-color:#f6f6f6;border-left:3px solid #0057be;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">特色案例 <span style="color:#666666;">SPECIAL CASE</span></h3></div>
-                <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;">
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                </ul>
+
+                <div style="width:100%;height:40px;background-color:#f6f6f6;">
+                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">成功案例 <span style="color:#666666;">NEWS CENTER</span></h3></div>
+                    <div style="float:right;margin-top:8px;"><a href="/Success/SucessList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
+                </div>
+                <div>
+                    <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;">
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                    </ul>
+
+                </div>
             </div>
         </td>
     </tr>

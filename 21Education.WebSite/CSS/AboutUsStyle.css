@@ -6,7 +6,7 @@
 .table {
     margin: auto;
     width: 1000px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .table p {
@@ -24,7 +24,7 @@
 
 /*公司文化*/
 #companyculture {
-    height: 300px;
+    height: 200px;
     text-align: center;
     background-color: #f7f7f7;
 }
@@ -34,7 +34,7 @@
 }
 
 #companyculture p {
-    line-height: 60px;
+    line-height: 50px;
 }
 
 #companyculture {
@@ -52,6 +52,5 @@
         width: 1000px;
         height: 500px;
         margin: auto;
-        margin-top: 30px;
-        background-color:#f7f7f7;
+        margin-top: 20px;
     }

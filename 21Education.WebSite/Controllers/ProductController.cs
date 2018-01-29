@@ -36,14 +36,14 @@ namespace _21Education.WebSite.Controllers
                 newsList.Add(new MODEL.News
                 {
                     NewsId = i,
-                    Title = "新闻标题" + i,
-                    Content = "新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容",
+                    Title = "产品" + i,
+                    Content = "产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述",
                     ImgPath = "/image/about_14.jpg",
                     PubDate = DateTime.Now,
                     ReadCount = 300
                 });
             }
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(),pageSize:5);
+            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(),pageSize:4);
             return new NewsListViewModel(newsList.Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin

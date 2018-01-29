@@ -7,9 +7,6 @@
     margin: auto;
     margin-top: 20px;
 }
-  .table h2{
-      color:#0057be;
-  }
   .table span
   {
       font-size:14px;
@@ -24,6 +21,10 @@
         text-align:center;
     }
 
+    #cooperation td{
+        border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);
+    }
+
      #cooperation dl img{
          width:320px;height:130px;
      }
@@ -32,6 +33,7 @@
          margin:0;
          line-height:30px;
          background-color:#efefef;
+         border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);
      }
      
      #map_link{
@@ -41,7 +43,7 @@
      /*招聘信息*/
 
 
-#joinproduce h2 {
+#joinproduce h3 {
     color: #0057be;
 }
 #joinlink {

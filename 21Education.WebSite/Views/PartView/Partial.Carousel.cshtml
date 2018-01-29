@@ -20,10 +20,10 @@
             <img src="~/image/index.V3/index_product_prev.png" />
         </div>
     </div>
-    @if (!string.IsNullOrEmpty(Model.PreviewHtml))
+    @*@if (!string.IsNullOrEmpty(Model.PreviewHtml))
     {
         @Preview(Model, Model.PreviewHtml)
-    }
+    }*@
     <script>
         $(".carousel.@Model.ClassName").Carousel({ imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName"});
     </script>
@@ -52,7 +52,7 @@
         </div>
 }
 
-@helper Preview(List<Carousel> list, string html)
+@*@helper Preview(List<Carousel> list, string html)
     {
 
         <div class="preview @Model.ClassName">
@@ -61,6 +61,6 @@
                 @Html.Raw(string.Format(html, list[i].ImgPath))
             }
         </div>
-}
+}*@
 
 

@@ -35,7 +35,7 @@ namespace _21Education.WebSite.Controllers
                 })
                 {
                     ImgWidth = 200,
-                    ImgHeight = 100,
+                    ImgHeight = 140,
                     ClassName = "productshow"
                 }
             };

@@ -11,7 +11,7 @@ namespace _21Education.DATA
     {
         public CarouselViewModel(List<Carousel> list) : base(list)
         {
-            
+            this.ShowCount = 1;
         }
         public int ImgWidth { get; set; }
         public int ImgHeight { get; set; }

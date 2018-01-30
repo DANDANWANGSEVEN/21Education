@@ -8,8 +8,9 @@
                 plugClassName: "",
                 showCount: 1
             }
+            if (options.showCount > 1) options.carouselIndex = options.showCount;
             var options = $.extend(defaults, options);
-            var defalutIndex = 1;
+            //var defalutIndex = (function () { return $container.children().length - options.showCount; })();
             var $this = $(this);
             var autoPlayInterval = null;
             var $container = $this.find(".slider-container");
@@ -31,16 +32,16 @@
             function play() {
                 clearInterval(autoPlayInterval);
                 var animateLength = options.carouselIndex * (-options.imgWidth) + "px";
-                if (options.carouselIndex > imgCount) {
+                if (options.carouselIndex == options.showCount + imgCount) {
                     $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -options.imgWidth + "px")
+                        $(this).css("left", -options.imgWidth * options.showCount + "px")
                     });
-                    options.carouselIndex = defalutIndex;
+                    options.carouselIndex = options.showCount;
                 }
-                else if (options.carouselIndex < defalutIndex) {
+                else if (options.carouselIndex == 0) {
                     $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -imgCount * options.imgWidth + "px")
-                    });
+                        $(this).css("left", -options.imgWidth * imgCount + "px")
+                    });//??Èç¹ûÓÐshowcount 4
                     options.carouselIndex = imgCount;
                 }
                 else {
@@ -52,6 +53,7 @@
                 SetAutoPlayInterval();
             }
             void function Init() {
+                SetAutoPlayInterval();
                 $preview.each(function () {
                     $(this).children().eq(0).addClass("active");
                 });
@@ -61,7 +63,6 @@
                     $this.find(".carousel-next").click();
                 }, options.spaceInterval * 1000);
             }
-            SetAutoPlayInterval();
             return $this;
         }
     });

@@ -2,6 +2,7 @@
     ViewBag.Title = "ProductService";
     Layout = "~/Views/Shared/View1.cshtml";
 }
+@model NewsListViewModel
 <script src="~/Content/js/js.js"></script>
 <link href="~/CSS/css.css" rel="stylesheet" />
 <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
@@ -12,60 +13,37 @@
         width: 1000px;
         height: 340px;
         margin: auto;
-        margin-top:30px;
-        background-color:#f7f7f7;
+        margin-top: 30px;
+        background-color: #f7f7f7;
     }
     /*产品服务*/
-    #productimg {
-        width: 480px;
-        height: 220px;
-    }
-
-    #productdesc {
-        line-height: 30px;
-        margin-left: 60px;
-    }
-
-        #productdesc span {
-            color: #666666;
-        }
-        #productcarousel{
-            width:100%;
-        }
-
-    /*产品系统*/
-    #productsystem {
-        width: 1000px;
-        height: 350px;
-        margin: auto;
-        margin-top: 20px;
-        /*text-align:center;*/
-    }
-
-    .systemimg {
-        width: 100px;
-        height: 100px;
-        padding: 10px 0px;
-    }
-
-    #productsystem tr td b {
-        list-style: none;
-        line-height: 30px;
-        font-size: 18px;
-        color: #0057be;
-    }
-    #productsystem ul{
-        margin-left:40px;
-    }
-    #productsystem ul li span {
-        line-height: 40px;
-    }
-    /*产品展示*/
     #productshow {
         width: 1000px;
-        height: 500px;
         margin: auto;
-        margin-top: 0px;
+    }
+    #productname b {
+        color: #0b6ae0;
+        font-size: 20px;
+        line-height: 50px;
+    }
+        #productname b:hover{
+            color:white;
+        }
+        
+        
+        #productname a {
+            text-decoration: none;
+            padding: 5px;
+            line-height: 30px;
+            color: #666666;
+            display:block;
+        }
+    #productname td:hover {
+        background-color: #0057be;
+    }
+    
+    #productname a:hover {
+        color: white;
     }
     /*品牌优势*/
     #productadvantage {
@@ -74,260 +52,83 @@
         margin: auto;
         margin-top: 30px;
     }
-    /*产品成就*/
-  #productachievenment{
-        width: 1000px;
-        height: 320px;
-        margin: auto;
-        margin-top: 30px;
-        text-align:center;
-        background-color:#f7f7f7;
-  }
-
 </style>
 
 @*产品展示*@
-<table id="productshow" border="0">
+<table id="productshow">
     <tr style="text-align:center;height:70px;">
-        <td colspan="4">
-            <h2 style="color:#0057be;">______ 产品展示 ______</h2>
+        <td colspan="2">
+            <h3 style="color:#0057be;">______ 产品展示 ______</h3>
             <span style="font-size:14px;">PRODUCT SHOW</span>
         </td>
     </tr>
-    <tr style="height:30px;">
+    <tr style="height:20px;">
         <td colspan="4"></td>
     </tr>
     <tr>
-        <td rowspan="2">           
-            <div style="width:250px;height:260px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_07.png" alt="" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal5">
-                            网上阅卷
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td>
-            <div style="width:250px;height:130px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_09.png" alt="" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
-                            通用无纸化智能考试平台
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </td>
-        <td>
-            <div style="width:250px;height:130px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_11.png" alt="" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1" style="margin-top:30px;">
-                            网上报名管理系统
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td rowspan="2">
-
-            <div style="width:250px;height:260px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_13.png" alt="图库系统" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1">
-                            图库系统
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div style="width:500px;height:130px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_17.png" alt="图库系统" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1">
-                            测评与评价系统
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div style="width:500px;height:130px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_21.png" alt="图库系统" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1">
-                            云服务中心
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td colspan="2">
-            <div style="width:500px;height:130px;">
-                <div class="hover ehover13">
-                    <img class="img-responsive" src="~/image/index_23.png" alt="图库系统" style="width:100%;height:100%;">
-                    <div class="overlay">
-                        <button class="info" data-toggle="modal" data-target="#modal1">
-                            数据处理中心
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
-@*产品服务*@
-<table id="productinfo" border="0">
-    <tr style="text-align:center;">
-        <td>
-            <h2 style="color:#0057be;">______ 产品服务 ______</h2>
-            <span style="font-size:14px;">PRODUCT SERVICE</span>
-        </td>
-    </tr>
-    <tr style="height:30px;">
-        <td></td>
-    </tr>
-    <tr>
-        <td>
-            <table id="productcarousel">
+        <td style="width:220px;background-color:#f7f7f7;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);text-align:center;" valign="top">
+            <table style="text-align:center;width:100%;border-collapse:collapse;" id="productname">
                 <tr>
-                    <td>
-                        <div id="productimg" style="background: url('../../image/serve_14.png') 100% 100%;"></div>
-                    </td>
-                    <td>
-                        <table id="productdesc" align="right">
-                            <tr style="text-align:center;">
-                                <td><h4 style="margin:auto;">网上阅卷服务</h4></td>
-                            </tr>
-                            <tr>
-                                <td><b>信息卡制作</b></td>
-                            </tr>
-                            <tr>
-                                <td><span>完备质量检验体系保障答题卡印刷/裁剪精准无误</span></td>
-                            </tr>
-                            <tr>
-                                <td><b>数据扫描产品</b></td>
-                            </tr>
-                            <tr>
-                                <td><span>独有智能视觉算法及图像采集处理技术</span></td>
-                            </tr>
-                            <tr>
-                                <td><b>网上阅卷系统</b></td>
-                            </tr>
-                            <tr>
-                                <td><span>一卷多评/一致性检测/复评等多种方式,安全性高，保密性强</span></td>
-                            </tr>
-                        </table>
-
-                    </td>
+                    <td><b style="display:block;">特色案例</b></td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="height:30px;">
-                        <hr style="border:1px dashed #efefef;" />
-                    </td>
+                    <td><a href="/News/NewsContent">数据扫描产品</a></td>
                 </tr>
                 <tr>
-                    <td>
-                        <table id="productdesc" style="margin-left:0px;">
-                            <tr style="text-align:center;">
-                                <td><h4 style="margin:auto;">无纸化智能考试 </h4></td>
-                            </tr>
-                            <tr>
-                                <td><b> 通用无纸化智能考试平台</b></td>
-                            </tr>
-                            <tr>
-                                <td><span>集命题/组卷/考试/阅卷一体,支持多种题型同时考试</span></td>
-                            </tr>
-                            <tr>
-                                <td><b>大学英语四六级口语考试系统</b></td>
-                            </tr>
-                            <tr>
-                                <td><span>系统支持人机/人人对话2种模式,双重备份,数据加密</span></td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td>
-                        <div id="productimg" style="background: url('../../image/intel.jpg') 100% 100%;width:500px;"></div>
-                    </td>
+                    <td><a href="/News/NewsContent">网上阅卷服务</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">软件产品</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">软件开发服务</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">答题卡设计与印刷</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">数据中心托管服务</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">自学考试网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">口语考试系统</a></td>
+                </tr>
+                <tr>
+                    <td><a href="//">机考管理系统</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">大规模网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">机考管理系统</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/News/NewsContent">大规模网上阅卷</a></td>
                 </tr>
             </table>
         </td>
-    </tr>
-    <tr style="height:30px;">
-        <td></td>
+        <td>
+            <div style="width:760px;">
+                @Html.Partial("~/Views/PartView/ListPage.cshtml")
+                @{Html.Pagin(Model.Pagination);}
+            </div>         
+        </td>
     </tr>
 </table>
 
-@*产品系统*@
-<table id="productsystem" border="0">
-    <tr style="text-align:center;">
-        <td><img class="systemimg" src="~/image/serve_03.png" /></td>
-        <td><img class="systemimg" src="~/image/serve_05.png" /></td>
-        <td><img class="systemimg" src="~/image/serve_08.png" /></td>
-    </tr>
-    <tr style="text-align:center;">
-        <td><b>测评与评价系统</b></td>
-        <td><b>云服务中心</b></td>
-        <td><b>数据处理中心</b></td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li><span>多层级/多权限管理</span></li>
-                <li><span>软件操作简单易用</span></li>
-                <li><span>支持远程张在线操作</span></li>
-                <li><span>支持多种数据来源</span></li>
-                <li><span>灵活的数据发布方式</span></li>
-                <li><span>提供数据分析</span></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><span>云平台服务</span></li>
-                <li><span>与服务器租用服务</span></li>
-                <li><span>网络设备租用服务</span></li>
-                <li><span>数据备份/数据恢复服务</span></li>
-                <li><span>大数据加密存储服务</span></li>
-                <li><span>数据安全防护</span></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><span>数据处理服务</span></li>
-                <li><span>卷库管理</span></li>
-                <li><span>保密室管理</span></li>
-                <li><span>7*24小时无死角监控</span></li>
-            </ul>
-        </td>
-    </tr>
-</table>
+
 @*品牌优势*@
 <table id="productadvantage">
     <tr style="text-align:center;">
         <td>
-            <h2 style="color:#0057be;">______ 品牌优势 ______</h2>
+            <h3 style="color:#0057be;">______ 品牌优势 ______</h3>
             <span style="font-size:14px;">PRODUCT ADVANTAGE</span>
         </td>
     </tr>
     <tr style="text-align:center;">
-        <td style="height:30px;">
-           
-        </td>
+        <td style="height:30px;"></td>
     </tr>
     <tr>
         <td>
@@ -407,61 +208,5 @@
     FeiChao.Organ();
 </script>
 
-@*产品成就*@
-<table id="productachievenment" border="0">
-    <tr style="height:15px;">
-        <td colspan="4"></td>
-    </tr>
-    <tr style="text-align:center;">
-        <td colspan="4">
-            <h2 style="color:#0057be;">______ 产品成就 ______</h2>
-            <span style="font-size:14px;">PRODUCT ACHIEVENMENT</span>
-        </td>
-    </tr>
-    <tr style="height:30px;">
-        <td colspan="4"></td>
-    </tr>
-    @*<tr>
-        <td>
-            <table>
-                <tr>
-                    <td>11111</td>
-                    <td rowspan="2"><img style="width:300px;height:200px;" src="~/image/success_25.jpg" /></td>
-                    <td>2222</td>
-                </tr>
-                <tr>
-                    <td>3333</td>
-                    <td>44444</td>
-                </tr>
-            </table>
-            <img style="width:300px;height:200px;" src="~/image/success_25.jpg" />
-            <img style="width:300px;height:200px;" src="~/image/success_29.jpg" />
-            <img style="width:300px;height:200px;" src="~/image/success_32.jpg" />
-        </td>
-    </tr>*@
-    <tr>
-        <td style="width:200px;">还没想好该写什么文案</td>
-        <td colspan="2" rowspan="2"><img style="width:600px;height:250px;" src="~/image/success_25.jpg" /></td>
-        <td style="width:200px;">还没想好该写什么文案</td>
-    </tr>
-    <tr>
-        <td>还没想好该写什么文案</td>
-        <td>还没想好该写什么文案</td>
-    </tr>
-    <tr style="height:30px;">
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="width:400px;"><img style="width:300px;height:200px;" src="~/image/success_29.jpg" /></td>
-        <td colspan="2"style="width:400px;"><img style="width:300px;height:200px;" src="~/image/success_32.jpg" /></td>
-    </tr>
-    <tr>
-        <td colspan="2"style="width:400px;">还没想好该写什么文案还没想好该写什么文案</td>
-        <td colspan="2"style="width:400px;">还没想好该写什么文案还没想好该写什么文案</td>
-    </tr>
-    <tr style="height:30px;">
-        <td colspan="4"></td>
-    </tr>
 
-</table>
 

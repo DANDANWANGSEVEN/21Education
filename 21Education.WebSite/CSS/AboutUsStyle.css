@@ -6,7 +6,7 @@
 .table {
     margin: auto;
     width: 1000px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .table p {
@@ -14,7 +14,7 @@
 }
 
 
-.table h2 {
+.table h3 {
     color: #0057be;
 }
 
@@ -24,17 +24,17 @@
 
 /*公司文化*/
 #companyculture {
-    height: 300px;
+    height: 200px;
     text-align: center;
     background-color: #f7f7f7;
 }
 
-#companyculture h2 {
+#companyculture h3 {
     margin-top: 15px;
 }
 
 #companyculture p {
-    line-height: 60px;
+    line-height: 50px;
 }
 
 #companyculture {
@@ -42,16 +42,7 @@
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
-
-  /*公司成就*/
-    #companyachievenment{
-        width: 1000px;
-        height: 500px;
-        margin: auto;
-        margin-top: 30px;
-        background-color:#f7f7f7;
-    }

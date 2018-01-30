@@ -4,82 +4,319 @@
 }
 @model HomeIndexViewModel
 <title>首页</title>
-<link href="~/CSS/IndexStyle.css" rel="stylesheet" />
+@*<link href="~/CSS/IndexStyle.css" rel="stylesheet" />*@
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
+<link href="~/CSS/MainBussinessstyle.css" rel="stylesheet" />
 <script src="~/Content/js/Carousel.js"></script>
 <link href="~/CSS/effects.css" rel="stylesheet" />
 
 <style>
-    .table{
-        width:1000px;margin:auto;border-bottom:2px dashed #666666;
+    .table {
+        width: 1000px;
+        margin: auto;
+        border-bottom: 1px dashed #f7f7f7;
     }
-    .newsfriendlyul li a{
-        line-height:30px;
-        text-decoration:none;
-        color:#666666;
+
+    .newsfriendlyul li a {
+        line-height: 36px;
+        text-decoration: none;
+        color: #666666;
+        display:block;
     }
-    .newsfriendlyul li:hover{
-        list-style:disc;
+
+    .newsfriendlyul li:hover {
+        color: #0057be;
+        list-style: disc;
     }
+
     .newsfriendlyul li a:hover {
-        color:#0057be;
+        color: #0057be;
     }
+
+    /*主营业务*/
+    #mainbusiness a {
+        line-height: 40px;
+    }
+
+    #mainbusiness td:hover {
+        color: white;
+        background-color: #0057be;
+    }
+
+    #mainbusiness td a {
+        width: 100%;
+        display: block;
+    }
+
+        #mainbusiness td a:hover {
+            color: white;
+        }
+
+          .carousel.banner {
+        width: 100%;
+        height: 310px;
+        /*background: url('../../image/bg.png') 100% 100%;*/
+        z-index:900;
+    }
+
+          #advantage p{
+
+          }
+
 </style>
 
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
 
 @*产品服务*@
+<style>
+    .carousel.productshow .container{
+        width:100%;
+    }
+</style>
 <table class="table" id="index.productservice" border="0" style="text-align:center;">
     <tr class="firsttr">
         <td colspan="6">
-            <h3 style="color:#0057be;">产品服务 <span style="color:#666666;">MAIN BUSINESS</span></h3>
+            <h3 style="color:#0057be;">______ 产品服务 ______</h3>
+            <span style="font-size:14px;color:#666666;">PRODUCT SERVICES</span>
         </td>
     </tr>
     <tr>
-        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_prev.png" /></td>
+        @*<td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_prev.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_one.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
         <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
-        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_next.png" /></td>
+        <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_next.png" /></td>*@
+        <td>
+            @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+        </td>
     </tr>
 </table>
 
+
+@*主营业务*@
+<table class="table" id="index.productservice" style="text-align:center;margin-bottom:5px;">
+    <tr class="firsttr">
+        <td colspan="6">
+            <h3 style="color:#0057be;">______ 主营业务 ______</h3>
+            <span style="font-size:14px;color:#666666;">MAIN BUSINESS</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:250px;" valign="top">
+            <table id="mainbusiness" style="width:100%;height:auto;border-collapse:collapse;background-color:#f7f7f7;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);cursor:pointer;" border="1">
+                <tr>
+                    <td><a>网上阅卷</a></td>
+                </tr>
+                <tr>
+                    <td><a>无纸化智能考试</a></td>
+                </tr>
+                <tr>
+                    <td><a>网上报名管理系统</a></td>
+                </tr>
+                <tr>
+                    <td><a>图库系统</a></td>
+                </tr>
+                <tr>
+                    <td><a>评测与评价系统</a></td>
+                </tr>
+                <tr>
+                    <td><a>云服务中心</a></td>
+                </tr>
+                <tr>
+                    <td><a>数据处理中心</a></td>
+                </tr>
+            </table>
+        </td>
+        <td style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);background-color:#f7f7f7;">
+            <table id="businessdiv" style="margin-left:30px;">
+                <tr>
+                    <td><img src="~/image/about_14.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">网上阅卷</dt>
+                            <dd><p>信息卡设计与印刷</p></dd>
+                            <dd><p>数据扫描产品</p></dd>
+                            <dd><p>网上阅卷系统</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/znks.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">无纸化智能考试</dt>
+                            <dd><p>通用无纸化智能考试平台</p></dd>
+                            <dd><p>大学英语四六级口语考试系统</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/login.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">网上报名管理系统</dt>
+                            <dd><p>网上报名系统</p></dd>
+                            <dd><p>考务管理系统</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/tk_system.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">图库系统</dt>
+                            <dd><p>系统支持试题的存储/检索/组卷</p></dd>
+                            <dd><p>支持多种形式的试题及答案的管理</p></dd>
+                            <dd><p>确保数据体系化的留存</p></dd>
+                            <dd><p>数据加密与备份机制安全可靠</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/pcpj.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">评测与评价系统</dt>
+                            <dd><p>多层级、多权限管理</p></dd>
+                            <dd><p>软件操作简单易用</p></dd>
+                            <dd><p>支持远程在线操作</p></dd>
+                            <dd><p>支持多种数据来源</p></dd>
+                            <dd><p>灵活的数据发布方式</p></dd>
+                            <dd><p>提供数据分析</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/cloud.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">云服务中心</dt>
+                            <dd><p>云平台服务</p></dd>
+                            <dd><p>云服务器租用服务</p></dd>
+                            <dd><p>网络设备租用服务</p></dd>
+                            <dd><p>数据备份/数据恢复服务</p></dd>
+                            <dd><p>大数据加密存储服务</p></dd>
+                            <dd><p>数据安全防护</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="~/image/data.jpg" style="width:350px;height:220px;" /></td>
+                    <td>
+                        <dl style="width:350px;line-height:30px;color:#666666;">
+                            <dt style="font-size:20px;line-height:40px;color:black;">数据处理中心</dt>
+                            <dd><p>数据处理服务</p></dd>
+                            <dd><p>卷库管理</p></dd>
+                            <dd><p>保密室管理</p></dd>
+                            <dd><p>7*24小时无死角监控</p></dd>
+                        </dl>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script>
+
+    $("#mainbusiness a").click(function () {
+        var index = $(this).index("#mainbusiness a");
+        $("#businessdiv tr").eq(index).show().siblings().hide();
+    }).eq(0).click();
+</script>
+
+@*品牌优势*@
+<div id="brand" style="width:1000px;height:240px;margin:auto;text-align:center;margin-top:10px;">
+    <table id="brandtable">
+        <tr class="firsttr">
+            <td colspan="4">
+                <h3 style="color:#0057be;">______ 品牌优势 ______</h3>
+                <span style="font-size:14px;color:#666666;">BRAND ADVANTAGE</span>
+            </td>
+        </tr>
+        <tr id="advantage" style="font-size:14px;line-height:20px;color:#666666;">
+            <td valign="baseline">
+                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
+                    <dt><img src="~/image/index.V3/indexone.png" /></dt>
+                    <dd>
+                        <p style="font-size:16px;line-height:30px;">安全/稳定/高效</p>
+                        <span>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</span>
+                    </dd>
+                </dl>
+            </td>
+            <td valign="baseline">
+                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
+                    <dt><img src="~/image/index.V3/indextwo.png" /></dt>
+                    <dd>
+                        <p style="font-size:16px;line-height:30px;">高度可配置化</p>
+                        <span>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</span>
+                    </dd>
+                </dl>
+            </td>
+            <td valign="baseline">
+                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
+                    <dt><img src="~/image/index.V3/indexthree.png" /></dt>
+                    <dd>
+                        <p style="font-size:16px;line-height:30px;">高度智能</p>
+                        <span>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</span>
+                    </dd>
+                </dl>
+            </td>
+            <td valign="baseline">
+                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
+                    <dt><img src="~/image/index.V3/indexfour.png" /></dt>
+                    <dd>
+                        <p style="font-size:16px;line-height:30px;">操作灵活方便</p>
+                        <span>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</span>
+                    </dd>
+                </dl>
+            </td>
+        </tr>
+    </table>
+</div>
+
 @*新闻中心和友情链接*@
-<table class="table" id="newsfriendly">
+<table class="table" id="newsfriendly" style="width:1000px;">
     <tr>
         <td>
-            <div style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
+            <div style="height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
                 <div style="width:100%;height:40px;background-color:#f6f6f6;">
-                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">新闻中心 <span style="color:#666666;">NEWS CENTER</span></h3></div>
-                    <div style="float:right;"><a style="font-size:14px;margin-right:0px;">更多...</a></div>
+                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">新闻中心 <span style="color:#666666;font-weight:normal;font-size:14px;">NEWS CENTER</span></h3></div>
+                    <div style="float:right;margin-top:8px;"><a href="/News/NewsList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
+                </div>
+
+                    <ul class="newsfriendlyul" style="margin-left:20px;list-style:none;line-height:24px;width:100%;clear:both;">
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>                    
+                    </ul>
+
+            </div>
+        </td>
+        <td style="width:10px"></td>
+        <td>
+            <div style="height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
+
+                <div style="width:100%;height:40px;background-color:#f6f6f6;">
+                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">成功案例 <span style="color:#666666;font-weight:normal;font-size:14px;">NEWS CENTER</span></h3></div>
+                    <div style="float:right;margin-top:8px;"><a href="/Success/SuccessList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
                 </div>
                 <div>
-                    <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;">
-                        <li><a href="/News/NewsContent">新闻标题新闻标题新闻标题新闻标题</a></li>
-                        <li><a href="/News/NewsContent">新闻标题新闻标题新闻标题新闻标题</a></li>
-                        <li><a href="/News/NewsContent">新闻标题新闻标题新闻标题新闻标题</a></li>
-                        <li><a href="/News/NewsContent">新闻标题新闻标题新闻标题新闻标题</a></li>
-                        <li><a href="/News/NewsContent">新闻标题新闻标题新闻标题新闻标题</a></li>
+                    <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;clear:both;">
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
                     </ul>
+
                 </div>
-            </div>
-           
-        </td>
-        <td style="width:50px;"></td>
-        <td>
-            <div style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
-                <div style="background-color:#f6f6f6;border-left:3px solid #0057be;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">特色案例 <span style="color:#666666;">SPECIAL CASE</span></h3></div>
-                <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;">
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                </ul>
             </div>
         </td>
     </tr>
 </table>
+
 

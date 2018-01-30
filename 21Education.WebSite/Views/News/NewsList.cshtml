@@ -4,55 +4,26 @@
 }
 @model NewsListViewModel
 
-@*<table style="margin:auto;width:1000px;">
-    <tr class="firsttr" style="text-align:center;">
-        <td colspan="2">
-            <div style="height:70px;margin-bottom:15px;">
-                <h2 style="color:#0057be;">______ 新闻中心 ______</h2>
-                <span>NEWS CENTER</span>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div style="height:auto;">
-                @Html.Partial("~/Views/PartView/ListPage.cshtml")
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div style="height:auto;width:70%;">
-                @{Html.Pagin(Model.Pagination);}
-            </div>
-        </td>
-    </tr>
-</table>*@
-
-
 <table style="margin:auto;width:1000px;">
     <tr class="firsttr" style="text-align:center;">
         <td colspan="2">
             <div>
-                <h2 style="color:#0057be;">______ 新闻中心 ______</h2>
+                <h3 style="color:#0057be;">______ 新闻中心 ______</h3>
                 <span>NEWS CENTER</span>
             </div>
         </td>
     </tr>
     <tr>
-        <td>
+        <td valign="top">
             @Html.Partial("~/Views/PartView/ListPage.cshtml")
+            <div style="margin-top:10px;">
+                @{Html.Pagin(Model.Pagination);}
+            </div>
+            
             
         </td>
-        <td>
+        <td valign="top">
             @Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml")
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div style="height:auto;margin-top:30px;">
-            @{Html.Pagin(Model.Pagination);}
-            </div>
         </td>
     </tr>
 </table>

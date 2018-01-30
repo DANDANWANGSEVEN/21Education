@@ -28,14 +28,17 @@ namespace _21Education.WebSite.Controllers
                 },
                 ProductShow = new CarouselViewModel(new List<MODEL.Carousel>
                 {
-                    new Carousel{Describe="1",ImgPath="/image/index_21.png"},
-                    new Carousel{Describe="2",ImgPath="/image/index_21.png"},
-                    new Carousel{Describe="3",ImgPath="/image/index_21.png"},
-                    new Carousel{Describe="4",ImgPath="/image/index_21.png"}
+                    new Carousel{Describe="1",ImgPath="/image/index.V3/index_productservice_one.png"},
+                    new Carousel{Describe="2",ImgPath="/image/index.V3/index_productservice_two.png"},
+                    new Carousel{Describe="3",ImgPath="/image/index.V3/index_productservice_two.png"},
+                    new Carousel{Describe="4",ImgPath="/image/index.V3/index_productservice_two.png"},
+                    new Carousel{Describe="5",ImgPath="/image/index.V3/index_productservice_two.png"}
                 })
                 {
-                    ImgWidth = 600,
-                    ClassName = "productshow"
+                    ImgWidth = 200,
+                    ImgHeight = 140,
+                    ClassName = "productshow",
+                    ShowCount = 5
                 }
             };
             return View(viewModel);

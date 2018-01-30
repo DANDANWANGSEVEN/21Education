@@ -5,52 +5,61 @@
 <style>
     .carousel.@Model.ClassName {
         --ImgWidth: @Model.ImgWidth;
+        @(Model.ImgHeight!=0? "--ImgHeight: "+ Model.ImgHeight : "")
     }
 </style>
 <div class="carousel @Model.ClassName" style="width:1000px;margin:auto;">
-        <div class="container">
-            <div class="slider-container">
-                @Slider(Model)
-            </div>
-            <div class="carousel-prev carousel-btn">
-                <svg class="hide">
-                    <symbol id="prev">
-                        <path fill="#000" d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z" />
-                    </symbol>
-                </svg>
-                <svg class="icon" viewBox="0 0 20 20"> <use class="use-left" xlink:href="#prev" x="0" y="0" /> </svg>
-            </div>
-            <div class="carousel-next carousel-btn">
-                <svg class="hide">
-                    <symbol id="next">
-                        <path fill="#000" d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z" />
-                    </symbol>
-                </svg>
-                <svg class="icon" viewBox="0 0 20 20"> <use class="use-right" xlink:href="#next" x="0" y="0" /> </svg>
-            </div>
+    <div class="container">
+        <div class="slider-container">
+            @Slider(Model, Model.ShowCount)
         </div>
-        @if (!string.IsNullOrEmpty(Model.PreviewHtml))
+        <div class="carousel-prev carousel-btn">
+            <img src="~/image/index.V3/index_product_prev.png" />
+        </div>
+        <div class="carousel-next carousel-btn flipx">
+            <img src="~/image/index.V3/index_product_prev.png" />
+        </div>
+    </div>
+    @*@if (!string.IsNullOrEmpty(Model.PreviewHtml))
         {
             @Preview(Model, Model.PreviewHtml)
-        }
-        <script>
-        $(".carousel.@Model.ClassName").Carousel({ imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName"});
-        </script>
-    </div>
-@helper Slider(List<Carousel> list)
+        }*@
+    <script>
+        var options = { imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName" };
+        @(Model.ShowCount != 0?"options.showCount = " + Model.ShowCount+";":"")
+        $(".carousel.@Model.ClassName").Carousel(options);
+    </script>
+</div>
+@helper Slider(List<Carousel> list, int showCount = 1)
     {
+
         for (int i = 0; i < list.Count; i++)
         {
             if (i == 0)
             {
-                @Construct(list[list.Count - 1].ImgPath, list[list.Count - 1].Describe)
+                for (int j = list.Count - showCount; j < list.Count; j++)
+                {
+                    @Construct(list[j].ImgPath, list[j].Describe)
+                }
             }
+            @*
+
+                @Construct(list[list.Count - 1].ImgPath, list[list.Count - 1].Describe)
+            *@
             @Construct(list[i].ImgPath, list[i].Describe)
+
+
+
             if (i == list.Count - 1)
             {
-                @Construct(list[0].ImgPath, list[0].Describe)
+                for (int j = 0; j < showCount; j++)
+                {
+                    @Construct(list[j].ImgPath, list[j].Describe)
+                }
             }
         }
+
+
 }
 
 @helper Construct(string src, string describe)
@@ -61,8 +70,8 @@
         </div>
 }
 
-@helper Preview(List<Carousel> list, string html)
-    {
+@*@helper Preview(List<Carousel> list, string html)
+        {
 
             <div class="preview @Model.ClassName">
                 @for (int i = 0; i < list.Count; i++)
@@ -70,6 +79,6 @@
                     @Html.Raw(string.Format(html, list[i].ImgPath))
                 }
             </div>
-}
+    }*@
 
 

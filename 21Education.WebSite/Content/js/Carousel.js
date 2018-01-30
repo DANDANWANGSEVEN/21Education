@@ -5,14 +5,15 @@
                 carouselIndex: 1,
                 imgWidth: 900,
                 spaceInterval: 3,
-                plugClassName: ""
+                plugClassName: "",
+                showCount: 1
             }
             var options = $.extend(defaults, options);
             var defalutIndex = 1;
             var $this = $(this);
             var autoPlayInterval = null;
             var $container = $this.find(".slider-container");
-            var imgCount = (function () { return $container.children().length - 2; })();
+            var imgCount = (function () { return $container.children().length - 2 * options.showCount; })();
             var $preview = $(".preview" + options.plugClassName);
             $this.find(".carousel-prev").click(function () {
                 options.carouselIndex--;

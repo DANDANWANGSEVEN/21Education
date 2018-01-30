@@ -11,7 +11,7 @@
 <div class="carousel @Model.ClassName" style="width:1000px;margin:auto;">
     <div class="container">
         <div class="slider-container">
-            @Slider(Model)
+            @Slider(Model, Model.ShowCount)
         </div>
         <div class="carousel-prev carousel-btn">
             <img src="~/image/index.V3/index_product_prev.png" />
@@ -21,27 +21,45 @@
         </div>
     </div>
     @*@if (!string.IsNullOrEmpty(Model.PreviewHtml))
-    {
-        @Preview(Model, Model.PreviewHtml)
-    }*@
+        {
+            @Preview(Model, Model.PreviewHtml)
+        }*@
     <script>
-        $(".carousel.@Model.ClassName").Carousel({ imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName"});
+        var options = { imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName" };
+        @(Model.ShowCount != 0?"options.showCount = " + Model.ShowCount+";":"")
+        $(".carousel.@Model.ClassName").Carousel(options);
     </script>
 </div>
-@helper Slider(List<Carousel> list)
+@helper Slider(List<Carousel> list, int showCount = 1)
     {
+
         for (int i = 0; i < list.Count; i++)
         {
             if (i == 0)
             {
-                @Construct(list[list.Count - 1].ImgPath, list[list.Count - 1].Describe)
+                for (int j = list.Count - showCount; j < list.Count; j++)
+                {
+                    @Construct(list[j].ImgPath, list[j].Describe)
+                }
             }
+            @*
+
+                @Construct(list[list.Count - 1].ImgPath, list[list.Count - 1].Describe)
+            *@
             @Construct(list[i].ImgPath, list[i].Describe)
+
+
+
             if (i == list.Count - 1)
             {
-                @Construct(list[0].ImgPath, list[0].Describe)
+                for (int j = 0; j < showCount; j++)
+                {
+                    @Construct(list[j].ImgPath, list[j].Describe)
+                }
             }
         }
+
+
 }
 
 @helper Construct(string src, string describe)
@@ -53,14 +71,14 @@
 }
 
 @*@helper Preview(List<Carousel> list, string html)
-    {
+        {
 
-        <div class="preview @Model.ClassName">
-            @for (int i = 0; i < list.Count; i++)
-            {
-                @Html.Raw(string.Format(html, list[i].ImgPath))
-            }
-        </div>
-}*@
+            <div class="preview @Model.ClassName">
+                @for (int i = 0; i < list.Count; i++)
+                {
+                    @Html.Raw(string.Format(html, list[i].ImgPath))
+                }
+            </div>
+    }*@
 
 

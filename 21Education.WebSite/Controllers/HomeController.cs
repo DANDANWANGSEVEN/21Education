@@ -31,12 +31,14 @@ namespace _21Education.WebSite.Controllers
                     new Carousel{Describe="1",ImgPath="/image/index.V3/index_productservice_one.png"},
                     new Carousel{Describe="2",ImgPath="/image/index.V3/index_productservice_two.png"},
                     new Carousel{Describe="3",ImgPath="/image/index.V3/index_productservice_two.png"},
-                    new Carousel{Describe="4",ImgPath="/image/index.V3/index_productservice_two.png"}
+                    new Carousel{Describe="4",ImgPath="/image/index.V3/index_productservice_two.png"},
+                    new Carousel{Describe="5",ImgPath="/image/index.V3/index_productservice_two.png"}
                 })
                 {
                     ImgWidth = 200,
                     ImgHeight = 140,
-                    ClassName = "productshow"
+                    ClassName = "productshow",
+                    ShowCount = 5
                 }
             };
             return View(viewModel);

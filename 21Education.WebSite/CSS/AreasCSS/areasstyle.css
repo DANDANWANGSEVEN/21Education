@@ -8,17 +8,19 @@ html, body {
  /*background: #07c url('../images/top.gif') 0px 0px repeat-x;*/
 }
 .side {
- position:absolute; left:0; top:60px; bottom:25px;
+ position:absolute; /*left:0;*/ /*top:60px; bottom:25px;*/
  width:206px;
  overflow:hidden;
- /* overflow: auto; */
+  overflow: auto; 
  /*background:#e1e2e3 url('../images/side_bg.gif') 0px 0px repeat-y;*/
  height:auto;
- background-color:#3D464D;
- height:730px;
+ background-color:#3D464D;/*#3D464D*/
+ height:100%;
+border:#dfdfdf 1px solid;
+box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);
 }
 .main {
- position:absolute; left:206px; top:60px; bottom:25px; right:0px;
+ position:absolute; left:215px; /*top:60px;*/ /*bottom:25px;*/ right:0px;
  width:auto;
  background-color:#fff;
  z-index:2;
@@ -41,44 +43,58 @@ background-color:#000;
 .bottom { *height:25px;}
 .top, .side, .main, .bottom {*position:relative; *top:0; *right:0; *bottom:0; *left:0;}
 
-/*左侧菜单*/
+
+
+    /*左侧菜单*/
 .sideMenu{ 
 position:absolute;
 left: 0px;
 top:0px;
+margin-top:200px;
 width: 100%;
-
 }
-
 .sideMenu h3{ 
-	height:38px; line-height:80px; cursor:pointer;
-	font:normal 16px/38px "Microsoft YaHei";
+    width:187px;
+	height:40px; line-height:40px; cursor:pointer;
+	font:normal 14px/38px "Microsoft YaHei";
 	font-weight: bold;
-	/*background: url('../images/side_h3.gif') 0px 0px no-repeat;*/
-	padding-left: 10px;
-    color:#f7f7f7;
+	background: url('/image/side_h3.gif') 0px 0px no-repeat;
+	padding-left: 20px;
 }
 .sideMenu h3:hover{
-    background-color:#31383E;
-    color:white;
+     background-color:#31383E;
+     color:#fff;
 }
-
+.sideMenu h3:after{
+     background-color:#31383E;
+     color:#fff;
+}
+.sideMenu h3 em{ float:right; display:block; width:40px; height:32px;   background:url(/image/icoAdd.png) 16px 12px no-repeat; cursor:pointer; }
+/*.sideMenu h3.on { background: url('/image/side_h3_on.gif') 0px 0px no-repeat; }*/
+.sideMenu ul{ display:none; /* 默认都隐藏 */ }
 .sideMenu ul li{
-    line-height:40px; 
-    padding:0px 60px; 
-}
-.sideMenu ul li a{
-    color:#f7f7f7;
+    width:165px;
+	height: 38px;
+	font:normal 13px/31px "Microsoft YaHei";
+	padding-left: 40px;
+	cursor:pointer;
+	background: url('/image/side_li.gif') 40px 13px no-repeat;
 }
 .sideMenu ul li:hover{
-    color:white;
-    list-style:circle;
-    background-color:#31383E;
+    background-color:#333A40;
+    color:#fff;
 }
-    .sideMenu ul li a:hover {
-        color:white;
-        list-style:circle;
-    }
+.sideMenu ul li:after{
+    background-color:#333A40;
+    color:#fff;
+}
+
+/*.sideMenu ul li.on{
+	  background: url('/image/side_li_on.png') 0px 0px no-repeat;
+	  color: #fff;
+}*/
+
+
 
 .scroll{ position:absolute; left:2px; bottom:25px; width:60px; height:42px;height:42px;overflow:hidden; display:none;z-index: 3;}
 .scroll a {display: inline-block;zoom: 1;}

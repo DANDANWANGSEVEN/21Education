@@ -12,7 +12,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         // GET: /Admin/AdminHome/
 
         #region  登陆界面
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
@@ -20,12 +20,22 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 默认界面
-        public ActionResult Home()
+        public ActionResult Main()
         {
             return View();
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         #endregion
 
+        public ActionResult a()
+        {
+            return View();
+        }
 
+    
     }
 }

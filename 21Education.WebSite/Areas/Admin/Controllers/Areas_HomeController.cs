@@ -22,34 +22,10 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #region 首页轮播图
         public ActionResult Carousel()
         {
-            var path = RouteData.GetPath();
-            var page = RouteData.GetPage();
-            return View(NewsListTest(page));
+            return View();
         }
 
-        NewsListViewModel NewsListTest(int page)
-        {
-            var newsList = new List<MODEL.News>();
-            for (int i = 0; i < 1000; i++)
-            {
-                newsList.Add(new MODEL.News
-                {
-                    NewsId = i,
-                    Title = "新闻标题" + i,
-                    Content = "新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容",
-                    ImgPath = "/image/about_14.jpg",
-                    PubDate = DateTime.Now,
-                    ReadCount = 300
-                });
-            }
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(), pageSize: 6);
-            return new NewsListViewModel(newsList.Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
-            {
-                Pagination = pagin
-            };
-        }
-
-        public ActionResult a()
+        public ActionResult TestPage()
         {
             return View();
         }

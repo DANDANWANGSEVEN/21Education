@@ -230,7 +230,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="CSS\AreasCSS\areasstyle.css" />
     <Content Include="CSS\AreasCSS\common.css" />
+    <Content Include="Content\Areasjs\datatables.min.js" />
     <Content Include="CSS\AreasCSS\main.css" />
+    <Content Include="Content\Areasjs\plugins.js" />
+    <Content Include="CSS\AreasCSS\root.css" />
     <Content Include="CSS\Carousel-index.css" />
     <Content Include="CSS\AboutUsStyle.css" />
     <Content Include="CSS\Carousel-ProductService.css" />
@@ -278,7 +281,7 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Areas_Home\Carousel.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Areas_Home\a.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas_Home\TestPage.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\a.cshtml" />
     <None Include="Properties\PublishProfiles\21EducationWeb.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -428,6 +431,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />

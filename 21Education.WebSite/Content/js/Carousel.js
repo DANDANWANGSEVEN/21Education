@@ -6,7 +6,8 @@
                 imgWidth: 900,
                 spaceInterval: 3,
                 plugClassName: "",
-                showCount: 1
+                showCount: 1,
+                imgHeight: 300
             }
             if (options.showCount > 1) options.carouselIndex = options.showCount;
             var options = $.extend(defaults, options);
@@ -29,6 +30,10 @@
                 options.carouselIndex = eq + 1;
                 play();
             });
+            const isSupported =
+                window.CSS &&
+                window.CSS.supports &&
+                window.CSS.supports('--a', 0);
             function play() {
                 clearInterval(autoPlayInterval);
                 var animateLength = options.carouselIndex * (-options.imgWidth) + "px";
@@ -53,6 +58,14 @@
                 SetAutoPlayInterval();
             }
             void function Init() {
+                if (!isSupported) {
+                    /* Not supported */
+                    $this.find(".container").css({ "width": options.imgWidth * options.showCount, "height": options.imgHeight });
+                    $this.find(".container .slider-container").css({ "left": -options.imgWidth * options.showCount, "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item").css({ "width": options.imgWidth , "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item img").css({ "width": options.imgWidth, "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item span").css({ "width": options.imgWidth });
+                }
                 SetAutoPlayInterval();
                 $preview.each(function () {
                     $(this).children().eq(0).addClass("active");

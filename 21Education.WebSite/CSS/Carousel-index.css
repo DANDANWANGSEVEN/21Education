@@ -1,11 +1,12 @@
 ﻿.carousel {
     --ImgWidth: 900;
     --ImgHeight: 300;
+    --ShowCount:1;
 }
 
     .carousel .container {
         position: relative;
-        width: calc(var(--ImgWidth)*1px);
+        width: calc(var(--ImgWidth)*var(--ShowCount)px);
         height: calc(var(--ImgHeight)*1px);
         margin: 0 auto;
         overflow: hidden;
@@ -13,7 +14,7 @@
 
         .carousel .container .slider-container {
             position: absolute;
-            left: calc(var(--ImgWidth)*-1px);
+            left: calc(var(--ImgWidth)*var(--ShowCount)*-1px);
             top: 0;
             width: 10000px;
             height: calc(var(--ImgHeight)*1px);

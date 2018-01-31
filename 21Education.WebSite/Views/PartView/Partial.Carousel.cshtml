@@ -5,6 +5,7 @@
 <style>
     .carousel.@Model.ClassName {
         --ImgWidth: @Model.ImgWidth;
+        --ShowCount: @Model.ShowCount;
         @(Model.ImgHeight!=0? "--ImgHeight: "+ Model.ImgHeight : "")
     }
 </style>
@@ -27,6 +28,7 @@
     <script>
         var options = { imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName" };
         @(Model.ShowCount != 0?"options.showCount = " + Model.ShowCount+";":"")
+        @(Model.ImgHeight != 0?"options.imgHeight = " + Model.ImgHeight+";":"")
         $(".carousel.@Model.ClassName").Carousel(options);
     </script>
 </div>

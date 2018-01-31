@@ -6,16 +6,19 @@
                 imgWidth: 900,
                 spaceInterval: 3,
                 plugClassName: "",
-                showCount: 1
+                showCount: 1,
+                imgHeight: 300,
+                imgMargin:0,
+                containerWidth: 900
             }
             if (options.showCount > 1) options.carouselIndex = options.showCount;
             var options = $.extend(defaults, options);
-            //var defalutIndex = (function () { return $container.children().length - options.showCount; })();
             var $this = $(this);
             var autoPlayInterval = null;
             var $container = $this.find(".slider-container");
             var imgCount = (function () { return $container.children().length - 2 * options.showCount; })();
             var $preview = $(".preview" + options.plugClassName);
+            var realWidth = options.imgWidth + options.imgMargin;
             $this.find(".carousel-prev").click(function () {
                 options.carouselIndex--;
                 play();
@@ -29,18 +32,22 @@
                 options.carouselIndex = eq + 1;
                 play();
             });
+            var isSupported =
+                window.CSS &&
+                window.CSS.supports &&
+                window.CSS.supports('--a', 0);
             function play() {
                 clearInterval(autoPlayInterval);
-                var animateLength = options.carouselIndex * (-options.imgWidth) + "px";
+                var animateLength = options.carouselIndex * -realWidth + "px";
                 if (options.carouselIndex == options.showCount + imgCount) {
                     $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -options.imgWidth * options.showCount + "px")
+                        $(this).css("left", -realWidth * options.showCount + "px")
                     });
                     options.carouselIndex = options.showCount;
                 }
                 else if (options.carouselIndex == 0) {
                     $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
-                        $(this).css("left", -options.imgWidth * imgCount + "px")
+                        $(this).css("left", -realWidth * imgCount + "px")
                     });//??Èç¹ûÓÐshowcount 4
                     options.carouselIndex = imgCount;
                 }
@@ -53,6 +60,14 @@
                 SetAutoPlayInterval();
             }
             void function Init() {
+                if (!isSupported) {
+                    /* Not supported */
+                    $this.find(".container").css({ "width": options.containerWidth, "height": options.imgHeight });
+                    $this.find(".container .slider-container").css({ "left": -realWidth * options.showCount, "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item").css({ "width": options.imgWidth, "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item img").css({ "width": options.imgWidth, "height": options.imgHeight });
+                    $this.find(".container .slider-container .slider-item span").css({ "width": options.imgWidth });
+                }
                 SetAutoPlayInterval();
                 $preview.each(function () {
                     $(this).children().eq(0).addClass("active");

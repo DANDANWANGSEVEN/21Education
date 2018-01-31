@@ -6,7 +6,6 @@
 <script src="~/Content/js/js.js"></script>
 <link href="~/CSS/css.css" rel="stylesheet" />
 <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
-<link href="~/CSS/effects.css" rel="stylesheet" />
 
 <style>
     #productinfo {
@@ -21,27 +20,30 @@
         width: 1000px;
         margin: auto;
     }
+
     #productname b {
         color: #0b6ae0;
         font-size: 20px;
         line-height: 50px;
     }
-        #productname b:hover{
-            color:white;
+
+        #productname b:hover {
+            color: white;
         }
-        
-        
-        #productname a {
-            text-decoration: none;
-            padding: 5px;
-            line-height: 30px;
-            color: #666666;
-            display:block;
-        }
+
+
+    #productname a {
+        text-decoration: none;
+        padding: 5px;
+        line-height: 30px;
+        color: #666666;
+        display: block;
+    }
+
     #productname td:hover {
         background-color: #0057be;
     }
-    
+
     #productname a:hover {
         color: white;
     }
@@ -113,7 +115,7 @@
             <div style="width:760px;">
                 @Html.Partial("~/Views/PartView/ListPage.cshtml")
                 @{Html.Pagin(Model.Pagination);}
-            </div>         
+            </div>
         </td>
     </tr>
 </table>

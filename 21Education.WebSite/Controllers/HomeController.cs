@@ -35,10 +35,11 @@ namespace _21Education.WebSite.Controllers
                     new Carousel{Describe="5",ImgPath="/image/index.V3/index_productservice_five.png"}
                 })
                 {
-                    ImgWidth = 200,
+                    ImgWidth = 235,
                     ImgHeight = 140,
                     ClassName = "productshow",
-                    ShowCount = 5
+                    ShowCount = 4,
+                    ImgMargin = 20
                 }
             };
             return View(viewModel);

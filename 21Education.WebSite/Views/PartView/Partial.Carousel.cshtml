@@ -4,10 +4,15 @@
 
 <style>
     .carousel.@Model.ClassName {
+        --ContainerWidth:@Model.ContainerWidth;
         --ImgWidth: @Model.ImgWidth;
+        --ImgMargin:@Model.ImgMargin;
+        --ImgReal:@(Model.ImgWidth+Model.ImgMargin);
         --ShowCount: @Model.ShowCount;
         @(Model.ImgHeight!=0? "--ImgHeight: "+ Model.ImgHeight : "")
     }
+    @(Model.ImgMargin!=0? ".carousel." + Model.ClassName + " .container .slider-container .slider-item { margin-right:" + Model.ImgMargin + "px}":"")
+
 </style>
 <div class="carousel @Model.ClassName" style="width:1000px;margin:auto;">
     <div class="container">
@@ -26,10 +31,27 @@
             @Preview(Model, Model.PreviewHtml)
         }*@
     <script>
-        var options = { imgWidth: @Model.ImgWidth , plugClassName: ".@Model.ClassName" };
-        @(Model.ShowCount != 0?"options.showCount = " + Model.ShowCount+";":"")
-        @(Model.ImgHeight != 0?"options.imgHeight = " + Model.ImgHeight+";":"")
-        $(".carousel.@Model.ClassName").Carousel(options);
+        var userAgent = navigator.userAgent.toLowerCase();
+        // Figure out what browser is being used
+        jQuery.browser = {
+            version: (userAgent.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [])[1],
+            safari: /webkit/.test(userAgent),
+            opera: /opera/.test(userAgent),
+            msie: /msie/.test(userAgent) && !/opera/.test(userAgent),
+            mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent)
+        };
+        var @(Model.ClassName)options = { imgWidth: @(Model.ImgWidth) , plugClassName: ".@Model.ClassName" };
+        @(Model.ShowCount != 0? Model.ClassName+"options.showCount = " + Model.ShowCount+";":"")
+        @(Model.ImgHeight != 0? Model.ClassName + "options.imgHeight = " + Model.ImgHeight+";":"")
+        @(Model.ImgMargin != 0? Model.ClassName + "options.imgMargin = " + Model.ImgMargin+";":"")
+        @(Model.ContainerWidth != 0? Model.ClassName + "options.containerWidth = " + Model.ContainerWidth + ";":"")
+        if ($.browser.msie) {
+            $(function () {
+                $(".carousel.@Model.ClassName").Carousel(@(Model.ClassName)options);
+            })
+        } else {
+                    $(".carousel.@Model.ClassName").Carousel(@(Model.ClassName)options);
+        }
     </script>
 </div>
 @helper Slider(List<Carousel> list, int showCount = 1)

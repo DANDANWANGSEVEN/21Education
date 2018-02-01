@@ -31,5 +31,11 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         }
         #endregion
 
+        public ActionResult tpage()
+        {
+            return View();
+        }
+
+
     }
 }

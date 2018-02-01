@@ -36,8 +36,12 @@
                 <br />
                 <div style="float:right;">
                     <a href="/News/NewsList">返回列表</a>/
-                    <a href="/News/NewsContent">回到顶部</a>
-
+                    <a href="#" id="test" >回到顶部</a>
+                    <script>
+                        test.onclick = function () {
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+                        }
+                    </script>
                 </div>
             </div>
         </td>

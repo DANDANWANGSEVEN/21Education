@@ -22,5 +22,6 @@ namespace _21Education.DATA
         public int ShowCount { set; get; }
         public int ImgMargin { set; get; }
         public int ContainerWidth { set { _containerWidth = value; } get { if (_containerWidth != 0) return _containerWidth; return ShowCount * (ImgMargin + ImgWidth) - ImgMargin; } }
+        
     }
 }

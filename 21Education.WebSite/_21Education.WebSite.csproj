@@ -161,6 +161,7 @@
     <Content Include="Content\Areasjs\jquery.SuperSlide.js" />
     <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
     <Content Include="Content\Images\blank.gif" />
+    <Content Include="Content\js\Shade.js" />
     <Content Include="Content\js\Map.js" />
     <Content Include="Content\js\style_old.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />

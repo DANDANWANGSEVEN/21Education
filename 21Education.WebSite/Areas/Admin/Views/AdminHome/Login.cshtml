@@ -7,9 +7,9 @@
 <html>
 <head>
     <title>系统登录</title>
-    <script src="/Scripts/jquery.min.js" type="text/javascript"></script>
-    @Styles.Render("~/Content/themes/blue/css")
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Areas/Content/Scripts/jquery.min.js"></script>
+    @Styles.Render("~/Areas/Content/themes/gray/css")
+    <link href="~/Areas/Content/css" rel="stylesheet" />
     <style type="text/css">
         body {
             letter-spacing: 1px;
@@ -89,64 +89,66 @@
 
     </script>
 </head>
-<body>
-    <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:400px; height:230px;margin:auto; border:1px #ccc solid;">
-        <tr>
-            <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
-                欢迎登录 LOGIN
-            </td>
+<body style="background:url('/image/About_Honorbg.jpg')">
+    <div style="margin-top:200px;">
+        <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:400px; height:230px;margin:auto; border:1px #ccc solid;">
+            <tr>
+                <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
+                    欢迎登录 LOGIN
+                </td>
 
-        </tr>
-        <tr>
-            <td style="width: 80px; text-align: right">
-                用户名：
-            </td>
-            <td>
-                <input id="UserName" name="UserName" type="text" />
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 80px; text-align: right;">
-                密 码：
-            </td>
-            <td>
-                <input id="Password" name="Password" type="password" />
-            </td>
-        </tr>
+            </tr>
+            <tr>
+                <td style="width: 80px; text-align: right">
+                    用户名：
+                </td>
+                <td>
+                    <input id="UserName" name="UserName" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 80px; text-align: right;">
+                    密 码：
+                </td>
+                <td>
+                    <input id="Password" name="Password" type="password" />
+                </td>
+            </tr>
 
-        <tr>
-            <td style="width: 80px; text-align: right">
-                验证码：
-            </td>
-            <td>
+            <tr>
+                <td style="width: 80px; text-align: right">
+                    验证码：
+                </td>
+                <td>
+                    <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                    <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="/Admin/Core/verify_code.ashx" onclick="this.src=this.src+'?'" />
+                    <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
 
-                <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
-                <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="/Core/verify_code.ashx" onclick="this.src=this.src+'?'" />
-                <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width:40px;">&nbsp;</td>
+                            <td>
+                                <div id="mes" class="field-validation-error">
+                                </div>
+                                <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
+                            </td>
+                            <td style="width: 100px;">
+                                <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding:0px 10px;">登录</span></span></a>
+                            <a href="/Admin/AdminHome/Index">首页</a>
+                            </td>
+                        </tr>
+                    </table>
 
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="width:40px;">&nbsp;</td>
-                        <td>
-                            <div id="mes" class="field-validation-error">
-                            </div>
-                            <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
-                        </td>
-                        <td style="width: 100px;">
-                            <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding-left: 20px;">登录</span></span></a>
-                        </td>
-                    </tr>
+                </td>
+            </tr>
 
-                </table>
+        </table>
 
-            </td>
-        </tr>
-
-    </table>
+    </div>
 </body>
 </html>
 

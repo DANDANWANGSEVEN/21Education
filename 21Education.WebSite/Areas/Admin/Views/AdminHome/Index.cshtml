@@ -1,12 +1,17 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Index</title>
     <meta name="viewport" content="width=device-width" />
+
+    <script src="~/Areas/Content/Scripts/easyui/plugins/jquery.tree.js"></script>
+    <link href="~/Areas/Content/tree/css/tree.css" rel="stylesheet" />
+
     <script src="@Url.Content("~/Areas/Content/Scripts/jquery.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/Content/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
     @Styles.Render("~/Areas/Content/css")
@@ -17,22 +22,85 @@
     <div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">
         <iframe width="726" scrolling="no" height="497" frameborder="0" id="iOverTimeLogin"></iframe>
     </div>
-    <div data-options="region:'north',border:false,split:true" style="height: 60px;">
-        @*<div class="define-head">
-                <div class="define-logo">
-                    <div id="LoginTopLine">System Manage</div>
-                    <div id="LoginBotoomLine">MVC4+EF5.0+EasyUI</div>
-                </div>
-                <div class="define-account">
+    <div data-options="region:'north',border:false,split:true" style="height: 60px; background-image: url('/image/index.V3/header.jpg');">
+        <p style="float:left;"><img width="200" height="30" src="~/image/logo.png" /></p>
+        <a href="/Admin/Areas_Contact/ContactCompanyinfo">测试</a>
+        <p style="float:right;"><b style="margin-left:60px">欢迎Admin登陆</b>&nbsp; &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;  <a href="/Admin/AadminHome/Login" style="text-decoration:none;">退出登录</a></p>
 
-                </div>
-            </div>*@
-        <img width="200" height="30" src="~/image/logo.png" style="margin-top:60px;" />
-        <p>欢迎Admin登陆</p>
     </div>
     <div data-options="region:'west',split:true,title:'菜单列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
-        <div id="RightTree" style=" background-color:#fff;">
-            <div class="panel-loading">加载中...</div>
+        <div id="RightTree" style="background-color:#fff;">
+            @*<div class="panel-loading">加载中...</div>*@
+            <ul class="easyui-tree" data-options="animate:true">
+                <li>
+                    <span>主菜单</span>
+                    <ul>
+                        <li data-options="state:'closed'">
+                            <span>首页</span>
+                            <ul>
+                                <li>
+                                    <span>首页轮播图</span>
+                                </li>
+                                <li>
+                                    <span>首页产品展示</span>
+                                </li>
+                                <li>
+                                    <span>主营业务</span>
+                                </li>
+                                <li>
+                                    <span>产品优势</span>
+                                </li>
+                                <li>
+                                    <span>首页新闻中心</span>
+                                </li>
+                                <li>
+                                    <span>首页特色案例</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>新闻中心</span>
+                            <ul>
+                                <li>新闻列表</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <span>成功案例</span>
+                            <ul>
+                                <li>案例列表</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>产品服务</span>
+                            <ul>
+                                <li>产品列表</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>关于我们</span>
+                            <ul>
+                                <li>公司介绍</li>
+                                <li>公司荣誉</li>
+                                <li>公司文化</li>
+                                <li>公司成就</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>联系我们</span>
+                            <ul>
+                                <li>公司基本信息</li>
+                                <li>公司合作信息</li>
+                                <li>招聘信息</li>
+                                <li>职位信息</li>
+                            </ul>
+                        </li>
+
+                       
+                    </ul>
+                </li>
+            </ul>
+            
         </div>
     </div>
     <div data-options="region:'south',border:false" style="height: 20px;">

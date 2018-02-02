@@ -50,12 +50,16 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeViewIDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
       <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
       <Name>21Education.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,7 +8,7 @@
                 plugClassName: "",
                 showCount: 1,
                 imgHeight: 300,
-                imgMargin:0,
+                imgMargin: 0,
                 containerWidth: 900
             }
             if (options.showCount > 1) options.carouselIndex = options.showCount;
@@ -32,10 +32,12 @@
                 options.carouselIndex = eq + 1;
                 play();
             });
-            var isSupported =
-                window.CSS &&
-                window.CSS.supports &&
-                window.CSS.supports('--a', 0);
+            var isSupported = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+            function SetAutoPlayInterval() {
+                autoPlayInterval = setInterval(function () {
+                    $this.find(".carousel-next").click();
+                }, options.spaceInterval * 1000);
+            }
             function play() {
                 clearInterval(autoPlayInterval);
                 var animateLength = options.carouselIndex * -realWidth + "px";
@@ -48,7 +50,7 @@
                 else if (options.carouselIndex == 0) {
                     $container.stop(true, true).animate({ "left": animateLength }, "slow", function () {
                         $(this).css("left", -realWidth * imgCount + "px")
-                    });//??Èç¹ûÓÐshowcount 4
+                    });
                     options.carouselIndex = imgCount;
                 }
                 else {
@@ -58,6 +60,9 @@
                     $(this).children().eq(options.carouselIndex - 1).addClass("active").siblings().removeClass("active");
                 });
                 SetAutoPlayInterval();
+            }
+            this.__proto__.Carousel.stop = function () {
+                alert(1);
             }
             void function Init() {
                 if (!isSupported) {
@@ -73,11 +78,6 @@
                     $(this).children().eq(0).addClass("active");
                 });
             }();
-            function SetAutoPlayInterval() {
-                autoPlayInterval = setInterval(function () {
-                    $this.find(".carousel-next").click();
-                }, options.spaceInterval * 1000);
-            }
             return $this;
         }
     });

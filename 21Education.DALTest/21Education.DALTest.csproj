@@ -62,6 +62,10 @@
       <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
       <Name>21Education.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\21Education.IDAL\21Education.IDAL.csproj">
+      <Project>{f038aaf2-f65f-469e-bb55-415e2f79cd9f}</Project>
+      <Name>21Education.IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
       <Name>21Education.MODEL</Name>

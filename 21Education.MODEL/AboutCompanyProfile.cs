@@ -12,7 +12,7 @@ namespace _21Education.MODEL
     public class AboutCompanyProfile
     {
 
-        public int ID { get; set; }
+        public int AboutCompanyProfileId { get; set; }
         /// <summary>
         /// 文章介绍
         /// </summary>

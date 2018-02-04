@@ -12,7 +12,7 @@ namespace _21Education.MODEL
    public  class ContactCooperateinfo
     {
 
-        public int ID { get; set; }
+        public int ContactCooperateinfoId { get; set; }
 
         /// <summary>
         /// 合作图片

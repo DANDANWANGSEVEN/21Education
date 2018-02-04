@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 导航编号
         /// </summary>
-        public int ID { get; set; }
+        public int NavId { get; set; }
         /// <summary>
         /// 导航标题
         /// </summary>

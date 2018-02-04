@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _21Education.MODEL
 {
+    /// <summary>
+    /// 首页轮播图
+    /// </summary>
     public class Carousel
     {
         /// <summary>

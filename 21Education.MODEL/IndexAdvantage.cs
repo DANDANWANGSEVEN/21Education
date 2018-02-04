@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 品牌优势编号
         /// </summary>
-        public int ID { get; set; }
+        public int IndexAdvantageId { get; set; }
 
         /// <summary>
         /// 优势标题

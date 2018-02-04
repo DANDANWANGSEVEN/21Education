@@ -11,7 +11,7 @@ namespace _21Education.MODEL
     /// </summary>
     public class AboutCompanyHonor
     {
-        public int ID { get; set; }
+        public int AboutCompanyHonorId { get; set; }
 
         /// <summary>
         /// 荣誉证书图片

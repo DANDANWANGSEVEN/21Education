@@ -619,6 +619,74 @@
     <Content Include="Areas\Login.style\img\About_Honorbg.jpg" />
     <Content Include="Areas\Login.style\img\index_logo.gif" />
     <Content Include="Areas\Login.style\img\winmail_bg12.jpg" />
+    <Content Include="Areas\Tree\images\icons\add.png" />
+    <Content Include="Areas\Tree\images\icons\addStep.gif" />
+    <Content Include="Areas\Tree\images\icons\addStep_dsbl.gif" />
+    <Content Include="Areas\Tree\images\icons\btn-arrow.gif" />
+    <Content Include="Areas\Tree\images\icons\Btn.Close.gif" />
+    <Content Include="Areas\Tree\images\icons\Btn.Refresh.gif" />
+    <Content Include="Areas\Tree\images\icons\cal.gif" />
+    <Content Include="Areas\Tree\images\icons\checkbox_0.gif" />
+    <Content Include="Areas\Tree\images\icons\checkbox_1.gif" />
+    <Content Include="Areas\Tree\images\icons\checkbox_2.gif" />
+    <Content Include="Areas\Tree\images\icons\circle_animation.gif" />
+    <Content Include="Areas\Tree\images\icons\delete.png" />
+    <Content Include="Areas\Tree\images\icons\delItem.gif" />
+    <Content Include="Areas\Tree\images\icons\delItem_dsbl.gif" />
+    <Content Include="Areas\Tree\images\icons\edit.png" />
+    <Content Include="Areas\Tree\images\icons\folder_close.gif" />
+    <Content Include="Areas\Tree\images\icons\ico1.gif" />
+    <Content Include="Areas\Tree\images\icons\ico2.gif" />
+    <Content Include="Areas\Tree\images\icons\ico3.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4-1-1.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4-1.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4-2.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4-3.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4-4.gif" />
+    <Content Include="Areas\Tree\images\icons\ico4.gif" />
+    <Content Include="Areas\Tree\images\icons\ico5.gif" />
+    <Content Include="Areas\Tree\images\icons\ico6-1.gif" />
+    <Content Include="Areas\Tree\images\icons\ico6-2.gif" />
+    <Content Include="Areas\Tree\images\icons\ico6.gif" />
+    <Content Include="Areas\Tree\images\icons\indicator.gif" />
+    <Content Include="Areas\Tree\images\icons\information.png" />
+    <Content Include="Areas\Tree\images\icons\Item.Add.gif" />
+    <Content Include="Areas\Tree\images\icons\Item.Delete.gif" />
+    <Content Include="Areas\Tree\images\icons\Item.Edit.gif" />
+    <Content Include="Areas\Tree\images\icons\Item.Input.gif" />
+    <Content Include="Areas\Tree\images\icons\Item.Save.gif" />
+    <Content Include="Areas\Tree\images\icons\Item.Search.gif" />
+    <Content Include="Areas\Tree\images\icons\none.gif" />
+    <Content Include="Areas\Tree\images\icons\note.gif" />
+    <Content Include="Areas\Tree\images\icons\rowdelete.png" />
+    <Content Include="Areas\Tree\images\icons\s.gif" />
+    <Content Include="Areas\Tree\images\icons\table_refresh.png" />
+    <Content Include="Areas\Tree\images\icons\view.png" />
+    <Content Include="Areas\Tree\images\share\glass-bg.gif" />
+    <Content Include="Areas\Tree\images\share\hd-sprite.gif" />
+    <Content Include="Areas\Tree\images\share\left-btn.gif" />
+    <Content Include="Areas\Tree\images\share\right-btn.gif" />
+    <Content Include="Areas\Tree\images\share\tool-sprites.gif" />
+    <Content Include="Areas\Tree\images\tree\arrows.gif" />
+    <Content Include="Areas\Tree\images\tree\cbs.gif" />
+    <Content Include="Areas\Tree\images\tree\drop-yes.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-end-minus-nl.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-end-minus.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-end-plus-nl.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-end-plus.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-end.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-line.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-minus-nl.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-minus.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-plus-nl.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow-plus.gif" />
+    <Content Include="Areas\Tree\images\tree\elbow.gif" />
+    <Content Include="Areas\Tree\images\tree\folder-open.gif" />
+    <Content Include="Areas\Tree\images\tree\folder.gif" />
+    <Content Include="Areas\Tree\images\tree\leaf.gif" />
+    <Content Include="Areas\Tree\images\tree\loading.gif" />
+    <Content Include="Areas\Tree\jquery.tree.js" />
+    <Content Include="Areas\Tree\tree.css" />
     <Content Include="Content\Areasjs\bootstrap.min.css" />
     <Content Include="Content\Areasjs\bootstrap.min.js" />
     <Content Include="Content\Areasjs\colResizable-1.3.min.js" />
@@ -958,6 +1026,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\21Education.BLL\21Education.BLL.csproj">
+      <Project>{0a47a69a-48fb-434d-8cb0-e98e0a3dd4b2}</Project>
+      <Name>21Education.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\21Education.COMMON\21Education.COMMON.csproj">
       <Project>{a3ff034a-5e72-41ad-98bb-e501aef9a027}</Project>
       <Name>21Education.COMMON</Name>

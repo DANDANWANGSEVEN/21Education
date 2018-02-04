@@ -47,14 +47,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ICarousel.cs" />
+    <Compile Include="IContactCompanyinfo.cs" />
+    <Compile Include="IContactCooperateinfo.cs" />
+    <Compile Include="IContactRecruitInfo.cs" />
+    <Compile Include="IContactPositionInfo.cs" />
+    <Compile Include="IProduct.cs" />
+    <Compile Include="IndexMainBusinessIDAL.cs" />
+    <Compile Include="IndexAdvantageIDAL.cs" />
+    <Compile Include="INews.cs" />
+    <Compile Include="ISuccess.cs" />
+    <Compile Include="IAboutCompanyProfile.cs" />
+    <Compile Include="IAboutCompanyHonor.cs" />
+    <Compile Include="IAboutCompanyCulture.cs" />
+    <Compile Include="IAboutCompanyAchievement.cs" />
     <Compile Include="IDataBase.cs" />
+    <Compile Include="ISysModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
-      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
-      <Name>21Education.DAL</Name>
+    <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
+      <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
+      <Name>21Education.MODEL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,6 +51,7 @@
     <Compile Include="DATA\CarouselViewModel.cs" />
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
+    <Compile Include="DATA\sysViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

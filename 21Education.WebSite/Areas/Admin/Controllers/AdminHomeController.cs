@@ -60,6 +60,23 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 页面增加修改弹出框
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult _Index_LayoutEdit()
+        {
+            return View();
+        }
+        /// <summary>
+        /// CREATE创建
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult create()
+        {
+            return View();
+        }
+
 
         #endregion
 

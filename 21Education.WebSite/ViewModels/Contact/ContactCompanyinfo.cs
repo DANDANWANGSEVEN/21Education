@@ -33,7 +33,6 @@ namespace _21Education.WebSite.ViewModels
         /// 网址
         /// </summary>
         public string Website { get; set; }
-
-
+        public int ContactCompanyinfoId { get; internal set; }
     }
 }

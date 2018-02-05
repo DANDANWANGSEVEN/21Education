@@ -6,7 +6,7 @@
 
 @{
     Layout = null;
-    Layout = "~/Views/Shared/View2.cshtml";
+    Layout = "~/Areas/Admin/Views/AdminHome/Layout.cshtml";
 }
 
 
@@ -16,49 +16,59 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/Areas/Content/themes/icon.css" rel="stylesheet" />
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
-    <div class="mvctool">
-        <input id="txtQuery" type="text" class="searchText">
-        <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
-        <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
-    </div>
-    
+    <table class="mvctool">
+        <tr>
+            <td><input id="txtQuery" type="text" class="searchText"></td>
+            <td><a id="btnQuery" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 50px;">查询</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnCreate" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 50px;">新增</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnEdit" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 50px;">编辑</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnDetails" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 50px;">详细</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnDelete" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 50px;">删除</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnExport" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 50px;">导出</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td><a id="btnReload" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 50px;">刷新</span></span></a><div class="datagrid-btn-separator"></div></td>
+        </tr>
+    </table>
+
     <table id="List"></table>
     <script type="text/javascript">
     $(function () {
         $('#List').datagrid({
-            url: '/SysSample/GetList',
-            width: $(window).width() - 10,
+            url: '/Areas_Contact/GetList',
+            width: $(window).width() - 40,
             methord: 'post',
-            height: $(window).height() -35,
+            height: $(window).height() -60,
             fitColumns: true,
-            sortName: 'Id',
+            sortName: 'ContactCompanyinfoId',
             sortOrder: 'desc',
-            idField: 'Id',
+            idField: 'ContactCompanyinfoId',
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式
             rownumbers: true,//行号
+            pageSize: 8,
+            pageList: [8, 20, 30, 40, 50],
+            pagination: true,  //是否分页
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            rownumbers: true,//行号
+
             columns: [[
-                { field: 'Id', title: '编号', width: 80 },
-                { field: 'Name', title: '地址', width: 80 },
-                { field: 'Age', title: '邮箱', width: 80, align: 'right' },
-                { field: 'Bir', title: '电话', width: 80, align: 'right' },
-                { field: 'Photo', title: '传真', width: 100 },
-                { field: 'Note', title: '网址', width: 60, align: 'center' }
-                //{ field: 'CreateTime', title: '创建时间', width: 60, align: 'center' }
+                { field: 'ContactCompanyinfoId', title: '编号', width: 80, align: 'center' },
+                { field: 'Address', title: '地址', width: 80, align: 'center' },
+                { field: 'Email', title: '邮箱', width: 80, align: 'center' },
+                { field: 'Phone', title: '电话', width: 80, align: 'center' },
+                { field: 'Transmission', title: '传真', width: 80, align: 'center' },
+                { field: 'Website', title: '网址', width: 60, align: 'center' }
             ]]
         });
     });
     </script>
 </body>
 </html>
+
 <script type="text/javascript">
 
     //ifram 返回
@@ -113,7 +123,7 @@
             if (row != null) {
                 $.messager.confirm('提示', '确定删除', function (r) {
                         if (r) {
-                            $.post("/SysSample/Delete?id=" + row.Id, function (data) {
+                            $.post("/SysSample/Delete?id=" + row.ContactCompanyinfoId, function (data) {
                                 if (data.type == 1)
                                     $("#List").datagrid('load');
                                 $.messageBox5s('提示', data.message);

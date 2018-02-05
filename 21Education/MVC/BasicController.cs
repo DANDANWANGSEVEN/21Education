@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _21Education.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,20 @@ using System.Web.Mvc;
 namespace _21Education.MVC
 {
     public class BasicController<TEntity, TPrimarykey, TService> : Controller
-        where TEntity : EditorEntity
+        where TEntity : class
         where TService : IService<TEntity>
     {
-        public ActionResult Index()
+        TService Service;
+        public BasicController(TService service)
+        {
+            Service = service;
+        }
+        public virtual ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             return View();
         }
@@ -25,7 +31,7 @@ namespace _21Education.MVC
             TEntity entity = Activator.CreateInstance<TEntity>();
             return View();
         }
-        public ActionResult Index()
+        public ActionResult Edit(TEntity entity)
         {
             return View();
         }

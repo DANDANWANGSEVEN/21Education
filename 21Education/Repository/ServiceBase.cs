@@ -24,19 +24,19 @@ namespace _21Education.Repository
         }
         public abstract DbSet<T> CurrentDbSet { get; }
 
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             CurrentDbSet.Add(item);
-            DbContext.SaveChanges();
+            SaveChanges();
         }
 
-        public void AddRange(params T[] items)
+        public virtual void AddRange(params T[] items)
         {
             CurrentDbSet.AddRange(items);
-            DbContext.SaveChanges();
+            SaveChanges();
         }
 
-        public void BeginTransaction(Action action)
+        public virtual void BeginTransaction(Action action)
         {
             using (var transaction = DbContext.Database.BeginTransaction())
             {
@@ -53,7 +53,7 @@ namespace _21Education.Repository
             }
         }
 
-        public int Count(Expression<Func<T, bool>> filter)
+        public virtual int Count(Expression<Func<T, bool>> filter)
         {
             if (filter != null)
             {
@@ -62,22 +62,22 @@ namespace _21Education.Repository
             return CurrentDbSet.Count();
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-            throw new NotImplementedException();
+            DbContext.Dispose();
         }
 
-        public IQueryable<T> Get()
+        public virtual IQueryable<T> Get()
         {
             return CurrentDbSet;
         }
 
-        public IList<T> Get(Expression<Func<T, bool>> filter)
+        public virtual IList<T> Get(Expression<Func<T, bool>> filter)
         {
             return CurrentDbSet.Where(filter).ToList();
         }
 
-        public IList<T> Get(Expression<Func<T, bool>> filter, Pagination pagination)
+        public virtual IList<T> Get(Expression<Func<T, bool>> filter, Pagination pagination)
         {
             pagination.RecordCount = Count(filter);
             IQueryable<T> result;
@@ -103,53 +103,62 @@ namespace _21Education.Repository
             return result.Skip(pagination.PageIndex * pagination.PageSize).Take(pagination.PageSize).ToList();
         }
 
-        public T Get(params object[] primaryKey)
+        public virtual T Get(params object[] primaryKey)
         {
             return CurrentDbSet.Find(primaryKey);
         }
 
-        public T GetSingle(Expression<Func<T, bool>> filter)
+        public virtual T GetSingle(Expression<Func<T, bool>> filter)
         {
             return CurrentDbSet.Single(filter);
         }
 
-        public void Remove(params object[] primaryKey)
+        public virtual void Remove(params object[] primaryKey)
         {
-            throw new NotImplementedException();
+            CurrentDbSet.Remove(CurrentDbSet.Find(primaryKey));
+            SaveChanges();
         }
 
-        public void Remove(T item, bool saveImmediately = true)
+        public virtual void Remove(T item, bool saveImmediately = true)
         {
-            throw new NotImplementedException();
+            CurrentDbSet.Remove(item);
+            if (saveImmediately)
+            {
+                SaveChanges();
+            }
         }
 
-        public void Remove(Expression<Func<T, bool>> filter)
+        public virtual void Remove(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            CurrentDbSet.RemoveRange(CurrentDbSet.Where(filter));
+            SaveChanges();
         }
 
-        public void RemoveRange(params T[] items)
+        public virtual void RemoveRange(params T[] items)
         {
-            throw new NotImplementedException();
+            CurrentDbSet.RemoveRange(items);
+            SaveChanges();
         }
 
-        public void SaveChanges()
+        public virtual void SaveChanges()
         {
-            throw new NotImplementedException();
+            DbContext.SaveChanges();
         }
 
-        public void Update(T item, bool saveImmediately = true)
+        public virtual void Update(T item, bool saveImmediately = true)
         {
             CurrentDbSet.Find(item);
             if (saveImmediately)
             {
-                DbContext.SaveChanges();
+               SaveChanges();
             }
         }
 
-        public void UpdateRange(params T[] items)
+        public virtual void UpdateRange(params T[] items)
         {
-            throw new NotImplementedException();
+            items.ToList().ForEach(e => {
+                Update(e);
+            });
         }
     }
 }

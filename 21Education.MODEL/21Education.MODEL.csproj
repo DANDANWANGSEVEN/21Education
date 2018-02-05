@@ -57,21 +57,6 @@
     <Compile Include="ContactCooperateinfo.cs" />
     <Compile Include="ContactPositionInfo.cs" />
     <Compile Include="ContactRecruitInfo.cs" />
-    <Compile Include="DB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="IndexAdvantage.cs" />
     <Compile Include="IndexMainBusiness.cs" />
     <Compile Include="Nav.cs" />
@@ -80,34 +65,10 @@
     <Compile Include="News.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Success.cs" />
+    <Compile Include="SysModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContactCompanyinfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="DB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="DB.edmx.diagram">
-      <DependentUpon>DB.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB.edmx</DependentUpon>
-      <LastGenOutput>DB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB.edmx</DependentUpon>
-      <LastGenOutput>DB.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 主键编号
         /// </summary>
-        public int PositionID { get; set; }
+        public int ContactPositionInfoId { get; set; }
         /// <summary>
         /// 条件 职位人数/薪资
         /// </summary>

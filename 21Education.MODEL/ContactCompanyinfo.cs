@@ -11,7 +11,7 @@ namespace _21Education.MODEL
     /// </summary>
     public class ContactCompanyinfo
     {
-        public int ID { get; set; }
+        public int ContactCompanyinfoId { get; set; }
 
         /// <summary>
         /// 公司地址

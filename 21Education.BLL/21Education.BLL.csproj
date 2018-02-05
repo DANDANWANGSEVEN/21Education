@@ -39,8 +39,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SysBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
+      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
+      <Name>21Education.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.FACTORY\21Education.FACTORY.csproj">
+      <Project>{a98e716e-10ea-4c42-b8da-12d19f47a80a}</Project>
+      <Name>21Education.FACTORY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.IDAL\21Education.IDAL.csproj">
+      <Project>{f038aaf2-f65f-469e-bb55-415e2f79cd9f}</Project>
+      <Name>21Education.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
+      <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
+      <Name>21Education.MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

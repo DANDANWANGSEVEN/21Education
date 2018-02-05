@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 业务编号
         /// </summary>
-        public int ID { get; set; }
+        public int IndexMainBusinessId { get; set; }
         /// <summary>
         /// 业务名称
         /// </summary>
@@ -27,10 +27,7 @@ namespace _21Education.MODEL
         /// 业务文章
         /// </summary>
         public string BusinessContent { get; set; }
-        /// <summary>
-        /// 发表人
-        /// </summary>
-        public string PubPerson { get; set; }
+        
         /// <summary>
         /// 发表时间
         /// </summary>

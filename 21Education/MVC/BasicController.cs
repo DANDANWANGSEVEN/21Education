@@ -24,20 +24,43 @@ namespace _21Education.MVC
 
         public virtual ActionResult Create()
         {
-            return View();
+            TEntity entity = Activator.CreateInstance<TEntity>();
+            return View(entity);
+        }
+        public virtual ActionResult Create(TEntity entity)
+        {
+            if (ModelState.IsValid)
+            {
+                Service.Add(entity);
+                return RedirectToAction("Index");
+            }
+            return View(entity);
         }
         public ActionResult Delete(int Id)
         {
-            TEntity entity = Activator.CreateInstance<TEntity>();
-            return View();
+            try
+            {
+                Service.Remove(Id);
+                return Json(new { Status = 1 });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Status = 0,  ex.Message });
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View(Service.Get(id));
         }
         public ActionResult Edit(TEntity entity)
         {
-            return View();
-        }
-        public ActionResult Index()
-        {
-            return View();
+            if (ModelState.IsValid)
+            {
+                Service.Update(entity);
+                return RedirectToAction("Index");
+            }
+            return View(entity);
         }
     }
 }

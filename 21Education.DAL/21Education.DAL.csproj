@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutCompanyAchievementService.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="21EducationDbContext.cs" />
     <Compile Include="SysDAL.cs" />
@@ -66,6 +67,10 @@
     <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
       <Name>21Education.MODEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education\21Education.csproj">
+      <Project>{421f3842-297a-4504-a55a-39c188291f08}</Project>
+      <Name>21Education</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

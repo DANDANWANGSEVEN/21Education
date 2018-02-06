@@ -271,6 +271,9 @@
     <Content Include="Areas\Admin\Views\AdminHome\_Index_LayoutEdit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\create.cshtml" />
     <Content Include="Handler\verify_code.ashx" />
+    <Content Include="Areas\Admin\Views\Areas_About\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas_About\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas_About\Edit.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />
@@ -1137,6 +1140,18 @@
     <ProjectReference Include="..\21Education.COMMON\21Education.COMMON.csproj">
       <Project>{a3ff034a-5e72-41ad-98bb-e501aef9a027}</Project>
       <Name>21Education.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.Core\21Education.Core.csproj">
+      <Project>{eb4a7fc2-304b-4bc7-a17b-4aeb13e8d039}</Project>
+      <Name>21Education.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
+      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
+      <Name>21Education.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.IDAL\21Education.IDAL.csproj">
+      <Project>{f038aaf2-f65f-469e-bb55-415e2f79cd9f}</Project>
+      <Name>21Education.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>

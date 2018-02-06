@@ -83,26 +83,12 @@
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
     <Compile Include="Extend\QueryableExtend.cs" />
-    <Compile Include="IOC\DependencyRegisterType.cs" />
-    <Compile Include="IOC\UnityDependencyResolver.cs" />
     <Compile Include="MVC\BasicController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IService.cs" />
     <Compile Include="Repository\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\21Education.BLL\21Education.BLL.csproj">
-      <Project>{0a47a69a-48fb-434d-8cb0-e98e0a3dd4b2}</Project>
-      <Name>21Education.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
-      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
-      <Name>21Education.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\21Education.IDAL\21Education.IDAL.csproj">
-      <Project>{f038aaf2-f65f-469e-bb55-415e2f79cd9f}</Project>
-      <Name>21Education.IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
       <Name>21Education.MODEL</Name>

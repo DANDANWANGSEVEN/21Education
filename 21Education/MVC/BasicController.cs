@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace _21Education.MVC
 {
-    public class BasicController<TEntity, TPrimarykey, TService> : Controller
+    public class BasicController<TEntity, TService> : Controller
         where TEntity : class
         where TService : IService<TEntity>
     {

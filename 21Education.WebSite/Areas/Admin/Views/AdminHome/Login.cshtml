@@ -83,7 +83,7 @@
             }
             $("#Loading").show();
 
-            alert(1);
+            alert("11111111111111111111111111111111111");
             return false;
         }
 
@@ -121,9 +121,8 @@
                 </td>
                 <td>
                     <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
-                    <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="/Admin/Core/verify_code.ashx" onclick="this.src=this.src+'?'" />
+                    <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Handler/verify_code.ashx" onclick="this.src=this.src+'?'" />
                     <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
-
                 </td>
             </tr>
             <tr>

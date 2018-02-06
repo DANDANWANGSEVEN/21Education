@@ -136,6 +136,9 @@
     <Compile Include="Areas\Admin\Controllers\Areas_NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_SuccessController.cs" />
+    <Compile Include="Handler\verify_code.ashx.cs">
+      <DependentUpon>verify_code.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\PageRouteConstraint.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -243,6 +246,7 @@
     <Content Include="Areas\Admin\Views\Areas_Contact\ContactCompanyinfo.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\_Index_LayoutEdit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\create.cshtml" />
+    <Content Include="Handler\verify_code.ashx" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />
@@ -1090,6 +1094,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\NewFolder1\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Content\Scripts\easyui\demo\" />
     <Folder Include="fonts\" />

@@ -26,6 +26,7 @@ namespace _21Education.WebSite.Controllers
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
             return View(NewsListTest(page));
+
         }
 
         NewsListViewModel NewsListTest(int page)

@@ -8,6 +8,39 @@
 <link href="~/CSS/Carousel-index.css" rel="stylesheet" />
 <script src="~/Content/js/Carousel.js"></script>
 
+<style>
+    /*遮罩层效果*/
+    .zhezhao {
+        float: left;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+        .zhezhao .txt {
+            width: inherit;
+            height: 45px;
+            background: url(../../image/1px.png) repeat;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #fff;
+            font-family: "微软雅黑";
+        }
+
+            .zhezhao .txt h3 {
+                font-size: 20px;
+                font-weight: 100;
+                height: 45px;
+                text-align: center;
+                line-height: 45px;
+            }
+
+            .zhezhao .txt p {
+                font-size: 14px;
+                text-align: center;
+            }
+</style>
 
 <style>
     .table {
@@ -57,6 +90,11 @@
         /*background: url('../../image/bg.png') 100% 100%;*/
         z-index: 900;
     }
+
+    .businesstitle{
+        text-decoration:none;color:#000;
+    }
+
     .businesstitle:hover{
         color:#0057be;
     }
@@ -76,8 +114,8 @@
 <table class="table" id="index.productservice" border="0" style="text-align:center;">
     <tr class="firsttr">
         <td colspan="6">
-            <h3 style="color:#0057be;">______ 产品服务 ______</h3>
-            <span style="font-size:14px;color:#666666;">PRODUCT SERVICES</span>
+            <h3 style="color:#0057be;">______ 产品展示 ______</h3>
+            <span style="font-size:14px;color:#666666;">PRODUCT Show</span>
         </td>
     </tr>
     <tr style="text-align:center;">
@@ -139,7 +177,7 @@
                 <tr>
                     <td><img src="~/image/about_14.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">网上阅卷</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">网上阅卷</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>信息卡设计与印刷</li>
                             <li>数据扫描产品</li>
@@ -150,7 +188,7 @@
                 <tr>
                     <td><img src="~/image/znks.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">无纸化智能考试</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">无纸化智能考试</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>通用无纸化智能考试平台</li>
                             <li>大学英语四六级口语考试系统</li>
@@ -160,7 +198,7 @@
                 <tr>
                     <td><img src="~/image/login.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">网上报名管理系统</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">网上报名管理系统</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>网上报名系统</li>
                             <li>考务管理系统</li>
@@ -170,7 +208,7 @@
                 <tr>
                     <td><img src="~/image/tk_system.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">图库系统</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">图库系统</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>系统支持试题的存储/检索/组卷</li>
                             <li>支持多种形式的试题及答案的管理</li>
@@ -182,7 +220,7 @@
                 <tr>
                     <td><img src="~/image/pcpj.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">评测与评价系统</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">评测与评价系统</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>多层级、多权限管理</li>
                             <li>软件操作简单易用</li>
@@ -196,7 +234,7 @@
                 <tr>
                     <td><img src="~/image/cloud.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">云服务中心</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">云服务中心</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>云平台服务</li>
                             <li>云服务器租用服务</li>
@@ -210,7 +248,7 @@
                 <tr>
                     <td><img src="~/image/data.jpg" style="width:350px;height:220px;" /></td>
                     <td>
-                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent" style="text-decoration:none;">数据处理中心</a></p>
+                        <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">数据处理中心</a></p>
                         <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                             <li>数据处理服务</li>
                             <li>卷库管理</li>
@@ -248,7 +286,7 @@
                 <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
                     <dt><img src="~/image/index.V3/indexone.png" /></dt>
                     <dd>
-                        <p style="font-size:16px;line-height:30px;">安全/稳定/高效</p>
+                        <p style="font-size:16px;line-height:30px;color:#000;">安全/稳定/高效</p>
                         <span>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</span>
                     </dd>
                 </dl>
@@ -257,7 +295,7 @@
                 <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
                     <dt><img src="~/image/index.V3/indextwo.png" /></dt>
                     <dd>
-                        <p style="font-size:16px;line-height:30px;">高度可配置化</p>
+                        <p style="font-size:16px;line-height:30px;color:#000;">高度可配置化</p>
                         <span>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</span>
                     </dd>
                 </dl>
@@ -266,7 +304,7 @@
                 <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
                     <dt><img src="~/image/index.V3/indexthree.png" /></dt>
                     <dd>
-                        <p style="font-size:16px;line-height:30px;">高度智能</p>
+                        <p style="font-size:16px;line-height:30px;color:#000;">高度智能</p>
                         <span>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</span>
                     </dd>
                 </dl>
@@ -275,7 +313,7 @@
                 <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
                     <dt><img src="~/image/index.V3/indexfour.png" /></dt>
                     <dd>
-                        <p style="font-size:16px;line-height:30px;">操作灵活方便</p>
+                        <p style="font-size:16px;line-height:30px;color:#000;">操作灵活方便</p>
                         <span>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</span>
                     </dd>
                 </dl>

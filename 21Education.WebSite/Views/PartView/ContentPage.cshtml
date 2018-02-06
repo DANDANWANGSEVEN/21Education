@@ -30,14 +30,18 @@
     <tr>
         <td>
             <div id="tooltip">
-                <a href="/News/NewsContent">上一章：自学考试解决方案</a>
+                <a href="/News/NewsContent">《《上一章：自学考试解决方案</a>
                 <br />
-                <a href="/News/NewsContent">下一章：2017年审计专业技术资格考试将于2017年20月22日举行</a>
+                <a href="/News/NewsContent">》》下一章：2017年审计专业技术资格考试将于2017年20月22日举行</a>
                 <br />
                 <div style="float:right;">
                     <a href="/News/NewsList">返回列表</a>/
-                    <a href="/News/NewsContent">回到顶部</a>
-
+                    <a href="#" id="test" >回到顶部</a>
+                    <script>
+                        test.onclick = function () {
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+                        }
+                    </script>
                 </div>
             </div>
         </td>

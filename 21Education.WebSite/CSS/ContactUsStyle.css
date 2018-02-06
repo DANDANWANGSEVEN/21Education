@@ -11,6 +11,9 @@
   {
       font-size:14px;
   }
+    .table h3 {
+        color: #0057be;
+    }
  /*联系我们*/
 
   #companyinfo p{
@@ -43,9 +46,7 @@
      /*招聘信息*/
 
 
-#joinproduce h3 {
-    color: #0057be;
-}
+
 #joinlink {
     text-decoration: none;
     width: 30px;

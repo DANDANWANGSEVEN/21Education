@@ -38,8 +38,15 @@ namespace _21Education.DAL
         public DbSet<ContactPositionInfo> ContactPositionInfo { set; get; }
         #endregion
 
+        #region 后台用户管理
+        public DbSet<UserInfo> UserInfo { set; get; }
+        #endregion
+
+        #region 后台树形
 
         public DbSet<SysModule> SysModule { set; get; }
+
+        #endregion
 
     }
 }

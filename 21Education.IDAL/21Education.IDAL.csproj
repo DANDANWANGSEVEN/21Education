@@ -63,6 +63,7 @@
     <Compile Include="IAboutCompanyAchievement.cs" />
     <Compile Include="IDataBase.cs" />
     <Compile Include="ISysModule.cs" />
+    <Compile Include="Iuserinfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreeViewIDAL.cs" />
   </ItemGroup>

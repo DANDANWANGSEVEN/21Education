@@ -23,13 +23,45 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public int Login(string UserName, string Password, string ValidateCode)
+        {
+            try
+            {
+                var userinfo = new MODEL.UserInfo();
+                userinfo.UserID = 1;
+                userinfo.UserName = "admin";
+                userinfo.UserPwd = "123456";
+                userinfo.RegistDate = DateTime.Now;
+                if (UserName == userinfo.UserName && Password == userinfo.UserPwd)
+                    return 1;
+                else
+                    return 0;
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        [HttpPost]
+        public int validatecode(string code)
+        {
+            if (code.ToLower() == Session["Code"].ToString().ToLower())
+            {
+                return 1;
+            }
+            return 0;
+        }
         #endregion
+
 
         #region 默认界面
         public ActionResult Main()
         {
             return View();
         }
+
         public ActionResult Index()
         {
             return View();
@@ -77,16 +109,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-
-
         #endregion
-
-        public ActionResult a()
-        {
-            return View();
-        }
-
-
     }
 }
 

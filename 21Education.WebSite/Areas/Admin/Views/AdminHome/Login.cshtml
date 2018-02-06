@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>系统登录</title>
+    <title>后台管理登录</title>
     <script src="~/Areas/Content/Scripts/jquery.min.js"></script>
     @Styles.Render("~/Areas/Content/themes/gray/css")
     <link href="~/Areas/Content/css" rel="stylesheet" />
@@ -56,9 +56,6 @@
                     return false;
                 }
             });
-
-
-
         });
 
         function LoginSys() {
@@ -81,72 +78,107 @@
                 $("#mes").html("验证码不能为空！");
                 return;
             }
-            $("#Loading").show();
+            else
+            {
+                IsSub = false;
+                $.ajax({
+                    url: "/Admin/AdminHome/validatecode",
+                    type: "post",
+                    data: { "code": $.trim($("#ValidateCode").val()) },
+                    success: function (data) {
+                        if (data == 1) {
+                            IsSub = false;
+                            $.ajax({
+                                url: "/Admin/AdminHome/Login",
+                                data: { UserName: $.trim($("#UserName").val()), Password: $.trim($("#Password").val()) },
+                                type: "post",
+                                dataType: "json",
+                                async:false,
+                                success: function (data1) {
+                                    if (data1 > 0) {
+                                        $("#Loading").show();
+                                        window.location.href = "/Admin/AdminHome/Index";//登录成功！
+                                    }
+                                    else {
+                                        $(".alert").text("用户名或密码有误！");
+                                        return;
+                                    }
+                                }
+                            });
 
-            alert("11111111111111111111111111111111111");
-            return false;
+                        }
+                        else {
+                            $(".alert").text("验证码有误！");
+                            IsSub = true;
+                            return;
+                        }
+                    }
+                });
+
+
+                
+               
+            }
         }
 
     </script>
 </head>
 <body style="background:url('/image/About_Honorbg.jpg')">
     <div style="margin-top:200px;">
-        <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:400px; height:230px;margin:auto; border:1px #ccc solid;">
-            <tr>
-                <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
-                    欢迎登录 LOGIN
-                </td>
+            <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:400px; height:230px;margin:auto; border:1px #ccc solid;">
+                <tr>
+                    <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
+                        欢迎登录 LOGIN
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px; text-align: right">
+                        用户名：
+                    </td>
+                    <td>
+                        <input id="UserName" name="UserName" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px; text-align: right;">
+                        密 码：
+                    </td>
+                    <td>
+                        <input id="Password" name="Password" type="password" />
+                    </td>
+                </tr>
 
-            </tr>
-            <tr>
-                <td style="width: 80px; text-align: right">
-                    用户名：
-                </td>
-                <td>
-                    <input id="UserName" name="UserName" type="text" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 80px; text-align: right;">
-                    密 码：
-                </td>
-                <td>
-                    <input id="Password" name="Password" type="password" />
-                </td>
-            </tr>
+                <tr>
+                    <td style="width: 80px; text-align: right">
+                        验证码：
+                    </td>
+                    <td>
+                        <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                        <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Handler/verify_code.ashx" onclick="this.src=this.src+'?'" />
+                        <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                        <span class="alert" style="color:red;margin-top:5px;"></span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width:40px;">&nbsp;</td>
+                                <td>
+                                    <div id="mes" class="field-validation-error">
+                                    </div>
+                                    <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
+                                </td>
+                                <td style="width: 100px;">
+                                    <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding:0px 10px;">登录</span></span></a>
+                                </td>
+                            </tr>
+                        </table>
 
-            <tr>
-                <td style="width: 80px; text-align: right">
-                    验证码：
-                </td>
-                <td>
-                    <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
-                    <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Handler/verify_code.ashx" onclick="this.src=this.src+'?'" />
-                    <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td style="width:40px;">&nbsp;</td>
-                            <td>
-                                <div id="mes" class="field-validation-error">
-                                </div>
-                                <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
-                            </td>
-                            <td style="width: 100px;">
-                                <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding:0px 10px;">登录</span></span></a>
-                            <a href="/Admin/AdminHome/Index">首页</a>
-                            </td>
-                        </tr>
-                    </table>
-
-                </td>
-            </tr>
-
-        </table>
-
+                    </td>
+                </tr>
+            </table>
     </div>
 </body>
 </html>

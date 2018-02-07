@@ -20,7 +20,7 @@ namespace _21Education.WebSite
             //    defaults: new { controller = "partview", action = "carousel", id = UrlParameter.Optional }
             //);
 
-
+            //给指定页面注册路由
             RegisterRoutesWithRoute(
                 routes,
                 StringKeys.RouteValue_Page,

@@ -111,7 +111,7 @@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
 
 @*产品服务*@
-<table class="table" id="index.productservice" border="0" style="text-align:center;">
+@*<table class="table" id="index.productservice" border="0" style="text-align:center;">
     <tr class="firsttr">
         <td colspan="6">
             <h3 style="color:#0057be;">______ 产品展示 ______</h3>
@@ -122,24 +122,18 @@
         <td style="height:15px;"></td>
     </tr>
     <tr>
-        @*<td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_prev.png" /></td>
-            <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_one.png" /></td>
-            <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
-            <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
-            <td><img style="width:200px;height:100px;" src="~/image/index.V3/index_productservice_two.png" /></td>
-            <td><img style="width:40px;height:60px;" src="~/image/index.V3/index_product_next.png" /></td>*@
         <td>
             @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
         </td>
     </tr>
-</table>
+</table>*@
 
 
 @*主营业务*@
 <table class="table" id="index.productservice" style="text-align:center;margin-top:10px;">
     <tr class="firsttr">
         <td colspan="6">
-            <h3 style="color:#0057be;">______ 主营业务 ______</h3>
+            <h3 style="color:#0057be;">______ 产品服务 ______</h3>
             <span style="font-size:14px;color:#666666;">MAIN BUSINESS</span>
         </td>
     </tr>

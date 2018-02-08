@@ -29,7 +29,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             try
             {
                 var userinfo = new MODEL.UserInfo();
-                userinfo.UserID = 1;
+                userinfo.UserInfoId = 1;
                 userinfo.UserName = "admin";
                 userinfo.UserPwd = "123456";
                 userinfo.RegistDate = DateTime.Now;

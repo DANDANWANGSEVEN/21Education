@@ -160,6 +160,7 @@
     <Compile Include="Areas\Admin\Controllers\Areas_NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_SuccessController.cs" />
+    <Compile Include="Handler\ExtendMvcHtml.cs" />
     <Compile Include="Handler\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>

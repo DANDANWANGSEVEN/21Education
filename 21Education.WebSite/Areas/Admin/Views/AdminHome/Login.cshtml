@@ -96,16 +96,16 @@
                                 async:false,
                                 success: function (data1) {
                                     if (data1 > 0) {
+                                        $(".alert").text("");
                                         $("#Loading").show();
                                         window.location.href = "/Admin/AdminHome/Index";//登录成功！
                                     }
-                                    else {
+                                    else { 
                                         $(".alert").text("用户名或密码有误！");
                                         return;
                                     }
                                 }
                             });
-
                         }
                         else {
                             $(".alert").text("验证码有误！");
@@ -114,13 +114,8 @@
                         }
                     }
                 });
-
-
-                
-               
             }
         }
-
     </script>
 </head>
 <body style="background:url('/image/About_Honorbg.jpg')">

@@ -12,13 +12,15 @@ namespace _21Education.MODEL
    public  class UserInfo
     {
 
-        public int UserID { get; set; }
+        public int UserInfoId { get; set; }
 
         public string UserName { get; set; }
 
         public string UserPwd { get; set; }
 
         public DateTime  RegistDate { get; set; }
+
+        public int loginstates { get; set; }
 
     }
 }

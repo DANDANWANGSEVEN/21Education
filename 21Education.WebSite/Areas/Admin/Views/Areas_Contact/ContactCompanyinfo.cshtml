@@ -8,7 +8,7 @@
     Layout = null;
     Layout = "~/Areas/Admin/Views/AdminHome/Layout.cshtml";
 }
-
+@using _21Education.WebSite.Handler;
 
 <!DOCTYPE html>
 
@@ -20,16 +20,35 @@
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
-    <table class="mvctool">
+    @*<table class="mvctool">
         <tr>
             <td><input id="txtQuery" type="text" class="searchText"></td>
-            <td><a id="btnQuery" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 50px;">查询</span></span></a><div class="datagrid-btn-separator"></div></td>
+            <td>
+                <a id="btnQuery" class="l-btn l-btn-plain">
+                    <span class="l-btn-left">
+                        <span class="l-btn-text icon-search" style="padding-left: 50px;">查询</span>
+                    </span>
+                </a>
+                <div class="datagrid-btn-separator"></div>
+            </td>
             <td><a id="btnCreate" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 50px;">新增</span></span></a><div class="datagrid-btn-separator"></div></td>
             <td><a id="btnEdit" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 50px;">编辑</span></span></a><div class="datagrid-btn-separator"></div></td>
             <td><a id="btnDetails" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 50px;">详细</span></span></a><div class="datagrid-btn-separator"></div></td>
             <td><a id="btnDelete" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 50px;">删除</span></span></a><div class="datagrid-btn-separator"></div></td>
             <td><a id="btnExport" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 50px;">导出</span></span></a><div class="datagrid-btn-separator"></div></td>
             <td><a id="btnReload" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 50px;">刷新</span></span></a><div class="datagrid-btn-separator"></div></td>
+        </tr>
+    </table>*@
+
+    <table class="mvctool">
+        <tr>
+            <td><input id="txtQuery" type="text" class="searchText"></td>
+            <td>@Html.ToolButton("btnQuery", "icon-search", "查询", true)</td>
+            <td>@Html.ToolButton("btnCreate", "icon-add", "新增", true)</td>
+            <td>@Html.ToolButton("btnEdit", "icon-edit", "编辑", true)</td>
+            <td>@Html.ToolButton("btnDetails", "icon-details", "详细", true)</td>
+            <td>@Html.ToolButton("btnDelete", "icon-remove", "删除", true)</td>
+            <td>@Html.ToolButton("btnExport", "icon-export", "导出", true)</td>
         </tr>
     </table>
 

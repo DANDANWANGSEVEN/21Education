@@ -1,14 +1,11 @@
-﻿@*@{
-    ViewBag.Title = "ContactCompanyinfo";
-}*@
-
-@*@model IEnumerable<_21Education.WebSite.ViewModels.ContactCompanyinfo>*@
-
-@{
+﻿@{
     Layout = null;
     Layout = "~/Areas/Admin/Views/AdminHome/Layout.cshtml";
 }
 @using _21Education.WebSite.Handler;
+
+
+<script src="~/Areas/Content/Scripts/jquery.easyui.plus.js"></script>
 
 <!DOCTYPE html>
 
@@ -20,35 +17,15 @@
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
-    @*<table class="mvctool">
-        <tr>
-            <td><input id="txtQuery" type="text" class="searchText"></td>
-            <td>
-                <a id="btnQuery" class="l-btn l-btn-plain">
-                    <span class="l-btn-left">
-                        <span class="l-btn-text icon-search" style="padding-left: 50px;">查询</span>
-                    </span>
-                </a>
-                <div class="datagrid-btn-separator"></div>
-            </td>
-            <td><a id="btnCreate" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 50px;">新增</span></span></a><div class="datagrid-btn-separator"></div></td>
-            <td><a id="btnEdit" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 50px;">编辑</span></span></a><div class="datagrid-btn-separator"></div></td>
-            <td><a id="btnDetails" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 50px;">详细</span></span></a><div class="datagrid-btn-separator"></div></td>
-            <td><a id="btnDelete" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 50px;">删除</span></span></a><div class="datagrid-btn-separator"></div></td>
-            <td><a id="btnExport" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 50px;">导出</span></span></a><div class="datagrid-btn-separator"></div></td>
-            <td><a id="btnReload" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 50px;">刷新</span></span></a><div class="datagrid-btn-separator"></div></td>
-        </tr>
-    </table>*@
-
     <table class="mvctool">
         <tr>
             <td><input id="txtQuery" type="text" class="searchText"></td>
-            <td>@Html.ToolButton("btnQuery", "icon-search", "查询", true)</td>
-            <td>@Html.ToolButton("btnCreate", "icon-add", "新增", true)</td>
-            <td>@Html.ToolButton("btnEdit", "icon-edit", "编辑", true)</td>
-            <td>@Html.ToolButton("btnDetails", "icon-details", "详细", true)</td>
-            <td>@Html.ToolButton("btnDelete", "icon-remove", "删除", true)</td>
-            <td>@Html.ToolButton("btnExport", "icon-export", "导出", true)</td>
+            <td>@Html.ToolButton("btnQuery", "", "查询", true)</td>@*icon-search*@
+            <td>@Html.ToolButton("btnCreate", "", "新增", true)</td>@*icon-add*@
+            <td>@Html.ToolButton("btnEdit", "", "编辑", true)</td>@*icon-edit*@
+            <td>@Html.ToolButton("btnDetails", "", "详细", true)</td>@*icon-details*@
+            <td>@Html.ToolButton("btnDelete", "", "删除", true)</td>@*icon-remove*@
+            @*<td>@Html.ToolButton("btnExport", "", "导出", true)</td> icon-export*@
         </tr>
     </table>
 
@@ -56,7 +33,7 @@
     <script type="text/javascript">
     $(function () {
         $('#List').datagrid({
-            url: '/Areas_Contact/GetList',
+            url: 'Admin/Areas_Contact/GetList',
             width: $(window).width() - 40,
             methord: 'post',
             height: $(window).height() -60,
@@ -67,8 +44,8 @@
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式
             rownumbers: true,//行号
-            pageSize: 8,
-            pageList: [8, 20, 30, 40, 50],
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
             pagination: true,  //是否分页
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式

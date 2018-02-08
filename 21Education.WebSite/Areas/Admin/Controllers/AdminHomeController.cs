@@ -7,7 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.SessionState;
+
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -19,7 +21,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #region  登陆界面
         public ActionResult Login()
         {
-
             return View();
         }
 
@@ -33,12 +34,22 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 userinfo.UserName = "admin";
                 userinfo.UserPwd = "123456";
                 userinfo.RegistDate = DateTime.Now;
-                if (UserName == userinfo.UserName && Password == userinfo.UserPwd)
-                    return 1;
-                else
-                    return 0;
-            }
 
+                if(UserName != userinfo.UserName)
+                {
+                    return -1;  //用户名不正确
+                }
+                else if (Password != userinfo.UserPwd)
+                {
+                    return -2; //密码不正确
+                }
+                else
+                {
+                    return 1;  //成功
+                }
+                //if (UserName == userinfo.UserName && Password == userinfo.UserPwd) return 1;
+                //    else return 0;
+            }
             catch (Exception ex)
             {
                 return 0;
@@ -53,19 +64,28 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             }
             return 0;
         }
+
         #endregion
 
-
         #region 默认界面
-        public ActionResult Main()
-        {
-            return View();
-        }
-
         public ActionResult Index()
         {
             return View();
         }
+        public ActionResult Main()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 修改用户密码
+        public ActionResult UpdatePwd()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 树形导航
         /// <summary>
         /// 获取导航菜单
         /// </summary>
@@ -109,7 +129,11 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
+
         #endregion
+
+
+
     }
 }
 

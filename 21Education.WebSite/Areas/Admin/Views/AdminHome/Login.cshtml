@@ -31,7 +31,10 @@
             }
     </style>
     <script type="text/javascript">
+
+
         $(function () {
+
             $("#LoginSys").click(function () {
                 LoginSys();
             });
@@ -80,7 +83,10 @@
             }
             else
             {
-                IsSub = false;
+                
+                var uname = $.trim($("#UserName").val());
+                var upwd = $.trim($("#Password").val());
+                IsSub = false;               
                 $.ajax({
                     url: "/Admin/AdminHome/validatecode",
                     type: "post",
@@ -90,7 +96,7 @@
                             IsSub = false;
                             $.ajax({
                                 url: "/Admin/AdminHome/Login",
-                                data: { UserName: $.trim($("#UserName").val()), Password: $.trim($("#Password").val()) },
+                                data: { UserName: uname, Password: upwd },
                                 type: "post",
                                 dataType: "json",
                                 async:false,
@@ -100,15 +106,43 @@
                                         $("#Loading").show();
                                         window.location.href = "/Admin/AdminHome/Index";//登录成功！
                                     }
-                                    else { 
-                                        $(".alert").text("用户名或密码有误！");
+                                    if (data1 == -1)
+                                    {
+                                        $("#mes").text("用户名有误！");
                                         return;
                                     }
+                                    if (data1 == -2)
+                                    {
+                                        $("#mes").text("密码有误！");
+                                        //return;
+                                        var storage = window.localStorage;
+                                        storage.setItem("password", "upwd");
+                                        var cat = localStorage.getItem("password");
+                                        if (storage.length<5)
+                                        {
+                                            localStorage.removeItem("myCat");
+                                        } else {
+                                            $("#mes").text("错误次数达到上限，请联系管理员！");
+                                        }
+
+                                        
+
+
+                                        console.log(typeof storage["password"]);
+
+                                    }
+
+
+
+                                    //else { 
+                                    //    $("#mes").text("用户名或密码有误！");
+                                    //    return;
+                                    //}
                                 }
                             });
                         }
                         else {
-                            $(".alert").text("验证码有误！");
+                            $("#mes").text("验证码有误！");
                             IsSub = true;
                             return;
                         }
@@ -151,7 +185,7 @@
                         <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
                         <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Handler/verify_code.ashx" onclick="this.src=this.src+'?'" />
                         <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
-                        <span class="alert" style="color:red;margin-top:5px;"></span>
+                     
                     </td>
                 </tr>
                 
@@ -161,7 +195,7 @@
                             <tr>
                                 <td style="width:40px;">&nbsp;</td>
                                 <td>
-                                    <div id="mes" class="field-validation-error">
+                                    <div id="mes" class="field-validation-error" style="color:red;">
                                     </div>
                                     <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
                                 </td>

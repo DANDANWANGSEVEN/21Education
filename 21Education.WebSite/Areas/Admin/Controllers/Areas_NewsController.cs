@@ -15,6 +15,9 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-
+        public ActionResult NewsList()
+        {
+            return View();
+        }
     }
 }

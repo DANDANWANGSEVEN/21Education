@@ -59,6 +59,13 @@
                     return false;
                 }
             });
+            $("#LoginSys").keydown(function (e) {
+                var curkey = e.which;
+                if (curkey == 13) {
+                    LoginSys();
+                    return false;
+                }
+            });
         });
 
         function LoginSys() {
@@ -83,9 +90,10 @@
             }
             else
             {
-                
+
                 var uname = $.trim($("#UserName").val());
                 var upwd = $.trim($("#Password").val());
+                
                 IsSub = false;               
                 $.ajax({
                     url: "/Admin/AdminHome/validatecode",
@@ -114,30 +122,8 @@
                                     if (data1 == -2)
                                     {
                                         $("#mes").text("密码有误！");
-                                        //return;
-                                        var storage = window.localStorage;
-                                        storage.setItem("password", "upwd");
-                                        var cat = localStorage.getItem("password");
-                                        if (storage.length<5)
-                                        {
-                                            localStorage.removeItem("myCat");
-                                        } else {
-                                            $("#mes").text("错误次数达到上限，请联系管理员！");
-                                        }
-
-                                        
-
-
-                                        console.log(typeof storage["password"]);
-
+                                        return;
                                     }
-
-
-
-                                    //else { 
-                                    //    $("#mes").text("用户名或密码有误！");
-                                    //    return;
-                                    //}
                                 }
                             });
                         }

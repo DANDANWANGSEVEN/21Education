@@ -10,6 +10,7 @@ using _21Education.WebSite.ViewModels;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class Areas_HomeController : Controller
     {
         //

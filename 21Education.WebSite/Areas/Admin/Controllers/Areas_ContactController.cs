@@ -11,6 +11,7 @@ using _21Education.WebSite.Handler;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class Areas_ContactController : Controller
     {
         //

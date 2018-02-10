@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class Areas_NewsController : Controller
     {
         //
@@ -15,6 +16,9 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-
+        public ActionResult NewsList()
+        {
+            return View();
+        }
     }
 }

@@ -36,50 +36,50 @@
                 <li>
                     <span>主菜单</span>
                     <ul>
-                        <li data-options="state:'closed'">
+                        <li> @*data-options="state:'closed'"*@
                             <span>首页</span>
-                            <ul id="chilmenu">
-                                <li src="///">
+                            <ul >
+                                <li src="/A/a/A">
                                     <span>首页轮播图</span>
                                 </li>
                                 <li src="///">
                                     <span>首页产品展示</span>
                                 </li>
-                                <li src="///">
+                                <li class="chilmenu" src="///">
                                     <span>主营业务</span>
                                 </li>
-                                <li src="///">
+                                <li class="chilmenu" src="///">
                                     <span>产品优势</span>
                                 </li>
-                                <li src="///">
+                                <li class="chilmenu" src="///">
                                     <span>首页新闻中心</span>
                                 </li>
-                                <li src="///">
+                                <li class="chilmenu" src="///">
                                     <span>首页特色案例</span>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <span>新闻中心</span>
-                            <ul class="chilmenu">
+                            <ul>
                                 <li>新闻列表</li>
                             </ul>
                         </li>
                         <li>
                             <span>成功案例</span>
-                            <ul class="chilmenu">
+                            <ul>
                                 <li>案例列表</li>
                             </ul>
                         </li>
                         <li>
                             <span>产品服务</span>
-                            <ul class="chilmenu">
+                            <ul>
                                 <li>产品列表</li>
                             </ul>
                         </li>
                         <li>
                             <span>关于我们</span>
-                            <ul class="chilmenu">
+                            <ul>
                                 <li src="/Admin/Areas_Contact/ContactCompanyinfo">公司介绍</li>
                                 <li>公司荣誉</li>
                                 <li>公司文化</li>
@@ -88,7 +88,7 @@
                         </li>
                         <li>
                             <span>联系我们</span>
-                            <ul class="chilmenu">
+                            <ul>
                                 <li>公司基本信息</li>
                                 <li>公司合作信息</li>
                                 <li>招聘信息</li>
@@ -97,8 +97,8 @@
                         </li>
                         <li>
                             <span>用户管理</span>
-                            <ul class="chilmenu">
-                                <li>用户信息</li>
+                            <ul>
+                                <li src="">修改登录密码</li>
                             </ul>
                         </li>
                     </ul>
@@ -106,20 +106,40 @@
             </ul>
         </div>
     </div>
+    <script>
 
+        var liattr = $(".easyui-tree").find('ul li ul li');
+
+        liattr.click(function () {
+            liattr.each(function () {
+                alert($(this).text());
+            })
+        })
+
+        //获取maintab下div的title属性
+        $("#mainTab iframe").attr("title", "111111111");
+
+
+    </script>
 
 
     <div data-options="region:'south',border:false" style="height: 20px;">
         <div class="define-bottom">
-
-
         </div>
     </div>
     <div data-options="region:'center',border:false">
         <div id="mainTab" class="easyui-tabs" data-options="fit:true">
+
             <div title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
-                <iframe scrolling="auto" frameborder="0" src="/Admin/Areas_Contact/ContactCompanyinfo" style="width: 100%; height: 100%;">
-                </iframe>
+                <iframe scrolling="auto" frameborder="0" src="/Admin/AdminHome/Main" style="width: 100%; height: 100%;"></iframe>
+            </div>
+
+            <div title="公司介绍" data-options="closable:true" style="overflow: hidden; background:#fff">
+                <iframe scrolling="auto" frameborder="0" src="/Admin/Areas_Contact/ContactCompanyinfo" style="width: 100%; height: 100%;"></iframe>
+            </div>
+
+            <div title="修改登录密码" data-options="closable:true" style="overflow: hidden; background:#fff">
+                <iframe scrolling="auto" frameborder="0" src="/Admin/AdminHome/UpdatePwd" style="width: 100%; height: 100%;"></iframe>
             </div>
         </div>
     </div>
@@ -243,9 +263,6 @@ $(function () {
         return false;
     });
 });
-
-
-
 
 function addTab(subtitle, url, icon) {
     if (!$("#mainTab").tabs('exists', subtitle)) {

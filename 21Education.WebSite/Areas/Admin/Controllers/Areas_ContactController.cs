@@ -11,6 +11,7 @@ using _21Education.WebSite.Handler;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class Areas_ContactController : Controller
     {
         //
@@ -27,8 +28,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-
-      
         /// <summary>
         /// 显示
         /// </summary>
@@ -37,98 +36,20 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult GetList(GridPager pager)
         {
-            var list = new List<MODEL.ContactCompanyinfo>(1);
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 1,
-                Address = "beijing",
-                Email = "@.email",
-                Phone = "979899",
-                Transmission = "12345",
-                Website = "www"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 2,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
+            var list = new List<MODEL.ContactCompanyinfo>();
 
-            list.Add(new MODEL.ContactCompanyinfo
+            for (int i = 0; i < 15; i++)
             {
-                ContactCompanyinfoId = 3,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 4,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 5,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 6,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 7,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 8,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 9,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
-            list.Add(new MODEL.ContactCompanyinfo
-            {
-                ContactCompanyinfoId = 10,
-                Address = "222",
-                Email = "@.2222",
-                Phone = "22222",
-                Transmission = "2222",
-                Website = "222222"
-            });
+                list.Add(new MODEL.ContactCompanyinfo
+                {
+                    ContactCompanyinfoId = i,
+                    Address = "beijing",
+                    Email = "@.email",
+                    Phone = "979899",
+                    Transmission = "12345",
+                    Website = "www"
+                });
+            }
 
             var json = new
             {

@@ -181,6 +181,7 @@
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Content\Scripts\datagridbind.js" />
     <Content Include="Areas\Content\Scripts\easyui\easyloader.js" />
     <Content Include="Areas\Content\Scripts\easyui\jquery-1.8.0.min.js" />
     <Content Include="Areas\Content\Scripts\easyui\locale\easyui-lang-af.js" />
@@ -275,6 +276,7 @@
     <Content Include="Areas\Admin\Views\Areas_About\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Areas_About\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Areas_About\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\UpdatePwd.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />
@@ -1123,7 +1125,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\NewFolder1\" />
+    <Folder Include="Areas\Admin\Views\Areas_News\" />
+    <Folder Include="Areas\Admin\Views\Areas_Product\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Content\Scripts\easyui\demo\" />
     <Folder Include="fonts\" />

@@ -9,40 +9,6 @@
 <script src="~/Content/js/Carousel.js"></script>
 
 <style>
-    /*遮罩层效果*/
-    .zhezhao {
-        float: left;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    }
-
-        .zhezhao .txt {
-            width: inherit;
-            height: 45px;
-            background: url(../../image/1px.png) repeat;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            color: #fff;
-            font-family: "微软雅黑";
-        }
-
-            .zhezhao .txt h3 {
-                font-size: 20px;
-                font-weight: 100;
-                height: 45px;
-                text-align: center;
-                line-height: 45px;
-            }
-
-            .zhezhao .txt p {
-                font-size: 14px;
-                text-align: center;
-            }
-</style>
-
-<style>
     .table {
         width: 1000px;
         margin: auto;
@@ -68,6 +34,11 @@
     /*主营业务*/
     #mainbusiness a {
         line-height: 40px;
+    }
+
+    #mainbusiness a.active{
+        color: white;
+        background-color: #0057be;
     }
 
     #mainbusiness td:hover {
@@ -257,17 +228,32 @@
 </table>
 <script>
 
+
+    //$("#mainbusiness a").click(function () {
+    //    var index = $(this).index("#mainbusiness a");
+    //    $("#mainbusiness a").eq(index).addClass("active").siblings().removeClass("active")
+    //    console.log(index);
+    //    $("#businessdiv tr").eq(index).show().siblings().hide();
+    //}).eq(0).click();
+    //var interval = setInterval(function () {
+    //    var $a = $("#mainbusiness a");
+    //    $a.eq($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1)).click();
+    //    console.log($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1));
+    //    //console.log($a);
+    //}, 5000);
+
     $("#mainbusiness a").click(function () {
         var index = $(this).index("#mainbusiness a");
-        $("#mainbusiness a").eq(0).addClass("active").siblings().removeClass("active")
-        console.log(index);
+        $("#mainbusiness a").removeClass("active").eq(index).addClass("active");
         $("#businessdiv tr").eq(index).show().siblings().hide();
     }).eq(0).click();
     var interval = setInterval(function () {
-        var $a = $("#mainbusiness a");
-        $a.eq($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1)).click();
-        console.log($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1));
+        var $a = $("#mainbusiness a"), activeIndex;
+        $a.eq($a.index($a.filter(".active")) == $a.length - 1 ? 0 : ($a.index($a.filter(".active")) + 1)).click();
     }, 3000);
+
+
+
 </script>
 
 @*品牌优势*@

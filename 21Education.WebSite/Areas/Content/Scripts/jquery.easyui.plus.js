@@ -6,10 +6,10 @@ $.extend({
     messageBox5s: function (title, msg) {
         $.messager.show({
             title: title, msg: msg, timeout: 5000, showType: 'slide', style: {
-                left: '',
-                right: 5,
-                top: '',
-                bottom: -document.body.scrollTop - document.documentElement.scrollTop + 5
+                left:'',
+                right: 500,
+                top:'',
+                bottom: -document.body.scrollTop - document.documentElement.scrollTop + 300
             }
         });
     }

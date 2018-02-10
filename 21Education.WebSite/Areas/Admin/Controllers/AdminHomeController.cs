@@ -13,18 +13,21 @@ using System.Web.SessionState;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class AdminHomeController : Controller
     {
         //
         // GET: /Admin/AdminHome/
 
         #region  登陆界面
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public int Login(string UserName, string Password, string ValidateCode)
         {
             try
@@ -35,7 +38,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 userinfo.UserPwd = "123456";
                 userinfo.RegistDate = DateTime.Now;
 
-                if(UserName != userinfo.UserName)
+                if (UserName != userinfo.UserName)
                 {
                     return -1;  //用户名不正确
                 }
@@ -45,6 +48,15 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 }
                 else
                 {
+                    var userCookie = new HttpCookie("UserCookie");
+                    userCookie.Path = "/";
+                    userCookie.Expires = DateTime.Now.AddMinutes(30);
+                    Guid guidUName = default(Guid);
+                    Guid.TryParse(userinfo.UserName, out guidUName);
+                    AdminAuthorizeAttribute.userDic.Add(guidUName, userinfo.UserName);
+                    userCookie.Value = guidUName.ToString();
+                    HttpContext.Response.Cookies.Add(userCookie);
+                    HttpContext.Response.Cookies.Add(new HttpCookie(userinfo.UserName));
                     return 1;  //成功
                 }
                 //if (UserName == userinfo.UserName && Password == userinfo.UserPwd) return 1;
@@ -55,7 +67,9 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 return 0;
             }
         }
+
         [HttpPost]
+        [AllowAnonymous]
         public int validatecode(string code)
         {
             if (code.ToLower() == Session["Code"].ToString().ToLower())

@@ -100,32 +100,32 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 树形导航
-        /// <summary>
-        /// 获取导航菜单
-        /// </summary>
-        /// <param name="id">所属</param>
-        /// <returns>树</returns>
-        public JsonResult GetTree(string id)
-        {
+        ///// <summary>
+        ///// 获取导航菜单
+        ///// </summary>
+        ///// <param name="id">所属</param>
+        ///// <returns>树</returns>
+        //public JsonResult GetTree(string id)
+        //{
 
-            List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
-            var jsonData = (
-                    from m in menus
-                    select new
-                    {
-                        id = m.Id,
-                        text = m.Name,
-                        value = m.Url,
-                        showcheck = false,
-                        complete = false,
-                        isexpand = false,
-                        checkstate = 0,
-                        hasChildren = m.IsLast ? false : true,
-                        Icon = m.Iconic
-                    }
-                ).ToArray();
-            return Json(jsonData, JsonRequestBehavior.AllowGet);
-        }
+        //    List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
+        //    var jsonData = (
+        //            from m in menus
+        //            select new
+        //            {
+        //                id = m.Id,
+        //                text = m.Name,
+        //                value = m.Url,
+        //                showcheck = false,
+        //                complete = false,
+        //                isexpand = false,
+        //                checkstate = 0,
+        //                hasChildren = m.IsLast ? false : true,
+        //                Icon = m.Iconic
+        //            }
+        //        ).ToArray();
+        //    return Json(jsonData, JsonRequestBehavior.AllowGet);
+        //}
 
         /// <summary>
         /// 页面增加修改弹出框

@@ -72,6 +72,10 @@
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>
       <Name>21Education.MODEL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\21Education\21Education.csproj">
+      <Project>{421f3842-297a-4504-a55a-39c188291f08}</Project>
+      <Name>21Education</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

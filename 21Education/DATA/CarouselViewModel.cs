@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using _21Education.MODEL;
 namespace _21Education.DATA
 {
@@ -22,5 +17,6 @@ namespace _21Education.DATA
         public int ShowCount { set; get; }
         public int ImgMargin { set; get; }
         public int ContainerWidth { set { _containerWidth = value; } get { if (_containerWidth != 0) return _containerWidth; return ShowCount * (ImgMargin + ImgWidth) - ImgMargin; } }
+        
     }
 }

@@ -51,10 +51,9 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                     var userCookie = new HttpCookie("UserCookie");
                     userCookie.Path = "/";
                     userCookie.Expires = DateTime.Now.AddMinutes(30);
-                    Guid guidUName = default(Guid);
-                    Guid.TryParse(userinfo.UserName, out guidUName);
-                    AdminAuthorizeAttribute.userDic.Add(guidUName, userinfo.UserName);
-                    userCookie.Value = guidUName.ToString();
+                    Guid guidUName = Guid.NewGuid();
+                    AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfo.UserName);
+                    userCookie.Value = guidUName.ToString("N");
                     HttpContext.Response.Cookies.Add(userCookie);
                     HttpContext.Response.Cookies.Add(new HttpCookie(userinfo.UserName));
                     return 1;  //成功
@@ -78,7 +77,18 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             }
             return 0;
         }
-
+        public void LoginOut()
+        {
+            var userCookie = Request.Cookies.Get("UserCookie");
+            userCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Set(userCookie);
+            var userName = "";
+            AdminAuthorizeAttribute.userDic.TryGetValue(userCookie.Value,out userName);
+            var uNameCookie = Request.Cookies.Get(userName);
+            uNameCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Set(uNameCookie);
+            Response.Redirect("/admin");
+        }
         #endregion
 
         #region 默认界面

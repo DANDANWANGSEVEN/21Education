@@ -6,10 +6,13 @@ using System.Web.Mvc;
 using _21Education.WebSite.ViewModels;
 using _21Education.DATA;
 using _21Education.MODEL;
+using System.Web.UI;
+
 namespace _21Education.WebSite.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache(Duration = 600, Location = OutputCacheLocation.Any)]
         public ActionResult Index()
         {
             var viewModel = new HomeIndexViewModel

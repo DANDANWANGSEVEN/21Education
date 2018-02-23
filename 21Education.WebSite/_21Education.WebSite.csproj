@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -113,6 +116,27 @@
     <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.5.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.3.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.6\lib\net45\Unity.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -249,6 +273,9 @@
     <Content Include="Areas\Admin\Views\AdminHome\_Index_LayoutEdit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\create.cshtml" />
     <Content Include="Handler\verify_code.ashx" />
+    <Content Include="Areas\Admin\Views\Areas_About\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas_About\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas_About\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\UpdatePwd.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
@@ -777,6 +804,7 @@
     <Content Include="Content\Areasjs\jquery.SuperSlide.js" />
     <Content Include="Content\Images\316098a727874660de0cfffda24d2d9f.png" />
     <Content Include="Content\Images\blank.gif" />
+    <Content Include="Content\js\Shade.js" />
     <Content Include="Content\js\Map.js" />
     <Content Include="Content\js\style_old.js" />
     <Content Include="Content\js\jquery-1.10.2.min.js" />
@@ -1116,6 +1144,18 @@
     <ProjectReference Include="..\21Education.COMMON\21Education.COMMON.csproj">
       <Project>{a3ff034a-5e72-41ad-98bb-e501aef9a027}</Project>
       <Name>21Education.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.Core\21Education.Core.csproj">
+      <Project>{eb4a7fc2-304b-4bc7-a17b-4aeb13e8d039}</Project>
+      <Name>21Education.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
+      <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>
+      <Name>21Education.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\21Education.IDAL\21Education.IDAL.csproj">
+      <Project>{f038aaf2-f65f-469e-bb55-415e2f79cd9f}</Project>
+      <Name>21Education.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\21Education.MODEL\21Education.MODEL.csproj">
       <Project>{99b0c7e7-f4a1-4853-b79b-4ee33b61a338}</Project>

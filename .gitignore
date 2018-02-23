@@ -244,3 +244,4 @@ ModelManifest.xml
 21Education.WebSite/_21Education.WebSite.csproj
 *.csproj
 21Education.WebSite/Views/Contact/ContactUs.cshtml
+21Education/21Education.csproj

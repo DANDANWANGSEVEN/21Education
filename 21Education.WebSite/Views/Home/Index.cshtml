@@ -36,11 +36,6 @@
         line-height: 40px;
     }
 
-    #mainbusiness a.active{
-        color: white;
-        background-color: #0057be;
-    }
-
     #mainbusiness td:hover {
         color: white;
         background-color: #0057be;
@@ -75,6 +70,10 @@
         height: 320px;
         margin: auto;
         margin-top: 30px;
+    }
+    #mainbusiness a.active {
+        color: white;
+        background-color: #0057be;
     }
 </style>
 
@@ -228,32 +227,15 @@
 </table>
 <script>
 
-
-    //$("#mainbusiness a").click(function () {
-    //    var index = $(this).index("#mainbusiness a");
-    //    $("#mainbusiness a").eq(index).addClass("active").siblings().removeClass("active")
-    //    console.log(index);
-    //    $("#businessdiv tr").eq(index).show().siblings().hide();
-    //}).eq(0).click();
-    //var interval = setInterval(function () {
-    //    var $a = $("#mainbusiness a");
-    //    $a.eq($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1)).click();
-    //    console.log($a.filter(".active").index($a) == $a.length - 1 ? 0 : ($a.filter(".active").index($a) + 1));
-    //    //console.log($a);
-    //}, 5000);
-
     $("#mainbusiness a").click(function () {
         var index = $(this).index("#mainbusiness a");
         $("#mainbusiness a").removeClass("active").eq(index).addClass("active");
         $("#businessdiv tr").eq(index).show().siblings().hide();
     }).eq(0).click();
     var interval = setInterval(function () {
-        var $a = $("#mainbusiness a"), activeIndex;
-        $a.eq($a.index($a.filter(".active")) == $a.length - 1 ? 0 : ($a.index($a.filter(".active")) + 1)).click();
+        var $a = $("#mainbusiness a"),activeIndex;
+        $a.eq( $a.index($a.filter(".active")) == $a.length - 1 ? 0 : ($a.index($a.filter(".active")) + 1)).click();
     }, 3000);
-
-
-
 </script>
 
 @*品牌优势*@

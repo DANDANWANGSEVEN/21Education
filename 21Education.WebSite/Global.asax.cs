@@ -1,5 +1,4 @@
-﻿using _21Education.IOC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Unity;
+
 
 namespace _21Education.WebSite
 {
@@ -24,13 +24,13 @@ namespace _21Education.WebSite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             //启用压缩
-            BundleTable.EnableOptimizations = true;
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //BundleTable.EnableOptimizations = true;
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //注入 Ioc
-            var container = new UnityContainer();
-            DependencyRegisterType.Container_Sys(ref container);
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            //var container = new UnityContainer();
+            //DependencyRegisterType.Container_Sys(ref container);
+            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 

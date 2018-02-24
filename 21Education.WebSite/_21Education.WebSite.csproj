@@ -812,12 +812,6 @@
     <Content Include="Content\js\Carousel.js" />
     <Content Include="Areas\Login.style\css\styles.css" />
     <Content Include="Areas\Login.style\img\bg.jpg" />
-    <Content Include="ceshi\css\unleash.1.2.css" />
-    <Content Include="ceshi\js\jquery-animate-css-rotate-scale.js" />
-    <Content Include="ceshi\js\jquery-css-transform.js" />
-    <Content Include="ceshi\js\jquery.easing.1.3.js" />
-    <Content Include="ceshi\js\jquery.min.js" />
-    <Content Include="ceshi\js\jquery.unleash.min.1.2.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1144,10 +1138,6 @@
     <ProjectReference Include="..\21Education.COMMON\21Education.COMMON.csproj">
       <Project>{a3ff034a-5e72-41ad-98bb-e501aef9a027}</Project>
       <Name>21Education.COMMON</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\21Education.Core\21Education.Core.csproj">
-      <Project>{eb4a7fc2-304b-4bc7-a17b-4aeb13e8d039}</Project>
-      <Name>21Education.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\21Education.DAL\21Education.DAL.csproj">
       <Project>{786e3b6c-b854-4c95-a597-a867a5b1b8f2}</Project>

@@ -10,7 +10,11 @@ namespace _21Education.BLL
 {
     public class SysBLL
     {
-        _21Education.DAL.SysDAL sysdal = new SysDAL();
+        public SysBLL(_21EducationDbContext  _21EducationDbContext)
+        {
+            sysdal = new SysDAL(_21EducationDbContext);
+        }
+        _21Education.DAL.SysDAL sysdal;
 
         public List<SysModule> GetMenuByPersonId(string moduleId)
         {

@@ -2,7 +2,7 @@
 
 namespace _21Education.IOC
 {
-    public class DependencyRegisterType
+    public class UnityRegister
     {
         public static void Container_Sys(ref UnityContainer container)
         {

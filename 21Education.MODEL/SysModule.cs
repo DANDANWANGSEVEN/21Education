@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _21Education.MODEL
 {
-    public class SysModule
+    public class SysModule : _21Education.IOC.IEntity
     {
 
         public string Id { get; set; }

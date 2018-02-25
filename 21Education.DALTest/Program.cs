@@ -27,8 +27,8 @@ namespace _21Education.DALTest
 
             //    context.SaveChanges();
             //}
-            var dal = new SysDAL();
-            var model= dal.GetMenuByPersonId("0");
+            //var dal = new SysDAL();
+            //var model= dal.GetMenuByPersonId("0");
 
             Console.ReadLine();
         }

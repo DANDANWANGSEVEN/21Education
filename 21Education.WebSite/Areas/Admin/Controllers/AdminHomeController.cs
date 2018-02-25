@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.SessionState;
-
+using _21Education.COMMON;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -32,6 +32,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         {
             try
             {
+                if (Request.Cookies["WrongOverTop"] != null) return -3;
                 var userinfo = new MODEL.UserInfo();
                 userinfo.UserInfoId = 1;
                 userinfo.UserName = "admin";
@@ -44,13 +45,29 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 }
                 else if (Password != userinfo.UserPwd)
                 {
+                    if (Session["pwdWrong"] == null)
+                    {
+                        Session["pwdWrong"] = 0;
+                        Session["WrongTime"] = DateTime.Now;
+
+                    }
+                    else
+                    {
+                        Session["pwdWrong"] = Convert.ToInt32(Session["pwdWrong"]) + 1;
+                    }
+                    if (Convert.ToInt32(Session["pwdWrong"]) == 4 && DateTimeExtend.ExecDateDiff(DateTime.Now, Convert.ToDateTime(Session["WrongTime"])) <= 5)
+                    {
+                        Session.Remove("pwdWrong");
+                        Session.Remove("WrongTime");
+                        Response.Cookies.Add(new HttpCookie("WrongOverTop") { Expires = DateTime.Now.AddMinutes(10) });
+                        return -3;
+                    }
                     return -2; //密码不正确
                 }
                 else
                 {
                     var userCookie = new HttpCookie("UserCookie");
                     userCookie.Path = "/";
-                    userCookie.Expires = DateTime.Now.AddMinutes(30);
                     Guid guidUName = Guid.NewGuid();
                     AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfo.UserName);
                     userCookie.Value = guidUName.ToString("N");
@@ -83,7 +100,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             userCookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Set(userCookie);
             var userName = "";
-            AdminAuthorizeAttribute.userDic.TryGetValue(userCookie.Value,out userName);
+            AdminAuthorizeAttribute.userDic.TryGetValue(userCookie.Value, out userName);
             var uNameCookie = Request.Cookies.Get(userName);
             uNameCookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Set(uNameCookie);
@@ -118,23 +135,23 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         public JsonResult GetTree(string id)
         {
 
-            List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
-            var jsonData = (
-                    from m in menus
-                    select new
-                    {
-                        id = m.Id,
-                        text = m.Name,
-                        value = m.Url,
-                        showcheck = false,
-                        complete = false,
-                        isexpand = false,
-                        checkstate = 0,
-                        hasChildren = m.IsLast ? false : true,
-                        Icon = m.Iconic
-                    }
-                ).ToArray();
-            return Json(jsonData, JsonRequestBehavior.AllowGet);
+            //List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
+            //var jsonData = (
+            //        from m in menus
+            //        select new
+            //        {
+            //            id = m.Id,
+            //            text = m.Name,
+            //            value = m.Url,
+            //            showcheck = false,
+            //            complete = false,
+            //            isexpand = false,
+            //            checkstate = 0,
+            //            hasChildren = m.IsLast ? false : true,
+            //            Icon = m.Iconic
+            //        }
+            //    ).ToArray();
+            return Json("", JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

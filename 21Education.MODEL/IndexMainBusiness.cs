@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 主营业务
     /// </summary>
-    public class IndexMainBusiness
+    public class IndexMainBusiness : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 业务编号

@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 导航列表
     /// </summary>
-    public class Nav
+    public class Nav : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 导航编号

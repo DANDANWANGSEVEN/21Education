@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 招聘信息
     /// </summary>
-   public  class ContactRecruitInfo
+   public  class ContactRecruitInfo : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 招聘信息主键

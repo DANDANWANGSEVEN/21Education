@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extend\DateTimeExtend.cs" />
     <Compile Include="Extend\HtmlHelperExtend.cs" />
     <Compile Include="Extend\RouteDataExtend.cs" />
     <Compile Include="Extend\UrlHelperExtend.cs" />
@@ -61,6 +62,9 @@
       <Project>{421f3842-297a-4504-a55a-39c188291f08}</Project>
       <Name>21Education</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

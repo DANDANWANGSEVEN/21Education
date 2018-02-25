@@ -1,5 +1,4 @@
-﻿using _21Education.IOC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,8 +6,13 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Unity;
-
+using _21Education.IOC;
+using Autofac;
+using Autofac.Integration.Mvc;
+using _21Education.DAL;
+using _21Education.IDAL;
+using _21Education.MODEL;
+using _21Education.BLL;
 namespace _21Education.WebSite
 {
     // 注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
@@ -28,9 +32,24 @@ namespace _21Education.WebSite
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //注入 Ioc
-            var container = new UnityContainer();
-            DependencyRegisterType.Container_Sys(ref container);
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            var iocBuilder = new AutofacBuilder();
+            iocBuilder.RegisterDependencyResolver(builder =>
+            {
+                builder.RegisterControllers(typeof(MvcApplication).Assembly);
+                
+                builder.Register(context=> new _21EducationDbContext("name=_21Education")).AsSelf().SingleInstance();
+                //注册服务
+                var serviceType = typeof(IDependency);
+                builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                        .Where(t => serviceType.IsAssignableFrom(t) && t != serviceType )
+                        .AsImplementedInterfaces().InstancePerLifetimeScope();
+                //注册实体
+                var entityType = typeof(IEntity);
+                builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                        .Where(t => entityType.IsAssignableFrom(t) && t != typeof(IDependency))
+                        .AsSelf();
+            });
+            DependencyResolver.SetResolver(iocBuilder.Build());
         }
     }
 

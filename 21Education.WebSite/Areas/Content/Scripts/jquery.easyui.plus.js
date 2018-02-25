@@ -66,6 +66,10 @@ var easyuiPanelOnResize = function (left, top) {
     var windowHeight = $(this).parent().height();
 
 
+
+
+
+
     var setWidth = (iframeWidth - windowWidth) / 2;
     var setHeight = (iframeHeight - windowHeight) / 2;
     $(this).parent().css({/* 修正面板位置 */

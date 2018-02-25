@@ -10,23 +10,25 @@ namespace _21Education.BLL
 {
     public class SysBLL
     {
+
         public SysBLL(_21EducationDbContext  _21EducationDbContext)
         {
             sysdal = new SysDAL(_21EducationDbContext);
         }
         _21Education.DAL.SysDAL sysdal;
 
-        public List<SysModule> GetMenuByPersonId(string moduleId)
-        {
-            try
-            {
-                return sysdal.GetMenuByPersonId(moduleId);
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }
-        }
+
+        //public List<SysModule> GetMenuByPersonId(string moduleId)
+        //{
+        //    try
+        //    {
+        //        return sysdal.GetMenuByPersonId(moduleId);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //}
 
 
 

@@ -16,7 +16,15 @@ namespace _21Education.MODEL
 
         public string UserName { get; set; }
 
+        /// <summary>
+        /// 密码
+        /// </summary>
         public string UserPwd { get; set; }
+
+        /// <summary>
+        /// 确认密码
+        /// </summary>
+        public string ConfirmPwd { get; set; }
 
         public DateTime  RegistDate { get; set; }
 

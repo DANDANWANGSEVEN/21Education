@@ -19,7 +19,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         //
         // GET: /Admin/AdminHome/
 
-        #region  登陆界面
+        #region  登陆
         [AllowAnonymous]
         public ActionResult Login()
         {
@@ -75,15 +75,18 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                     HttpContext.Response.Cookies.Add(new HttpCookie(userinfo.UserName));
                     return 1;  //成功
                 }
-                //if (UserName == userinfo.UserName && Password == userinfo.UserPwd) return 1;
-                //    else return 0;
+                
             }
             catch (Exception ex)
             {
                 return 0;
             }
         }
-
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public int validatecode(string code)
@@ -94,6 +97,10 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             }
             return 0;
         }
+        /// <summary>
+        /// 退出登陆
+        /// </summary>
+        [AllowAnonymous]
         public void LoginOut()
         {
             var userCookie = Request.Cookies.Get("UserCookie");
@@ -109,10 +116,20 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 默认界面
+        /// <summary>
+        /// 主菜单
+        /// </summary>
+        /// <returns></returns>
+        
         public ActionResult Index()
         {
             return View();
         }
+        /// <summary>
+        /// 北京世纪互联后台管理
+        /// </summary>
+        /// <returns></returns>
+        
         public ActionResult Main()
         {
             return View();
@@ -127,6 +144,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 树形导航
+
         /// <summary>
         /// 获取导航菜单
         /// </summary>
@@ -154,10 +172,12 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             return Json("", JsonRequestBehavior.AllowGet);
         }
 
+
         /// <summary>
         /// 页面增加修改弹出框
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult _Index_LayoutEdit()
         {
             return View();
@@ -166,6 +186,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// CREATE创建
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult create()
         {
             return View();

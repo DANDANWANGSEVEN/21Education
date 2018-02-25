@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_21Education.WebSite", "21Education.WebSite\_21Education.WebSite.csproj", "{D6A8484A-DD01-47B3-B97F-E7B64EAC933B}"
 EndProject
@@ -21,13 +21,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21Education.DALTest", "21Ed
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design", "Design", "{C4A9A7F1-E851-44B0-B4C3-F652C464FC27}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Administrator\Desktop\页面png图片\产品服务.png = ..\..\..\..\Administrator\Desktop\页面png图片\产品服务.png
-		..\..\..\..\Administrator\Desktop\页面png图片\关于我们.png = ..\..\..\..\Administrator\Desktop\页面png图片\关于我们.png
-		..\..\..\..\Administrator\Desktop\页面png图片\成功案例.png = ..\..\..\..\Administrator\Desktop\页面png图片\成功案例.png
-		..\..\..\..\Administrator\Desktop\页面png图片\新闻内容页.png = ..\..\..\..\Administrator\Desktop\页面png图片\新闻内容页.png
-		..\..\..\..\Administrator\Desktop\页面png图片\新闻列表页面.png = ..\..\..\..\Administrator\Desktop\页面png图片\新闻列表页面.png
-		..\..\..\..\Administrator\Desktop\页面png图片\网站首页.png = ..\..\..\..\Administrator\Desktop\页面png图片\网站首页.png
-		..\..\..\..\Administrator\Desktop\页面png图片\联系我们.png = ..\..\..\..\Administrator\Desktop\页面png图片\联系我们.png
+		..\..\..\Administrator\Desktop\页面png图片\产品服务.png = ..\..\..\Administrator\Desktop\页面png图片\产品服务.png
+		..\..\..\Administrator\Desktop\页面png图片\关于我们.png = ..\..\..\Administrator\Desktop\页面png图片\关于我们.png
+		..\..\..\Administrator\Desktop\页面png图片\成功案例.png = ..\..\..\Administrator\Desktop\页面png图片\成功案例.png
+		..\..\..\Administrator\Desktop\页面png图片\新闻内容页.png = ..\..\..\Administrator\Desktop\页面png图片\新闻内容页.png
+		..\..\..\Administrator\Desktop\页面png图片\新闻列表页面.png = ..\..\..\Administrator\Desktop\页面png图片\新闻列表页面.png
+		..\..\..\Administrator\Desktop\页面png图片\网站首页.png = ..\..\..\Administrator\Desktop\页面png图片\网站首页.png
+		..\..\..\Administrator\Desktop\页面png图片\联系我们.png = ..\..\..\Administrator\Desktop\页面png图片\联系我们.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21Education", "21Education\21Education.csproj", "{421F3842-297A-4504-A55A-39C188291F08}"

@@ -48,7 +48,7 @@ namespace _21Education.DAL
 
         #region 后台树形
 
-        public DbSet<SysModule> SysModule { set; get; }
+        //public DbSet<SysModule> SysModule { set; get; }
 
         #endregion
 

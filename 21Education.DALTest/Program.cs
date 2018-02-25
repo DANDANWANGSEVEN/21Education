@@ -30,7 +30,7 @@ namespace _21Education.DALTest
             //var dal = new SysDAL();
             //var model= dal.GetMenuByPersonId("0");
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
     }

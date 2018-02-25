@@ -28,7 +28,6 @@
             @*<td>@Html.ToolButton("btnExport", "", "导出", true)</td> icon-export*@
         </tr>
     </table>
-
     <table id="List"></table>
     <script type="text/javascript">
     $(function () {
@@ -47,9 +46,7 @@
             pageSize: 10,
             pageList: [10, 20, 30, 40, 50],
             pagination: true,  //是否分页
-            striped: true, //奇偶行是否区分
-            singleSelect: true,//单选模式
-            rownumbers: true,//行号
+            remoteSort: false,
 
             columns: [[
                 { field: 'ContactCompanyinfoId', title: '编号', width: 80, align: 'center' },
@@ -61,10 +58,10 @@
             ]]
         });
     });
+
     </script>
 </body>
 </html>
-
 <script type="text/javascript">
 
     //ifram 返回

@@ -9,6 +9,7 @@ using _21Education.MODEL;
 
 namespace _21Education.DAL
 {
+
     public class SysDAL : _21Education.IDAL.ISysModule
     {
         _21EducationDbContext _21EducationDbContext;
@@ -17,17 +18,23 @@ namespace _21Education.DAL
         {
             this._21EducationDbContext = _21EducationDbContext;
         }
-        public List<SysModule> GetMenuByPersonId(string moduleId)
-        {
-            var menus =
-            (
-                from m in _21EducationDbContext.SysModule
-                where m.ParentId == moduleId
-                where m.Id != "0"
-                select m
-                      ).Distinct().OrderBy(a => a.Sort).ToList();
-            return menus;
-        }
+
+      
+            //public List<SysModule> GetMenuByPersonId(string moduleId)
+            //{
+            //    using (var db = new _21EducationDbContext())
+            //    {
+            //        var menus =
+            //        (
+            //            from m in db.SysModule
+            //            where m.ParentId == moduleId
+            //            where m.Id != "0"
+            //            select m
+            //                  ).Distinct().OrderBy(a => a.Sort).ToList();
+            //        return menus;
+            //    }
+            //}
+
 
     }
 }

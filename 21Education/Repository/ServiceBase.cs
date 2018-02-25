@@ -64,7 +64,7 @@ namespace _21Education.Repository
 
         public virtual void Dispose()
         {
-            DbContext.Dispose();
+            //DbContext.Dispose();
         }
 
         public virtual IQueryable<T> Get()

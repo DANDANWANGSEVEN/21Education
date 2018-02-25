@@ -6,11 +6,20 @@ using System.Web.Mvc;
 using _21Education.WebSite.ViewModels;
 using _21Education.DATA;
 using System.Web.UI;
-
+using _21Education.IDAL;
+using System.Linq.Expressions;
+using _21Education.MODEL;
 namespace _21Education.WebSite.Controllers
 {
     public class HomeController : Controller
     {
+        IProduct _product;
+        INewsService _newsService;
+        public HomeController(IProduct product,INewsService newsService)
+        {
+            _product = product;
+            _newsService = newsService;
+        }
         [OutputCache(Duration = 600, Location = OutputCacheLocation.Any)]
         public ActionResult Index()
         {
@@ -44,6 +53,7 @@ namespace _21Education.WebSite.Controllers
                     ImgMargin = 20
                 }
             };
+            var productList = _product.Get().OrderByDescending(e=>e.ProductId).Take(5).ToList();
             return View(viewModel);
         }
 

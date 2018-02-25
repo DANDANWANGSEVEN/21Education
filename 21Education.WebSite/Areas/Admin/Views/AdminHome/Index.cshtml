@@ -25,15 +25,15 @@
 
     </div>
     <div data-options="region:'west',split:true,title:'菜单列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
+        <div class="panel-loading">加载中...</div>
         <div id="RightTree" style="background-color:#fff;">
-            @*<div class="panel-loading">加载中...</div>*@
             <div class="sideMenu" style="margin:0 auto">
                 <ul class="easyui-tree" data-options="animate:true">
                     <li>
                         <span>主菜单</span>
                         <ul>
                             <li>
-                                @*data-options="state:'closed'"*@
+                               @*data-options="state:'closed'"*@
                                 <span>首页</span>
                                 <ul>
                                     <li><i style="font-style:normal;" src="/a/a/a">首页轮播图</i></li>
@@ -90,7 +90,7 @@
                     </li>
                 </ul>
             </div>
-            </div>
+        </div>
     </div>
     <div data-options="region:'south',border:false" style="height: 20px;">
         <div class="define-bottom">

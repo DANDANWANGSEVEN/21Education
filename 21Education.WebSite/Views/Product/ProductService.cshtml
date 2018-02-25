@@ -2,7 +2,7 @@
     ViewBag.Title = "ProductService";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-@model NewsListViewModel
+@model ProductsListViewModel
 <script src="~/Content/js/js.js"></script>
 <link href="~/CSS/css.css" rel="stylesheet" />
 <link href="~/CSS/font-awesome.min.css" rel="stylesheet" />
@@ -113,7 +113,7 @@
         </td>
         <td  valign="top">
             <div style="width:760px;">
-                @Html.Partial("~/Views/PartView/ListPage.cshtml")
+                @Html.Partial("~/Views/PartView/ProductListPage.cshtml")
                 @{Html.Pagin(Model.Pagination);}
             </div>
         </td>

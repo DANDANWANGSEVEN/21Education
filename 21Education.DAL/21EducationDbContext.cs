@@ -15,9 +15,9 @@ namespace _21Education.DAL
         public _21EducationDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
-            Database.CreateIfNotExists();
-            Database.SetInitializer(new Initializer());
-            Database.Initialize(true);
+            //Database.CreateIfNotExists();
+            //Database.SetInitializer(new Initializer());
+            //Database.Initialize(true);
         }
         #region 首页
         public DbSet<Carousel> Carousel { set; get; }

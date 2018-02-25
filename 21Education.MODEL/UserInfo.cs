@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 后台用户信息
     /// </summary>
-   public  class UserInfo
+   public  class UserInfo : _21Education.IOC.IEntity
     {
 
         public int UserInfoId { get; set; }

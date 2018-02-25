@@ -51,6 +51,7 @@
     <Compile Include="AboutCompanyAchievementService.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="21EducationDbContext.cs" />
+    <Compile Include="NewsService.cs" />
     <Compile Include="SysDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreeViewDAL.cs" />

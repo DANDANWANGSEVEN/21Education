@@ -5,15 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _21Education.MODEL;
+using _21Education.IOC;
+using _21Education.DataBase;
 namespace _21Education.DAL
 {
 
-    public class _21EducationDbContext : DbContext
+    public class _21EducationDbContext : DbContext, IDependency
     {
-        public _21EducationDbContext()
-            : base("name=_21Education")
+        public _21EducationDbContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
-
+            Database.CreateIfNotExists();
+            Database.SetInitializer(new Initializer());
+            Database.Initialize(true);
         }
         #region 首页
         public DbSet<Carousel> Carousel { set; get; }
@@ -48,5 +52,20 @@ namespace _21Education.DAL
 
         #endregion
 
+    }
+    public class Initializer : DataBaseInitializer<_21EducationDbContext>
+    {
+        protected override void Seed(_21EducationDbContext context)
+        {
+            List<News> newsList = new List<News>();
+            for (int i = 0; i < 200; i++)
+            {
+                newsList.Add(new News { Title = "新闻" + i, PubDate = DateTime.Now, Content = "新闻消息", ImgPath = "/image/about_14.jpg" });
+            }
+            context.News.AddRange(newsList);
+
+            context.SaveChanges();
+            base.Seed(context);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 新闻中心
     /// </summary>
-    public class News
+    public class News : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 新闻编号
@@ -40,5 +40,6 @@ namespace _21Education.MODEL
         /// 图片路径
         /// </summary>
         public string ImgPath { get; set; }
+        public string ImgDescribe { get; set; }
     }
 }

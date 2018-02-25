@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 成功案例
     /// </summary>
-    public  class Success
+    public  class Success : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 案例编号

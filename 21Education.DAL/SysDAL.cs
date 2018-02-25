@@ -9,8 +9,15 @@ using _21Education.MODEL;
 
 namespace _21Education.DAL
 {
-    public class SysDAL/*: _21Education.IDAL.ISysModule*/
+
+    public class SysDAL : _21Education.IDAL.ISysModule
     {
+        _21EducationDbContext _21EducationDbContext;
+
+        public SysDAL(_21EducationDbContext _21EducationDbContext)
+        {
+            this._21EducationDbContext = _21EducationDbContext;
+        }
 
       
             //public List<SysModule> GetMenuByPersonId(string moduleId)
@@ -27,6 +34,7 @@ namespace _21Education.DAL
             //        return menus;
             //    }
             //}
+
 
     }
 }

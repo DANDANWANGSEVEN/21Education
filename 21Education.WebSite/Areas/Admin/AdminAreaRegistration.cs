@@ -28,6 +28,7 @@ namespace _21Education.WebSite.Areas.Admin
         public static Dictionary<string, string> userDic=new Dictionary<string, string>();
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            var requestCookies = filterContext.RequestContext.HttpContext.Request.Cookies;
             ActionDescriptor arg_34_0 = filterContext.ActionDescriptor;
             bool inherit = true;
             bool arg_5B_0;
@@ -44,10 +45,18 @@ namespace _21Education.WebSite.Areas.Admin
             bool flag = arg_5B_0;
             if (flag)
             {
+                if (requestCookies["UserCookie"] != null)
+                {
+
+                    if (requestCookies[userDic[requestCookies["UserCookie"].Value]] != null)
+                    {
+                        filterContext.HttpContext.Response.Redirect("/admin/adminhome/index");
+                        filterContext.HttpContext.ApplicationInstance.CompleteRequest();
+
+                    }
+                }
                 return;
             }
-            var a = filterContext.RouteData;
-            var requestCookies = filterContext.RequestContext.HttpContext.Request.Cookies;
             if (requestCookies["UserCookie"] == null) {
                 filterContext.HttpContext.Response.Redirect("/admin");
                 filterContext.HttpContext.ApplicationInstance.CompleteRequest();

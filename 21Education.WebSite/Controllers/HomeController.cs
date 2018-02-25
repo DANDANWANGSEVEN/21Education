@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using _21Education.WebSite.ViewModels;
 using _21Education.DATA;
-using _21Education.MODEL;
 using System.Web.UI;
 
 namespace _21Education.WebSite.Controllers
@@ -17,25 +16,25 @@ namespace _21Education.WebSite.Controllers
         {
             var viewModel = new HomeIndexViewModel
             {
-                Carousel = new CarouselViewModel(new List<MODEL.Carousel>
+                Carousel = new CarouselViewModel(new List<DATA.CarouselBase>
                 {
-                    new Carousel{Describe="1",ImgPath="/image/index_ban1.png"},
-                    new Carousel{Describe="2",ImgPath="/image/index_ban2.png"},
-                    new Carousel{Describe="3",ImgPath="/image/index_ban3.png"},
-                    new Carousel{Describe="4",ImgPath="/image/index_ban3.png"}
+                    new CarouselBase{Describe="1",ImgPath="/image/index_ban1.png"},
+                    new CarouselBase{Describe="2",ImgPath="/image/index_ban2.png"},
+                    new CarouselBase{Describe="3",ImgPath="/image/index_ban3.png"},
+                    new CarouselBase{Describe="4",ImgPath="/image/index_ban3.png"}
                 })
                 {
                     ImgWidth = 1000,
                     PreviewHtml = "<a href=\"javascript:;\" )><img src=\"{0}\" /></a>",
                     ClassName = "banner"
                 },
-                ProductShow = new CarouselViewModel(new List<MODEL.Carousel>
+                ProductShow = new CarouselViewModel(new List<DATA.CarouselBase>
                 {
-                    new Carousel{Describe="1",ImgPath="/image/index.V3/index_productservice_one.png"},
-                    new Carousel{Describe="2",ImgPath="/image/index.V3/index_productservice_two.png"},
-                    new Carousel{Describe="3",ImgPath="/image/index.V3/index_productservice_three.png"},
-                    new Carousel{Describe="4",ImgPath="/image/index.V3/index_productservice_four.png"},
-                    new Carousel{Describe="5",ImgPath="/image/index.V3/index_productservice_five.png"}
+                    new CarouselBase{Describe="1",ImgPath="/image/index.V3/index_productservice_one.png"},
+                    new CarouselBase{Describe="2",ImgPath="/image/index.V3/index_productservice_two.png"},
+                    new CarouselBase{Describe="3",ImgPath="/image/index.V3/index_productservice_three.png"},
+                    new CarouselBase{Describe="4",ImgPath="/image/index.V3/index_productservice_four.png"},
+                    new CarouselBase{Describe="5",ImgPath="/image/index.V3/index_productservice_five.png"}
                 })
                 {
                     ImgWidth = 235,

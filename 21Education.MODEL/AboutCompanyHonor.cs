@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 公司荣誉
     /// </summary>
-    public class AboutCompanyHonor
+    public class AboutCompanyHonor : _21Education.IOC.IEntity
     {
         public int AboutCompanyHonorId { get; set; }
 

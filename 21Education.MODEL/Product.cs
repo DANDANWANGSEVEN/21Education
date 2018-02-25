@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 产品列表
     /// </summary>
-    public class Product
+    public class Product : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 产品编号

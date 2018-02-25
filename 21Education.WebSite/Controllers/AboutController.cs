@@ -22,7 +22,7 @@ namespace _21Education.WebSite.Controllers
         {
             var viewModel = new ViewModels.HomeIndexViewModel
             {
-                ProductShow = new DATA.CarouselViewModel(new List<MODEL.Carousel>
+                ProductShow = new DATA.CarouselViewModel(new List<DATA.CarouselBase>
                 {
                     new Carousel{Describe="1",ImgPath="/image/honor1.jpg"},
                     new Carousel{Describe="2",ImgPath="/image/honor2.jpg"},

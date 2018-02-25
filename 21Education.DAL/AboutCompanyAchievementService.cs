@@ -11,7 +11,7 @@ namespace _21Education.DAL
 {
     public class AboutCompanyAchievementService : ServiceBase<AboutCompanyAchievement>, IAboutCompanyAchievementService
     {
-        AboutCompanyAchievementService(_21EducationDbContext dbContext) : base(dbContext)
+        public AboutCompanyAchievementService(_21EducationDbContext dbContext) : base(dbContext)
         {
 
         }

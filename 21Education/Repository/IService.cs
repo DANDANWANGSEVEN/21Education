@@ -5,10 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
+using _21Education.IOC;
 namespace _21Education.Repository
 {
-    public interface IService<T> : IDisposable
+    public interface IService<T> : IDisposable, IDependency
         where T : class
     {
         void BeginTransaction(Action action);

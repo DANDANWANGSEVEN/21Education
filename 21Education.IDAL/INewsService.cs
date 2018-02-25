@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
+using _21Education.MODEL;
+using _21Education.Repository;
+using _21Education.MODEL;
 namespace _21Education.IDAL
 {
-    interface IDataBase<T> where T : DbContext
+    public interface INewsService:IService<News>
     {
-
+        
     }
 }

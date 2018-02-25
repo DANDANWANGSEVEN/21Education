@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using _21Education.MODEL;
 namespace _21Education.DATA
 {
-    public class CarouselViewModel : List<Carousel>
+    public class CarouselViewModel : List<CarouselBase>
     {
         int _containerWidth;
-        public CarouselViewModel(List<Carousel> list) : base(list)
+        public CarouselViewModel(List<CarouselBase> list) : base(list)
         {
             this.ShowCount = 1;
             this.ContainerWidth = ShowCount * (ImgMargin + ImgWidth) - ImgMargin;

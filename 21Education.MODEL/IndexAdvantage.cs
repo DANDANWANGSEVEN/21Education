@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 品牌优势
     /// </summary>
-    public class IndexAdvantage
+    public class IndexAdvantage : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 品牌优势编号

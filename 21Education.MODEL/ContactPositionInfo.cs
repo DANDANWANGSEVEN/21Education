@@ -9,7 +9,7 @@ namespace _21Education.MODEL
     /// <summary>
     /// 职位信息
     /// </summary>
-    public  class ContactPositionInfo
+    public  class ContactPositionInfo : _21Education.IOC.IEntity
     {
         /// <summary>
         /// 主键编号

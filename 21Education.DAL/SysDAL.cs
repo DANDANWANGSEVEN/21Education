@@ -19,7 +19,23 @@ namespace _21Education.DAL
             this._21EducationDbContext = _21EducationDbContext;
         }
 
-      
+        public List<SysModule> GetMenuByPersonId(string moduleId)
+        {
+            //    using (var db = new _21EducationDbContext())
+            //    {
+            //        var menus =
+            //        (
+            //            from m in db.SysModule
+            //            where m.ParentId == moduleId
+            //            where m.Id != "0"
+            //            select m
+            //                  ).Distinct().OrderBy(a => a.Sort).ToList();
+            //        return menus;
+            //    }
+            return null;
+        }
+
+
             //public List<SysModule> GetMenuByPersonId(string moduleId)
             //{
             //    using (var db = new _21EducationDbContext())
@@ -36,5 +52,5 @@ namespace _21Education.DAL
             //}
 
 
+        }
     }
-}

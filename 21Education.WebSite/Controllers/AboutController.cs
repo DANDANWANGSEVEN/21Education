@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _21Education.MODEL;
+using _21Education.IDAL;
+
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
@@ -13,11 +15,13 @@ namespace _21Education.WebSite.Controllers
     {
         //
         // GET: /About/
-
-        public ActionResult Index()
+        IAboutCompanyCulture _companyculture;
+        public AboutController(IAboutCompanyCulture companyculture)
         {
-            return View();
+            _companyculture = companyculture;
         }
+
+
         public ActionResult AboutUs()
         {
             var viewModel = new ViewModels.HomeIndexViewModel
@@ -34,6 +38,13 @@ namespace _21Education.WebSite.Controllers
                     ClassName = "HonorShow"
                 }
             };
+
+            //公司文化
+            var companyculture = _companyculture.Get().OrderBy(e => e.AboutCompanyCultureId).ToList();
+            ViewBag.companycultureShow = companyculture;
+
+
+
             return View(viewModel);
         }
 

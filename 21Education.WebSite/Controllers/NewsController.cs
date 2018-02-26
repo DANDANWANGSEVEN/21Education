@@ -10,7 +10,7 @@ using _21Education.IDAL;
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
-    /// 
+    /// 新闻中心
     /// </summary>
     public class NewsController : Controller
     {

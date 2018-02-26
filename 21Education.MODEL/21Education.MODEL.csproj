@@ -49,6 +49,7 @@
     <Compile Include="ContactCooperateinfo.cs" />
     <Compile Include="ContactPositionInfo.cs" />
     <Compile Include="ContactRecruitInfo.cs" />
+    <Compile Include="FriendlyLink.cs" />
     <Compile Include="IndexAdvantage.cs" />
     <Compile Include="IndexMainBusiness.cs" />
     <Compile Include="Nav.cs" />

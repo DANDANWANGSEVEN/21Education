@@ -42,6 +42,10 @@ namespace _21Education.DAL
         public DbSet<ContactPositionInfo> ContactPositionInfo { set; get; }
         #endregion
 
+        #region 友情链接
+        //public DbSet<FriendlyLink> FriendlyLink { set; get; }
+        #endregion
+
         #region 后台用户管理
         public DbSet<UserInfo> UserInfo { set; get; }
         #endregion

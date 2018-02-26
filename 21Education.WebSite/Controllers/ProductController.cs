@@ -15,18 +15,24 @@ namespace _21Education.WebSite.Controllers
     public class ProductController : Controller
     {
         IProduct _product;
+        IndexAdvantageIDAL _advantageService;
 
-        public ProductController(IProduct product)
+        public ProductController(IProduct product,IndexAdvantageIDAL advantageService)
         {
             _product = product;
+            _advantageService = advantageService;
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult ProductService(string id)
         {
+            //获取产品服务名称
+            var productTitle = _product.Get().OrderBy(e => e.ProductId).ToList();
+            ViewBag.productTitleShow = productTitle;
+
+            //品牌优势
+            var advantageList = _advantageService.Get().OrderBy(e => e.IndexAdvantageId).ToList();
+            ViewBag.advantageListShow = advantageList;
+
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
             return View(ProductsListTest(page));
@@ -48,11 +54,16 @@ namespace _21Education.WebSite.Controllers
             //        ReadCount = 300
             //    });
             //}
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: _product.Count(null),pageSize:4);
+            var pagin = new Pagination(pageIndex: page - 1, recordCount: _product.Count(null),pageSize:5);
             return new ProductsListViewModel(_product.Get().OrderBy(e=>e.ProductId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin
             };
         }
+
+        
+
+
+
     }
 }

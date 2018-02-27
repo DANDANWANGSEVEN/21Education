@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 友情链接编号
         /// </summary>
-        public int FriendlyId { get; set; }
+        public int FriendlyLinkId { get; set; }
 
         /// <summary>
         /// 友情链接

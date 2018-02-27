@@ -16,9 +16,13 @@ namespace _21Education.WebSite.Controllers
         //
         // GET: /About/
         IAboutCompanyCulture _companyculture;
-        public AboutController(IAboutCompanyCulture companyculture)
+        IAboutCompanyAchievementService _companyachievement;
+        IAboutCompanyProfile _companyprofile;
+        public AboutController(IAboutCompanyCulture companyculture, IAboutCompanyAchievementService companyachievement, IAboutCompanyProfile companyprofile)
         {
             _companyculture = companyculture;
+            _companyachievement = companyachievement;
+            _companyprofile = companyprofile;
         }
 
 
@@ -38,12 +42,17 @@ namespace _21Education.WebSite.Controllers
                     ClassName = "HonorShow"
                 }
             };
+            //公司概况
+            var compangprofile = _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).ToList();
+            ViewBag.compangprofileShow = compangprofile;
 
             //公司文化
             var companyculture = _companyculture.Get().OrderBy(e => e.AboutCompanyCultureId).ToList();
             ViewBag.companycultureShow = companyculture;
 
-
+            //公司成就
+            var companyachievement = _companyachievement.Get().OrderByDescending(e => e.AboutCompanyAchievementId).ToList();
+            ViewBag.companyachievementShow = companyachievement;
 
             return View(viewModel);
         }

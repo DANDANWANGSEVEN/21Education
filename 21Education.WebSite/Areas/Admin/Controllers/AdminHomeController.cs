@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.SessionState;
 using _21Education.COMMON;
+using _21Education.IDAL;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -18,6 +19,12 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/AdminHome/
+        ISysModule _sysmodelservice;
+        public AdminHomeController(ISysModule sysmodelservice)
+        {
+            _sysmodelservice = sysmodelservice;
+        }
+
 
         #region  登陆
         [AllowAnonymous]
@@ -144,7 +151,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 树形导航
-
         /// <summary>
         /// 获取导航菜单
         /// </summary>
@@ -152,23 +158,32 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-
             //List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
-            //var jsonData = (
-            //        from m in menus
-            //        select new
-            //        {
-            //            id = m.Id,
-            //            text = m.Name,
-            //            value = m.Url,
-            //            showcheck = false,
-            //            complete = false,
-            //            isexpand = false,
-            //            checkstate = 0,
-            //            hasChildren = m.IsLast ? false : true,
-            //            Icon = m.Iconic
-            //        }
-            //    ).ToArray();
+            var sysmodel = _sysmodelservice.Get().ToList();
+            var menus =
+                (
+                    from m in sysmodel
+                    where m.ParentId == id
+                    where m.Id != "0"
+                    select m
+                          ).Distinct().OrderBy(a => a.Sort).ToList();
+
+
+            var jsonData = (
+                    from m in menus
+                    select new
+                    {
+                        id = m.Id,
+                        text = m.Name,
+                        value = m.Url,
+                        showcheck = false,
+                        complete = false,
+                        isexpand = false,
+                        checkstate = 0,
+                        hasChildren = m.IsLast ? false : true,
+                        Icon = m.Iconic
+                    }
+                ).ToArray();
             return Json("", JsonRequestBehavior.AllowGet);
         }
 

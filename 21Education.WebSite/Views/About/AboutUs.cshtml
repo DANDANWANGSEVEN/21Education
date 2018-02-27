@@ -20,9 +20,9 @@
     </tr>
     <tr>
         <td>        
-            @foreach (var Cultureitem in ViewBag.companycultureShow)
+            @foreach (var Profileitem in ViewBag.compangprofileShow)
             {
-                <div>@Html.Raw(Cultureitem.desc)</div>
+                <div>@Html.Raw(Profileitem.Article)</div>
             }
            
         </td>
@@ -60,22 +60,13 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <img class="img" src="~/image/culture_one.png" />
-            <p>承诺是金  言出必行</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_two.png" />
-            <p>快速响应  客户需求</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_three.png" />
-            <p>有效合作 1+1>2</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_four.png" />
-            <p>永不满足  渴望超越</p>
-        </td>
+        @foreach (var Cultureitem in ViewBag.companycultureShow)
+            {
+            <td>
+                <img class="img" src="~/image/culture_one.png" />
+                <p>@Cultureitem.desc</p>
+            </td>
+        }
     </tr>
 </table>
 
@@ -97,6 +88,16 @@
             <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_26.jpg" alt="">
         </td>
     </tr>
+
+    @*@foreach (var achievementitem in ViewBag.companyachievementShow)
+    {
+        <tr>
+            <td colspan="4">
+                <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_26.jpg" alt="">
+            </td>
+        </tr>
+    }*@
+
 </table>
 
 

@@ -12,7 +12,7 @@ using Autofac.Integration.Mvc;
 using _21Education.DAL;
 using _21Education.IDAL;
 using _21Education.MODEL;
-using _21Education.BLL;
+
 namespace _21Education.WebSite
 {
     // 注意: 有关启用 IIS6 或 IIS7 经典模式的说明，

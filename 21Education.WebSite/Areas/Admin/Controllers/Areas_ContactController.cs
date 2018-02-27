@@ -8,6 +8,7 @@ using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
 using _21Education.MODEL;
 using _21Education.WebSite.Handler;
+using _21Education.IDAL;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -16,6 +17,12 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Areas_Contact/
+
+        IAboutCompanyProfile _companyprofile;
+        public Areas_ContactController(IAboutCompanyProfile companyprofile)
+        {
+            _companyprofile = companyprofile;
+        }
 
         public ActionResult Index()
         {
@@ -26,48 +33,53 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
       
         public ActionResult ContactCompanyinfo()
         {
+            var companyinfo= _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).ToList();
+
             return View();
         }
+
+
+
         /// <summary>
         /// 显示
         /// </summary>
         /// <param name="pager"></param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult GetList(GridPager pager)
-        {
-            var list = new List<MODEL.ContactCompanyinfo>();
+        //[HttpPost]
+        //public JsonResult GetList(GridPager pager)
+        //{
+        //    var list = new List<MODEL.ContactCompanyinfo>();
 
-            for (int i = 0; i < 15; i++)
-            {
-                list.Add(new MODEL.ContactCompanyinfo
-                {
-                    ContactCompanyinfoId = i,
-                    Address = "beijing",
-                    Email = "@.email",
-                    Phone = "979899",
-                    Transmission = "12345",
-                    Website = "www"
-                });
-            }
+        //    for (int i = 0; i < 15; i++)
+        //    {
+        //        list.Add(new MODEL.ContactCompanyinfo
+        //        {
+        //            ContactCompanyinfoId = i,
+        //            Address = "beijing",
+        //            Email = "@.email",
+        //            Phone = "979899",
+        //            Transmission = "12345",
+        //            Website = "www"
+        //        });
+        //    }
 
-            var json = new
-            {
-                //total = list.Count,
-                total = pager.totalRows,
-                rows = (from r in list
-                        select new MODEL.ContactCompanyinfo()
-                        {
-                            ContactCompanyinfoId = r.ContactCompanyinfoId,
-                            Address = r.Address,
-                            Email = r.Email,
-                            Phone=r.Phone,
-                            Transmission = r.Transmission,
-                            Website = r.Website
-                        }).ToArray()
-            };
-            return Json(json, JsonRequestBehavior.AllowGet);
-        }
+        //    var json = new
+        //    {
+        //        //total = list.Count,
+        //        total = pager.totalRows,
+        //        rows = (from r in list
+        //                select new MODEL.ContactCompanyinfo()
+        //                {
+        //                    ContactCompanyinfoId = r.ContactCompanyinfoId,
+        //                    Address = r.Address,
+        //                    Email = r.Email,
+        //                    Phone=r.Phone,
+        //                    Transmission = r.Transmission,
+        //                    Website = r.Website
+        //                }).ToArray()
+        //    };
+        //    return Json(json, JsonRequestBehavior.AllowGet);
+        //}
 
         //#region 创建
         public ActionResult Create()

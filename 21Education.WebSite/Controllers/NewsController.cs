@@ -15,9 +15,11 @@ namespace _21Education.WebSite.Controllers
     public class NewsController : Controller
     {
         INewsService _newsService;
-        public NewsController(INewsService newsService)
+        IFriendlyLink _friendlylinkservice;
+        public NewsController(INewsService newsService, IFriendlyLink friendlylinkservice)
         {
             _newsService = newsService;
+            _friendlylinkservice = friendlylinkservice;
         }
 
         public ActionResult Index()
@@ -27,6 +29,13 @@ namespace _21Education.WebSite.Controllers
         #region 新闻列表页面
         public ActionResult NewsList(string id)
         {
+            ////特色案例
+
+            ////友情链接
+            //var frienflylinkList = _friendlylinkservice.Get().OrderBy(e => e.FriendlyLinkId).ToList();
+            //ViewBag.frienflylinkListShow = frienflylinkList;
+
+
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
             return View(NewsListByPager(page));

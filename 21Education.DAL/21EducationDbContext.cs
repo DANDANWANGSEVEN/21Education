@@ -12,8 +12,7 @@ namespace _21Education.DAL
 
     public class _21EducationDbContext : DbContext, IDependency
     {
-        public _21EducationDbContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
+        public _21EducationDbContext(string nameOrConnectionString): base(nameOrConnectionString)
         {
             //Database.CreateIfNotExists();
             //Database.SetInitializer(new Initializer());
@@ -43,7 +42,7 @@ namespace _21Education.DAL
         #endregion
 
         #region 友情链接
-        //public DbSet<FriendlyLink> FriendlyLink { set; get; }
+        public DbSet<FriendlyLink> FriendlyLink { set; get; }
         #endregion
 
         #region 后台用户管理
@@ -52,7 +51,7 @@ namespace _21Education.DAL
 
         #region 后台树形
 
-        //public DbSet<SysModule> SysModule { set; get; }
+        public DbSet<SysModule> SysModule { set; get; }
 
         #endregion
 

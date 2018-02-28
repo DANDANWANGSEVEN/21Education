@@ -59,7 +59,7 @@
                             <li>
                                 <span>新闻中心</span>
                                 <ul>
-                                    <li><i style="font-style:normal;" src="///">新闻列表</i></li>
+                                    <li><i style="font-style:normal;" src="/Admin/Areas_News/NewsList">新闻列表</i></li>
                                 </ul>
                             </li>
                             <li>
@@ -113,9 +113,6 @@
             <div id="mytable" title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
                 <iframe id="rightMain" scrolling="auto" frameborder="0" src="/Admin/AdminHome/Main" style="width: 100%; height: 100%;" allowtransparency="true"></iframe>
             </div>
-            <div id="mytable" title="1111" data-options="closable:true" style="overflow: hidden; background:#fff">
-                <iframe id="rightMain" scrolling="auto" frameborder="0" src="/Admin/AdminHome/Main" style="width: 100%; height: 100%;" allowtransparency="true"></iframe>
-            </div>
         </div>
     </div>
 
@@ -126,7 +123,8 @@
                 var a = $(this).attr("src");
                 var text = $(this).html();
                 $("#rightMain").attr("src", a);//修改iframe中的src属性
-                var b = $("#rightMain").attr("src");
+                $("#mytable").attr("title", text);
+                //var b = $("#rightMain").attr("src");
             });
         };
      

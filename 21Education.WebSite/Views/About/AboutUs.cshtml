@@ -42,7 +42,7 @@
         <table border="0" style="margin:auto;">
             <tr>
                 <td>
-                    @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+                    @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.HonorShow)
                 </td>
             </tr>
         </table>
@@ -63,7 +63,7 @@
         @foreach (var Cultureitem in ViewBag.companycultureShow)
             {
             <td>
-                <img class="img" src="~/image/culture_one.png" />
+                <img class="img" src="@Cultureitem.Image" />
                 <p>@Cultureitem.desc</p>
             </td>
         }
@@ -78,26 +78,14 @@
             <span style="font-size:14px;">因为用心，所以专业</span>
         </td>
     </tr>
-    <tr>
-        <td colspan="4">
-            <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_23.jpg" alt="">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_26.jpg" alt="">
-        </td>
-    </tr>
-
-    @*@foreach (var achievementitem in ViewBag.companyachievementShow)
+    @foreach (var achievementitem in ViewBag.companyachievementShow)
     {
         <tr>
             <td colspan="4">
-                <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_26.jpg" alt="">
+                <img class="img-responsive" style="width:1000px;height:180px;" src="@achievementitem.Image" alt="">
             </td>
         </tr>
-    }*@
-
+    }
 </table>
 
 

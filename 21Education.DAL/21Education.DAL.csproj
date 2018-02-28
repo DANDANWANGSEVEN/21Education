@@ -54,6 +54,7 @@
     <Compile Include="21EducationDbContext.cs" />
     <Compile Include="CompanyAchievementService.cs" />
     <Compile Include="CompanyCultureService.cs" />
+    <Compile Include="CompanyHonorService.cs" />
     <Compile Include="CompanyProfileService.cs" />
     <Compile Include="ContactCompanyinfoService.cs" />
     <Compile Include="ContactCooperateService.cs" />

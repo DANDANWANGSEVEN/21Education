@@ -1,7 +1,8 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "NewsList";
     Layout = "~/Areas/Admin/Views/Shared/_Index_Layout.cshtml";
 }
+
 @using _21Education.WebSite.Handler;
 @model List<_21Education.MODEL.ContactCompanyinfo>
 <script src="~/Areas/Content/Scripts/jquery.easyui.plus.js"></script>
@@ -17,26 +18,33 @@
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
     <div class="mvctool">
         <input id="txtQuery" type="text" class="searchText">
-        <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+        <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
         <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
-        <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+        <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+
+        @*@Html.ToolButton("btnQuery", "icon-search", "查询", true)
+            @Html.ToolButton("btnCreate", "icon-add", "新增", true)
+            @Html.ToolButton("btnEdit", "icon-edit", "编辑", true)
+            @Html.ToolButton("btnDetails", "icon-details", "详细", true)
+            @Html.ToolButton("btnDelete", "icon-remove", "删除", true)
+            @Html.ToolButton("btnExport", "icon-export", "导出", true)*@
     </div>
     <table id="List"></table>
     <script type="text/javascript">
     $(function () {
         $('#List').datagrid({
-            url: '/Admin/Areas_Contact/GetList',
+            url: '/Admin/Areas_News/GetList',
             width: $(window).width() - 10,
             methord: 'post',
             height: $(window).height() - 35,
             fitColumns: true,
-            sortName: 'ContactCompanyinfoId',
+            sortName: 'NewsId',
             sortOrder: 'desc',
-            idField: 'ContactCompanyinfoId',
+            idField: 'NewsId',
             pageSize: 15,
             pageList: [15, 20, 30, 40, 50],
             pagination: true,
@@ -44,12 +52,12 @@
             singleSelect: true,//单选模式
             rownumbers: true,//行号
             columns: [[
-                { field: 'ContactCompanyinfoId', title: '编号', width: 80 },
-                { field: 'Address', title: '公司地址', width: 80 },
-                { field: 'Email', title: '邮箱', width: 120 },
-                { field: 'Phone', title: '公司电话', width: 80, align: 'right' },
-                { field: 'Transmission', title: '传真', width: 80, align: 'right' },
-                { field: 'Website', title: '网址', width: 250 }
+                { field: 'NewsId', title: '编号', width: 80 },
+                { field: 'Title', title: '标题', width: 80 },
+                { field: 'Content', title: '内容', width: 120 },
+                { field: 'PubDate', title: '发表日期', width: 80, align: 'right' },
+                { field: 'ReadCount', title: '阅读数量', width: 80, align: 'right' },
+                { field: 'PubPerson', title: '发表人', width: 250 }
             ]]
         });
     });
@@ -76,7 +84,7 @@
     $(function () {
 
         $("#btnCreate").click(function () {
-            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Admin/Areas_Contact/Create'></iframe>");
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Admin/Areas_News/Create'></iframe>");
             $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
         });
         $("#btnEdit").click(function () {

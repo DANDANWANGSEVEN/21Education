@@ -7,13 +7,11 @@ using _21Education.MODEL;
 
 namespace _21Education.WebSite.ViewModels
 {
-    public class FriendlyListViewModel : PaginationViewModel<MODEL.FriendlyLink>
+    public class FriendlyListViewModel
     {
-        public FriendlyListViewModel(List<FriendlyLink> list) : base(list)
-        {
-        }
+        public List<FriendlyLink> friendlylinks { get; set; }
 
-        public Pagination Pagination { set; get; }
+        public List<Product> products { get; set; }
     
     }
 }

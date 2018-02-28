@@ -30,27 +30,23 @@ namespace _21Education.WebSite.Controllers
 
         public ActionResult AboutUs()
         {
+            var carouselList= new List<DATA.CarouselBase>();
+            //公司荣誉
+            var companyhonorList = _companyhonor.Get().OrderByDescending(e => e.AboutCompanyHonorId).ToList();
+            companyhonorList.ForEach(e => { carouselList.Add(new DATA.CarouselBase { ImgPath = e.Image }); });
+
             var viewModel = new ViewModels.HomeIndexViewModel
             {
-                HonorShow = new DATA.CarouselViewModel(new List<DATA.CarouselBase>
-                {
-                    new Carousel{Describe="1",ImgPath="/image/honor1.jpg"},
-                    new Carousel{Describe="2",ImgPath="/image/honor2.jpg"},
-                    new Carousel{Describe="3",ImgPath="/image/honor3.jpg"},
-                    new Carousel{Describe="4",ImgPath="/image/honor4.jpg"}
-
-                })
+                HonorShow = new DATA.CarouselViewModel(carouselList)
                 {
                     ImgWidth = 800,
                     ClassName = "HonorShow"
                 }
             };
             //公司概况
-            var compangprofile = _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).ToList();
+            var compangprofile = _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).FirstOrDefault();
             ViewBag.compangprofileShow = compangprofile;
 
-            //公司荣誉
-            //var companyhonor = _companyhonor.Get().OrderByDescending(e => e.AboutCompanyHonorId).ToList();
 
             //公司文化
             var companyculture = _companyculture.Get().OrderBy(e => e.AboutCompanyCultureId).ToList();

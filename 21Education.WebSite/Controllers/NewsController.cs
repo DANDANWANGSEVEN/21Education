@@ -45,9 +45,10 @@ namespace _21Education.WebSite.Controllers
         NewsListViewModel NewsListByPager(int page)
         {
             var pagin = new Pagination(pageIndex: page - 1, recordCount: _newsService.Count(null), pageSize: 6);
-            return new NewsListViewModel(_newsService.Get().OrderBy(e=>e.NewsId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            return new NewsListViewModel(_newsService.Get().OrderBy(e => e.NewsId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
-                Pagination = pagin
+                Pagination = pagin,
+                FriendlyViewModel=new FriendlyListViewModel { friendlylinks= _friendlylinkservice.Get().OrderBy(e=>e.FriendlyLinkId).ToList(), products=new List<MODEL.Product>()}
             };
         }
         #endregion

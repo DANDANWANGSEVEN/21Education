@@ -29,6 +29,8 @@ namespace _21Education.WebSite.Controllers
         [OutputCache(Duration = 600, Location = OutputCacheLocation.Any)]
         public ActionResult Index()
         {
+            var carouselList = new List<DATA.CarouselBase>();
+
             var viewModel = new HomeIndexViewModel
             {
                 //大轮播图

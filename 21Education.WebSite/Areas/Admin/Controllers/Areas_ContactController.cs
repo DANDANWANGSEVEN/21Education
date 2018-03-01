@@ -111,9 +111,11 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 详细
-        public ActionResult Details(int id)
-        { 
-            return View(_companyinfo.Get(id));
+        public ActionResult Details(int ContactCompanyinfoId)
+        {
+            MODEL.ContactCompanyinfo model= _companyinfo.Get(ContactCompanyinfoId);
+            //return View(_companyinfo.Get().OrderBy(e=>e.ContactCompanyinfoId==id).FirstOrDefault());
+            return View(model);
         }
         #endregion
 
@@ -124,7 +126,8 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             try
             {
                 var a = _companyinfo.Get().Where(e => e.ContactCompanyinfoId == ContactCompanyinfoId);
-               _companyinfo.Remove(ContactCompanyinfoId);
+                _companyinfo.Remove(ContactCompanyinfoId);
+                _companyinfo.SaveChanges();
                return Json(1, JsonRequestBehavior.AllowGet);
             }
             catch(Exception ex)

@@ -20,14 +20,13 @@
     </tr>
     <tr>
         <td>        
-            @foreach (var Profileitem in ViewBag.compangprofileShow)
-            {
-                <div>@Html.Raw(Profileitem.Article)</div>
-            }
            
+                <div>@ViewBag.compangprofileShow</div>
+ 
         </td>
     </tr>
 </table>
+           }
 
 @*公司荣誉*@
 <table class="table" id="companyhonor">

@@ -5,7 +5,7 @@
 @using _21Education.WebSite.Handler;
 @model List<_21Education.MODEL.ContactCompanyinfo>
 <script src="~/Areas/Content/Scripts/jquery.easyui.plus.js"></script>
-
+<link href="~/Areas/Content/themes/icon.css" rel="stylesheet" />
 <!DOCTYPE html>
 
 <html>
@@ -20,10 +20,10 @@
         <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
         <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+        @*<a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>*@
+        @*<a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>*@
     </div>
     <table id="List"></table>
     <script type="text/javascript">
@@ -44,12 +44,12 @@
             singleSelect: true,//单选模式
             rownumbers: true,//行号
             columns: [[
-                { field: 'ContactCompanyinfoId', title: '编号', width: 80 },
-                { field: 'Address', title: '公司地址', width: 80 },
-                { field: 'Email', title: '邮箱', width: 120 },
-                { field: 'Phone', title: '公司电话', width: 80, align: 'right' },
-                { field: 'Transmission', title: '传真', width: 80, align: 'right' },
-                { field: 'Website', title: '网址', width: 250 }
+                { field: 'ContactCompanyinfoId', title: '编号', width: 80, align: 'center' },
+                { field: 'Address', title: '公司地址', width: 80, align: 'center' },
+                { field: 'Email', title: '邮箱', width: 120, align: 'center' },
+                { field: 'Phone', title: '公司电话', width: 80, align: 'center' },
+                { field: 'Transmission', title: '传真', width: 80, align: 'center' },
+                { field: 'Website', title: '网址', width: 250, align: 'center' }
             ]]
         });
     });

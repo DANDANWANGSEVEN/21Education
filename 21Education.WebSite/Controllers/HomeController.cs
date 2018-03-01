@@ -13,13 +13,15 @@ namespace _21Education.WebSite.Controllers
 {
     public class HomeController : Controller
     {
+        ICarousel _carouselService;
         IProduct _productService;
         INewsService _newsService;
         ISuccess _successService;
         IndexAdvantageIDAL _advantageService;
         IndexMainBusinessIDAL _mainbussinessService;
-        public HomeController(IProduct productService,INewsService newsService,ISuccess successService, IndexAdvantageIDAL advantageService,IndexMainBusinessIDAL mainbussinessService)
+        public HomeController(ICarousel carouselService,IProduct productService,INewsService newsService,ISuccess successService, IndexAdvantageIDAL advantageService,IndexMainBusinessIDAL mainbussinessService)
         {
+            _carouselService = carouselService;
             _productService = productService;
             _newsService = newsService;
             _successService = successService;
@@ -30,17 +32,19 @@ namespace _21Education.WebSite.Controllers
         public ActionResult Index()
         {
             var carouselList = new List<DATA.CarouselBase>();
+            var indexcarouselist= _carouselService.Get().OrderByDescending(e => e.CarouselId).ToList();
+            indexcarouselist.ForEach(e => { carouselList.Add(new DATA.CarouselBase { ImgPath = e.ImgPath }); });
 
             var viewModel = new HomeIndexViewModel
             {
                 //大轮播图
-                Carousel = new CarouselViewModel(new List<DATA.CarouselBase>
-                {
-                    new CarouselBase{Describe="1",ImgPath="/image/index_ban1.png"},
-                    new CarouselBase{Describe="2",ImgPath="/image/index_ban2.png"},
-                    new CarouselBase{Describe="3",ImgPath="/image/index_ban3.png"},
-                    new CarouselBase{Describe="4",ImgPath="/image/index_ban3.png"}
-                })
+                //{
+                //    new CarouselBase{Describe="1",ImgPath="/image/index_ban1.png"},
+                //    new CarouselBase{Describe="2",ImgPath="/image/index_ban2.png"},
+                //    new CarouselBase{Describe="3",ImgPath="/image/index_ban3.png"},
+                //    new CarouselBase{Describe="4",ImgPath="/image/index_ban3.png"}
+                //})
+                Carousel = new DATA.CarouselViewModel(carouselList)
                 {
                     ImgWidth = 1000,
                     PreviewHtml = "<a href=\"javascript:;\" )><img src=\"{0}\" /></a>",
@@ -78,7 +82,6 @@ namespace _21Education.WebSite.Controllers
             //首页成功案例倒序显示五条
             var successList = _successService.Get().OrderByDescending(e => e.SuccessId).Take(5).ToList();
             ViewBag.SuccessListShow = successList;
-
 
             return View(viewModel);
         }

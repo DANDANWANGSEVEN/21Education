@@ -16,11 +16,12 @@ namespace _21Education.WebSite.Controllers
     {
         IProduct _product;
         IndexAdvantageIDAL _advantageService;
-
-        public ProductController(IProduct product,IndexAdvantageIDAL advantageService)
+        IFriendlyLink _friendlylinkservice;
+        public ProductController(IProduct product,IndexAdvantageIDAL advantageService, IFriendlyLink friendlylinkservice)
         {
             _product = product;
             _advantageService = advantageService;
+            _friendlylinkservice = friendlylinkservice;
         }
 
         public ActionResult ProductService(string id)
@@ -55,7 +56,7 @@ namespace _21Education.WebSite.Controllers
             //    });
             //}
             var pagin = new Pagination(pageIndex: page - 1, recordCount: _product.Count(null),pageSize:5);
-            return new ProductsListViewModel(_product.Get().OrderBy(e=>e.ProductId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            return new ProductsListViewModel(_product.Get().OrderBy(e => e.ProductId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin
             };

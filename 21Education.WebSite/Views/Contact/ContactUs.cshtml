@@ -28,16 +28,11 @@
         <td>
             <div id="companyinfo" style="">
                 <div style="float:left;padding:10px;font-size:14px;margin:20px;">
-
-                    @foreach (var Companyitem in ViewBag.companyinfoListShow)
-                    {
-                        <p>@Companyitem.Address</p>
-                        <p>邮编：@Companyitem.Email</p>
-                        <p>电话：@Companyitem.Phone</p>
-                        <p>传真：@Companyitem.Transmission</p>
-                        <p>网址：@Companyitem.Website</p>
-                    }
-                    
+                        <p>@ViewData["addressinfo"]</p>
+                        <p>邮编：@ViewData["emailinfo"]</p>
+                        <p>电话：@ViewData["phoneinfo"]</p>
+                        <p>传真：@ViewData["transmission"]</p>
+                        <p>网址：@ViewData["websiteinfo"]</p>
                 </div>
                 <div id="companyinfo" style="color:white;">
                     <!--百度地图容器-->
@@ -79,22 +74,18 @@
     <tr style="text-align:center;height:10px;">
         <td colspan="2"></td>
     </tr>
-    @foreach (var recruititem in ViewBag.recruitinfoListShow)
-    {
         <tr>
-            <td rowspan="3">
-                <img style="width:400px;height:200px;" src="../image/success_03.jpg" />
+            <td rowspan="3" style="width:50%;">
+                <img style="width:400px;height:200px;" src="@ViewData["recruitimage"]" />
             </td>
         </tr>
         <tr>
-            <td style="text-align:center;">
-                <h4>@recruititem.Name</h4>
-                <p style="padding:10px;line-height:30px;">@recruititem.Content</p>
+            <td style="text-align:center;width:50%;">
+                <h4>@ViewData["recruitName"]</h4>
+                <p style="padding:10px;line-height:30px;">@ViewData["recruitConent"]</p>
                 <a href="/Contact/JoinUs" id="joinlink">查看详情</a>
             </td>
         </tr>
-    }
-    
 
 </table>
 

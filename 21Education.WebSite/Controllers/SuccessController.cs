@@ -19,9 +19,13 @@ namespace _21Education.WebSite.Controllers
         // GET: /Success/
 
         ISuccess _successService;
-        public SuccessController(ISuccess successService)
+        IFriendlyLink _friendlylinkservice;
+        IProduct _product;
+        public SuccessController(ISuccess successService,IFriendlyLink friendlylinkservice, IProduct product)
         {
             _successService = successService;
+            _friendlylinkservice = friendlylinkservice;
+            _product = product;
         }
 
         public ActionResult Index()
@@ -51,17 +55,20 @@ namespace _21Education.WebSite.Controllers
             //    });
             //}
             var pagin = new Pagination(pageIndex: page - 1, recordCount: _successService.Count(null), pageSize: 6);
-            return new SuccessListViewModel(_successService.Get().OrderBy(e => e.SuccessId) .Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            return new SuccessListViewModel(_successService.Get().OrderBy(e => e.SuccessId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
-                Pagination = pagin
+                Pagination = pagin,
+                FriendlyViewModel = new FriendlyListViewModel { friendlylinks = _friendlylinkservice.Get().OrderBy(e => e.FriendlyLinkId).ToList(), products = _product.Get().OrderBy(e => e.ProductId).Take(8).ToList() }
+
             };
         }
         #endregion
 
 
         #region 成功案例内容页面
-        public ActionResult SuccessContent()
+        public ActionResult SuccessContent(int id)
         {
+            MODEL.Success model= _successService.Get(id);
             return View();
         }
         #endregion

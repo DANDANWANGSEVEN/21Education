@@ -45,7 +45,7 @@ namespace _21Education.WebSite.Controllers
             };
             //公司概况
             var compangprofile = _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).FirstOrDefault();
-            ViewBag.compangprofileShow = compangprofile;
+            ViewBag.compangprofileShow = compangprofile.Article;
 
 
             //公司文化

@@ -8,7 +8,7 @@ using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
 using _21Education.IDAL;
 using System.Linq.Expressions;
-
+using _21Education.MODEL;
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
@@ -19,7 +19,7 @@ namespace _21Education.WebSite.Controllers
         INewsService _newsService;
         IFriendlyLink _friendlylinkservice;
         IProduct _productService;
-        public NewsController(INewsService newsService, IFriendlyLink friendlylinkservice,IProduct productService)
+        public NewsController(INewsService newsService, IFriendlyLink friendlylinkservice, IProduct productService)
         {
             _newsService = newsService;
             _friendlylinkservice = friendlylinkservice;
@@ -44,19 +44,24 @@ namespace _21Education.WebSite.Controllers
             return new NewsListViewModel(_newsService.Get().OrderBy(e => e.NewsId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin,
-                FriendlyViewModel=new FriendlyListViewModel { friendlylinks= _friendlylinkservice.Get().OrderBy(e=>e.FriendlyLinkId).ToList(), products= _productService .Get().OrderBy(e=>e.ProductId).Take(8).ToList()}
+                FriendlyViewModel = new FriendlyListViewModel { friendlylinks = _friendlylinkservice.Get().OrderBy(e => e.FriendlyLinkId).ToList(), products = _productService.Get().OrderBy(e => e.ProductId).Take(8).ToList() }
             };
         }
         #endregion
 
         #region 新闻内容页
-        public ActionResult NewsContent(/*Expression<Func<MODEL.News, bool>> filter*/)
+        public ActionResult NewsContent(int n)
         {
-            //IList<MODEL.News> newspecialinfo = _newsService.
-            //var newsinfo= Where(filter).FirstOrDefault();
-            return View();
+            var newList = _newsService.Get().ToList();
+            Expression<Func<News, bool>> filter = e => e.NewsId == n;
+            News newsCurrent = _newsService.Get(filter).FirstOrDefault();
+            var currentIndex = newList.FindIndex(e => e.NewsId == newsCurrent.NewsId);
+            var prev = newList[currentIndex - 1];
+            var next = newList[currentIndex + 1];
+
+            return View(new NewsContentViewModel { NewsCurrent = newsCurrent, NewsPrev = prev, NewsNext = next });
         }
-        
+
 
 
         #endregion

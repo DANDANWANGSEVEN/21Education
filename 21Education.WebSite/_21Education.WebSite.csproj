@@ -192,6 +192,7 @@
     <Compile Include="ViewModels\Friendly\FriendlyListViewModel.cs" />
     <Compile Include="ViewModels\Home\AdvantageListViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
+    <Compile Include="ViewModels\News\NewsContentViewModel.cs" />
     <Compile Include="ViewModels\News\NewsListViewModel.cs" />
     <Compile Include="ViewModels\Product\ProductsListViewModel.cs" />
     <Compile Include="ViewModels\Success\SuccessListViewModel.cs" />

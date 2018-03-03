@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "NewsContent";
+    ViewBag.Title = "ProductContent";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-@model NewsContentViewModel
+@model ProductsContentViewModel
 <style>
     body {
         margin: 0;
@@ -27,7 +27,8 @@
     #contenttitle {
         height: 70px;
     }
-        #title {
+
+    #title {
         color: #0057be;
         margin-top: 5px;
     }
@@ -73,7 +74,7 @@
     <tr>
         <td>
             <div id="position">
-                <p style="color:#666666;"><span>当前位置：</span><a href="/News/NewsList" style="color:#0057be;">新闻中心</a>/<a>新闻详情页</a></p>
+                <p style="color:#666666;"><span>当前位置：</span><a href="/Product/ProductService" style="color:#0057be;">产品服务</a>/<a>产品服务详情页</a></p>
             </div>
         </td>
     </tr>
@@ -81,15 +82,16 @@
         <td>
             <div style="height:auto;">
                 @*@Html.Partial("~/Views/PartView/ContentPage.cshtml")*@
+
                 <table id="contentpage">
                     <tr>
                         <td>
                             <div id="contenttitle">
-                                <h3 id="title">@Model.NewsCurrent.Title</h3>
+                                <h3 id="title">@Model.ProductCurrent.Title</h3>
                                 <p id="titleinfo" style="margin-top:10px;float:right;">
-                                    发表人：@Model.NewsCurrent.PubPerson&nbsp;&nbsp;
-                                    阅读量：@Model.NewsCurrent.ReadCount&nbsp;&nbsp;
-                                    发表时间：@Model.NewsCurrent.PubDate
+                                    发表人：@Model.ProductCurrent.PubPerson&nbsp;&nbsp;
+                                    阅读量：@Model.ProductCurrent.ReadCount&nbsp;&nbsp;
+                                    发表时间：@Model.ProductCurrent.PubDate
                                 </p>
                             </div>
                         </td>
@@ -97,19 +99,19 @@
                     <tr>
                         <td>
                             <div id="content">
-                                @Model.NewsCurrent.Content
+                                @Model.ProductCurrent.Content
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div id="tooltip">
-                                <a href="/News/NewsContent/@Model.NewsPrev.NewsId">《《上一章：@Model.NewsPrev.Title</a>
+                                <a href="/Product/ProductContent/@Model.ProductPrev.ProductId">《《上一章：@Model.ProductPrev.Title</a>
                                 <br />
-                                <a href="/News/NewsContent/@Model.NewsNext.NewsId">》》下一章：@Model.NewsNext.Title</a>
+                                <a href="/Product/ProductContent/@Model.ProductNext.ProductId">》》下一章：@Model.ProductNext.Title</a>
                                 <br />
                                 <div style="float:right;">
-                                    <a href="/News/NewsList">返回列表</a>/
+                                    <a href="/Product/ProductService">返回列表</a>/
                                     <a href="#" id="test">回到顶部</a>
                                     <script>
                                         test.onclick = function () {

@@ -7,6 +7,7 @@ using _21Education.COMMON;
 using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
 using _21Education.IDAL;
+using System.Linq.Expressions;
 
 namespace _21Education.WebSite.Controllers
 {
@@ -66,10 +67,15 @@ namespace _21Education.WebSite.Controllers
 
 
         #region 成功案例内容页面
-        public ActionResult SuccessContent(int id)
+        public ActionResult SuccessContent(int n)
         {
-            MODEL.Success model= _successService.Get(id);
-            return View();
+            var successList = _successService.Get().ToList();
+            Expression<Func<MODEL.Success, bool>> filter = e => e.SuccessId == n;
+            MODEL.Success successCurrent = _successService.Get(filter).FirstOrDefault();
+            var currentIndex = successList.FindIndex(e => e.SuccessId == successCurrent.SuccessId);
+            var prev = successList[currentIndex - 1];
+            var next = successList[currentIndex + 1];
+            return View(new SuccessContentViewModel { CurrentSuccess=successCurrent,PrevSuccess=prev,NextSuccess=next});
         }
         #endregion
 

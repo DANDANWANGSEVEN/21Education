@@ -76,7 +76,7 @@
                 @foreach (var Titleitem in ViewBag.productTitleShow)
                 {
                     <tr>
-                        <td><a href="/News/NewsContent">@Titleitem.Title</a></td>
+                        <td><a href="/Product/ProductContent/@Titleitem.ProductId">@Titleitem.Title</a></td>
                     </tr>
                 }
             </table>
@@ -111,7 +111,7 @@
                     {
                         <div class="adleft">
                             <div class="ico">
-                                <img style="width:50px;height:50px;margin-top: 10px;" src="~/image/service_AdvantageOne.png" />
+                                <img style="width:50px;height:50px;margin-top: 10px;" src="@Advantageitem.ImageTwo" />
                             </div>
                             <span class="title" style="font-size:10px;">
                                 @Advantageitem.Title

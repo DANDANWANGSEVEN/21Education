@@ -7,6 +7,8 @@ using _21Education.COMMON;
 using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
 using _21Education.IDAL;
+using System.Linq.Expressions;
+
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
@@ -24,10 +26,11 @@ namespace _21Education.WebSite.Controllers
             _friendlylinkservice = friendlylinkservice;
         }
 
+        #region  产品服务列表页
         public ActionResult ProductService(string id)
         {
             //获取产品服务名称
-            var productTitle = _product.Get().OrderBy(e => e.ProductId).ToList();
+            var productTitle = _product.Get().OrderByDescending(e => e.ProductId).Take(12).ToList();
             ViewBag.productTitleShow = productTitle;
 
             //品牌优势
@@ -62,9 +65,27 @@ namespace _21Education.WebSite.Controllers
             };
         }
 
-        
+        #endregion
 
-
+        #region 产品服务内容页
+        public ActionResult ProductContent(int n)
+        {
+            try
+            {
+                var productList = _product.Get().ToList();
+                Expression<Func<MODEL.Product, bool>> filter = e => e.ProductId == n;
+                MODEL.Product productCurrent = _product.Get(filter).FirstOrDefault();
+                var currentIndex = productList.FindIndex(e => e.ProductId == productCurrent.ProductId);
+                var prev = productList[currentIndex - 1];
+                var next = productList[currentIndex + 1];
+                return View(new ProductsContentViewModel { ProductCurrent = productCurrent, ProductPrev = prev, ProductNext = next });
+            }
+           catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
 
     }
 }

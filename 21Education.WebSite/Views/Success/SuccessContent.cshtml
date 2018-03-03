@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "NewsContent";
+    ViewBag.Title = "SuccessContent";
     Layout = "~/Views/Shared/View1.cshtml";
 }
-@model NewsContentViewModel
+@model SuccessContentViewModel
 <style>
     body {
         margin: 0;
@@ -27,7 +27,8 @@
     #contenttitle {
         height: 70px;
     }
-        #title {
+
+    #title {
         color: #0057be;
         margin-top: 5px;
     }
@@ -73,7 +74,7 @@
     <tr>
         <td>
             <div id="position">
-                <p style="color:#666666;"><span>当前位置：</span><a href="/News/NewsList" style="color:#0057be;">新闻中心</a>/<a>新闻详情页</a></p>
+                <p style="color:#666666;"><span>当前位置：</span><a href="/Success/SuccessList" style="color:#0057be;">成功案例</a>/<a>案例详情页</a></p>
             </div>
         </td>
     </tr>
@@ -85,11 +86,11 @@
                     <tr>
                         <td>
                             <div id="contenttitle">
-                                <h3 id="title">@Model.NewsCurrent.Title</h3>
+                                <h3 id="title">@Model.CurrentSuccess.Title</h3>
                                 <p id="titleinfo" style="margin-top:10px;float:right;">
-                                    发表人：@Model.NewsCurrent.PubPerson&nbsp;&nbsp;
-                                    阅读量：@Model.NewsCurrent.ReadCount&nbsp;&nbsp;
-                                    发表时间：@Model.NewsCurrent.PubDate
+                                    发表人：@Model.CurrentSuccess.PubPerson &nbsp;&nbsp;
+                                    阅读量：@Model.CurrentSuccess.ReadCount &nbsp;&nbsp;
+                                    发表时间：@Model.CurrentSuccess.PubDate 
                                 </p>
                             </div>
                         </td>
@@ -97,16 +98,16 @@
                     <tr>
                         <td>
                             <div id="content">
-                                @Model.NewsCurrent.Content
+                                @Model.CurrentSuccess.Content
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div id="tooltip">
-                                <a href="/News/NewsContent/@Model.NewsPrev.NewsId">《《上一章：@Model.NewsPrev.Title</a>
+                                <a href="/Success/SuccessContent/@Model.PrevSuccess.Title">《《上一章：@Model.PrevSuccess.Title</a>
                                 <br />
-                                <a href="/News/NewsContent/@Model.NewsNext.NewsId">》》下一章：@Model.NewsNext.Title</a>
+                                <a href="/Success/SuccessContent/@Model.NextSuccess.Title">》》下一章：@Model.NextSuccess.Title</a>
                                 <br />
                                 <div style="float:right;">
                                     <a href="/News/NewsList">返回列表</a>/

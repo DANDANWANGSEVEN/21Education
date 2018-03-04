@@ -32,7 +32,7 @@ namespace _21Education.WebSite.Controllers
         public ActionResult Index()
         {
             var carouselList = new List<DATA.CarouselBase>();
-            var indexcarouselist= _carouselService.Get().OrderByDescending(e => e.CarouselId).ToList();
+            var indexcarouselist= _carouselService.Get().OrderByDescending(e => e.Id).ToList();
             indexcarouselist.ForEach(e => { carouselList.Add(new DATA.CarouselBase { ImgPath = e.ImgPath }); });
 
             var viewModel = new HomeIndexViewModel
@@ -68,19 +68,19 @@ namespace _21Education.WebSite.Controllers
                 //}
             };
             //产品服务
-            var bussinessTitle = _mainbussinessService.Get().OrderBy(e => e.IndexMainBusinessId).ToList();
+            var bussinessTitle = _mainbussinessService.Get().OrderBy(e => e.Id).ToList();
             ViewBag.bussinessTitleShow = bussinessTitle;
 
             //品牌优势
-            var advantageList = _advantageService.Get().OrderBy(e => e.IndexAdvantageId).ToList();
+            var advantageList = _advantageService.Get().OrderBy(e => e.Id).ToList();
             ViewBag.advantageListShow = advantageList;
 
             //首页新闻中心倒序显示五条
-            var newsList = _newsService.Get().OrderByDescending(e=>e.NewsId).Take(5).ToList();
+            var newsList = _newsService.Get().OrderByDescending(e=>e.Id).Take(5).ToList();
             ViewBag.NewsListShow = newsList;
 
             //首页成功案例倒序显示五条
-            var successList = _successService.Get().OrderByDescending(e => e.SuccessId).Take(5).ToList();
+            var successList = _successService.Get().OrderByDescending(e => e.Id).Take(5).ToList();
             ViewBag.SuccessListShow = successList;
 
             return View(viewModel);

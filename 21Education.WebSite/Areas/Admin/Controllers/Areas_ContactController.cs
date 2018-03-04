@@ -33,7 +33,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
       
         public ActionResult ContactCompanyinfo()
         {
-            var companyinfoList = _companyinfo.Get().OrderBy(e => e.ContactCompanyinfoId).ToList();
+            var companyinfoList = _companyinfo.Get().OrderBy(e => e.Id).ToList();
             return View();
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         public JsonResult GetList(GridPager pager)
         {
             //List<SysSampleModel> list = m_BLL.GetList(ref pager);
-            var companyinfoList = _companyinfo.Get().OrderBy(e => e.ContactCompanyinfoId).ToList();
+            var companyinfoList = _companyinfo.Get().OrderBy(e => e.Id).ToList();
             var json = new
             {
                 //total = companyinfoList.Count,
@@ -53,7 +53,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 rows = (from r in companyinfoList
                         select new MODEL.ContactCompanyinfo()
                         {
-                            ContactCompanyinfoId = r.ContactCompanyinfoId,
+                            Id = r.Id,
                             Address = r.Address,
                             Email = r.Email,
                             Phone=r.Phone,
@@ -111,22 +111,22 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 详细
-        public ActionResult Details(int ContactCompanyinfoId)
+        public ActionResult Details(int Id)
         {
-            MODEL.ContactCompanyinfo model= _companyinfo.Get(ContactCompanyinfoId);
-            //return View(_companyinfo.Get().OrderBy(e=>e.ContactCompanyinfoId==id).FirstOrDefault());
+            MODEL.ContactCompanyinfo model= _companyinfo.Get(Id);
+            //return View(_companyinfo.Get().OrderBy(e=>e.Id==id).FirstOrDefault());
             return View(model);
         }
         #endregion
 
         #region 删除
         [HttpPost]
-        public JsonResult Delete(int ContactCompanyinfoId)
+        public JsonResult Delete(int Id)
         {
             try
             {
-                var a = _companyinfo.Get().Where(e => e.ContactCompanyinfoId == ContactCompanyinfoId);
-                _companyinfo.Remove(ContactCompanyinfoId);
+                var a = _companyinfo.Get().Where(e => e.Id == Id);
+                _companyinfo.Remove(Id);
                 _companyinfo.SaveChanges();
                return Json(1, JsonRequestBehavior.AllowGet);
             }

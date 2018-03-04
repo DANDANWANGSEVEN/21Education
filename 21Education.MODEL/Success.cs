@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 案例编号
         /// </summary>
-        public int SuccessId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 案例标题
         /// </summary>

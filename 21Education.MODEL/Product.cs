@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 产品编号
         /// </summary>
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 产品名称
         /// </summary>

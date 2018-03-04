@@ -32,7 +32,7 @@ namespace _21Education.WebSite.Controllers
         {
             var carouselList= new List<DATA.CarouselBase>();
             //公司荣誉
-            var companyhonorList = _companyhonor.Get().OrderByDescending(e => e.AboutCompanyHonorId).ToList();
+            var companyhonorList = _companyhonor.Get().OrderByDescending(e => e.Id).ToList();
             companyhonorList.ForEach(e => { carouselList.Add(new DATA.CarouselBase { ImgPath = e.Image }); });
 
             var viewModel = new ViewModels.HomeIndexViewModel
@@ -44,16 +44,16 @@ namespace _21Education.WebSite.Controllers
                 }
             };
             //公司概况
-            var compangprofile = _companyprofile.Get().OrderBy(e => e.AboutCompanyProfileId).FirstOrDefault();
+            var compangprofile = _companyprofile.Get().OrderBy(e => e.Id).FirstOrDefault();
             ViewBag.compangprofileShow = compangprofile.Article;
 
 
             //公司文化
-            var companyculture = _companyculture.Get().OrderBy(e => e.AboutCompanyCultureId).ToList();
+            var companyculture = _companyculture.Get().OrderBy(e => e.Id).ToList();
             ViewBag.companycultureShow = companyculture;
 
             //公司成就
-            var companyachievement = _companyachievement.Get().OrderByDescending(e => e.AboutCompanyAchievementId).ToList();
+            var companyachievement = _companyachievement.Get().OrderByDescending(e => e.Id).ToList();
             ViewBag.companyachievementShow = companyachievement;
 
             return View(viewModel);

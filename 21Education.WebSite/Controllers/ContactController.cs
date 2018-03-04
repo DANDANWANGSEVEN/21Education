@@ -32,7 +32,7 @@ namespace _21Education.WebSite.Controllers
         public ActionResult ContactUs()
         {
             //公司信息
-            var companyinfoList = _contactcompanyinfo.Get().OrderBy(e=>e.ContactCompanyinfoId).FirstOrDefault();
+            var companyinfoList = _contactcompanyinfo.Get().OrderBy(e=>e.Id).FirstOrDefault();
             ViewData["addressinfo"] = companyinfoList.Address;
             ViewData["emailinfo"] = companyinfoList.Email;
             ViewData["phoneinfo"] = companyinfoList.Phone;
@@ -40,11 +40,11 @@ namespace _21Education.WebSite.Controllers
             ViewData["websiteinfo"] = companyinfoList.Website;
 
             //公司合作
-            var cooperateinfoList = _contactcooperateinfo.Get().OrderBy(e => e.ContactCooperateinfoId).ToList();
+            var cooperateinfoList = _contactcooperateinfo.Get().OrderBy(e => e.Id).ToList();
             ViewBag.cooperateinfoListShow = cooperateinfoList;
 
             //招聘信息
-            var recruitinfoList = _contactrecruitinfo.Get().OrderBy(e => e.ContactRecruitInfoId).FirstOrDefault();
+            var recruitinfoList = _contactrecruitinfo.Get().OrderBy(e => e.Id).FirstOrDefault();
             //ViewBag.recruitimage = recruitinfoList.Image;
             ViewData["recruitimage"]= recruitinfoList.Image;
             ViewData["recruitName"] = recruitinfoList.Name;
@@ -58,7 +58,7 @@ namespace _21Education.WebSite.Controllers
         public ActionResult JoinUs()
         {
             //招聘信息
-            var positioninfoList = _contactpositioninfo.Get().OrderBy(e => e.ContactPositionInfoId).ToList();
+            var positioninfoList = _contactpositioninfo.Get().OrderBy(e => e.Id).ToList();
             ViewBag.positioninfoListShow = positioninfoList;
 
             return View();

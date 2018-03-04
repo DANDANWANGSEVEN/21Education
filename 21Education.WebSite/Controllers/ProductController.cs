@@ -30,11 +30,11 @@ namespace _21Education.WebSite.Controllers
         public ActionResult ProductService(string id)
         {
             //获取产品服务名称
-            var productTitle = _product.Get().OrderByDescending(e => e.ProductId).Take(12).ToList();
+            var productTitle = _product.Get().OrderByDescending(e => e.Id).Take(12).ToList();
             ViewBag.productTitleShow = productTitle;
 
             //品牌优势
-            var advantageList = _advantageService.Get().OrderBy(e => e.IndexAdvantageId).ToList();
+            var advantageList = _advantageService.Get().OrderBy(e => e.Id).ToList();
             ViewBag.advantageListShow = advantageList;
 
             var path = RouteData.GetPath();
@@ -59,7 +59,7 @@ namespace _21Education.WebSite.Controllers
             //    });
             //}
             var pagin = new Pagination(pageIndex: page - 1, recordCount: _product.Count(null),pageSize:5);
-            return new ProductsListViewModel(_product.Get().OrderBy(e => e.ProductId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            return new ProductsListViewModel(_product.Get().OrderBy(e => e.Id).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin
             };
@@ -73,9 +73,9 @@ namespace _21Education.WebSite.Controllers
             try
             {
                 var productList = _product.Get().ToList();
-                Expression<Func<MODEL.Product, bool>> filter = e => e.ProductId == n;
+                Expression<Func<MODEL.Product, bool>> filter = e => e.Id == n;
                 MODEL.Product productCurrent = _product.Get(filter).FirstOrDefault();
-                var currentIndex = productList.FindIndex(e => e.ProductId == productCurrent.ProductId);
+                var currentIndex = productList.FindIndex(e => e.Id == productCurrent.Id);
                 var prev = productList[currentIndex - 1];
                 var next = productList[currentIndex + 1];
                 return View(new ProductsContentViewModel { ProductCurrent = productCurrent, ProductPrev = prev, ProductNext = next });

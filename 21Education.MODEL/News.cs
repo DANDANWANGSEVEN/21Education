@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 新闻编号
         /// </summary>
-        public int NewsId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 新闻标题
         /// </summary>

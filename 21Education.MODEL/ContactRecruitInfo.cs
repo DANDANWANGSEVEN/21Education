@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 招聘信息主键
         /// </summary>
-        public int ContactRecruitInfoId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 图片
         /// </summary>

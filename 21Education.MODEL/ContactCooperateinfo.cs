@@ -12,8 +12,7 @@ namespace _21Education.MODEL
    public  class ContactCooperateinfo : _21Education.IOC.IEntity
     {
 
-        public int ContactCooperateinfoId { get; set; }
-
+        public int Id { get; set; }
         /// <summary>
         /// 合作图片
         /// </summary>

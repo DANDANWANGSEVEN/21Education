@@ -40,7 +40,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         public JsonResult GetList(GridPager pager)
         {
             //List<SysSampleModel> list = m_BLL.GetList(ref pager);
-            var newsList = _newslist.Get().OrderBy(e => e.NewsId).ToList();
+            var newsList = _newslist.Get().OrderBy(e => e.Id).ToList();
             var json = new
             {
                 //total = companyinfoList.Count,
@@ -48,7 +48,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 rows = (from r in newsList
                         select new MODEL.News()
                         {
-                            NewsId = r.NewsId,
+                            Id = r.Id,
                             Title = r.Title,
                             Content = r.Content,
                             PubDate = r.PubDate,

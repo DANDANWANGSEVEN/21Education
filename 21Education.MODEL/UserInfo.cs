@@ -12,7 +12,7 @@ namespace _21Education.MODEL
    public  class UserInfo : _21Education.IOC.IEntity
     {
 
-        public int UserInfoId { get; set; }
+        public int Id { get; set; }
 
         public string UserName { get; set; }
 

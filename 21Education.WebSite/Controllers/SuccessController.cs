@@ -56,10 +56,10 @@ namespace _21Education.WebSite.Controllers
             //    });
             //}
             var pagin = new Pagination(pageIndex: page - 1, recordCount: _successService.Count(null), pageSize: 6);
-            return new SuccessListViewModel(_successService.Get().OrderBy(e => e.SuccessId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            return new SuccessListViewModel(_successService.Get().OrderBy(e => e.Id).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin,
-                FriendlyViewModel = new FriendlyListViewModel { friendlylinks = _friendlylinkservice.Get().OrderBy(e => e.FriendlyLinkId).ToList(), products = _product.Get().OrderBy(e => e.ProductId).Take(8).ToList() }
+                FriendlyViewModel = new FriendlyListViewModel { friendlylinks = _friendlylinkservice.Get().OrderBy(e => e.Id).ToList(), products = _product.Get().OrderBy(e => e.Id).Take(8).ToList() }
 
             };
         }
@@ -70,9 +70,9 @@ namespace _21Education.WebSite.Controllers
         public ActionResult SuccessContent(int n)
         {
             var successList = _successService.Get().ToList();
-            Expression<Func<MODEL.Success, bool>> filter = e => e.SuccessId == n;
+            Expression<Func<MODEL.Success, bool>> filter = e => e.Id == n;
             MODEL.Success successCurrent = _successService.Get(filter).FirstOrDefault();
-            var currentIndex = successList.FindIndex(e => e.SuccessId == successCurrent.SuccessId);
+            var currentIndex = successList.FindIndex(e => e.Id == successCurrent.Id);
             var prev = successList[currentIndex - 1];
             var next = successList[currentIndex + 1];
             return View(new SuccessContentViewModel { CurrentSuccess=successCurrent,PrevSuccess=prev,NextSuccess=next});

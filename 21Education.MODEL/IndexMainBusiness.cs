@@ -14,7 +14,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 业务编号
         /// </summary>
-        public int IndexMainBusinessId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 业务名称
         /// </summary>

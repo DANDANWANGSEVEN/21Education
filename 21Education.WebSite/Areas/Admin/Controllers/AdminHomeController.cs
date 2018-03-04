@@ -41,7 +41,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             {
                 if (Request.Cookies["WrongOverTop"] != null) return -3;
                 var userinfo = new MODEL.UserInfo();
-                userinfo.UserInfoId = 1;
+                userinfo.Id = 1;
                 userinfo.UserName = "admin";
                 userinfo.UserPwd = "123456";
                 userinfo.RegistDate = DateTime.Now;
@@ -159,18 +159,10 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         public JsonResult GetTree(string id)
         {
             //List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
-            var sysmodel = _sysmodelservice.Get().ToList();
-            var menus =
-                (
-                    from m in sysmodel
-                    where m.ParentId == id
-                    where m.Id != "0"
-                    select m
-                          ).Distinct().OrderBy(a => a.Sort).ToList();
-
-
+            var sysmodel = _sysmodelservice.Get().Where(e=>e.ParentId==id&&e.Id!="0").ToList();
+            
             var jsonData = (
-                    from m in menus
+                    from m in sysmodel
                     select new
                     {
                         id = m.Id,
@@ -184,7 +176,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                         Icon = m.Iconic
                     }
                 ).ToArray();
-            return Json("", JsonRequestBehavior.AllowGet);
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
 

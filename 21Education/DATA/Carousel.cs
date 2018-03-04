@@ -11,7 +11,7 @@ namespace _21Education.DATA
         /// <summary>
         /// 轮播主键编号
         /// </summary>
-        public int CarouselId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 图片路径
         /// </summary>

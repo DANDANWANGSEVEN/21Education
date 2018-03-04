@@ -11,7 +11,7 @@ namespace _21Education.MODEL
     /// </summary>
     public class AboutCompanyCulture : _21Education.IOC.IEntity
     {
-        public int AboutCompanyCultureId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 文化图片
         /// </summary>

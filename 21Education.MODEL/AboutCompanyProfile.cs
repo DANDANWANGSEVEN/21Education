@@ -12,7 +12,7 @@ namespace _21Education.MODEL
     public class AboutCompanyProfile : _21Education.IOC.IEntity
     {
 
-        public int AboutCompanyProfileId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 文章介绍
         /// </summary>

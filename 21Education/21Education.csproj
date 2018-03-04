@@ -92,8 +92,10 @@
     <Compile Include="DataBase\DataBaseInitializer.cs" />
     <Compile Include="DATA\Carousel.cs" />
     <Compile Include="DATA\CarouselViewModel.cs" />
+    <Compile Include="DATA\GridPager.cs" />
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
+    <Compile Include="Extend\ObjectExtend.cs" />
     <Compile Include="Extend\QueryableExtend.cs" />
     <Compile Include="IOC\Autofac\AutofacBuilder.cs" />
     <Compile Include="IOC\Autofac\AutofacService.cs" />

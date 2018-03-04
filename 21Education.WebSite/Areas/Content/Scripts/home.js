@@ -130,7 +130,7 @@ function createFrame(url) {
 
         var o = {
             showcheck: false,
-            url: "/Admin/HomeAdmin/GetTree",
+            url: "/Admin/AdminHome/GetTree",
             onnodeclick: function (item) {
                 var tabTitle = item.text;
                 var url = "../../" + item.value;
@@ -143,7 +143,7 @@ function createFrame(url) {
                 }
             }
         }
-        $.post("/Admin/HomeAdmin/GetTree", { "id": "0" },
+        $.post("/Admin/AdminHome/GetTree", { "id": "0" },
             function (data) {
                 if (data == "0") {
                     window.location = "/Account";

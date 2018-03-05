@@ -30,7 +30,7 @@ namespace _21Education.MODEL
         /// 发表时间
         /// </summary>
         [Display(Name = "发表时间")]
-        public DateTime PubDate { get; set; }
+        public DateTime? PubDate { get; set; }
         /// <summary>
         /// 阅读量
         /// </summary>

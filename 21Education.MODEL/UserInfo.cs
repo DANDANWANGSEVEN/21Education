@@ -31,7 +31,7 @@ namespace _21Education.MODEL
         public string ConfirmPwd { get; set; }
 
         [Display(Name = "时间")]
-        public DateTime  RegistDate { get; set; }
+        public DateTime?  RegistDate { get; set; }
 
         [Display(Name = "登陆状态")]
         public int loginstates { get; set; }

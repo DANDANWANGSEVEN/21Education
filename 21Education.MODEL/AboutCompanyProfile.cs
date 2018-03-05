@@ -28,7 +28,7 @@ namespace _21Education.MODEL
         /// 发表时间
         /// </summary>
         [Display(Name = "发表时间")]
-        public DateTime PublishedTime { get; set; }
+        public DateTime? PublishedTime { get; set; }
 
     }
 }

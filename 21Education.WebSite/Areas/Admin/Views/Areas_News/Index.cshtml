@@ -8,48 +8,48 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>新闻中心</title>
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
     <div class="mvctool">
+        <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("/index".ToCharArray())" id="path" />
         <input id="txtQuery" type="text" class="searchText">
         <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
-       @*<a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
-       <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>*@
     </div>
     <table id="List"></table>
     <script type="text/javascript">
-    $(function () {
-        $('#List').datagrid({
-            url: '/Admin/Areas_Contact/GetList',
-            width: $(window).width() - 10,
-            methord: 'post',
-            height: $(window).height() - 35,
-            fitColumns: true,
-            sortName: 'ContactCompanyinfoId',
-            sortOrder: 'desc',
-            idField: 'ContactCompanyinfoId',
-            pageSize: 15,
-            pageList: [15, 20, 30, 40, 50],
-            pagination: true,
-            striped: true, //奇偶行是否区分
-            singleSelect: true,//单选模式
-            rownumbers: true,//行号
-            columns: [[
-                { field: 'ContactCompanyinfoId', title: '编号', width: 80, align: 'center' },
-                { field: 'Address', title: '公司地址', width: 80, align: 'center' },
-                { field: 'Email', title: '邮箱', width: 120, align: 'center' },
-                { field: 'Phone', title: '公司电话', width: 80, align: 'center' },
-                { field: 'Transmission', title: '传真', width: 80, align: 'center' },
-                { field: 'Website', title: '网址', width: 250, align: 'center' }
-            ]]
-        });
-    });
+        $(function () {
+            $('#List').datagrid({
+                url: '@Url.Action("GetList")',
+                width: $(window).width() - 25,
+                methord: 'post',
+                height: $(window).height() - 50,
+                fitColumns: true,
+                sortName: 'Id',
+                sortOrder: 'desc',
+                idField: 'Id',
+                pageSize: 15,
+                pageList: [15, 20, 30, 40, 50],
+                pagination: true,
+                striped: true, //奇偶行是否区分
+                singleSelect: true,//单选模式
+                rownumbers: true,//行号
+                columns: [[
+                    { field: 'Id', title: '编号', width: 80, align: 'center' },
+                    { field: 'Title', title: '标题', width: 80, align: 'center' },
+                    { field: 'Content', title: '内容', width: 80, align: 'center' },
+                    { field: 'PubDate', title: '创建时间', width: 80, align: 'center' },
+                    { field: 'ReadCount', title: '阅读量', width: 80, align: 'center' },
+                    { field: 'PubPerson', title: '发表人', width: 80, align: 'center' }
+
+                ]]
+            })
+        })
     </script>
 </body>
 </html>

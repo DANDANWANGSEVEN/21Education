@@ -27,7 +27,12 @@ namespace _21Education
             {
                 foreach (PropertyInfo prop in properties)
                 {
-                    if((prop.GetValue(item) as string).Contains(searchString)) yield return item;
+                    if((prop.GetValue(item) as string).Contains(searchString))
+                    {
+                        yield return item;
+                        yield break;
+                    }
+                    
                 }
             }
         }

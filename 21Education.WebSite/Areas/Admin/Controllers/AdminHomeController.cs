@@ -1,14 +1,7 @@
-﻿using _21Education.MODEL;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using System;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.SessionState;
 using _21Education.COMMON;
 using _21Education.IDAL;
 
@@ -158,7 +151,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-            //List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
             var sysmodel = _sysmodelservice.Get().Where(e=>e.ParentId==id&&e.Id!="0").ToList();
             
             var jsonData = (

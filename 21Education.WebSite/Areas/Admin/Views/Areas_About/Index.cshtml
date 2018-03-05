@@ -8,12 +8,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>关于我们——公司成就</title>
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
     <div class="mvctool">
-        <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("/index".ToCharArray())" id="path"/>
+        <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("index".ToCharArray())" id="path"/>
         <input id="txtQuery" type="text" class="searchText">
         <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>

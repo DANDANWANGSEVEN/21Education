@@ -33,7 +33,8 @@ namespace _21Education.WebSite.Controllers
         {
             //公司信息
             var companyinfoList = _contactcompanyinfo.Get().OrderBy(e=>e.Id).FirstOrDefault();
-            ViewData["addressinfo"] = companyinfoList.Address;
+            ViewBag.companyinfoListShow = companyinfoList;
+            //ViewData["addressinfo"] = companyinfoList.Address;
             ViewData["emailinfo"] = companyinfoList.Email;
             ViewData["phoneinfo"] = companyinfoList.Phone;
             ViewData["transmission"] = companyinfoList.Transmission;

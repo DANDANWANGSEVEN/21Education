@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,12 @@ namespace _21Education.MODEL
         /// <summary>
         /// 荣誉证书图片
         /// </summary>
+        [Display(Name = "荣誉证书图片")]
         public string Image { get; set; }
         /// <summary>
         /// 发表时间
         /// </summary>
+        [Display(Name = "发表时间")]
         public DateTime PublishedTime { get; set; }
 
 

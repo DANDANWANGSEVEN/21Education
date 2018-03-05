@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "Create";
+﻿@model _21Education.MODEL.News
+
+
+@{
+    ViewBag.Title = "新闻中心信息添加";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
-@model _21Education.MODEL.News
-@using _21Education.COMMON
 
 
 <script type="text/javascript">
@@ -11,7 +12,7 @@
         $("#btnSave").click(function () {
 
                 $.ajax({
-                    url: "/Admin/Areas_News/Create",
+                    url: "@Url.Action("Create")",
                     type: "Post",
                     data: $("#CreateForm").serialize(),
                     dataType: "json",
@@ -41,74 +42,42 @@
         <tbody>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.NewsId)：
-                </td>
-                <td style="width:310px">
-                    @Html.EditorFor(model => model.NewsId)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.NewsId)</td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @*@Html.LabelFor(model => model.Address)：*@
-                    具体地址：
+                    @Html.LabelFor(model => model.Title)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.Title)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.Title)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.Content)：
                 </td>
-
                 <td>
                     @Html.EditorFor(model => model.Content)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.Content)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.PubDate)：
                 </td>
-
                 <td>
-                    @Html.TextBoxFor(model => model.PubDate)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.PubDate)
+                    @Html.EditorFor(model => model.PubDate)
                 </td>
             </tr>
-
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.ReadCount)：
                 </td>
-
                 <td>
                     @Html.EditorFor(model => model.ReadCount)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.ReadCount)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.PubPerson)：
-
-                </td>
-
-                <td>
-                    @Html.TextBoxFor(model => model.PubPerson)
-
                 </td>
                 <td>
-                    @Html.ValidationMessageFor(model => model.PubPerson)
+                    @Html.EditorFor(model => model.PubPerson)
                 </td>
             </tr>
         </tbody>

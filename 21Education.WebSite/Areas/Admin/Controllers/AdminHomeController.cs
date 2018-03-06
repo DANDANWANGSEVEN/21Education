@@ -136,13 +136,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         }
         #endregion
 
-        #region 修改用户密码
-        public ActionResult UpdatePwd()
-        {
-            return View();
-        }
-        #endregion
-
         #region 树形导航
         /// <summary>
         /// 获取导航菜单

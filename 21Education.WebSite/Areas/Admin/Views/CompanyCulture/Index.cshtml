@@ -41,8 +41,8 @@
                 rownumbers: true,//行号
                 columns: [[
                 { field: 'Id', title: '编号', width: 80, align: 'center' },
-                { field: 'Image', title: '公司地址', width: 80, align: 'center' },
-                { field: 'desc', title: '邮箱', width: 120, align: 'center' }
+                { field: 'Image', title: '公司文化', width: 80, align: 'center' },
+                { field: 'desc', title: '文化描述', width: 120, align: 'center' }
             
                 ]]
             });
@@ -50,3 +50,17 @@
     </script>
 </body>
 </html>
+<script>
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
+    });
+</script>

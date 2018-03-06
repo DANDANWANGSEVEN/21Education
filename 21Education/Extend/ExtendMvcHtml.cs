@@ -5,7 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace _21Education.WebSite.Handler
+namespace _21Education
 {
     public static class ExtendMvcHtml
     {
@@ -23,15 +23,14 @@ namespace _21Education.WebSite.Handler
         {
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("<a id=\"{0}\" class=\"l-btn l-btn-plain\">", id);
-            sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding - left: 50px; \">", icon);
+            sb.AppendFormat("<a id=\"{0}\" style=\"float: left;\" class=\"l-btn l-btn-plain\">", id);
+            sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding-left: 20px;\">", icon);
             sb.AppendFormat("{0}</span></span></a>", text);
             if (hr)
             {
                 sb.Append("<div class=\"datagrid-btn-separator\"></div>");
             }
             return new MvcHtmlString(sb.ToString());
-
         }
 
 

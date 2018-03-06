@@ -54,7 +54,6 @@
     <Compile Include="Extend\RouteDataExtend.cs" />
     <Compile Include="Extend\UrlHelperExtend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ToJsonResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\21Education\21Education.csproj">

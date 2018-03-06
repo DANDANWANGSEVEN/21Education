@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
 
-namespace _21Education.COMMON
+namespace _21Education
 {
    public  class ToJsonResult: JsonResult
     {

@@ -53,6 +53,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,8 +96,11 @@
     <Compile Include="DATA\GridPager.cs" />
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
+    <Compile Include="Extend\DataGridSuggestionExtend.cs" />
+    <Compile Include="Extend\ExtendMvcHtml.cs" />
     <Compile Include="Extend\ObjectExtend.cs" />
     <Compile Include="Extend\QueryableExtend.cs" />
+    <Compile Include="Extend\ToJsonResult.cs" />
     <Compile Include="IOC\Autofac\AutofacBuilder.cs" />
     <Compile Include="IOC\Autofac\AutofacService.cs" />
     <Compile Include="IOC\IAdapter.cs" />

@@ -4,7 +4,6 @@
 }
 <script src="~/Areas/Content/Scripts/jquery.easyui.plus.js"></script>
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -26,9 +25,9 @@
         $(function () {
             $('#List').datagrid({
                 url: '@Url.Action("GetList")',
-                width: $(window).width() - 10,
+                width: $(window).width() - 25,
                 methord: 'post',
-                height: $(window).height() - 35,
+                height: $(window).height() - 40,
                 fitColumns: true,
                 sortName: 'Id',
                 sortOrder: 'desc',
@@ -45,6 +44,21 @@
                 ]]
             });
         });
+
     </script>
 </body>
 </html>
+<script>
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
+    });
+</script>

@@ -1,6 +1,6 @@
-﻿@model _21Education.MODEL.Success
+﻿@model _21Education.MODEL.AboutCompanyProfile
 @{
-    ViewBag.Title = "成功案例添加";
+    ViewBag.Title = "创建";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
 <script type="text/javascript">
@@ -26,6 +26,8 @@
         });
     });
 </script>
+
+
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -36,42 +38,26 @@
         <tbody>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Title)：
+                    @Html.LabelFor(model => model.Article)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.Title)
+                    @Html.EditorFor(model => model.Article)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Content)：
+                    @Html.LabelFor(model => model.PublishedPerson)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.Content)
+                    @Html.EditorFor(model => model.PublishedPerson)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.PubDate)：
+                    @Html.LabelFor(model => model.PublishedTime)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.PubDate)
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.ReadCount)：
-                </td>
-                <td>
-                    @Html.EditorFor(model => model.ReadCount)
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.PubPerson)：
-                </td>
-                <td>
-                    @Html.EditorFor(model => model.PubPerson)
+                    @Html.EditorFor(model => model.PublishedTime)
                 </td>
             </tr>
         </tbody>

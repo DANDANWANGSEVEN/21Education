@@ -175,12 +175,12 @@
     <Compile Include="Areas\Admin\Controllers\BrandAdvantageController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrangAdvantageController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyCultureController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CompanyFileController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyHonorController.cs" />
     <Compile Include="Areas\Admin\Controllers\JoinUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductServiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\UpdatePwdController.cs" />
-    <Compile Include="Handler\ExtendMvcHtml.cs" />
     <Compile Include="Handler\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
@@ -377,7 +377,6 @@
     <Content Include="Areas\Content\themes\blue\images\validatebox_warning.png" />
     <Content Include="Handler\verify_code.ashx" />
     <Content Include="Areas\Admin\Views\Areas_About\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHome\UpdatePwd.cshtml" />
     <Content Include="Areas\Admin\Views\Areas_Contact\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Index_LayoutEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Index_Layout.cshtml" />
@@ -421,6 +420,10 @@
     <Content Include="Areas\Admin\Views\Areas_Success\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\UpdatePwd\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UpdatePwd\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CompanyFile\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CompanyFile\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CompanyFile\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UpdatePwd\Create.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />
@@ -1247,7 +1250,6 @@
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Shared\View1.cshtml" />
     <Content Include="Views\PartView\NewListPage.cshtml" />
-    <Content Include="Views\PartView\ContentPage.cshtml" />
     <Content Include="Views\PartView\Partial.Pagination.cshtml" />
     <Content Include="Views\Success\SuccessList.cshtml" />
     <Content Include="Views\Product\ProductService.cshtml" />

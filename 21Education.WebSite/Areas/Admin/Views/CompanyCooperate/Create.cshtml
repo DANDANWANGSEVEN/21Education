@@ -1,18 +1,14 @@
-﻿@model _21Education.MODEL.Carousel
-
-
+﻿@model _21Education.MODEL.ContactCooperateinfo
 @{
-    ViewBag.Title = "修改首页轮播图";
+    ViewBag.Title = "创建公司合作";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
-
-
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
 
                 $.ajax({
-                    url: "@Url.Action("Edit")",
+                    url: "@Url.Action("Create")",
                     type: "Post",
                     data: $("#CreateForm").serialize(),
                     dataType: "json",
@@ -35,34 +31,33 @@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
-@using (Html.BeginForm("Create", "Areas_Home", null, FormMethod.Post, new { Id = "CreateForm" }))
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
 {
     @Html.ValidationSummary(true)
-    @Html.HiddenFor(model => model.Id)
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.ImgPath)：
+                    @Html.LabelFor(model => model.Image)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.ImgPath)
+                    @Html.EditorFor(model => model.Image)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Describe)：
+                    @Html.LabelFor(model => model.Name)：
                 </td>
                 <td>
-                    @Html.TextAreaFor(model => model.Describe)
+                    @Html.EditorFor(model => model.Name)
                 </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.PublishedTime)：
+                    @Html.LabelFor(model => model.Content)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.PublishedTime)
+                    @Html.TextAreaFor(model => model.Content)
                 </td>
             </tr>
         </tbody>

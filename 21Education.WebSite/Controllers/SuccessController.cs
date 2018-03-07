@@ -73,8 +73,9 @@ namespace _21Education.WebSite.Controllers
             Expression<Func<MODEL.Success, bool>> filter = e => e.Id == n;
             MODEL.Success successCurrent = _successService.Get(filter).FirstOrDefault();
             var currentIndex = successList.FindIndex(e => e.Id == successCurrent.Id);
-            var prev = successList[currentIndex - 1];
-            var next = successList[currentIndex + 1];
+
+            var prev = currentIndex==0?null:successList[currentIndex - 1];
+            var next =currentIndex==_successService.Count(null)-1?null:successList[currentIndex + 1];
             return View(new SuccessContentViewModel { CurrentSuccess=successCurrent,PrevSuccess=prev,NextSuccess=next});
         }
         #endregion

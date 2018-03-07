@@ -22,12 +22,14 @@ namespace _21Education.MODEL
         /// 密码
         /// </summary>
         [Display(Name = "密码")]
+        [Required(ErrorMessage = "密码不能为空")]
         public string UserPwd { get; set; }
 
         /// <summary>
         /// 确认密码
         /// </summary>
         [Display(Name = "确认密码")]
+        [Required(ErrorMessage = "确认密码不能为空")]
         public string ConfirmPwd { get; set; }
 
         [Display(Name = "时间")]

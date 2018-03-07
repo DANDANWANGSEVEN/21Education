@@ -56,8 +56,8 @@ namespace _21Education.WebSite.Controllers
             Expression<Func<News, bool>> filter = e => e.Id == n;
             News newsCurrent = _newsService.Get(filter).FirstOrDefault();
             var currentIndex = newList.FindIndex(e => e.Id == newsCurrent.Id);
-            var prev = newList[currentIndex - 1];
-            var next = newList[currentIndex + 1];
+            var prev = currentIndex == 0 ? null : newList[currentIndex - 1];
+            var next = currentIndex == _newsService.Count(null) - 1 ? null : newList[currentIndex + 1];
 
             return View(new NewsContentViewModel { NewsCurrent = newsCurrent, NewsPrev = prev, NewsNext = next });
         }

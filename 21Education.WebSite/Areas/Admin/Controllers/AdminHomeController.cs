@@ -13,9 +13,11 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         //
         // GET: /Admin/AdminHome/
         ISysModule _sysmodelservice;
-        public AdminHomeController(ISysModule sysmodelservice)
+        Iuserinfo _userinfo;
+        public AdminHomeController(ISysModule sysmodelservice, Iuserinfo userinfo)
         {
             _sysmodelservice = sysmodelservice;
+            _userinfo = userinfo;
         }
 
 
@@ -33,17 +35,19 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             try
             {
                 if (Request.Cookies["WrongOverTop"] != null) return -3;
-                var userinfo = new MODEL.UserInfo();
-                userinfo.Id = 1;
-                userinfo.UserName = "admin";
-                userinfo.UserPwd = "123456";
-                userinfo.RegistDate = DateTime.Now;
+                //var userinfo = new MODEL.UserInfo();
+                //userinfo.Id = 1;
+                //userinfo.UserName = "admin";
+                //userinfo.UserPwd = "123456";
+                //userinfo.RegistDate = DateTime.Now;
 
-                if (UserName != userinfo.UserName)
+                var userinfolist = _userinfo.Get().FirstOrDefault();
+
+                if (UserName != userinfolist.UserName)
                 {
                     return -1;  //用户名不正确
                 }
-                else if (Password != userinfo.UserPwd)
+                else if (Password != userinfolist.UserPwd)
                 {
                     if (Session["pwdWrong"] == null)
                     {
@@ -69,10 +73,10 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                     var userCookie = new HttpCookie("UserCookie");
                     userCookie.Path = "/";
                     Guid guidUName = Guid.NewGuid();
-                    AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfo.UserName);
+                    AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfolist.UserName);
                     userCookie.Value = guidUName.ToString("N");
                     HttpContext.Response.Cookies.Add(userCookie);
-                    HttpContext.Response.Cookies.Add(new HttpCookie(userinfo.UserName));
+                    HttpContext.Response.Cookies.Add(new HttpCookie(userinfolist.UserName));
                     return 1;  //成功
                 }
                 

@@ -27,7 +27,8 @@
     #contenttitle {
         height: 70px;
     }
-        #title {
+
+    #title {
         color: #0057be;
         margin-top: 5px;
     }
@@ -104,9 +105,23 @@
                     <tr>
                         <td>
                             <div id="tooltip">
-                                <a href="/News/NewsContent/@Model.NewsPrev.Id">＜＜上一章：@Model.NewsPrev.Title</a>
+                                @if (Model.NewsPrev == null)
+                                {
+                                    <a>没有上一章了</a>
+                                }
+                                else
+                                {
+                                    <a href="/News/NewsContent/@Model.NewsPrev.Id">＜＜上一章：@Model.NewsPrev.Title</a>
+                                }
                                 <br />
-                                <a href="/News/NewsContent/@Model.NewsNext.Id">＞＞下一章：@Model.NewsNext.Title</a>
+                                @if (Model.NewsNext == null)
+                                {
+                                    <a>没有下一章了</a>
+                                }
+                                else
+                                {
+                                    <a href="/News/NewsContent/@Model.NewsNext.Id">＞＞下一章：@Model.NewsNext.Title</a>
+                                }
                                 <br />
                                 <div style="float:right;">
                                     <a href="/News/NewsList">返回列表</a>/

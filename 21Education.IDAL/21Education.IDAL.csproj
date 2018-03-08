@@ -44,6 +44,7 @@
     <Compile Include="IContactCooperateinfo.cs" />
     <Compile Include="IContactRecruitInfo.cs" />
     <Compile Include="IContactPositionInfo.cs" />
+    <Compile Include="IFriendlyLink.cs" />
     <Compile Include="IProduct.cs" />
     <Compile Include="IndexMainBusinessIDAL.cs" />
     <Compile Include="IndexAdvantageIDAL.cs" />

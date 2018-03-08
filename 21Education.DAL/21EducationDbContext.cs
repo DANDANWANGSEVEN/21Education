@@ -12,12 +12,11 @@ namespace _21Education.DAL
 
     public class _21EducationDbContext : DbContext, IDependency
     {
-        public _21EducationDbContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
+        public _21EducationDbContext(string nameOrConnectionString): base(nameOrConnectionString)
         {
-            Database.CreateIfNotExists();
-            Database.SetInitializer(new Initializer());
-            Database.Initialize(true);
+            //Database.CreateIfNotExists();
+            //Database.SetInitializer(new Initializer());
+            //Database.Initialize(true);
         }
         #region 首页
         public DbSet<Carousel> Carousel { set; get; }
@@ -42,13 +41,17 @@ namespace _21Education.DAL
         public DbSet<ContactPositionInfo> ContactPositionInfo { set; get; }
         #endregion
 
+        #region 友情链接
+        public DbSet<FriendlyLink> FriendlyLink { set; get; }
+        #endregion
+
         #region 后台用户管理
         public DbSet<UserInfo> UserInfo { set; get; }
         #endregion
 
         #region 后台树形
 
-        //public DbSet<SysModule> SysModule { set; get; }
+        public DbSet<SysModule> SysModule { set; get; }
 
         #endregion
 

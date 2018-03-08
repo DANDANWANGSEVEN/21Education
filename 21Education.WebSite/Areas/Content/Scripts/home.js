@@ -130,7 +130,7 @@ function createFrame(url) {
 
         var o = {
             showcheck: false,
-            //url: "/Admin/HomeAdmin/GetTree",
+            url: "/Admin/HomeAdmin/GetTree",
             onnodeclick: function (item) {
                 var tabTitle = item.text;
                 var url = "../../" + item.value;
@@ -143,14 +143,14 @@ function createFrame(url) {
                 }
             }
         }
-        //$.post("/Admin/HomeAdmin/GetTree", { "id": "0" },
-        //    function (data) {
-        //        if (data == "0") {
-        //            window.location = "/Account";
-        //        }
-        //        o.data = data;
-        //        $("#RightTree").treeview(o);
-        //    }, "json");
+        $.post("/Admin/HomeAdmin/GetTree", { "id": "0" },
+            function (data) {
+                if (data == "0") {
+                    window.location = "/Account";
+                }
+                o.data = data;
+                $("#RightTree").treeview(o);
+            }, "json");
         $("#RightTree").treeview(o);
     });
 

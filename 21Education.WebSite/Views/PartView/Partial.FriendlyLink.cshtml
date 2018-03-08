@@ -1,4 +1,5 @@
 ﻿
+@model FriendlyListViewModel
 <style>
     /*友情链接*/
     #FrendLink {
@@ -62,7 +63,11 @@
     <tr>
         <td>
             <ul id="charactsristiccase" style="margin-top:10px;">
-                <li><a href="/News/NewsContent">数据扫描产品</a> </li>
+                @foreach (var productitem in Model.products)
+                {
+                    <li><a href="/News/NewsContent" target="_blank">@productitem.Title</a></li>
+                }
+                @*<li><a href="/News/NewsContent">数据扫描产品</a> </li>
                 <li><a href="/News/NewsContent">网上阅卷服务</a> </li>
                 <li><a href="/News/NewsContent">软件开发服务</a> </li>
                 <li><a href="/News/NewsContent">软件产品</a> </li>
@@ -71,7 +76,7 @@
                 <li><a href="/News/NewsContent">通用无纸化智能考试平台</a> </li>
                 <li><a href="/News/NewsContent">网上报名管理系统</a> </li>
                 <li><a href="/News/NewsContent">测评与评价系统</a> </li>
-                <li><a href="/News/NewsContent">云服务中心</a> </li>
+                <li><a href="/News/NewsContent">云服务中心</a> </li>*@
             </ul>
         </td>
     </tr>
@@ -85,7 +90,11 @@
     <tr>
         <td>
             <ul id="friendlylink" style="margin-top:10px;">
-                <li><a href="http://www.cet.edu.cn/cet_kw1.htm" target="_blank">全国大学英语四六级考委会</a></li>
+                @foreach (var friendlyitem in Model.friendlylinks)
+                {
+                    <li><a href="@friendlyitem.FriendlyUrl" target="_blank">@friendlyitem.FriendlyTitle</a></li>
+                }
+                @*<li><a href="http://www.cet.edu.cn/cet_kw1.htm" target="_blank">全国大学英语四六级考委会</a></li>
                 <li><a href="http://www.hdks.gov.cn/" target="_blank">北京市海淀区招生考试中心</a></li>
                 <li><a href="http://www.auditexam.cn/auditexam/index" target="_blank">审计考试网</a></li>
                 <li><a href="http://www.jlste.com.cn/jlste_index.asp" target="_blank">吉林省高等教育自学考试信息网</a></li>
@@ -94,8 +103,8 @@
                 <li><a href="http://chaxun.neea.edu.cn/examcenter/main.jsp" target="_blank">教育部综合查询网</a></li>
                 <li><a href="http://www.cpta.com.cn/" target="_blank">中国人事考试网</a></li>
                 <li><a href="http://www.neea.edu.cn/" target="_blank">教育部考试中心</a></li>
-                <li><a href="http://www.ch.21vianet.com/" target="_blank">世纪互联数据中心</a></li>
+                <li><a href="http://www.ch.21vianet.com/" target="_blank">世纪互联数据中心</a></li>*@
             </ul>
-        </td>
+</td>
     </tr>
 </table>

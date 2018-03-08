@@ -8,6 +8,7 @@ using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
 using _21Education.MODEL;
 using _21Education.WebSite.Handler;
+using _21Education.IDAL;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -16,6 +17,12 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Areas_Contact/
+
+        IContactCompanyinfo _companyinfo;
+        public Areas_ContactController(IContactCompanyinfo companyinfo)
+        {
+            _companyinfo = companyinfo;
+        }
 
         public ActionResult Index()
         {
@@ -26,6 +33,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
       
         public ActionResult ContactCompanyinfo()
         {
+            var companyinfoList = _companyinfo.Get().OrderBy(e => e.ContactCompanyinfoId).ToList();
             return View();
         }
         /// <summary>
@@ -36,26 +44,13 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult GetList(GridPager pager)
         {
-            var list = new List<MODEL.ContactCompanyinfo>();
-
-            for (int i = 0; i < 15; i++)
-            {
-                list.Add(new MODEL.ContactCompanyinfo
-                {
-                    ContactCompanyinfoId = i,
-                    Address = "beijing",
-                    Email = "@.email",
-                    Phone = "979899",
-                    Transmission = "12345",
-                    Website = "www"
-                });
-            }
-
+            //List<SysSampleModel> list = m_BLL.GetList(ref pager);
+            var companyinfoList = _companyinfo.Get().OrderBy(e => e.ContactCompanyinfoId).ToList();
             var json = new
             {
-                //total = list.Count,
+                //total = companyinfoList.Count,
                 total = pager.totalRows,
-                rows = (from r in list
+                rows = (from r in companyinfoList
                         select new MODEL.ContactCompanyinfo()
                         {
                             ContactCompanyinfoId = r.ContactCompanyinfoId,
@@ -69,43 +64,39 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             return Json(json, JsonRequestBehavior.AllowGet);
         }
 
-        //#region 创建
+        #region 创建
         public ActionResult Create()
         {
             return View();
         }
 
-        //[HttpPost]
-        //public JsonResult Create(MODEL.ContactCompanyinfo model)
-        //{
+        [HttpPost]
+        public JsonResult Create(MODEL.ContactCompanyinfo model)
+        {
+            try
+            {
+                _companyinfo.Add(model);
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
 
-
-        //    if (m_BLL.Create(model))
-        //    {
-        //        return Json(1, JsonRequestBehavior.AllowGet);
-        //    }
-        //    else
-        //    {
-        //        return Json(0, JsonRequestBehavior.AllowGet);
-        //    }
-
-        //}
-        //#endregion
-
-        //#region 修改
+        #region 修改
 
         //public ActionResult Edit(string id)
         //{
 
-        //    MODEL.ContactCompanyinfo entity = m_BLL.GetById(id);
+        //    MODEL.ContactCompanyinfo entity = _companyinfo.Update(MODEL.ContactCompanyinfo id)
         //    return View(entity);
         //}
 
         //[HttpPost]
-
         //public JsonResult Edit(MODEL.ContactCompanyinfo model)
         //{
-
 
         //    if (m_BLL.Edit(model))
         //    {
@@ -117,41 +108,31 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         //    }
 
         //}
-        //#endregion
+        #endregion
 
-        //#region 详细
-        //public ActionResult Details(string id)
-        //{
-        //    MODEL.ContactCompanyinfo entity = m_BLL.GetById(id);
-        //    return View(entity);
-        //}
+        #region 详细
+        public ActionResult Details(int id)
+        { 
+            return View(_companyinfo.Get(id));
+        }
+        #endregion
 
-        //#endregion
-
-        //#region 删除
-        //[HttpPost]
-        //public JsonResult Delete(string id)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(id))
-        //    {
-        //        if (m_BLL.Delete(id))
-        //        {
-        //            return Json(1, JsonRequestBehavior.AllowGet);
-        //        }
-        //        else
-        //        {
-
-        //            return Json(0, JsonRequestBehavior.AllowGet);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return Json(0, JsonRequestBehavior.AllowGet);
-        //    }
-
-
-        //}
-        //#endregion
+        #region 删除
+        [HttpPost]
+        public JsonResult Delete(int ContactCompanyinfoId)
+        {
+            try
+            {
+                var a = _companyinfo.Get().Where(e => e.ContactCompanyinfoId == ContactCompanyinfoId);
+               _companyinfo.Remove(ContactCompanyinfoId);
+               return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
 
 
 

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using _21Education.COMMON;
 using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
+using _21Education.IDAL;
 namespace _21Education.WebSite.Controllers
 {
     /// <summary>
@@ -13,41 +14,56 @@ namespace _21Education.WebSite.Controllers
     /// </summary>
     public class ProductController : Controller
     {
-        //
-        // GET: /Product/
+        IProduct _product;
+        IndexAdvantageIDAL _advantageService;
 
-        public ActionResult Index()
+        public ProductController(IProduct product,IndexAdvantageIDAL advantageService)
         {
-            return View();
+            _product = product;
+            _advantageService = advantageService;
         }
+
         public ActionResult ProductService(string id)
         {
+            //获取产品服务名称
+            var productTitle = _product.Get().OrderBy(e => e.ProductId).ToList();
+            ViewBag.productTitleShow = productTitle;
+
+            //品牌优势
+            var advantageList = _advantageService.Get().OrderBy(e => e.IndexAdvantageId).ToList();
+            ViewBag.advantageListShow = advantageList;
+
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
-            return View(NewsListTest(page));
+            return View(ProductsListTest(page));
         }
 
 
-        NewsListViewModel NewsListTest(int page)
+        ProductsListViewModel ProductsListTest(int page)
         {
-            var newsList = new List<MODEL.News>();
-            for (int i = 0; i < 30; i++)
-            {
-                newsList.Add(new MODEL.News
-                {
-                    NewsId = i,
-                    Title = "产品" + i,
-                    Content = "产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述",
-                    ImgPath = "/image/about_14.jpg",
-                    PubDate = DateTime.Now,
-                    ReadCount = 300
-                });
-            }
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(),pageSize:4);
-            return new NewsListViewModel(newsList.Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
+            //var newsList = new List<MODEL.News>();
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    newsList.Add(new MODEL.News
+            //    {
+            //        NewsId = i,
+            //        Title = "产品" + i,
+            //        Content = "产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述",
+            //        ImgPath = "/image/about_14.jpg",
+            //        PubDate = DateTime.Now,
+            //        ReadCount = 300
+            //    });
+            //}
+            var pagin = new Pagination(pageIndex: page - 1, recordCount: _product.Count(null),pageSize:5);
+            return new ProductsListViewModel(_product.Get().OrderBy(e=>e.ProductId).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
                 Pagination = pagin
             };
         }
+
+        
+
+
+
     }
 }

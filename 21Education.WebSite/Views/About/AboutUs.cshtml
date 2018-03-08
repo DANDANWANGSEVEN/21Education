@@ -19,12 +19,12 @@
         <td></td>
     </tr>
     <tr>
-        <td>
-            <div>
-                <p>北京世纪互联软件开发有限公司主要面向教育及考试服务领域，提供相关应用软件开发和互联网应用等在内的一站式考试服务，在大规模数据采集、网上阅卷、机考、教学评测、考试领域的软件开发和互联网应用方面拥有国内领先的技术成果，被认定为高新技术企业、中关村高新技术企业和双软企业，是行业内最早推广网上录取及网上阅卷技术的先驱者。</p>
-                <p>我们与教育部考试中心及其相关300多个高校考点有十多年的密切合作，并参与其有关四六级证书查询，自考证书查询等平台建设，承接人社部，卫生部等考试机构20多种执业证书的考务评卷工作。</p>
-                <p>公司服务客户包括教育部考试中心、人力资源和社会保障部人事考试中心、北京教育考试院、天津教育考试院、吉林省教育考试院、北京市海淀区招生考试中心、国家医学考试中心、审计署考试中心、国家统计局人事教育司、辽宁省人事考试局、陕西省人事考试中心、浙江省人事考试办公室、中国建设工程造价管理学会、中国消防协会等政府单位。</p>
-            </div>
+        <td>        
+            @foreach (var Profileitem in ViewBag.compangprofileShow)
+            {
+                <div>@Html.Raw(Profileitem.Article)</div>
+            }
+           
         </td>
     </tr>
 </table>
@@ -42,7 +42,7 @@
         <table border="0" style="margin:auto;">
             <tr>
                 <td>
-                    @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+                    @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.HonorShow)
                 </td>
             </tr>
         </table>
@@ -60,22 +60,13 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <img class="img" src="~/image/culture_one.png" />
-            <p>承诺是金  言出必行</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_two.png" />
-            <p>快速响应  客户需求</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_three.png" />
-            <p>有效合作 1+1>2</p>
-        </td>
-        <td>
-            <img class="img" src="~/image/culture_four.png" />
-            <p>永不满足  渴望超越</p>
-        </td>
+        @foreach (var Cultureitem in ViewBag.companycultureShow)
+            {
+            <td>
+                <img class="img" src="@Cultureitem.Image" />
+                <p>@Cultureitem.desc</p>
+            </td>
+        }
     </tr>
 </table>
 
@@ -87,16 +78,14 @@
             <span style="font-size:14px;">因为用心，所以专业</span>
         </td>
     </tr>
-    <tr>
-        <td colspan="4">
-            <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_23.jpg" alt="">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <img class="img-responsive" style="width:1000px;height:180px;" src="~/image/about_26.jpg" alt="">
-        </td>
-    </tr>
+    @foreach (var achievementitem in ViewBag.companyachievementShow)
+    {
+        <tr>
+            <td colspan="4">
+                <img class="img-responsive" style="width:1000px;height:180px;" src="@achievementitem.Image" alt="">
+            </td>
+        </tr>
+    }
 </table>
 
 

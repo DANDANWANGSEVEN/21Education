@@ -15,9 +15,9 @@ namespace _21Education.MODEL
 
         public int Id { get; set; }
         /// <summary>
-        /// 文章介绍
+        /// 文章内容
         /// </summary>
-        [Display(Name = "文章介绍")]
+        [Display(Name = "文章内容")]
         public string Article { get; set; }
         /// <summary>
         /// 发表人

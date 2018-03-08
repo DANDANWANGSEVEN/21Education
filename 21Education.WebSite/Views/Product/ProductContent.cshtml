@@ -106,9 +106,24 @@
                     <tr>
                         <td>
                             <div id="tooltip">
-                                <a href="/Product/ProductContent/@Model.ProductPrev.ProductId">《《上一章：@Model.ProductPrev.Title</a>
+
+                                @if(Model.ProductPrev==null)
+                                {
+                                <a>没有上一章了</a>
+                                }
+                                else
+                                {
+                                <a href="/Product/ProductContent/@Model.ProductPrev.Id">＜＜上一章：@Model.ProductPrev.Title</a>
+                                }
                                 <br />
-                                <a href="/Product/ProductContent/@Model.ProductNext.ProductId">》》下一章：@Model.ProductNext.Title</a>
+                                @if(Model.ProductNext==null)
+                                {
+                                <a>没有下一章了</a>
+                                }
+                                else
+                                {
+                                <a href="/Product/ProductContent/@Model.ProductNext.Id">＞＞下一章：@Model.ProductNext.Title</a>
+                                }
                                 <br />
                                 <div style="float:right;">
                                     <a href="/Product/ProductService">返回列表</a>/

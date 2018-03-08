@@ -1,5 +1,90 @@
-﻿@{
-    ViewBag.Title = "Edit";
+﻿@model _21Education.MODEL.Success
+@{
+    ViewBag.Title = "修改成功案例信息";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<link href="~/Content/Areasjs/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/Areasjs/bootstrap.min.js"></script>
+<link href="~/script/themes/default/default.css" rel="stylesheet" />
+<script src="~/script/kindeditor-min.js"></script>
+<script src="~/script/lang/zh_CN.js"></script>
+<script src="~/Areas/Content/Scripts/KindEdit.js"></script>
 
-<h2>Edit</h2>
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
+                    }
+                });
+        });
+    });
+</script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Title)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Title)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PubDate)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PubDate)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ReadCount)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.ReadCount)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PubPerson)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PubPerson)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Content)：
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.Content)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

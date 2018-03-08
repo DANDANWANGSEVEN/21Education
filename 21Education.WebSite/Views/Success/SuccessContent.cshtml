@@ -105,9 +105,24 @@
                     <tr>
                         <td>
                             <div id="tooltip">
-                                <a href="/Success/SuccessContent/@Model.PrevSuccess.Title">《《上一章：@Model.PrevSuccess.Title</a>
+
+                                @if (Model.PrevSuccess == null)
+                                {
+                                    <a>没有上一章了</a>
+                                }
+                                else
+                                {
+                                    <a href="/Success/SuccessContent/@Model.PrevSuccess.Id">＜＜上一章：@Model.PrevSuccess.Title</a>
+                                }
                                 <br />
-                                <a href="/Success/SuccessContent/@Model.NextSuccess.Title">》》下一章：@Model.NextSuccess.Title</a>
+                                @if (Model.NextSuccess == null)
+                                {
+                                    <a>没有下一章了</a>
+                                }
+                                else
+                                {
+                                    <a href="/Success/SuccessContent/@Model.NextSuccess.Id">＞＞下一章：@Model.NextSuccess.Title</a>
+                                }
                                 <br />
                                 <div style="float:right;">
                                     <a href="/News/NewsList">返回列表</a>/

@@ -4,9 +4,9 @@ using _21Education.MVC;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
-    public class JoinUsController : BasicController<ContactPositionInfo, IContactPositionInfo>
+    public class JoinUsController : BasicController<ContactRecruitInfo, IContactRecruitInfo>
     {
-        public JoinUsController(IContactPositionInfo service) : base(service)
+        public JoinUsController(IContactRecruitInfo service) : base(service)
         {
         }
     }

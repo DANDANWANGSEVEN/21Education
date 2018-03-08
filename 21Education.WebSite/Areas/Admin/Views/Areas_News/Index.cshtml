@@ -20,6 +20,7 @@
         <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
         <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+        
     </div>
     <table id="List"></table>
     <script type="text/javascript">
@@ -48,8 +49,22 @@
                     { field: 'PubPerson', title: '发表人', width: 80, align: 'center' }
 
                 ]]
-            })
-        })
+            });
+        });
     </script>
 </body>
 </html>
+<script>
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
+    });
+</script>

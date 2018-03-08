@@ -76,11 +76,11 @@ namespace _21Education.WebSite.Controllers
                 Expression<Func<MODEL.Product, bool>> filter = e => e.Id == n;
                 MODEL.Product productCurrent = _product.Get(filter).FirstOrDefault();
                 var currentIndex = productList.FindIndex(e => e.Id == productCurrent.Id);
-                var prev = productList[currentIndex - 1];
-                var next = productList[currentIndex + 1];
+                var prev = currentIndex==0?null: productList[currentIndex - 1];
+                var next = currentIndex== _product.Count(null)-1?null: productList[currentIndex + 1];
                 return View(new ProductsContentViewModel { ProductCurrent = productCurrent, ProductPrev = prev, ProductNext = next });
             }
-           catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }

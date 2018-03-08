@@ -6,26 +6,27 @@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
-
-                $.ajax({
-                    url: "@Url.Action("Edit")",
-                    type: "Post",
-                    data: $("#CreateForm").serialize(),
-                    dataType: "json",
-                    success: function (data) {
-                        if (data == 1) {
-                            window.parent.frameReturnByMes("成功");
-                            window.parent.frameReturnByReload(true);
-                            window.parent.frameReturnByClose()
-                        }
-                        else {
-                            window.parent.frameReturnByMes("失败");
-                        }
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("#CreateForm").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data == 1) {
+                        window.parent.frameReturnByMes("成功");
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
                     }
-                });
+                    else {
+                        window.parent.frameReturnByMes("失败");
+                    }
+                }
+            });
         });
     });
 </script>
+
+
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -48,7 +49,7 @@
                     @Html.LabelFor(model => model.UserPwd)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.UserPwd)
+                    @Html.PasswordFor(model => model.UserPwd)
                 </td>
             </tr>
             <tr>
@@ -56,7 +57,15 @@
                     @Html.LabelFor(model => model.ConfirmPwd)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.ConfirmPwd)
+                    @Html.PasswordFor(model => model.ConfirmPwd)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RegistDate)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.RegistDate)
                 </td>
             </tr>
         </tbody>

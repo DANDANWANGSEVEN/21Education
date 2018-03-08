@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using _21Education.COMMON;
 using _21Education.DATA;
 using _21Education.WebSite.ViewModels;
+using _21Education.IDAL;
+using System.Linq.Expressions;
 
 namespace _21Education.WebSite.Controllers
 {
@@ -17,6 +19,16 @@ namespace _21Education.WebSite.Controllers
         //
         // GET: /Success/
 
+        ISuccess _successService;
+        IFriendlyLink _friendlylinkservice;
+        IProduct _product;
+        public SuccessController(ISuccess successService,IFriendlyLink friendlylinkservice, IProduct product)
+        {
+            _successService = successService;
+            _friendlylinkservice = friendlylinkservice;
+            _product = product;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -26,36 +38,44 @@ namespace _21Education.WebSite.Controllers
         {
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
-            return View(NewsListTest(page));
+            return View(SuccessListTest(page));
         }
-        NewsListViewModel NewsListTest(int page)
+        SuccessListViewModel SuccessListTest(int page)
         {
-            var newsList = new List<MODEL.News>();
-            for (int i = 0; i < 300; i++)
+            //var newsList = new List<MODEL.News>();
+            //for (int i = 0; i < 300; i++)
+            //{
+            //    newsList.Add(new MODEL.News
+            //    {
+            //        NewsId = i,
+            //        Title = "成功案例标题" + i,
+            //        Content = "成功案例内容成功案例内容成功案例内容成功案例容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容",
+            //        ImgPath = "/image/pcpj.jpg",
+            //        PubDate = DateTime.Now,
+            //        ReadCount = 100
+            //    });
+            //}
+            var pagin = new Pagination(pageIndex: page - 1, recordCount: _successService.Count(null), pageSize: 6);
+            return new SuccessListViewModel(_successService.Get().OrderBy(e => e.Id).Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
             {
-                newsList.Add(new MODEL.News
-                {
-                    NewsId = i,
-                    Title = "成功案例标题" + i,
-                    Content = "成功案例内容成功案例内容成功案例内容成功案例容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容成功案例内容",
-                    ImgPath = "/image/pcpj.jpg",
-                    PubDate = DateTime.Now,
-                    ReadCount = 100
-                });
-            }
-            var pagin = new Pagination(pageIndex: page - 1, recordCount: newsList.Count(), pageSize: 6);
-            return new NewsListViewModel(newsList.Skip(pagin.PageIndex * pagin.PageSize).Take(pagin.PageSize).ToList())
-            {
-                Pagination = pagin
+                Pagination = pagin,
+                FriendlyViewModel = new FriendlyListViewModel { friendlylinks = _friendlylinkservice.Get().OrderBy(e => e.Id).ToList(), products = _product.Get().OrderBy(e => e.Id).Take(8).ToList() }
+
             };
         }
         #endregion
 
 
         #region 成功案例内容页面
-        public ActionResult SuccessContent()
+        public ActionResult SuccessContent(int n)
         {
-            return View();
+            var successList = _successService.Get().ToList();
+            Expression<Func<MODEL.Success, bool>> filter = e => e.Id == n;
+            MODEL.Success successCurrent = _successService.Get(filter).FirstOrDefault();
+            var currentIndex = successList.FindIndex(e => e.Id == successCurrent.Id);
+            var prev = successList[currentIndex - 1];
+            var next = successList[currentIndex + 1];
+            return View(new SuccessContentViewModel { CurrentSuccess=successCurrent,PrevSuccess=prev,NextSuccess=next});
         }
         #endregion
 

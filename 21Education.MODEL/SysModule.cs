@@ -29,11 +29,11 @@ namespace _21Education.MODEL
 
         public string CreatePerson { get; set; }
 
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         public bool IsLast { get; set; }
 
-        public DateTime Version { get; set; }
+        public DateTime? Version { get; set; }
 
 
 

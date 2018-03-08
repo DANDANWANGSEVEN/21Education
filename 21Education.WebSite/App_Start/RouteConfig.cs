@@ -39,7 +39,7 @@ namespace _21Education.WebSite
                 {
                     StringKeys.ActionFormatWithFullName(nameof(NewsController),nameof(NewsController.NewsContent)),
                     StringKeys.ActionFormatWithFullName(nameof(SuccessController),nameof(SuccessController.SuccessContent)),
-                    StringKeys.ActionFormatWithFullName(nameof(ProductController),nameof(ProductController.ProductService))
+                    StringKeys.ActionFormatWithFullName(nameof(ProductController),nameof(ProductController.ProductContent))
                 }
             );
 
@@ -48,8 +48,6 @@ namespace _21Education.WebSite
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
-
         }
 
         public static void RegisterRoutesWithRoute(RouteCollection routes, string matchKey, List<string> allowPages)

@@ -174,8 +174,8 @@
 	background-image:url(images/tree/folder.gif);
 }
 
-.bbit-tree-node-loading .bbit-tree-node-icon{
-	background-image:url(images/tree/loading.gif) !important;
+.bbit-tree-node-loading .bbit-tree-node-icon {
+    background-image: url(images/tree/loading.gif) !important;
 }
 
 .bbit-tree-node .bbit-tree-node-inline-icon {

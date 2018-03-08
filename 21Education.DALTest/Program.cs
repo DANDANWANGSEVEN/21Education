@@ -17,18 +17,18 @@ namespace _21Education.DALTest
         }
         static void Main(string[] args)
         {
-            //using (var context=new _21EducationDbContext())
+            //using (var context = new _21EducationDbContext())
             //{
             //    context.Database.CreateIfNotExists();
 
 
             //    Database.SetInitializer(new Initializer());
-            //    context.News.Add(new News {Content="ashdadnnjada",ImgPath="asdfa",PubDate=DateTime.Now,ReadCount=123,Title="title" });
+            //    context.News.Add(new News { Content = "ashdadnnjada", ImgPath = "asdfa", PubDate = DateTime.Now, ReadCount = 123, Title = "title" });
 
             //    context.SaveChanges();
             //}
             //var dal = new SysDAL();
-            //var model= dal.GetMenuByPersonId("0");
+            //var model = dal.GetMenuByPersonId("0");
 
             //Console.ReadLine();
         }

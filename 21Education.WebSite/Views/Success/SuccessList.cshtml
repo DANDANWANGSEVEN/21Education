@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/View1.cshtml";
 }
 
-@model NewsListViewModel
+@model SuccessListViewModel
 
 @*成功案例*@
 <table style="margin:auto;width:1000px;height:auto;">
@@ -11,20 +11,20 @@
         <td colspan="2">
             <div>
                 <h3 style="color:#0057be;">______ 成功案例 ______</h3>
-                <span>NEWS CENTER</span>
+                <span>SUCCESS CASE</span>
             </div>
         </td>
     </tr>
     <tr>
         <td valign="top">
-            @Html.Partial("~/Views/PartView/ListPage.cshtml")
+            @Html.Partial("~/Views/PartView/SucccessListPage.cshtml")
             <div style="margin-top:10px;">
                 @{Html.Pagin(Model.Pagination);}
             </div>
 
         </td>
         <td valign="top">
-            @Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml")
+            @Html.Partial("~/Views/PartView/Partial.FriendlyLink.cshtml",Model.FriendlyViewModel)
         </td>
     </tr>
 </table>

@@ -1,42 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using _21Education.COMMON;
-using _21Education.DATA;
-using _21Education.WebSite.ViewModels;
-
+﻿
+using _21Education.MODEL;
+using _21Education.IDAL;
+using _21Education.MVC;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
     [AdminAuthorize]
-    public class Areas_HomeController : Controller
+    public class Areas_HomeController : BasicController<Carousel, ICarousel>
     {
-        //
-        // GET: /Admin/Areas_Home/
-
-        public ActionResult Index()
+        public Areas_HomeController(ICarousel service) : base(service)
         {
-            return View();
-        }
-        #region 首页轮播图
-        public ActionResult Carousel()
-        {
-            return View();
-        }
 
-        public ActionResult TestPage()
-        {
-            return View();
         }
-        #endregion
-
-        public ActionResult tpage()
-        {
-            return View();
-        }
-
-
     }
 }

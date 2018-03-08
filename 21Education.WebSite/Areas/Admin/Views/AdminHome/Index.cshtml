@@ -6,34 +6,46 @@
 <head>
     <title>Index</title>
     <meta name="viewport" content="width=device-width" />
+
+
     <link href="~/Areas/Content/tree/css/tree.css" rel="stylesheet" />
     <script src="@Url.Content("~/Areas/Content/Scripts/jquery.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/Content/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
     @Styles.Render("~/Areas/Content/css")
-    @Styles.Render("~/Areas/Content/themes/gray/css")
+    @Styles.Render("~/Areas/Content/themes/blue/css")
     <script src="~/Areas/Tree/jquery.tree.js"></script>
     <script src="~/Areas/Content/Scripts/home.js"></script>
     @Scripts.Render("~/bundles/home")
+    <style>
+        #loginout {
+            color: black;
+            text-decoration: none;
+        }
+
+            #loginout:hover {
+                text-decoration: underline;
+            }
+    </style>
 </head>
 <body class="easyui-layout">
     <div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">
         <iframe width="726" scrolling="no" height="497" frameborder="0" id="iOverTimeLogin"></iframe>
     </div>
     <div data-options="region:'north',border:false,split:true" style="height: 60px; background-image: url('/image/index.V3/header.jpg');">
-        <p style="float:left;"><b style="margin-left:60px">欢迎Admin登陆</b>&nbsp; &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;  <a href="/Admin/AdminHome/LoginOut" style="text-decoration:none;">退出登录</a></p>
+        <p style="float:left;"><b style="margin-left:60px">欢迎Admin登陆</b>&nbsp; &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;  <a id="loginout" href="/Admin/AdminHome/LoginOut">退出登录</a></p>
         <p style="float:right;"><img width="400" height="40" src="~/image/logo.png" style="margin-right:30px;" /></p>
 
     </div>
     <div data-options="region:'west',split:true,title:'菜单列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
+        
         <div id="RightTree" style="background-color:#fff;">
-            @*<div class="panel-loading">加载中...</div>*@
-            <div class="sideMenu" style="margin:0 auto">
+            <div class="panel-loading">加载中...</div>
+            @*<div class="sideMenu" style="margin:0 auto">
                 <ul class="easyui-tree" data-options="animate:true">
                     <li>
                         <span>主菜单</span>
                         <ul>
                             <li>
-                                @*data-options="state:'closed'"*@
                                 <span>首页</span>
                                 <ul>
                                     <li><i style="font-style:normal;" src="/a/a/a">首页轮播图</i></li>
@@ -47,7 +59,7 @@
                             <li>
                                 <span>新闻中心</span>
                                 <ul>
-                                    <li><i style="font-style:normal;" src="///">新闻列表</i></li>
+                                    <li><i style="font-style:normal;" src="/Admin/Areas_News/NewsList">新闻列表</i></li>
                                 </ul>
                             </li>
                             <li>
@@ -65,7 +77,7 @@
                             <li>
                                 <span>关于我们</span>
                                 <ul>
-                                    <li><i style="font-style:normal;" src="/Admin/Areas_Contact/ContactCompanyinfo">公司介绍</i></li>
+                                    <li><i style="font-style:normal;" src="/Admin/Areas_About/companyprofile">公司介绍</i></li>
                                     <li><i style="font-style:normal;" src="///">公司荣誉</i></li>
                                     <li><i style="font-style:normal;" src="///">公司文化</i></li>
                                     <li><i style="font-style:normal;" src="///">公司成就</i></li>
@@ -74,7 +86,7 @@
                             <li>
                                 <span>联系我们</span>
                                 <ul>
-                                    <li><i style="font-style:normal;" src="///">公司基本信息</i></li>
+                                    <li><i style="font-style:normal;" src="/Admin/Areas_Contact/ContactCompanyinfo">公司基本信息</i></li>
                                     <li><i style="font-style:normal;" src="///">公司合作信息</i></li>
                                     <li><i style="font-style:normal;" src="///">招聘信息</i></li>
                                     <li><i style="font-style:normal;" src="///">职位信息</i></li>
@@ -89,8 +101,8 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-            </div>
+            </div>*@
+        </div>
     </div>
     <div data-options="region:'south',border:false" style="height: 20px;">
         <div class="define-bottom">
@@ -99,9 +111,6 @@
     <div data-options="region:'center',border:false">
         <div id="mainTab" class="easyui-tabs" data-options="fit:true">
             <div id="mytable" title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
-                <iframe id="rightMain" scrolling="auto" frameborder="0" src="/Admin/AdminHome/Main" style="width: 100%; height: 100%;" allowtransparency="true"></iframe>
-            </div>
-            <div id="mytable" title="1111" data-options="closable:true" style="overflow: hidden; background:#fff">
                 <iframe id="rightMain" scrolling="auto" frameborder="0" src="/Admin/AdminHome/Main" style="width: 100%; height: 100%;" allowtransparency="true"></iframe>
             </div>
         </div>
@@ -114,10 +123,8 @@
                 var a = $(this).attr("src");
                 var text = $(this).html();
                 $("#rightMain").attr("src", a);//修改iframe中的src属性
-                var b = $("#rightMain").attr("src");
-                //alert(b);
-                //点击后在mytable后再追加一个div
-                //$("#mytable").after("<div title='" + text + "' data-options='closable:true' style='overflow: hidden; background:#fff'><iframe id='rightMain' scrolling='auto' frameborder='0' src='" + a + "' style='width: 100%; height: 100%;' allowtransparency='true'></iframe></div>");
+                $("#mytable").attr("title", text);
+                //var b = $("#rightMain").attr("src");
             });
         };
      

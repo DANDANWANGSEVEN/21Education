@@ -12,7 +12,7 @@ using Autofac.Integration.Mvc;
 using _21Education.DAL;
 using _21Education.IDAL;
 using _21Education.MODEL;
-using _21Education.BLL;
+
 namespace _21Education.WebSite
 {
     // 注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
@@ -28,8 +28,8 @@ namespace _21Education.WebSite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             //启用压缩
-            //BundleTable.EnableOptimizations = true;
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleTable.EnableOptimizations = true;
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //注入 Ioc
             var iocBuilder = new AutofacBuilder();

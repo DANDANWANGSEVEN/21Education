@@ -28,11 +28,11 @@
         <td>
             <div id="companyinfo" style="">
                 <div style="float:left;padding:10px;font-size:14px;margin:20px;">
-                    <p>北京市朝阳区酒仙桥北路甲10号电子城IT产业园201号楼D座5层</p>
-                    <p>邮编：100015</p>
-                    <p>电话：010-57910896/97/98</p>
-                    <p>传真：010-57910896/97/98-8080</p>
-                    <p>网址：http://www.21education.com</p>
+                        <p>@ViewBag.companyinfoListShow.Address</p>
+                        <p>邮编：@ViewData["emailinfo"]</p>
+                        <p>电话：@ViewData["phoneinfo"]</p>
+                        <p>传真：@ViewData["transmission"]</p>
+                        <p>网址：@ViewData["websiteinfo"]</p>
                 </div>
                 <div id="companyinfo" style="color:white;">
                     <!--百度地图容器-->
@@ -45,70 +45,47 @@
 </table>
 <table class="table" id="cooperation" border="0">
     <tr>
-        <td>
-            <dl>
-                <dt>
-                    <img src="~/image/contact_06.png" />
-                </dt>
-                <dd>
-                    <span>客户合作</span><br />
-                    <span>资讯热线：</span><br />
-                    <span>1010-56910896/97/98</span><br />
-                    <span>86-10-643912010203</span>
-                </dd>
-            </dl>
-        </td>
-        <td>
-            <dl>
-                <dt>
-                    <img src="~/image/contact_08.png" />
-                </dt>
-                <dd>
-                    <span>商务合作</span><br />
-                    <span>资讯热线：1010-56910896/97/98</span><br />
-                    <span>官方网站:</span><br />
-                    <span>http://www.21education.com.cn</span>
-                </dd>
-            </dl>
-        </td>
-        <td>
-            <dl>
-                <dt>
-                    <img src="~/image/contact_10.jpg" />
-                </dt>
-                <dd>
-                    <span>媒体交流</span><br />
-                    <span>资讯热线：1010-56910896/97/98</span><br />
-                    <span>官方网站</span><br />
-                    <span>http://www.21education.com.cn</span>
-                </dd>
-            </dl>
-        </td>
+        @foreach (var cooperateitem in ViewBag.cooperateinfoListShow)
+        {
+            <td style="width:330px;">
+                <dl>
+                    <dt>
+                        <img src="~/image/contact_06.png" />
+                    </dt>
+                    <dd>
+                        <span>@cooperateitem.Name</span><br />
+                        <span>@cooperateitem.Content</span><br />
+                        
+                    </dd>
+                </dl>
+            </td>
+        }
+
     </tr>
 </table>
 
-<table class="table" id="joinproduce" border="0">
+<table class="table" id="joinproduce" border="0" style="margin-top:0px;">
     <tr style="text-align:center;height:80px;">
         <td colspan="2">
             <h3>______ 招聘信息 ______</h3>
             <span>JOIN US</span>
         </td>
     </tr>
-    <tr style="text-align:center;height:30px;">
+    <tr style="text-align:center;height:10px;">
         <td colspan="2"></td>
     </tr>
-    <tr>
-        <td rowspan="3">
-            <img style="width:400px;height:200px;" src="../image/success_03.jpg" />
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">
-            <h4>先进的技术+前瞻的思想</h4>
-            <p style="padding:10px;line-height:30px;">世纪互联拥有一支朝气蓬勃的团队，我们执着、敏锐、追求更好;我们以技术专业化、管理人性化、创新性和学习型的努力拼搏的工作态度，通过自己的专业眼光，为客户提供各类服务方案，始终以客户为先。</p>
-            <a href="/Contact/JoinUs" id="joinlink">查看详情</a>
-        </td>
-    </tr>
+        <tr>
+            <td rowspan="3" style="width:50%;">
+                <img style="width:400px;height:200px;" src="@ViewData["recruitimage"]" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center;width:50%;">
+                <h4>@ViewData["recruitName"]</h4>
+                <p style="padding:10px;line-height:30px;">@ViewData["recruitConent"]</p>
+                <a href="/Contact/JoinUs" id="joinlink">查看详情</a>
+            </td>
+        </tr>
 
 </table>
 

@@ -1,15 +1,9 @@
-﻿using _21Education.MODEL;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using System;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.SessionState;
 using _21Education.COMMON;
+using _21Education.IDAL;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
@@ -18,6 +12,12 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/AdminHome/
+        ISysModule _sysmodelservice;
+        public AdminHomeController(ISysModule sysmodelservice)
+        {
+            _sysmodelservice = sysmodelservice;
+        }
+
 
         #region  登陆
         [AllowAnonymous]
@@ -34,7 +34,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             {
                 if (Request.Cookies["WrongOverTop"] != null) return -3;
                 var userinfo = new MODEL.UserInfo();
-                userinfo.UserInfoId = 1;
+                userinfo.Id = 1;
                 userinfo.UserName = "admin";
                 userinfo.UserPwd = "123456";
                 userinfo.RegistDate = DateTime.Now;
@@ -144,7 +144,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         #endregion
 
         #region 树形导航
-
         /// <summary>
         /// 获取导航菜单
         /// </summary>
@@ -152,24 +151,24 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-
-            //List<SysModule> menus = new _21Education.BLL.SysBLL().GetMenuByPersonId(id);
-            //var jsonData = (
-            //        from m in menus
-            //        select new
-            //        {
-            //            id = m.Id,
-            //            text = m.Name,
-            //            value = m.Url,
-            //            showcheck = false,
-            //            complete = false,
-            //            isexpand = false,
-            //            checkstate = 0,
-            //            hasChildren = m.IsLast ? false : true,
-            //            Icon = m.Iconic
-            //        }
-            //    ).ToArray();
-            return Json("", JsonRequestBehavior.AllowGet);
+            var sysmodel = _sysmodelservice.Get().Where(e=>e.ParentId==id&&e.Id!="0").ToList();
+            
+            var jsonData = (
+                    from m in sysmodel
+                    select new
+                    {
+                        id = m.Id,
+                        text = m.Name,
+                        value = m.Url,
+                        showcheck = false,
+                        complete = false,
+                        isexpand = false,
+                        checkstate = 0,
+                        hasChildren = m.IsLast ? false : true,
+                        Icon = m.Iconic
+                    }
+                ).ToArray();
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
 

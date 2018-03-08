@@ -10,9 +10,5 @@ namespace _21Education.IDAL
     public interface ICarousel : IService<Carousel>
     {
 
-
-
-
-
     }
 }

@@ -25,7 +25,7 @@ namespace _21Education.WebSite.Areas.Admin
     }
     public class AdminAuthorizeAttribute : AuthorizeAttribute
     {
-        public static Dictionary<string, string> userDic=new Dictionary<string, string>();
+        public static Dictionary<string, string> userDic = new Dictionary<string, string>();
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             var requestCookies = filterContext.RequestContext.HttpContext.Request.Cookies;
@@ -47,17 +47,17 @@ namespace _21Education.WebSite.Areas.Admin
             {
                 if (requestCookies["UserCookie"] != null)
                 {
-
-                    if (requestCookies[userDic[requestCookies["UserCookie"].Value]] != null)
-                    {
-                        filterContext.HttpContext.Response.Redirect("/admin/adminhome/index");
-                        filterContext.HttpContext.ApplicationInstance.CompleteRequest();
-
-                    }
+                    if (userDic.ContainsKey(requestCookies["UserCookie"].Value))
+                        if (requestCookies[userDic[requestCookies["UserCookie"].Value]] != null)
+                        {
+                            filterContext.HttpContext.Response.Redirect("/admin/adminhome/index");
+                            filterContext.HttpContext.ApplicationInstance.CompleteRequest();
+                        }
                 }
                 return;
             }
-            if (requestCookies["UserCookie"] == null) {
+            if (requestCookies["UserCookie"] == null)
+            {
                 filterContext.HttpContext.Response.Redirect("/admin");
                 filterContext.HttpContext.ApplicationInstance.CompleteRequest();
                 return;
@@ -66,31 +66,32 @@ namespace _21Education.WebSite.Areas.Admin
             var userNameDic = "";
             userDic.TryGetValue(guidUName, out userNameDic);
 
-            if (requestCookies[userNameDic] == null) {
+            if (requestCookies[userNameDic] == null)
+            {
                 filterContext.HttpContext.Response.Redirect("/admin");
                 filterContext.HttpContext.ApplicationInstance.CompleteRequest();
                 return;
             }
 
-           
+
         }
     }
 
 
-     /// <summary>
-     /// 需要登录才能进行操作
-     /// </summary>
-     public class PermissionRequiredAttribute : ActionFilterAttribute
-     {
-         public override void OnActionExecuting(ActionExecutingContext filterContext)
-         {
-             if (filterContext.HttpContext.Session["User"]==null)
-             {
-                 filterContext.Result = new RedirectResult("~/Admin/Account/Login");
-             }
-             base.OnActionExecuting(filterContext);
-         }
-     }
+    /// <summary>
+    /// 需要登录才能进行操作
+    /// </summary>
+    public class PermissionRequiredAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (filterContext.HttpContext.Session["User"] == null)
+            {
+                filterContext.Result = new RedirectResult("~/Admin/Account/Login");
+            }
+            base.OnActionExecuting(filterContext);
+        }
+    }
 
 
 

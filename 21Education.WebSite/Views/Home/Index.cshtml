@@ -116,32 +116,32 @@
     <tr>
         <td style="width:250px;" valign="top">
             <table id="mainbusiness" style="width:100%;height:auto;border-collapse:collapse;background-color:#f7f7f7;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);cursor:pointer;" border="1">
-                <tr>
-                    <td><a>网上阅卷</a></td>
-                </tr>
-                <tr>
-                    <td><a>无纸化智能考试</a></td>
-                </tr>
-                <tr>
-                    <td><a>网上报名管理系统</a></td>
-                </tr>
-                <tr>
-                    <td><a>图库系统</a></td>
-                </tr>
-                <tr>
-                    <td><a>评测与评价系统</a></td>
-                </tr>
-                <tr>
-                    <td><a>云服务中心</a></td>
-                </tr>
-                <tr>
-                    <td><a>数据处理中心</a></td>
-                </tr>
+
+
+                @foreach (var Titleitem in ViewBag.bussinessTitleShow)
+                {
+                    <tr>
+                        <td><a>@Titleitem.BusinessName</a></td>
+                    </tr>
+                }
             </table>
         </td>
         <td style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);background-color:#f7f7f7;text-align:left;">
             <table id="businessdiv" style="margin-left:30px;">
-                <tr>
+                @foreach (var Descitem in ViewBag.bussinessTitleShow)
+                {
+                    <tr>
+                        <td><a href="/News/NewsContent"><img src="~/image/about_14.jpg" style="width:350px;height:220px;" /></a></td>
+                        <td>
+                            <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">@Descitem.BusinessName</a></p>
+                            <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
+                                <li>@Descitem.BusinessDesc</li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+
+                @*<tr>
                     <td><a href="/News/NewsContent"><img src="~/image/about_14.jpg" style="width:350px;height:220px;" /></a></td>
                     <td>
                         <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">网上阅卷</a></p>
@@ -231,7 +231,7 @@
                             <li>7*24小时无死角监控</li>
                         </ul>
                     </td>
-                </tr>
+                </tr>*@
             </table>
         </td>
     </tr>
@@ -251,7 +251,7 @@
 
 @*品牌优势*@
 <div id="brand" style="width:1000px;height:240px;margin:auto;text-align:center;margin-top:10px;">
-    <table id="brandtable">
+    <table id="brandtable" style="width:1000px;">
         <tr class="firsttr">
             <td colspan="4">
                 <h3 style="color:#0057be;">______ 品牌优势 ______</h3>
@@ -262,84 +262,58 @@
             <td style="height:15px;"></td>
         </tr>
         <tr id="advantage" style="font-size:14px;line-height:20px;color:#666666;margin-top:10px;">
-            <td valign="baseline">
-                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                    <dt><img src="~/image/index.V3/indexone.png" /></dt>
-                    <dd>
-                        <p style="font-size:16px;line-height:30px;color:#000;">安全/稳定/高效</p>
-                        <span>基于高效的缓存机制，安全、严谨的<br />程序算法开发，支持横向扩展，提升处理能力</span>
-                    </dd>
-                </dl>
-            </td>
-            <td valign="baseline">
-                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                    <dt><img src="~/image/index.V3/indextwo.png" /></dt>
-                    <dd>
-                        <p style="font-size:16px;line-height:30px;color:#000;">高度可配置化</p>
-                        <span>快速、智能的实现可定制化的在线考试<br />应用，人工操作加自动处理并行，效率翻倍</span>
-                    </dd>
-                </dl>
-            </td>
-            <td valign="baseline">
-                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                    <dt><img src="~/image/index.V3/indexthree.png" /></dt>
-                    <dd>
-                        <p style="font-size:16px;line-height:30px;color:#000;">高度智能</p>
-                        <span>智能批改、人工干预方便高效，自带核心统<br />计功能，可定制数据分析功能，快速掌握考</span>
-                    </dd>
-                </dl>
-            </td>
-            <td valign="baseline">
-                <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                    <dt><img src="~/image/index.V3/indexfour.png" /></dt>
-                    <dd>
-                        <p style="font-size:16px;line-height:30px;color:#000;">操作灵活方便</p>
-                        <span>优化操作流程，鼠标拖拽，数据克隆等技术<br />使得操作简便快捷</span>
-                    </dd>
-                </dl>
-            </td>
+            @foreach (var Advantageitem in ViewBag.advantageListShow)
+            {
+                <td valign="baseline" style="width:247px;">
+                    <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
+                        <dt><img src="~/image/index.V3/indexone.png" /></dt>
+                        <dd>
+                            <p style="font-size:16px;line-height:30px;color:#000;">@Advantageitem.Title</p>
+                            <span>@Advantageitem.desc</span> 
+                        </dd>
+                    </dl>
+                </td>
+            }
         </tr>
     </table>
 </div>
 
-@*新闻中心和友情链接*@
+@*新闻中心和成功案例*@
 <table class="table" id="newsfriendly" style="width:1000px;margin-top:20px;">
     <tr>
         <td>
-            <div style="height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
+            <div style="width:489px;height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
                 <div style="width:100%;height:40px;background-color:#f6f6f6;">
                     <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">新闻中心 <span style="color:#666666;font-weight:normal;font-size:14px;">NEWS CENTER</span></h3></div>
                     <div style="float:right;margin-top:8px;"><a href="/News/NewsList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
                 </div>
 
-                <ul class="newsfriendlyul" style="margin-left:20px;list-style:none;line-height:24px;width:100%;clear:both;">
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
+                <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;width:100%;clear:both;">
+
+                    @foreach (var Nesitem in ViewBag.NewsListShow)
+                    {
+                        <li><a href="/News/NewsContent">@Nesitem.Title</a></li>
+                    }
                 </ul>
 
             </div>
         </td>
         <td style="width:10px"></td>
         <td>
-            <div style="height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
-
+            <div style="width:489px;height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">
                 <div style="width:100%;height:40px;background-color:#f6f6f6;">
-                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">成功案例 <span style="color:#666666;font-weight:normal;font-size:14px;">NEWS CENTER</span></h3></div>
-                    <div style="float:right;margin-top:8px;"><a href="/Success/SuccessList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
+                    <div style="border-left:3px solid #0057be;float:left;"><h3 style="color:#0057be;line-height:40px;margin-left:15px;">成功案例 <span style="color:#666666;font-weight:normal;font-size:14px;">SUCCESS CASE</span></h3></div>
+                    <div style="float:right;margin-top:8px;"><a href="/News/NewsList" style="font-size:14px;margin-right:0px;text-decoration:none;color:#0057be;">更多...</a></div>
                 </div>
-                <div>
-                    <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;clear:both;">
-                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                        <li><a href="/News/NewsContent">案例标题案例标题案例标题案例标题</a></li>
-                    </ul>
 
-                </div>
+                <ul class="newsfriendlyul" style="margin-left:30px;list-style:none;line-height:24px;width:100%;clear:both;">
+
+                    @foreach (var Successitem in ViewBag.SuccessListShow)
+                    {
+                        <li><a href="/News/NewsContent">@Successitem.Title</a></li>
+                    }
+                </ul>
+
             </div>
         </td>
     </tr>

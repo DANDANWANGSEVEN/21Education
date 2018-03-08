@@ -1,12 +1,6 @@
-﻿
-@model _21Education.MODEL.ContactCompanyinfo
-@using _21Education.COMMON
-
-@*@using App.Models.Sys;
-@using App.Admin;*@
-
+﻿@model _21Education.MODEL.ContactCompanyinfo
 @{
-    ViewBag.Title = "创建";
+    ViewBag.Title = "创建公司信息";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
 
@@ -16,7 +10,7 @@
         $("#btnSave").click(function () {
 
                 $.ajax({
-                    url: "/Admin/Areas_Contact/Create",
+                    url: "@Url.Action("Create")",
                     type: "Post",
                     data: $("#CreateForm").serialize(),
                     dataType: "json",
@@ -46,17 +40,7 @@
         <tbody>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.ContactCompanyinfoId)：
-                </td>
-                <td style="width:310px">
-                    @Html.EditorFor(model => model.ContactCompanyinfoId)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.ContactCompanyinfoId)</td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @*@Html.LabelFor(model => model.Address)：*@
-                    具体地址：
+                    @Html.LabelFor(model => model.Address)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.Address)

@@ -13,5 +13,6 @@ namespace _21Education.WebSite.ViewModels
 
         }
         public Pagination Pagination { set; get; }
+        
     }
 }

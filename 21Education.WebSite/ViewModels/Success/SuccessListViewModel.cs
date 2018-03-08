@@ -13,5 +13,7 @@ namespace _21Education.WebSite.ViewModels
         {
         }
         public Pagination Pagination { set; get; }
+        public FriendlyListViewModel FriendlyViewModel { get; set; }
+
     }
 }

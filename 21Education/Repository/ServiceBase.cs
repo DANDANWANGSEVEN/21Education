@@ -7,7 +7,6 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using _21Education.DATA;
-using _21Education.Extend;
 
 namespace _21Education.Repository
 {
@@ -147,16 +146,21 @@ namespace _21Education.Repository
 
         public virtual void Update(T item, bool saveImmediately = true)
         {
-            CurrentDbSet.Find(item);
+            var type = typeof(T);
+            var propertyId = type.GetProperty("Id");
+            var Id = propertyId.GetValue(item);
+            var editModel = CurrentDbSet.Find(Id);
+            TypeExtend<T>.CopyTo(item, editModel);
             if (saveImmediately)
             {
-               SaveChanges();
+                SaveChanges();
             }
         }
 
         public virtual void UpdateRange(params T[] items)
         {
-            items.ToList().ForEach(e => {
+            items.ToList().ForEach(e =>
+            {
                 Update(e);
             });
         }

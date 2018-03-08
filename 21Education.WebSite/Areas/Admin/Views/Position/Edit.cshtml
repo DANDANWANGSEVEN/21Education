@@ -1,0 +1,134 @@
+﻿@model _21Education.MODEL.ContactPositionInfo
+@{
+    ViewBag.Title = "修改公司成就";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<link href="~/Content/Areasjs/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/Areasjs/bootstrap.min.js"></script>
+<link href="~/script/themes/default/default.css" rel="stylesheet" />
+<script src="~/script/kindeditor-min.js"></script>
+<script src="~/script/lang/zh_CN.js"></script>
+<script>
+var editor;
+KindEditor.ready(function(K) {
+    editor = K.create('textarea[name="PositionRequirement"]', {
+        uploadJson:"../../../script/asp.net/upload_json.ashx",
+        fileManagerJson: "../../../../script/asp.net/file_manager_json.ashx",
+        allowFileManager: true,
+        allowImageUpload: true,
+        allowFileManager: true,
+        afterUpload: function () {
+            this.sync();
+        },
+        afterBlur: function () {
+            this.sync();
+        }
+    });
+    K('input[name=getHtml]').click(function(e) {
+        alert(editor.html());
+    });
+    K('input[name=isEmpty]').click(function(e) {
+        alert(editor.isEmpty());
+    });
+    K('input[name=getText]').click(function(e) {
+        alert(editor.text());
+    });
+    K('input[name=selectedHtml]').click(function(e) {
+        alert(editor.selectedHtml());
+    });
+    K('input[name=setHtml]').click(function(e) {
+        editor.html('<h3>Hello KindEditor</h3>');
+    });
+    K('input[name=setText]').click(function(e) {
+        editor.text('<h3>Hello KindEditor</h3>');
+    });
+    K('input[name=insertHtml]').click(function(e) {
+        editor.insertHtml('<strong>插入HTML</strong>');
+    });
+    K('input[name=appendHtml]').click(function(e) {
+        editor.appendHtml('<strong>添加HTML</strong>');
+    });
+    K('input[name=clear]').click(function(e) {
+        editor.html('');
+    });
+});
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
+                    }
+                });
+        });
+    });
+</script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Condition)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Condition)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PositionDesc)：
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.PositionDesc)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PositionRequirement)：
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.PositionRequirement)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PublishedPerson)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PublishedPerson)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PublishedTime)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PublishedTime)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

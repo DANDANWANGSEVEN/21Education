@@ -1,0 +1,51 @@
+﻿@model _21Education.MODEL.AboutCompanyAchievement
+@{
+    ViewBag.Title = "修改公司成就";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
+                    }
+                });
+        });
+    });
+</script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Image)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Image)
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+}

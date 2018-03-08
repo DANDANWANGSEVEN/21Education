@@ -1,0 +1,79 @@
+﻿@model _21Education.MODEL.UserInfo
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+                $.ajax({
+                    url: "@Url.Action("Create")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
+                    }
+                });
+        });
+    });
+</script>
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UserPwd)：
+                </td>
+                <td>
+                    @Html.PasswordFor(model => model.UserPwd)
+                    @Html.ValidationMessageFor(model => model.UserPwd)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ConfirmPwd)：
+                </td>
+                <td>
+                    @Html.PasswordFor(model => model.ConfirmPwd)
+                    @Html.ValidationMessageFor(model => model.ConfirmPwd)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RegistDate)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.RegistDate)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+

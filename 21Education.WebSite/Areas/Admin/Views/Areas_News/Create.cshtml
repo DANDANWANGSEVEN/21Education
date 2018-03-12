@@ -15,7 +15,7 @@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
-
+            editor.sync('#CreateForm');
                 $.ajax({
                     url: "@Url.Action("Create")",
                     type: "Post",
@@ -81,7 +81,7 @@
                     @Html.LabelFor(model => model.Content)：
                 </td>
                 <td>
-                    @Html.TextAreaFor(model => model.Content)
+                    @Html.TextAreaFor(model => model.Content, new { Id="Content" })
                 </td>
             </tr>
         </tbody>

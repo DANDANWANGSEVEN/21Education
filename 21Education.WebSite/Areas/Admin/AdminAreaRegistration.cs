@@ -47,17 +47,17 @@ namespace _21Education.WebSite.Areas.Admin
             {
                 if (requestCookies["UserCookie"] != null)
                 {
-
-                    if (requestCookies[userDic[requestCookies["UserCookie"].Value]] != null)
-                    {
-                        filterContext.HttpContext.Response.Redirect("/admin/adminhome/index");
-                        filterContext.HttpContext.ApplicationInstance.CompleteRequest();
-
-                    }
+                    if (userDic.ContainsKey(requestCookies["UserCookie"].Value))
+                        if (requestCookies[userDic[requestCookies["UserCookie"].Value]] != null)
+                        {
+                            filterContext.HttpContext.Response.Redirect("/admin/adminhome/index");
+                            filterContext.HttpContext.ApplicationInstance.CompleteRequest();
+                        }
                 }
                 return;
             }
-            if (requestCookies["UserCookie"] == null) {
+            if (requestCookies["UserCookie"] == null)
+            {
                 filterContext.HttpContext.Response.Redirect("/admin");
                 filterContext.HttpContext.ApplicationInstance.CompleteRequest();
                 return;
@@ -66,13 +66,12 @@ namespace _21Education.WebSite.Areas.Admin
             var userNameDic = "";
             userDic.TryGetValue(guidUName, out userNameDic);
 
-            if (requestCookies[userNameDic] == null) {
+            if (requestCookies[userNameDic] == null)
+            {
                 filterContext.HttpContext.Response.Redirect("/admin");
                 filterContext.HttpContext.ApplicationInstance.CompleteRequest();
                 return;
             }
-
-           
         }
     }
 

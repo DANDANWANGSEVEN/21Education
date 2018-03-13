@@ -10,17 +10,14 @@
                 <div id="list" style="border-bottom:1px dashed lightgray;padding:10px 0;">
                     <table class="smalltable">
                         <tr>
-                            @*<td>
-                                <div style="width:240px;height:140px;background:url('@(news.ImgPath)') 100% 100%;"></div>
-                            </td>*@
                             <td>
-                                <div style="margin:0 0 0 10px;">
-                                    <h4 style="margin-top:0px;"><a href="/News/NewsContent/@(news.Id)" style="text-decoration:none;">@(news.Title)</a></h4>
-                                    <p style="line-height:30px;">@(news.Content)</p>
-                                    <span style="float:right;color:#666666;">阅读量：@(news.ReadCount) &nbsp;&nbsp; 时间：@(news.PubDate)</span>
+                                <div style="margin:0 0 0 10px;width:100%;">
+                                    <h4 style="margin-top:0px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;"><a href="/News/NewsContent/@(news.Id)" style="text-decoration:none;">@(news.Title)</a></h4>
+                                    <div style="overflow:hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2; -webkit-box-orient: vertical;height:60px;line-height:30px">@Html.Raw(news.Content)</div>
+                                    <p style="color:#666666;">阅读量：@(news.ReadCount) &nbsp;&nbsp; 时间：@(news.PubDate)</p>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>                    
                     </table>
                 </div>
             </td>

@@ -16,8 +16,8 @@
                                 </td>*@
                             <td>
                                 <div style="margin:0 0 0 10px;">
-                                    <h4 style="margin-top:0px;"><a href="/News/NewsContent/@(success.Id)" style="text-decoration:none;">@(success.Title)</a></h4>
-                                    <p style="line-height:30px;">@(success.Content)</p>
+                                    <h4 style="margin-top:0px;"><a href="/Success/SuccessContent/@(success.Id)" style="text-decoration:none;">@(success.Title)</a></h4>
+                                    <p style="line-height:30px;">@Html.Raw(success.Content)</p>
                                     <span style="float:right;color:#666666;">阅读量：@(success.ReadCount) &nbsp;&nbsp; 时间：@(success.PubDate)</span>
                                 </div>
                             </td>

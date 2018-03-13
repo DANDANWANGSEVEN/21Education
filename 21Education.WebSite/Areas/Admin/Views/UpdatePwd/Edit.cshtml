@@ -61,14 +61,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.RegistDate)：
-                </td>
-                <td>
-                    @Html.EditorFor(model => model.RegistDate)
-                </td>
-            </tr>
-            <tr>
                 <td style="width:100px; text-align:left;" colspan="2">
                     <p id="mes" style="color:red;"></p>
                 </td>
@@ -78,7 +70,6 @@
 }
 
 <script>
-
         $("#btnSave").click(function () {
 
             var mes;

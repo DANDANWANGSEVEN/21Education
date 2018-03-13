@@ -73,6 +73,7 @@ namespace _21Education.MVC
             return View(Service.Get(id));
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(TEntity entity)
         {
             if (ModelState.IsValid)

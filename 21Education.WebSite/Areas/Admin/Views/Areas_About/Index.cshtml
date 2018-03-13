@@ -40,7 +40,7 @@
                 rownumbers: true,//行号
                 columns: [[
                     { field: 'Id', title: '编号', width: 80, align: 'center' },
-                    { field: 'Image', title: '图片', width: 80, align: 'center' }
+                    { field: 'Image', title: '图片', width: 80, align: 'center', function (value, row, index) { return '<img style="width:150px;height:80px;" src="' + row.Image + '" />'; } }
                 ]]
             });
         });

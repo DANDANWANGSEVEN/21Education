@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>首页——产品服务</title>
+    <title>友情链接</title>
 </head>
 <body>
     <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
@@ -41,11 +41,8 @@
                 rownumbers: true,//行号
                 columns: [[
                     { field: 'Id', title: '编号', width: 80, align: 'center' },
-                    { field: 'BusinessName', title: '标题', width: 80, align: 'center' },
-                    { field: 'BusinessDesc', title: '描述', width: 80, align: 'center' },
-                    { field: 'BusinessContent', title: '内容', width: 80, align: 'center' },
-                    { field: 'PubTime', title: '创建时间', width: 80, align: 'center' },
-                    { field: 'Image', title: '图片', width: 80, align: 'center', formatter: function (value, row, index) { return '<img style="width:150px;height:80px;" src="' + row.Image + '" />'; } }
+                    { field: 'FriendlyTitle', title: '链接标题', width: 80, align: 'center' },
+                    { field: 'FriendlyUrl', title: '链接地址', width: 80, align: 'center' }
                 ]]
             });
         });

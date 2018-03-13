@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\CompanyCultureController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyFileController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyHonorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FriendlylinkController.cs" />
     <Compile Include="Areas\Admin\Controllers\JoinUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PositionController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductServiceController.cs" />
@@ -433,6 +434,9 @@
     <Content Include="Areas\Admin\Views\CompanyCooperate\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CompanyCooperate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CompanyCooperate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Friendlylink\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Friendlylink\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Friendlylink\Edit.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />

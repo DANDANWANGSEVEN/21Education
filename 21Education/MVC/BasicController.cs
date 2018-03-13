@@ -14,6 +14,7 @@ namespace _21Education.MVC
         TService Service;
         public BasicController(TService service)
         {
+
             Service = service;
         }
         public virtual ActionResult Index()
@@ -44,6 +45,7 @@ namespace _21Education.MVC
             return View(entity);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public virtual ActionResult Create(TEntity entity)
         {
             if (ModelState.IsValid)
@@ -71,6 +73,7 @@ namespace _21Education.MVC
             return View(Service.Get(id));
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(TEntity entity)
         {
             if (ModelState.IsValid)
@@ -79,6 +82,11 @@ namespace _21Education.MVC
                 return Json(1, JsonRequestBehavior.AllowGet);
             }
             return Json(0, JsonRequestBehavior.AllowGet);
+        }
+
+        protected new JsonResult Json(object data, JsonRequestBehavior behavior)
+        {
+            return new DateFormateJson(data, behavior);
         }
     }
 }

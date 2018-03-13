@@ -42,7 +42,11 @@
                 columns: [[
                     { field: 'Id', title: '编号', width: 80, align: 'center' },
                     { field: 'Title', title: '标题', width: 80, align: 'center' },
-                    { field: 'Content', title: '内容', width: 80, align: 'center' },
+                    {
+                        field: 'Content', title: '内容', width: 80, align: 'center', formatter: function (value, row, index) {
+                            return $(value).text();
+                        }
+                    },
                     { field: 'PubDate', title: '创建时间', width: 80, align: 'center' },
                     { field: 'ReadCount', title: '阅读量', width: 80, align: 'center' },
                     { field: 'PubPerson', title: '发表人', width: 80, align: 'center' }

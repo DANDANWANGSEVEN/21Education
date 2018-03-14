@@ -44,6 +44,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 图片路径
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "图片路径")]
         public string ImgPath { get; set; }
         

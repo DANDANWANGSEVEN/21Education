@@ -40,6 +40,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 图片
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "图片")]
         public string Image { get; set; }
 

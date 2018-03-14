@@ -1,5 +1,4 @@
 ﻿@model string
-@Html.TextBox("file[]", new { @class= "fileupload", type="file", multiple="", display="none" })
-@Html.TextBoxFor(m=>m)
-
+@Html.TextBox("","", new { @class = "fileupload", type = "file", multiple = "" })@*, display = "none"*@
+<script src="@Url.Content("~/Areas/Content/Scripts/FileUploaderImport.js?path="+Url.Action("/Upload","/Upload"))" type="text/javascript"></script>
 @*<input class="fileupload" type="file" name="file[]" multiple>*@

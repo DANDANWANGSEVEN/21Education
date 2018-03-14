@@ -359,6 +359,7 @@
     <Content Include="Areas\Content\Scripts\modernizr-2.5.3.js" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\_Index_LayoutEdit.cshtml" />
+    <Content Include="Areas\Content\showdate.js" />
     <Content Include="Areas\Content\themes\blue\easyui.css" />
     <Content Include="Areas\Content\themes\blue\images\accordion_arrows.png" />
     <Content Include="Areas\Content\themes\blue\images\blank.gif" />

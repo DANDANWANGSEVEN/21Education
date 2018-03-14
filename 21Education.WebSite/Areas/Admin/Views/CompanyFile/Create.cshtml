@@ -54,8 +54,7 @@ KindEditor.ready(function(K) {
     });
 });
 </script>
-
-
+<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -102,8 +101,9 @@ KindEditor.ready(function(K) {
                     @Html.LabelFor(model => model.PublishedTime)：
                 </td>
                 <td>
-                   <input id="PublishedTime" name="PublishedTime" type="date" />
-                </td> 
+                    @Html.EditorFor(model => model.PublishedTime)
+                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PublishedTime" name="PublishedTime" onClick="return Calendar('PublishedTime');" />
+                </td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">

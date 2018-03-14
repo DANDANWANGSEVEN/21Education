@@ -3,8 +3,6 @@
     ViewBag.Title = "修改品牌优势";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
-
-
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -28,8 +26,7 @@
         });
     });
 </script>
-
-
+<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -49,14 +46,6 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.desc)：
-                </td>
-                <td>
-                   @Html.TextAreaFor(model => model.desc)
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.ImageOne)：
                 </td>
                 <td>
@@ -69,6 +58,23 @@
                 </td>
                 <td>
                     @Html.EditorFor(model => model.ImageTwo)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.desc)：
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.desc)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PubTime)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PubTime)
+                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PubTime" name="PubTime" onClick="return Calendar('PubTime');" />
                 </td>
             </tr>
         </tbody>

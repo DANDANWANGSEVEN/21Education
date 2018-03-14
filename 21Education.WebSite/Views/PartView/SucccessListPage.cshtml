@@ -17,8 +17,8 @@
                             <td>
                                 <div style="margin:0 0 0 10px;">
                                     <h4 style="margin-top:0px;"><a href="/Success/SuccessContent/@(success.Id)" style="text-decoration:none;">@(success.Title)</a></h4>
-                                    <p style="line-height:30px;">@Html.Raw(success.Content)</p>
-                                    <span style="float:right;color:#666666;">阅读量：@(success.ReadCount) &nbsp;&nbsp; 时间：@(success.PubDate)</span>
+                                    <div style="overflow:hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2; -webkit-box-orient: vertical;height:60px;line-height:30px">@Html.Raw(success.Content)</div>
+                                    <p style="color:#666666;">阅读量：@(success.ReadCount) &nbsp;&nbsp; 时间：@(success.PubDate)</p>
                                 </div>
                             </td>
                         </tr>

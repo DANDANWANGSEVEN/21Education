@@ -11,7 +11,7 @@ var scriptSrc = currentScript.src;
 var fileUploadPath = scriptSrc.substr(scriptSrc.indexOf('=') + 1);
 
 $(function () {
-    $('#fileupload').fileupload({
+    $('.fileupload').fileupload({
         dataType: 'json',
         //add: function (e, data) {
         //    data.context = $('<p/>').text('Uploading...').appendTo(document.body);

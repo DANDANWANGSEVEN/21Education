@@ -8,6 +8,17 @@ namespace _21Education.WebSite
         // 有关 Bundling 的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/datepicker-script").Include(
+            "~/Areas/Content/bootstrap/bootstrap.min.js").Include(
+            "~/Areas/Content/bootstrap/bootstrap-datepicker.min.js").Include(
+            "~/Areas/Content/bootstrap/bootstrap-datepicker.zh-CN.min.js").Include(
+            "~/Areas/Content/bootstrap/bootstrap-datepicker.import.js")
+            );
+            bundles.Add(new StyleBundle("~/bundles/datepicker-style").Include(
+            "~/Areas/Content/bootstrap/bootstrap.min.css").Include(
+            "~/Areas/Content/bootstrap/bootstrap-datepicker.min.css")
+            );
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

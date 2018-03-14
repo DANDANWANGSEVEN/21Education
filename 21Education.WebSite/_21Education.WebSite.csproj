@@ -488,6 +488,8 @@
     <Content Include="Areas\Content\jQuery-File-Upload-master\server\php\Dockerfile" />
     <Content Include="Areas\Content\jQuery-File-Upload-master\server\php\files\.gitignore" />
     <Content Include="Areas\Content\jQuery-File-Upload-master\server\php\files\.htaccess" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\FileUpload.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />

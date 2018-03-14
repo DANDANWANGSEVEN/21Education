@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using _21Education.COMMON
+<!DOCTYPE html>
 <html>
 <head>
     <title>Main</title>
@@ -13,5 +14,6 @@
         @RenderBody()
     </div>
     @Scripts.Render("~/bundles/EasyUIBtn")
+    <script src="@Url.Content("~/Areas/Content/Scripts/FileUploaderImport.js?path="+ConfigurationHelper.GetAppSetting("FileUploadPath"))" type="text/javascript"></script>
 </body>
 </html>

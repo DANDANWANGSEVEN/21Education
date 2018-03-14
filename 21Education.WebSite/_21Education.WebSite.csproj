@@ -175,6 +175,7 @@
     <Compile Include="Areas\Admin\Controllers\Areas_NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\Areas_SuccessController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommonController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandAdvantageController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrangAdvantageController.cs" />

@@ -17,6 +17,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 合作图片
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "合作图片")]
         public string Image { get; set; }
         /// <summary>

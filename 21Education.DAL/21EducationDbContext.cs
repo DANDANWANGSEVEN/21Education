@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 using _21Education.MODEL;
 using _21Education.IOC;
 using _21Education.DataBase;
+using System.Data.Entity.Infrastructure;
+
 namespace _21Education.DAL
 {
 
-    public class _21EducationDbContext : DbContext, IDependency
+    public class _21EducationDbContext : DbContext,IDbContextFactory<_21EducationDbContext>, IDependency
     {
+        public _21EducationDbContext()
+        {
+
+        }
         public _21EducationDbContext(string nameOrConnectionString): base(nameOrConnectionString)
         {
-            //Database.CreateIfNotExists();
-            //Database.SetInitializer(new Initializer());
-            //Database.Initialize(true);
         }
         #region 首页
         public DbSet<Carousel> Carousel { set; get; }
@@ -53,7 +56,13 @@ namespace _21Education.DAL
 
         public DbSet<SysModule> SysModule { set; get; }
 
+
         #endregion
+
+        public _21EducationDbContext Create()
+        {
+            throw new NotImplementedException();
+        }
 
     }
     public class Initializer : DataBaseInitializer<_21EducationDbContext>

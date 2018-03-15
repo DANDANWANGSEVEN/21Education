@@ -16,6 +16,7 @@ namespace _21Education.DATA
         /// <summary>
         /// 图片路径
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "图片路径")]
         public string ImgPath { get; set; }
         /// <summary>
@@ -27,7 +28,7 @@ namespace _21Education.DATA
         /// 发表时间
         /// </summary>
         [Display(Name = "发表时间")]
-        public DateTime PublishedTime { get; set; }
+        public DateTime? PublishedTime { get; set; }
     }
 
 }

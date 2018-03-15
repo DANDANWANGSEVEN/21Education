@@ -28,8 +28,7 @@
         });
     });
 </script>
-
-
+<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -45,6 +44,15 @@
                 </td>
                 <td>
                     @Html.EditorFor(model => model.Image)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PublishedTime)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PublishedTime)
+                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PublishedTime" name="PublishedTime" onClick="return Calendar('PublishedTime');" />
                 </td>
             </tr>
         </tbody>

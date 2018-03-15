@@ -10,6 +10,7 @@
 <script src="~/script/kindeditor-min.js"></script>
 <script src="~/script/lang/zh_CN.js"></script>
 <script src="~/Areas/Content/Scripts/KindEdit.js"></script>
+<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 
 <script type="text/javascript">
     $(function () {
@@ -71,6 +72,15 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PubDate)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PubDate)
+                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PubDate" name="PubDate" onClick="return Calendar('PubDate');" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.Content)：
                 </td>
                 <td>
@@ -80,3 +90,4 @@
         </tbody>
     </table>
 }
+

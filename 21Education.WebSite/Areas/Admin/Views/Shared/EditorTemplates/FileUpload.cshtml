@@ -1,0 +1,6 @@
+﻿@model string
+@Styles.Render("~/bundles/datepicker-style")
+@(Html.Label("", "上传文件", new { @class= "glyphicon glyphicon-cloud-upload btn btn-success",style="padding:2px 12px;" },
+            Html.TextBox("", "", new { @class = "fileupload", type = "file", multiple = "", accept = "image/png, image/gif, image/jpg, image/jpeg", style = "display:none;" })))
+<script src="@Url.Content("~/Areas/Content/Scripts/FileUploaderImport.js?path="+Url.Action("/Upload"))" type="text/javascript"></script>
+

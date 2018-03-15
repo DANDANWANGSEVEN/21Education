@@ -63,6 +63,7 @@
     <Compile Include="ContactRecruitInfoService.cs" />
     <Compile Include="FriendlylinkService.cs" />
     <Compile Include="MainBusinessService.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="SuccessService.cs" />

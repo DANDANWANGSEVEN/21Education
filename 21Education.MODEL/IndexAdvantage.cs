@@ -34,11 +34,13 @@ namespace _21Education.MODEL
         /// <summary>
         /// 首页图片
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "首页图片")]
         public string ImageOne { get; set; }
         /// <summary>
         /// 其他页图片
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "其他页图片")]
         public string ImageTwo { get; set; }
 

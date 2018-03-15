@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace _21Education
 {
@@ -33,7 +34,12 @@ namespace _21Education
             return new MvcHtmlString(sb.ToString());
         }
 
-
+        public static MvcHtmlString Label(this HtmlHelper html, string expression, string labelText, object htmlAttributes, MvcHtmlString dom)
+        {
+            var labelString = html.Label(expression, labelText, htmlAttributes).ToString();
+            labelString = labelString.Replace("</label>", dom.ToString() + "</label>");
+            return MvcHtmlString.Create(labelString);
+        }
 
 
     }

@@ -17,6 +17,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 荣誉证书图片
         /// </summary>
+        [UIHint("FileUpload")]
         [Display(Name = "荣誉证书图片")]
         public string Image { get; set; }
         /// <summary>

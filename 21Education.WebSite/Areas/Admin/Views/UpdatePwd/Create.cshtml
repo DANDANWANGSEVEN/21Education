@@ -37,7 +37,7 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.UserName)：
                 </td>
                 <td>
@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.UserPwd)：
                 </td>
                 <td>
@@ -54,7 +54,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ConfirmPwd)：
                 </td>
                 <td>
@@ -63,12 +63,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.RegistDate)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.RegistDate)
-                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="RegistDate" name="RegistDate" onClick="return Calendar('RegistDate');" />
                 </td>
             </tr>
         </tbody>

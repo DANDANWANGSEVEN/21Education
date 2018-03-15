@@ -36,7 +36,7 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.UserName)：
                 </td>
                 <td>
@@ -44,15 +44,16 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.UserPwd)：
                 </td>
                 <td>
                     @Html.PasswordFor(model => model.UserPwd)
+                    <span id="mes" style="color:red;"></span>
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ConfirmPwd)：
                 </td>
                 <td>
@@ -60,12 +61,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.RegistDate)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.RegistDate)
-                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="RegistDate" name="RegistDate" onClick="return Calendar('RegistDate');" />
                 </td>
             </tr>
             <tr>
@@ -78,27 +78,39 @@
 }
 
 <script>
-        $("#btnSave").click(function () {
+    
+    var password = $("#UserPwd").val();
+    var confirmpassword = $("#ConfirmPwd").val();
+    $("#UserPwd").blur(function () {
 
-            var mes;
-            var password = $("#UserPwd").val();
-            var confirmpassword = $("#ConfirmPwd").val();
-            if (password == "" || confirmpassword=="")
-            {
-                $("#mes").html("密码和确认密码不能为空！");
-                return false;
-            }
-            if (password != confirmpassword) {
-                alert("两次密码输入不一致！");
-                return false;
-            }
-            if (password.length < 8 || password.length > 10) {
-                $("#mes").html("密码长度为8-10位！");
-                return false;
-            }
+        if (password == "") {
+            $("#mes").html("密码不能为空!");
+        }
+        if (password != "" && password.val().length < 8 || password.val().length > 10) {
+            $("#mes").html("密码长度为8-10位！");
+        }
+    })
+
+        //$("#btnSave").click(function () {
+
+        //    var mes;
+           
+        //    if (password == "" || confirmpassword=="")
+        //    {
+        //        $("#mes").html("密码和确认密码不能为空!");
+        //        return false;
+        //    }
+        //    if (password != confirmpassword) {
+        //        alert("两次密码输入不一致！");
+        //        return false;
+        //    }
+        //    if (password.length < 8 || password.length > 10) {
+        //        $("#mes").html("密码长度为8-10位！");
+        //        return false;
+        //    }
            
 
-        })
+        //})
 
 
 

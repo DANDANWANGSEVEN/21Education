@@ -68,11 +68,11 @@ namespace _21Education.WebSite.Controllers
                 //}
             };
             //产品服务
-            var bussinessTitle = _mainbussinessService.Get().OrderBy(e => e.Id).ToList();
+            var bussinessTitle = _mainbussinessService.Get().OrderByDescending(e => e.Id).Take(7).ToList();
             ViewBag.bussinessTitleShow = bussinessTitle;
 
             //品牌优势
-            var advantageList = _advantageService.Get().OrderBy(e => e.Id).ToList();
+            var advantageList = _advantageService.Get().OrderByDescending(e => e.Id).Take(4).ToList();
             ViewBag.advantageListShow = advantageList;
 
             //首页新闻中心倒序显示五条

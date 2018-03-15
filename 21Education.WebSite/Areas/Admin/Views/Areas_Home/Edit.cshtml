@@ -1,9 +1,9 @@
 ﻿@model _21Education.MODEL.Carousel
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 @{
     ViewBag.Title = "修改首页轮播图";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -39,7 +39,7 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ImgPath)：
                 </td>
                 <td>
@@ -47,7 +47,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.Describe)：
                 </td>
                 <td>
@@ -55,12 +55,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PublishedTime)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.PublishedTime)
-                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PublishedTime" name="PublishedTime" onClick="return Calendar('PublishedTime');" />
                 </td>
             </tr>
         </tbody>

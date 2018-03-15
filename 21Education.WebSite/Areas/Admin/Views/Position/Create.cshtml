@@ -93,7 +93,7 @@ KindEditor.ready(function(K) {
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.Condition)：
                 </td>
                 <td>
@@ -101,7 +101,7 @@ KindEditor.ready(function(K) {
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PositionDesc)：
                 </td>
                 <td>
@@ -109,7 +109,7 @@ KindEditor.ready(function(K) {
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PositionRequirement)：
                 </td>
                 <td>
@@ -117,7 +117,7 @@ KindEditor.ready(function(K) {
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PublishedPerson)：
                 </td>
                 <td>
@@ -125,12 +125,11 @@ KindEditor.ready(function(K) {
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PublishedTime)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.PublishedTime)
-                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PublishedTime" name="PublishedTime" onClick="return Calendar('PublishedTime');" />
                 </td>
             </tr>
         </tbody>

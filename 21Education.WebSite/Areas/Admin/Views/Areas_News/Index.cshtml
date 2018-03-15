@@ -11,7 +11,7 @@
     <title>新闻中心</title>
 </head>
 <body>
-    <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+    <div id="modalwindow" style="width:80%"  class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
     <div class="mvctool">
         <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("/index".ToCharArray())" id="path" />
         <input id="txtQuery" type="text" class="searchText">

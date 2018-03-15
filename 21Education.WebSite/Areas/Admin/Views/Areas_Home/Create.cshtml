@@ -1,9 +1,9 @@
 ﻿@model _21Education.MODEL.Carousel
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 @{
     ViewBag.Title = "首页轮播图添加";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -27,8 +27,6 @@
         });
     });
 </script>
-
-
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -38,7 +36,7 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ImgPath)：
                 </td>
                 <td>
@@ -46,7 +44,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.Describe)：
                 </td>
                 <td>
@@ -54,11 +52,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PublishedTime)：
                 </td>
                 <td>
-                    <input id="PublishedTime" name="PublishedTime" type="date" />
+                    @Html.EditorFor(model => model.PublishedTime)
                 </td>
             </tr>
         </tbody>

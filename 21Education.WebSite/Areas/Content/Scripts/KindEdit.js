@@ -1,6 +1,7 @@
 ﻿
 var editor;
-KindEditor.ready(function(K) {
+KindEditor.ready(function (K) {
+    editor.removeclass("width");
     editor = K.create('textarea[name="Content"]', {
         uploadJson:"../../../script/asp.net/upload_json.ashx",
         fileManagerJson: "../../../../script/asp.net/file_manager_json.ashx",

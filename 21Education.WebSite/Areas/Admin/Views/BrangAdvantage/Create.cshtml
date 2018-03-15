@@ -1,8 +1,9 @@
 ﻿@model _21Education.MODEL.IndexAdvantage
 @{
-    ViewBag.Title = "创建";
+    ViewBag.Title = "创建品牌优势";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -26,7 +27,6 @@
         });
     });
 </script>
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -36,15 +36,16 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.Title)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.Title)
                 </td>
             </tr>
+
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.desc)：
                 </td>
                 <td>
@@ -52,16 +53,15 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.PubTime)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.PubTime)
-                    <input style="width:100px;height:22px;" value="点击选择日期" type="text" id="PubTime" name="PubTime" onClick="return Calendar('PubTime');" />
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ImageOne)：
                 </td>
                 <td>
@@ -69,7 +69,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:center;">
                     @Html.LabelFor(model => model.ImageTwo)：
                 </td>
                 <td>

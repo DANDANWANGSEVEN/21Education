@@ -34,7 +34,7 @@ namespace _21Education.WebSite.Controllers
             ViewBag.productTitleShow = productTitle;
 
             //品牌优势
-            var advantageList = _advantageService.Get().OrderBy(e => e.Id).ToList();
+            var advantageList = _advantageService.Get().OrderByDescending(e => e.Id).Take(4).ToList();
             ViewBag.advantageListShow = advantageList;
 
             var path = RouteData.GetPath();

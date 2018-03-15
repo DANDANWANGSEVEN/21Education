@@ -49,7 +49,7 @@ namespace _21Education.WebSite.Controllers
 
 
             //公司文化
-            var companyculture = _companyculture.Get().OrderBy(e => e.Id).ToList();
+            var companyculture = _companyculture.Get().OrderByDescending(e => e.Id).Take(4).ToList();
             ViewBag.companycultureShow = companyculture;
 
             //公司成就

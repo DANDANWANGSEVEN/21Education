@@ -1,4 +1,2 @@
 ﻿@model DateTime?
-@Styles.Render("~/bundles/datepicker-style")
 @Html.TextBox("", Model.HasValue?Model.Value.ToString("yyyy/MM/dd"):"",new { @class= "form-control selectData" })
-@Scripts.Render("~/bundles/datepicker-script")

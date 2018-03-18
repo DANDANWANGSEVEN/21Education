@@ -28,6 +28,7 @@ namespace _21Education.WebSite.Areas.Admin
         public static Dictionary<string, string> userDic = new Dictionary<string, string>();
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            return;
             var requestCookies = filterContext.RequestContext.HttpContext.Request.Cookies;
             ActionDescriptor arg_34_0 = filterContext.ActionDescriptor;
             bool inherit = true;

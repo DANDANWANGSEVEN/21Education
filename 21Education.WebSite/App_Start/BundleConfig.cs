@@ -19,6 +19,13 @@ namespace _21Education.WebSite
             "~/Areas/Content/bootstrap/bootstrap-datepicker.min.css")
             );
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-fileupload").Include(
+            "~/Areas/Content/Scripts/jquery.ui.widget.js").Include(
+            "~/Areas/Content/Scripts/jquery.iframe-transport.js").Include(
+            "~/Areas/Content/Scripts/jquery.fileupload.js").Include(
+            "~/Areas/Content/Scripts/FileUploaderImport.js")
+            );
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -81,5 +88,5 @@ namespace _21Education.WebSite
 
 
 
-        }
+    }
 }

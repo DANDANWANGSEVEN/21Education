@@ -11,7 +11,11 @@
             window.parent.$.progressBoxClose();
             console.log(data);
             if (data.result.Code === 0) {
-                $("input[name=" + $(this).attr("name").split('.')[0] + "][type=hidden]").val(data.result.FileName)
+                var name = $(this).attr("name").split('.')[0];
+                $("input[name=" + name + "][type=hidden]").val(data.result.FileName);
+                var imgPath = $("input[name='" + name + ".path'][type=hidden]").val();
+                $("label[for=" + name + "_review]").css("display", "inline-block");
+                $("label[for=" + name + "_review]").children("img").attr("src", imgPath + data.result.FileName);
             }
             window.parent.$.messager.alert('提示', data.result.Message);
         },

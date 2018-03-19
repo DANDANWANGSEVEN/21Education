@@ -6,5 +6,5 @@
                                 Html.TextBox("file", "", new { @class = "fileupload", type = "file", accept = "image/png, image/gif, image/jpg, image/jpeg", style = "display:none;", data_url = Url.Action("Upload", "Common") })))
 @Html.HiddenFor(e => e)
 @Html.Hidden("path", fileSavePath)
-@Html.Label("review", "预览", new { style = (string.IsNullOrEmpty(Model) ? "display:none;" : "") },
-    MvcHtmlString.Create("<img src=" + fileSavePath + Model + " width=\"300\" height=\"180\"/>"))
+@Html.Label("review", "预览", new { style = (string.IsNullOrEmpty(Model) ? "display:none;" : "")+"position:relative;" },
+    MvcHtmlString.Create("<img src=" + fileSavePath + Model + " width=\"200\"  style=\"position:absolute;top:20px;left:30px;display:none;\" />"))

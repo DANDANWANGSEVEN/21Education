@@ -9,13 +9,15 @@ namespace _21Education
 {
     public static class TypeExtend<T>
     {
-        public static T CopyTo(T source, T copyTo)
+        public static T CopyTo(T source, T copyTo, bool withPrimaryKey = false)
         {
             var properties = typeof(T).GetProperties();
             foreach (PropertyInfo prop in properties)
             {
-                if (prop.Name != "Id")
-                    prop.SetValue(copyTo, prop.GetValue(source));
+                if (!withPrimaryKey) if (prop.Name == "Id") continue;
+
+                prop.SetValue(copyTo, prop.GetValue(source));
+
             }
             return copyTo;
         }

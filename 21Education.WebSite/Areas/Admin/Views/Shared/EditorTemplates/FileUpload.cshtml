@@ -1,6 +1,10 @@
 ﻿@model string
-@Styles.Render("~/bundles/datepicker-style")
-@(Html.Label("", "上传文件", new { @class= "glyphicon glyphicon-cloud-upload btn btn-success",style="padding:2px 12px;" },
-            Html.TextBox("", "", new { @class = "fileupload", type = "file", multiple = "", accept = "image/png, image/gif, image/jpg, image/jpeg", style = "display:none;" })))
-<script src="@Url.Content("~/Areas/Content/Scripts/FileUploaderImport.js?path="+Url.Action("/Upload"))" type="text/javascript"></script>
-
+@{ 
+    var fileSavePath = _21Education.WebSite.Areas.Admin.Controllers.CommonController.fileSavePath;
+}
+@(Html.Label("file", "上传文件", new { @class = "glyphicon glyphicon-cloud-upload btn btn-success", style = "padding:2px 12px;" },
+                                Html.TextBox("file", "", new { @class = "fileupload", type = "file", accept = "image/png, image/gif, image/jpg, image/jpeg", style = "display:none;", data_url = Url.Action("Upload", "Common") })))
+@Html.HiddenFor(e => e)
+@Html.Hidden("path", fileSavePath)
+@Html.Label("review", "预览", new { style = (string.IsNullOrEmpty(Model) ? "display:none;" : "")+"position:relative;" },
+    MvcHtmlString.Create("<img src=" + fileSavePath + Model + " width=\"200\"  style=\"position:absolute;top:20px;left:30px;display:none;\" />"))

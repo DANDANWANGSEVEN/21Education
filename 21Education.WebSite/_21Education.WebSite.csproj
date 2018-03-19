@@ -1672,6 +1672,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Content\jQuery-File-Upload-master\js\vendor\" />
     <Folder Include="Areas\Content\Scripts\easyui\demo\" />
+    <Folder Include="Content\Upload\" />
     <Folder Include="fonts\" />
     <Folder Include="LunBo\fonts\" />
     <Folder Include="Models\" />

@@ -1,34 +1,28 @@
-﻿
-//import js
-document.write('<script src="/Areas/Content/Scripts/jquery.ui.widget.js"></script>');
-document.write('<script src="/Areas/Content/Scripts/jquery.iframe-transport.js"></script>');
-document.write('<script src="/Areas/Content/Scripts/jquery.fileupload.js"></script>');
-//get param
-var scripts = document.getElementsByTagName("script");
-var currentScript = scripts[scripts.length - 1];
-var scriptSrc = currentScript.src;
-
-var fileUploadPath = scriptSrc.substr(scriptSrc.indexOf('=') + 1);
-
-$(function () {
+﻿$(function () {
+    var bar;
     $('.fileupload').fileupload({
         dataType: 'json',
+        url: $(this).attr("data-url"),
         //add: function (e, data) {
         //    data.context = $('<p/>').text('Uploading...').appendTo(document.body);
         //    data.submit();
         //},
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });
-            data.context.text('Upload finished.');
+            window.parent.$.progressBoxClose();
+            console.log(data);
+            if (data.result.Code === 0) {
+                var name = $(this).attr("name").split('.')[0];
+                $("input[name=" + name + "][type=hidden]").val(data.result.FileName);
+                var imgPath = $("input[name='" + name + ".path'][type=hidden]").val();
+                $("label[for=" + name + "_review]").css("display", "inline-block");
+                $("label[for=" + name + "_review]").children("img").attr("src", imgPath + data.result.FileName);
+            }
+            window.parent.$.messager.alert('提示', data.result.Message);
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('#progress .bar').css(
-                'width',
-                progress + '%'
-            );
+            bar = window.parent.$.progressBox('上传图片', '上传中...');
+            bar.progressbar('setValue', progress);
         }
     });
 });

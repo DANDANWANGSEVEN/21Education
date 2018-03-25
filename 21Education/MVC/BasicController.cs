@@ -1,7 +1,11 @@
 ﻿using _21Education.Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -31,10 +35,11 @@ namespace _21Education.MVC
             else
 
                 list = Service.Get().OrderBy("Id").Skip((pager.page - 1) * pager.rows).Take(pager.rows).ToArray();
+
             var json = new
             {
                 total = pager.totalRows,
-                rows = list
+                rows = ConvertImgPathToPhysicalPath(list)
             };
             return Json(json, JsonRequestBehavior.AllowGet);
         }
@@ -87,6 +92,32 @@ namespace _21Education.MVC
         protected new JsonResult Json(object data, JsonRequestBehavior behavior)
         {
             return new DateFormateJson(data, behavior);
+        }
+
+        Func<PropertyInfo, bool> filter = e => e.GetCustomAttributes(typeof(UIHintAttribute), false).Cast<UIHintAttribute>().Any(a => a.UIHint == "FileUpload");
+        PropertyInfo[] properties = typeof(TEntity).GetProperties();
+        public string floderPath = ConfigurationManager.AppSettings["FileUploadPath"].EndsWith("/") ? ConfigurationManager.AppSettings["FileUploadPath"] : ConfigurationManager.AppSettings["FileUploadPath"] + "/";
+        TEntity[] ConvertImgPathToPhysicalPath(TEntity[] list)
+        {
+            if (!properties.Any(filter)) return list;
+
+            List<TEntity> listResult = new List<TEntity>();
+            foreach (var entity in list)
+            {
+                var result = ConvertImgPathToPhysicalPath(entity);
+                listResult.Add(result);
+            }
+            return listResult.ToArray();
+        }
+        TEntity ConvertImgPathToPhysicalPath(TEntity entity)
+        {
+            var result = Activator.CreateInstance<TEntity>();
+            TypeExtend<TEntity>.CopyTo(entity, result, true);
+            properties.Where(filter).ToList().ForEach(property =>
+            {
+                property.SetValue(result, floderPath + property.GetValue(entity, null).ToString());
+            });
+            return result;
         }
     }
 }

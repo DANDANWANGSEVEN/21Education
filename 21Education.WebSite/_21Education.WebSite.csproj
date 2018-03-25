@@ -1579,7 +1579,9 @@
     <Content Include="script\themes\qq\editor.gif" />
     <Content Include="script\themes\qq\qq.css" />
     <Content Include="script\themes\simple\simple.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1671,6 +1673,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Content\jQuery-File-Upload-master\js\vendor\" />
     <Folder Include="Areas\Content\Scripts\easyui\demo\" />
+    <Folder Include="Content\Upload\" />
     <Folder Include="fonts\" />
     <Folder Include="LunBo\fonts\" />
     <Folder Include="Models\" />

@@ -3,29 +3,32 @@
     ViewBag.Title = "修改密码";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
-            $.ajax({
-                url: "@Url.Action("Edit")",
-                type: "Post",
-                data: $("#CreateForm").serialize(),
-                dataType: "json",
-                success: function (data) {
-                    if (data == 1) {
-                        window.parent.frameReturnByMes("成功");
-                        window.parent.frameReturnByReload(true);
-                        window.parent.frameReturnByClose()
+
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
                     }
-                    else {
-                        window.parent.frameReturnByMes("失败");
-                    }
-                }
-            });
+                });
         });
     });
 </script>
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
+
+
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -48,8 +51,7 @@
                     @Html.LabelFor(model => model.UserPwd)：
                 </td>
                 <td>
-                    @Html.PasswordFor(model => model.UserPwd)
-                    <span id="mes" style="color:red;"></span>
+                    @Html.EditorFor(model => model.UserPwd)
                 </td>
             </tr>
             <tr>
@@ -57,7 +59,7 @@
                     @Html.LabelFor(model => model.ConfirmPwd)：
                 </td>
                 <td>
-                    @Html.PasswordFor(model => model.ConfirmPwd)
+                    @Html.EditorFor(model => model.ConfirmPwd)
                 </td>
             </tr>
             <tr>
@@ -68,52 +70,8 @@
                     @Html.EditorFor(model => model.RegistDate)
                 </td>
             </tr>
-            <tr>
-                <td style="width:100px; text-align:left;" colspan="2">
-                    <p id="mes" style="color:red;"></p>
-                </td>
-            </tr>
         </tbody>
     </table>
 }
-
-<script>
-    
-    var password = $("#UserPwd").val();
-    var confirmpassword = $("#ConfirmPwd").val();
-    $("#UserPwd").blur(function () {
-
-        if (password == "") {
-            $("#mes").html("密码不能为空!");
-        }
-        if (password != "" && password.val().length < 8 || password.val().length > 10) {
-            $("#mes").html("密码长度为8-10位！");
-        }
-    })
-
-        //$("#btnSave").click(function () {
-
-        //    var mes;
-           
-        //    if (password == "" || confirmpassword=="")
-        //    {
-        //        $("#mes").html("密码和确认密码不能为空!");
-        //        return false;
-        //    }
-        //    if (password != confirmpassword) {
-        //        alert("两次密码输入不一致！");
-        //        return false;
-        //    }
-        //    if (password.length < 8 || password.length > 10) {
-        //        $("#mes").html("密码长度为8-10位！");
-        //        return false;
-        //    }
-           
-
-        //})
-
-
-
-</script>
 
 

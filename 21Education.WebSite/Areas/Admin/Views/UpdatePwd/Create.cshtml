@@ -27,7 +27,6 @@
         });
     });
 </script>
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -50,7 +49,6 @@
                 </td>
                 <td>
                     @Html.PasswordFor(model => model.UserPwd)
-                    @Html.ValidationMessageFor(model => model.UserPwd)
                 </td>
             </tr>
             <tr>
@@ -59,7 +57,6 @@
                 </td>
                 <td>
                     @Html.PasswordFor(model => model.ConfirmPwd)
-                    @Html.ValidationMessageFor(model => model.ConfirmPwd)
                 </td>
             </tr>
             <tr>
@@ -73,6 +70,21 @@
         </tbody>
     </table>
 }
+<script>
 
+    var loca = $("#ifram1").contents().find("#lonlat").val();
 
+    var pwd = $("#UserPwd").val();
+    var confirmpwd = $("#ConfirmPwd").val()
+    $("#UserPwd").blur()
+    {
+        if (pwd.length < 6 && pwd.length > 10) {
+            alert("密码长度为6-10位！");
+        }
+    }
 
+    if (pwd != confirmpwd)
+    {
+        alert("两次密码输入不一致！");
+    }
+</script>

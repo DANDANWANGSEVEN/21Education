@@ -1,17 +1,32 @@
-﻿
-/** 
+﻿/** 
 * 在iframe中调用，在父窗口中出提示框(herf方式不用调父窗口)
 */
 $.extend({
     messageBox5s: function (title, msg) {
         $.messager.show({
             title: title, msg: msg, timeout: 5000, showType: 'slide', style: {
-                left:'',
+                left: '',
                 right: 500,
-                top:'',
+                top: '',
                 bottom: -document.body.scrollTop - document.documentElement.scrollTop + 300
             }
         });
+    }
+});
+$.extend({
+    progressBox: function (title, msg, text) {
+        $.messager.progress({
+            title: title, msg: msg, text: text, interval: 0, style: {
+                left: '',
+                right: 500,
+                top: '',
+                bottom: -document.body.scrollTop - document.documentElement.scrollTop + 300
+            }
+        });
+        return $.messager.progress('bar');
+    },
+    progressBoxClose: function () {
+        $.messager.progress('close');
     }
 });
 $.extend({
@@ -26,12 +41,6 @@ $.extend({
         });
     }
 });
-$.extend({
-    show_alert: function (strTitle, strMsg) {
-        $.messager.alert(strTitle, strMsg);
-    }
-});
-
 /** 
 * panel关闭时回收内存，主要用于layout使用iframe嵌入网页时的内存泄漏问题
 */

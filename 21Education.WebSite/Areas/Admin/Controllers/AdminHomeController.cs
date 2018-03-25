@@ -1,15 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _21Education.COMMON;
 using _21Education.IDAL;
+using System.Web.WebSockets;
+using System.Threading;
+using System.Text;
 
 namespace _21Education.WebSite.Areas.Admin.Controllers
 {
     [AdminAuthorize]
     public class AdminHomeController : Controller
     {
+        public enum logintype
+        {
+            online,
+            offline
+        }
+
         //
         // GET: /Admin/AdminHome/
         ISysModule _sysmodelservice;
@@ -19,6 +31,8 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             _sysmodelservice = sysmodelservice;
             _userinfo = userinfo;
         }
+
+      static  Dictionary<string, WebSocket> connetpool = new  Dictionary<string, WebSocket>();
 
 
         #region  登陆
@@ -35,12 +49,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             try
             {
                 if (Request.Cookies["WrongOverTop"] != null) return -3;
-                //var userinfo = new MODEL.UserInfo();
-                //userinfo.Id = 1;
-                //userinfo.UserName = "admin";
-                //userinfo.UserPwd = "123456";
-                //userinfo.RegistDate = DateTime.Now;
-
                 var userinfolist = _userinfo.Get().FirstOrDefault();
 
                 if (UserName != userinfolist.UserName)
@@ -70,22 +78,92 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 }
                 else
                 {
-                    var userCookie = new HttpCookie("UserCookie");
-                    userCookie.Path = "/";
-                    Guid guidUName = Guid.NewGuid();
-                    AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfolist.UserName);
-                    userCookie.Value = guidUName.ToString("N");
-                    HttpContext.Response.Cookies.Add(userCookie);
-                    HttpContext.Response.Cookies.Add(new HttpCookie(userinfolist.UserName));
-                    return 1;  //成功
-                }
-                
+                    if(connetpool.ContainsKey(UserName))
+                    {
+                        return 2;
+                    }
+                    
+                        var userCookie = new HttpCookie("UserCookie");
+                        userCookie.Path = "/";
+                        Guid guidUName = Guid.NewGuid();
+                        AdminAuthorizeAttribute.userDic.Add(guidUName.ToString("N"), userinfolist.UserName);
+                        userCookie.Value = guidUName.ToString("N");
+                        HttpContext.Response.Cookies.Add(userCookie);
+                        HttpContext.Response.Cookies.Add(new HttpCookie(userinfolist.UserName));
+                        return 1;  //成功
+                    }
             }
             catch (Exception ex)
             {
                 return 0;
             }
         }
+        /// <summary>
+        /// 限制用户登录
+        /// </summary>
+        public void WebSocketService()
+        {
+            if(HttpContext.IsWebSocketRequest)
+            {
+                HttpContext.AcceptWebSocketRequest(AsyncUserLimit);
+            }
+        }
+        async Task AsyncUserLimit(AspNetWebSocketContext context)
+        {
+            WebSocket websocket = context.WebSocket;
+            var connectpoolkey = "";
+
+            if (context.Cookies.AllKeys.Contains("UserCookie"))
+            {
+                connectpoolkey = context.Cookies["UserCookie"].Value;
+            }
+            var getvalue = AdminAuthorizeAttribute.userDic[connectpoolkey];
+
+            if (!connetpool.ContainsKey(getvalue))
+            {
+                connetpool.Add(getvalue, websocket);
+            }
+            if (connetpool[connectpoolkey] != websocket)
+            {
+                connetpool[connectpoolkey] = websocket;
+            }
+            while (true)
+            {
+                if (websocket.State == WebSocketState.Open)
+                {
+                    ArraySegment<byte> buffer = new ArraySegment<byte>(new byte[2048]);
+                    WebSocketReceiveResult result = await websocket.ReceiveAsync(buffer, CancellationToken.None);
+
+                    try
+                    {
+                        if (websocket.State != WebSocketState.Open)
+                        {
+                            if (connetpool.ContainsKey(connectpoolkey)) connetpool.Remove(connectpoolkey);
+                            break;
+                        }
+
+                        string userMsg = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);//发送过来的消息
+                        var userStatus = Convert.ToInt32(userMsg);
+
+                        if (userStatus == 1)
+                        {
+                            connetpool.Remove(connectpoolkey);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                   
+                }
+            }  
+        }
+            
+        
+
+
+
         /// <summary>
         /// 验证码
         /// </summary>
@@ -104,7 +182,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// <summary>
         /// 退出登陆
         /// </summary>
-        [AllowAnonymous]
         public void LoginOut()
         {
             var userCookie = Request.Cookies.Get("UserCookie");

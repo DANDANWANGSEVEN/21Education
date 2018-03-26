@@ -122,9 +122,9 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             {
                 connetpool.Add(getvalue, websocket);
             }
-            if (connetpool[connectpoolkey] != websocket)
+            if (connetpool[getvalue] != websocket)
             {
-                connetpool[connectpoolkey] = websocket;
+                connetpool[getvalue] = websocket;
             }
             while (true)
             {
@@ -190,6 +190,7 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
             AdminAuthorizeAttribute.userDic.TryGetValue(userCookie.Value, out userName);
             var uNameCookie = Request.Cookies.Get(userName);
             uNameCookie.Expires = DateTime.Now.AddDays(-1);
+            connetpool.Remove(userName);
             Response.Cookies.Set(uNameCookie);
             Response.Redirect("/admin");
         }

@@ -99,7 +99,6 @@
     <Compile Include="DATA\GridPager.cs" />
     <Compile Include="DATA\Pagination.cs" />
     <Compile Include="DATA\PaginationViewModel.cs" />
-    <Compile Include="Extend\DataGridSuggestionExtend.cs" />
     <Compile Include="Extend\ExtendMvcHtml.cs" />
     <Compile Include="Extend\ObjectExtend.cs" />
     <Compile Include="Extend\QueryableExtend.cs" />

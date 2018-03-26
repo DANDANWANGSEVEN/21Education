@@ -32,7 +32,7 @@
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
-@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
@@ -51,15 +51,7 @@
                     @Html.LabelFor(model => model.UserPwd)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.UserPwd)
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align:center;">
-                    @Html.LabelFor(model => model.ConfirmPwd)：
-                </td>
-                <td>
-                    @Html.EditorFor(model => model.ConfirmPwd)
+                    @Html.PasswordFor(model => model.UserPwd)
                 </td>
             </tr>
             <tr>
@@ -73,5 +65,22 @@
         </tbody>
     </table>
 }
+<script>
+    $(function () {
+        $("#UserName").attr("disabled","disabled");
+    })
+
+    $("#UserPwd").blur(function () {
+
+        if($(this).val().length<6 || $(this).val().length>8) 
+        {
+            alert("密码长度为6-10位");
+            return false;
+        }
+       
+
+    })
+
+</script>
 
 

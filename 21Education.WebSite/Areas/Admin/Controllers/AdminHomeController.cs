@@ -42,7 +42,6 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
                 //userinfo.RegistDate = DateTime.Now;
 
                 var userinfolist = _userinfo.Get().FirstOrDefault();
-
                 if (UserName != userinfolist.UserName)
                 {
                     return -1;  //用户名不正确

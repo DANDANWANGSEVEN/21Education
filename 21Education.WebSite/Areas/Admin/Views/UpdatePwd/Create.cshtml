@@ -31,9 +31,10 @@
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
 @using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
+@*@using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { enctype = "multipart/form-data" }))*@
 {
-    @Html.ValidationSummary(true)
-    <table class="fromEditTable setTextWidth300">
+        @Html.ValidationSummary(true)
+        <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
                 <td style="text-align:center;">
@@ -53,14 +54,6 @@
             </tr>
             <tr>
                 <td style="text-align:center;">
-                    @Html.LabelFor(model => model.ConfirmPwd)：
-                </td>
-                <td>
-                    @Html.PasswordFor(model => model.ConfirmPwd)
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align:center;">
                     @Html.LabelFor(model => model.RegistDate)：
                 </td>
                 <td>
@@ -72,10 +65,7 @@
 }
 <script>
 
-    var loca = $("#ifram1").contents().find("#lonlat").val();
-
     var pwd = $("#UserPwd").val();
-    var confirmpwd = $("#ConfirmPwd").val()
     $("#UserPwd").blur()
     {
         if (pwd.length < 6 && pwd.length > 10) {
@@ -83,8 +73,4 @@
         }
     }
 
-    if (pwd != confirmpwd)
-    {
-        alert("两次密码输入不一致！");
-    }
 </script>

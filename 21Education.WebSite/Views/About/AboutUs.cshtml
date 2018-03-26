@@ -20,7 +20,6 @@
     </tr>
     <tr>
         <td>        
-           
                 <div>@ViewBag.compangprofileShow</div>
  
         </td>
@@ -62,7 +61,7 @@
         @foreach (var Cultureitem in ViewBag.companycultureShow)
             {
             <td>
-                <img class="img" src="@Cultureitem.Image" />
+                <img class="img" src="/Content/Upload/@Cultureitem.Image" />
                 <p>@Cultureitem.desc</p>
             </td>
         }
@@ -81,7 +80,7 @@
     {
         <tr>
             <td colspan="4">
-                <img class="img-responsive" style="width:1000px;height:180px;" src="@achievementitem.Image" alt="">
+                <img class="img-responsive" style="width:1000px;height:180px;" src="/Content/Upload/@achievementitem.Image" alt="">
             </td>
         </tr>
     }

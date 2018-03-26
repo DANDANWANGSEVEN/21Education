@@ -16,9 +16,9 @@
         <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("index".ToCharArray())" id="path" />
         <input id="txtQuery" type="text" class="searchText">
         <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
+        @*<a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>*@
         <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
+        @*<a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>*@
         <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
     </div>
     <table id="List"></table>
@@ -40,7 +40,7 @@
                 singleSelect: true,//单选模式
                 rownumbers: true,//行号
                 columns: [[
-                    { field: 'Id', title: '编号', width: 80, align: 'center' },
+                    //{ field: 'Id', title: '编号', width: 80, align: 'center' },
                     { field: 'UserName', title: '用户名', width: 80, align: 'center' },
                     { field: 'UserPwd', title: '当前密码', width: 80, align: 'center' },
                     { field: 'RegistDate', title: '日期', width: 80, align: 'center' }
@@ -61,15 +61,5 @@
                 height: $(window).height() - 35
             });
         });
-
-        
-
-
-
-
     });
-
-
-
-
 </script>

@@ -129,7 +129,7 @@
                 @foreach (var Descitem in ViewBag.bussinessTitleShow)
                 {
                     <tr>
-                        <td><a href="/News/NewsContent"><img src="@Descitem.Image" style="width:350px;height:220px;" /></a></td>
+                        <td><a href="/News/NewsContent"><img src="/Content/Upload/@Descitem.Image" style="width:350px;height:220px;" /></a></td>
                         <td>
                             <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">@Descitem.BusinessName</a></p>
                             <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
@@ -172,7 +172,7 @@
             {
                 <td valign="baseline" style="width:247px;">
                     <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                        <dt><img src="~/image/index.V3/indexone.png" /></dt>
+                        <dt><img src="/Content/Upload/@Advantageitem.ImageOne" /></dt>
                         <dd>
                             <p style="font-size:16px;line-height:30px;color:#000;">@Advantageitem.Title</p>
                             <span>@Advantageitem.desc</span> 

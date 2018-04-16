@@ -115,6 +115,7 @@ namespace _21Education.MVC
             TypeExtend<TEntity>.CopyTo(entity, result, true);
             properties.Where(filter).ToList().ForEach(property =>
             {
+                if (property.GetValue(entity, null) == null) return; 
                 property.SetValue(result, floderPath + property.GetValue(entity, null).ToString());
             });
             return result;

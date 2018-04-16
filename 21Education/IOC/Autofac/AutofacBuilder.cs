@@ -22,7 +22,7 @@ namespace _21Education.IOC
         }
         public void RegisterDependencyResolver(Action<ContainerBuilder> configrueDelegate)
         {
-            configrueDelegate.Invoke(_containerBuilder);
+            configrueDelegate(_containerBuilder);
         }
         public AutofacDependencyResolver Build()
         {

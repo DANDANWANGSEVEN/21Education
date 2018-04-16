@@ -9,6 +9,7 @@ namespace _21Education.WebSite
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/datepicker-script").Include(
+            "~/Content/js/jquery-1.10.2.min.js").Include(
             "~/Areas/Content/bootstrap/bootstrap.min.js").Include(
             "~/Areas/Content/bootstrap/bootstrap-datepicker.min.js").Include(
             "~/Areas/Content/bootstrap/bootstrap-datepicker.zh-CN.min.js").Include(

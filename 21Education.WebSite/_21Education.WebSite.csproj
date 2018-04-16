@@ -215,6 +215,13 @@
     <Compile Include="ViewModels\Success\SuccessListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Content\bootstrap\bootstrap-datepicker.import.js" />
+    <Content Include="Areas\Content\bootstrap\bootstrap-datepicker.min.css" />
+    <Content Include="Areas\Content\bootstrap\bootstrap-datepicker.min.js" />
+    <Content Include="Areas\Content\bootstrap\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Areas\Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Areas\Content\bootstrap\bootstrap.min.js" />
+    <Content Include="Areas\Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\Content\Images\account.jpg" />
     <Content Include="Areas\Content\Images\arrow.gif" />
     <Content Include="Areas\Content\Images\Article\icon_arrow_blue.gif" />
@@ -298,6 +305,11 @@
     <Content Include="Areas\Content\jQuery-File-Upload-master\js\jquery.fileupload-ui.js" />
     <Content Include="Areas\Content\jQuery-File-Upload-master\js\jquery.fileupload-validate.js" />
     <Content Include="Areas\Content\jQuery-File-Upload-master\js\jquery.fileupload-video.js" />
+    <Content Include="Areas\Content\release\jquery-2.2.1.js" />
+    <Content Include="Areas\Content\release\wangEditor.css" />
+    <Content Include="Areas\Content\release\wangEditor.js" />
+    <Content Include="Areas\Content\release\wangEditor.min.css" />
+    <Content Include="Areas\Content\release\wangEditor.min.js" />
     <Content Include="Areas\Content\Scripts\jquery.fileupload.js" />
     <Content Include="Areas\Content\Scripts\jquery.iframe-transport.js" />
     <Content Include="Areas\Content\jQuery-File-Upload-master\js\main.js" />
@@ -493,6 +505,12 @@
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\FileUpload.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\LoginType.cshtml" />
+    <Content Include="Areas\Content\release\fonts\w-e-icon.woff" />
+    <Content Include="Areas\Content\release\wangEditor.min.js.map" />
+    <Content Include="Areas\Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Areas\Content\Scripts\_references.js" />
     <Content Include="Areas\Content\themes\angular.css" />
     <Content Include="Areas\Content\themes\black\accordion.css" />
@@ -1684,10 +1702,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\21Education.BLL\21Education.BLL.csproj">
-      <Project>{0a47a69a-48fb-434d-8cb0-e98e0a3dd4b2}</Project>
-      <Name>21Education.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\21Education.COMMON\21Education.COMMON.csproj">
       <Project>{a3ff034a-5e72-41ad-98bb-e501aef9a027}</Project>
       <Name>21Education.COMMON</Name>

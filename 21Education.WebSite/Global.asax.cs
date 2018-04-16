@@ -20,6 +20,8 @@ namespace _21Education.WebSite
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public int MyProperty { get; set; }
+        public int MyProperty2 { get; set; }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -33,7 +35,10 @@ namespace _21Education.WebSite
 
             //注入 Ioc
             var iocBuilder = new AutofacBuilder();
-            iocBuilder.RegisterDependencyResolver(builder =>
+            //action<>  Func<> 预定义的委托
+
+
+            iocBuilder.RegisterDependencyResolver(builder =>  //lamada表达式
             {
                 builder.RegisterControllers(typeof(MvcApplication).Assembly);
                 

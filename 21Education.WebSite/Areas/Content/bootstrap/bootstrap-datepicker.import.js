@@ -27,5 +27,6 @@ $('.selectData').datepicker({
     startView: 0,             //开始显示  
     todayBtn: false,          //今天按钮  
     todayHighlight: false,    //今天高亮  
-    weekStart: 0              //星期几是开始  
+    weekStart: 0 ,             //星期几是开始  
+    zIndexOffset:999999
 });  

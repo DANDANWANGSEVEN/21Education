@@ -70,21 +70,3 @@
         </tbody>
     </table>
 }
-<script>
-
-    var loca = $("#ifram1").contents().find("#lonlat").val();
-
-    var pwd = $("#UserPwd").val();
-    var confirmpwd = $("#ConfirmPwd").val()
-    $("#UserPwd").blur()
-    {
-        if (pwd.length < 6 && pwd.length > 10) {
-            alert("密码长度为6-10位！");
-        }
-    }
-
-    if (pwd != confirmpwd)
-    {
-        alert("两次密码输入不一致！");
-    }
-</script>

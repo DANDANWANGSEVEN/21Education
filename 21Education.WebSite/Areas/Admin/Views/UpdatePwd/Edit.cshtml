@@ -6,7 +6,26 @@
 <script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        $("#UserName").attr("readonly", true);
+        $("#UserName").css("background", "lightgray");
         $("#btnSave").click(function () {
+            if ($("#UserPwd").val()=="")
+            {
+                alert("请输入密码！");
+                return;
+            }
+            else if ($("#UserPwd").val().length < 6 || $("#UserPwd").val().length > 10) {
+                alert("密码长度为6-10位！");
+                return;
+            }
+            if ($("#ConfirmPwd").val() == "") {
+                alert("请输入确认密码！");
+                return;
+            }
+            else if ($("#UserPwd").val() != $("#ConfirmPwd").val()) {
+                alert("两次密码输入不一致！");
+                return;
+                }
 
                 $.ajax({
                     url: "@Url.Action("Edit")",
@@ -60,6 +79,7 @@
                 </td>
                 <td>
                     @Html.EditorFor(model => model.ConfirmPwd)
+                    @*<input id="passwordtwo" name="passwordtwo" type="password" />*@
                 </td>
             </tr>
             <tr>
@@ -73,5 +93,11 @@
         </tbody>
     </table>
 }
+    <script>
 
+        var loca = $("#ifram1").contents().find("#lonlat").val();
+        
+
+        
+    </script>
 

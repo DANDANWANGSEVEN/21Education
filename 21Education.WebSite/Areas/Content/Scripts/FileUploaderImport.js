@@ -16,6 +16,7 @@
                 var imgPath = $("input[name='" + name + ".path'][type=hidden]").val();
                 $("label[for=" + name + "_review]").css("display", "inline-block");
                 $("label[for=" + name + "_review]").children("img").attr("src", imgPath + data.result.FileName);
+                $("label[for=" + name + "_review]").children("img").css("display", "inline-block");
             }
             window.parent.$.messager.alert('提示', data.result.Message);
         },

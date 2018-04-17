@@ -57,14 +57,13 @@
         z-index: 900;
     }
 
-    .businesstitle {
-        text-decoration: none;
-        color: #000;
+    .businesstitle{
+        text-decoration:none;color:#000;
     }
 
-        .businesstitle:hover {
-            color: #0057be;
-        }
+    .businesstitle:hover{
+        color:#0057be;
+    }
     /*品牌优势*/
     #productadvantage {
         width: 1000px;
@@ -72,57 +71,36 @@
         margin: auto;
         margin-top: 30px;
     }
-
     #mainbusiness a.active {
         color: white;
         background-color: #0057be;
     }
-
-    #businessdiv tr td img:hover {
-        opacity: 0.8;
+    #businessdiv tr td img:hover{
+        opacity:0.8;
     }
 </style>
-<div id="div1">
-</div>
-<textarea id="text1" style="width:100%; height:200px;display:none;"></textarea>
-<script src="~/Areas/Content/release/wangEditor.min.js"></script>
-<script type="text/javascript">
-    var E = window.wangEditor
-    var editor = new E('#div1')
-    var $text1 = $('#text1')
-    editor.customConfig.onchange = function (html) {
-        // 监控变化，同步更新到 textarea
-        $text1.val(html)
-    }
-    editor.customConfig.uploadImgServer = '/Admin/Common/Upload';
-    editor.create()
-    // 初始化 textarea 的值
-    $text1.val(editor.txt.html())
-</script>
-
-
-
 
 @*轮播图*@
 @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.Carousel)
 
+
 @*产品服务*@
 @*<table class="table" id="index.productservice" border="0" style="text-align:center;">
-        <tr class="firsttr">
-            <td colspan="6">
-                <h3 style="color:#0057be;">______ 产品展示 ______</h3>
-                <span style="font-size:14px;color:#666666;">PRODUCT Show</span>
-            </td>
-        </tr>
-        <tr style="text-align:center;">
-            <td style="height:15px;"></td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
-            </td>
-        </tr>
-    </table>*@
+    <tr class="firsttr">
+        <td colspan="6">
+            <h3 style="color:#0057be;">______ 产品展示 ______</h3>
+            <span style="font-size:14px;color:#666666;">PRODUCT Show</span>
+        </td>
+    </tr>
+    <tr style="text-align:center;">
+        <td style="height:15px;"></td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Partial("~/Views/PartView/Partial.Carousel.cshtml", Model.ProductShow)
+        </td>
+    </tr>
+</table>*@
 
 
 @*主营业务*@
@@ -130,7 +108,7 @@
     <tr class="firsttr">
         <td colspan="6">
             <h3 style="color:#0057be;">______ 产品服务 ______</h3>
-            <span style="font-size:14px;color:#666666;">MAIN BUSINESS</span>
+            <span style="font-size:14px;color:#666666;">PRODUCT SERVICES</span>
         </td>
     </tr>
     <tr style="text-align:center;">
@@ -138,7 +116,7 @@
     </tr>
     <tr>
         <td style="width:250px;height:300px;" valign="top">
-            <table id="mainbusiness" style="width:100%;height:300px;border-collapse:collapse;background-color:#f7f7f7;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);cursor:pointer;" border="1">
+            <table id="mainbusiness" style="width:100%;height:300px;border-collapse:collapse;background-color:#f7f7f7;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);cursor:pointer;" border="0">
                 @foreach (var Titleitem in ViewBag.bussinessTitleShow)
                 {
                     <tr>
@@ -152,9 +130,9 @@
                 @foreach (var Descitem in ViewBag.bussinessTitleShow)
                 {
                     <tr>
-                        <td><a href="/News/NewsContent"><img src="/Content/Upload/@Descitem.Image" style="width:350px;height:220px;" /></a></td>
+                        <td><a href="/Home/IndexProServicesContent/@Descitem.Id"><img src="/Content/Upload/@Descitem.Image" style="width:350px;height:220px;" /></a></td>
                         <td>
-                            <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/News/NewsContent">@Descitem.BusinessName</a></p>
+                            <p style="font-size:20px;line-height:40px;color:black;margin-left:70px;"><a class="businesstitle" href="/Home/IndexProServicesContent/@Descitem.Id">@Descitem.BusinessName</a></p>
                             <ul style="width:350px;line-height:30px;color:#666666;margin-left:70px;">
                                 <li style="list-style:none;">@Html.Raw(Descitem.BusinessDesc)</li>
                             </ul>
@@ -173,8 +151,8 @@
         $("#businessdiv tr").eq(index).show().siblings().hide();
     }).eq(0).click();
     var interval = setInterval(function () {
-        var $a = $("#mainbusiness a"), activeIndex;
-        $a.eq($a.index($a.filter(".active")) == $a.length - 1 ? 0 : ($a.index($a.filter(".active")) + 1)).click();
+        var $a = $("#mainbusiness a"),activeIndex;
+        $a.eq( $a.index($a.filter(".active")) == $a.length - 1 ? 0 : ($a.index($a.filter(".active")) + 1)).click();
     }, 3000);
 </script>
 
@@ -193,12 +171,12 @@
         <tr id="advantage" style="font-size:14px;line-height:20px;color:#666666;margin-top:10px;">
             @foreach (var Advantageitem in ViewBag.advantageListShow)
             {
-                <td valign="baseline" style="width:247px;">
-                    <dl style="width:90%;height:160px; border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;">
-                        <dt><img src="/Content/Upload/@Advantageitem.ImageOne" /></dt>
+                <td valign="baseline" style="width:200px;height:200px;">
+                    <dl style="border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);padding:10px;height:200px;"> 
+                        <dt><img src="/Content/Upload/@Advantageitem.ImageOne" style="width:100px;height:80px;" /></dt>
                         <dd>
                             <p style="font-size:16px;line-height:30px;color:#000;">@Advantageitem.Title</p>
-                            <span>@Advantageitem.desc</span>
+                            <span style="width:200px;">@Advantageitem.desc</span> 
                         </dd>
                     </dl>
                 </td>
@@ -207,8 +185,9 @@
     </table>
 </div>
 
+
 @*新闻中心和成功案例*@
-<table class="table" id="newsfriendly" style="width:1000px;margin-top:20px;">
+<table class="table" id="newsfriendly" style="width:1000px;margin-top:70px;">
     <tr>
         <td>
             <div style="width:489px;height:220px;border:#dfdfdf 1px solid;box-shadow:0px 0px 5px 4px rgba(232,232,232,.3);">

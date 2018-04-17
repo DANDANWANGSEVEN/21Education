@@ -3,13 +3,16 @@
     ViewBag.Title = "产品服务案例添加";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
-<script src="~/Content/js/jquery-1.10.2.min.js"></script>
-<link href="~/Content/Areasjs/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Content/Areasjs/bootstrap.min.js"></script>
-<link href="~/script/themes/default/default.css" rel="stylesheet" />
-<script src="~/script/kindeditor-min.js"></script>
-<script src="~/script/lang/zh_CN.js"></script>
-<script src="~/Areas/Content/Scripts/KindEdit.js"></script>
+<style>
+    #Content {
+        display: none;
+    }
+
+    input {
+        width: 100px;
+    }
+</style>
+<script src="~/Areas/Content/release/wangEditor.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -33,6 +36,24 @@
         });
     });
 </script>
+<script type="text/javascript">
+    $(function () {
+        var E = window.wangEditor
+        var editor = new E('#div1')
+        var $text1 = $('#Content')
+        editor.customConfig.onchange = function (html) {
+            // 监控变化，同步更新到 textarea
+            $text1.val(html)
+        }
+        editor.customConfig.uploadImgServer = '/Admin/Common/Upload';  // 上传图片到服务器
+
+        editor.create()
+        // 初始化 textarea 的值
+        $text1.val(editor.txt.html());
+    })
+</script>
+
+
 <div class="mvctool bgb">
     <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
 </div>
@@ -78,7 +99,9 @@
                     @Html.LabelFor(model => model.Content)：
                 </td>
                 <td>
-                    @Html.TextAreaFor(model => model.Content)
+                    <div id="div1">
+                    </div>
+                    @Html.EditorFor(model => model.Content)
                 </td>
             </tr>
         </tbody>

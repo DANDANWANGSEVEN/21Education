@@ -34,9 +34,9 @@
                 <div>
                     <b>@positionitem.Condition</b>
                     <h4>职责描述</h4>
-                    <p>@positionitem.PositionDesc</p>
+                    <p>@Html.Raw(positionitem.PositionDesc)</p>
                     <h4>职位要求</h4>
-                    <p>@positionitem.PositionRequirement</p>
+                    <p>@Html.Raw(positionitem.PositionRequirement)</p>
                 </div>
             </td>
         </tr>

@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <td>        
-                <div>@ViewBag.compangprofileShow</div>
+                <div>@Html.Raw(ViewBag.compangprofileShow)</div>
  
         </td>
     </tr>
@@ -69,11 +69,15 @@
 </table>
 
 @*公司成就*@
-<table id="companyachievenment" border="0" style="width:1000px;margin:auto;margin-top:10px;">
+<table id="companyachievenment" border="0" style="width:1000px;margin:auto;margin-top:20px;">
     <tr style="text-align:center;">
         <td>
             <h3 style="color:#0057be;">______ 公司成就 ______</h3>
             <span style="font-size:14px;">因为用心，所以专业</span>
+        </td>
+    </tr>
+    <tr style="text-align:center;height:10px;">
+        <td>
         </td>
     </tr>
     @foreach (var achievementitem in ViewBag.companyachievementShow)

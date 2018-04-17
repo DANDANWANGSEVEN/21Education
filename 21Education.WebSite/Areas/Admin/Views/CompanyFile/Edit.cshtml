@@ -4,58 +4,23 @@
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
 
-<script src="~/Content/js/jquery-1.10.2.min.js"></script>
-<link href="~/Content/Areasjs/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Content/Areasjs/bootstrap.min.js"></script>
-<link href="~/script/themes/default/default.css" rel="stylesheet" />
-<script src="~/script/kindeditor-min.js"></script>
-<script src="~/script/lang/zh_CN.js"></script>
-<script>
-var editor;
-KindEditor.ready(function(K) {
-    editor = K.create('textarea[name="Article"]', {
-        uploadJson:"../../../script/asp.net/upload_json.ashx",
-        fileManagerJson: "../../../../script/asp.net/file_manager_json.ashx",
-        allowFileManager: true,
-        allowImageUpload: true,
-        allowFileManager: true,
-        afterUpload: function () {
-            this.sync();
-        },
-        afterBlur: function () {
-            this.sync();
+<script src="~/Areas/Content/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var E = window.wangEditor
+        var editor = new E('#div1')
+        var $text1 = $('#Article')
+        editor.customConfig.onchange = function (html) {
+            // 监控变化，同步更新到 textarea
+            $text1.val(html)
         }
-    });
-    K('input[name=getHtml]').click(function(e) {
-        alert(editor.html());
-    });
-    K('input[name=isEmpty]').click(function(e) {
-        alert(editor.isEmpty());
-    });
-    K('input[name=getText]').click(function(e) {
-        alert(editor.text());
-    });
-    K('input[name=selectedHtml]').click(function(e) {
-        alert(editor.selectedHtml());
-    });
-    K('input[name=setHtml]').click(function(e) {
-        editor.html('<h3>Hello KindEditor</h3>');
-    });
-    K('input[name=setText]').click(function(e) {
-        editor.text('<h3>Hello KindEditor</h3>');
-    });
-    K('input[name=insertHtml]').click(function(e) {
-        editor.insertHtml('<strong>插入HTML</strong>');
-    });
-    K('input[name=appendHtml]').click(function(e) {
-        editor.appendHtml('<strong>添加HTML</strong>');
-    });
-    K('input[name=clear]').click(function(e) {
-        editor.html('');
-    });
-});
+        editor.customConfig.uploadImgServer = '/Admin/Common/Upload';  // 上传图片到服务器
+
+        editor.create()
+        // 初始化 textarea 的值
+        $text1.val(editor.txt.html());
+    })
 </script>
-<script src="~/Areas/Content/showdate.js"></script> @*日期控件*@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -89,7 +54,7 @@ KindEditor.ready(function(K) {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
     <table class="fromEditTable setTextWidth300">
-        <tbody>       
+        <tbody>
             <tr>
                 <td style="text-align:center;">
                     @Html.LabelFor(model => model.PublishedPerson)：
@@ -103,6 +68,7 @@ KindEditor.ready(function(K) {
                     @Html.LabelFor(model => model.Article)：
                 </td>
                 <td>
+                    <div id="div1"></div>
                     @Html.TextAreaFor(model => model.Article)
                 </td>
             </tr>

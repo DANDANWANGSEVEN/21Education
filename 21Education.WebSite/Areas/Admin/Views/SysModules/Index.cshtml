@@ -28,7 +28,7 @@
                 methord: 'post',
                 height: $(window).height() - 35,
                 fitColumns: true,
-                sortName: 'CreateTime',
+                sortName: 'MId',
                 sortOrder: 'desc',
                 idField: 'Id',
                 pageSize: 15,
@@ -52,11 +52,10 @@
 
         $("#btnDelete1").click(function () {
             var row = $('#List').datagrid('getSelected');
-            alert(row);
             if (row != null) {
                 $.messager.confirm('提示', '确定删除', function (r) {
                     if (r) {
-                        $.post("Delete1?Id=" + row.Id, function (data) {
+                        $.post("Delete1?MId=" + row.MId, function (data) {
                             if (data.type == 1)
                                 $("#List").datagrid('reload');
                             $.messageBox5s('提示', data.message);
@@ -71,6 +70,8 @@
         });
 
     </script>
+
+
 </body>
  
 <script>

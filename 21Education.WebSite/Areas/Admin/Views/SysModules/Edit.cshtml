@@ -8,7 +8,7 @@
         $("#btnSave").click(function () {
 
             $.ajax({
-                url: "@Url.Action("Edit")",
+                url: "@Url.Action("Edit1")",
                 type: "Post",
                 data: $("#CreateForm").serialize(),
                 dataType: "json",
@@ -71,7 +71,7 @@
                 <td>
                     @Html.EditorFor(model => model.ParentId)
                     @*<select name="ParentId" id="ParentId" style="width:200px;">
-                        @foreach (var item in @ViewBag.SelPName as IEnumerable<SelectListItem>)
+                        @foreach (var item in ViewBag.SelPName as IEnumerable<SelectListItem>)
                         {
                             <option selected value="@item.Value">@item.Text</option>
                         }
@@ -104,7 +104,7 @@
                     @Html.LabelFor(model => model.Remark)：
                 </td>
                 <td>
-                    @Html.TextAreaFor(model => model.Remark)
+                    @Html.EditorFor(model => model.Remark)
                 </td>
             </tr>
             <tr>
@@ -116,7 +116,6 @@
 
                         @Html.RadioButtonFor(Model => Model.State, new { @id = "1", @name = "不启用" }) 不启用*@
                     <input id="State" type="radio" name="State" value="true" />启用
-                    <input id="State" type="radio" name="State" value="fales" />不启用
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.State)</td>
             </tr>

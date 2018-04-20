@@ -19,7 +19,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 条件 职位人数/薪资
         /// </summary>
-        [Display(Name = "条件 职位人数/薪资")]
+        [Display(Name = "条件")]
         public string Condition { get; set; }
         /// <summary>
         /// 职位描述

@@ -9,7 +9,7 @@ namespace _21Education.DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(_21Education.DAL._21EducationDbContext context)

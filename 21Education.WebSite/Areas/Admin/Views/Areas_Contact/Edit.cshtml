@@ -3,6 +3,15 @@
     ViewBag.Title = "修改公司信息";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<style>
+    #Address, #Email, #Phone, #Transmission, #Website {
+        height: 32px;
+        width: 90%;
+    }
+     #table tr{
+       height:60px;
+    }
+</style>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -35,7 +44,7 @@
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
                 <td style="text-align:center;">

@@ -1,8 +1,10 @@
 ﻿var editor;
 KindEditor.ready(function (K) {
     editor = K.create('textarea[name="Content"]', {
-        uploadJson: "~/script/asp.net/upload_json.ashx",
-        fileManagerJson: "~/script/asp.net/file_manager_json.ashx",
+        //uploadJson: "~/script/asp.net/upload_json.ashx",
+        //fileManagerJson: "~/script/asp.net/file_manager_json.ashx",
+        uploadJson: "../../../script/asp.net/upload_json.ashx",
+        fileManagerJson: "../../../../script/asp.net/file_manager_json.ashx",
         allowFileManager: true,
         allowImageUpload: true,
         allowFileManager: true,

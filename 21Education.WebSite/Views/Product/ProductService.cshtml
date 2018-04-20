@@ -95,7 +95,7 @@
 <table id="productadvantage">
     <tr style="text-align:center;">
         <td>
-            <h3 style="color:#0057be;">______ 品牌优势 ______</h3>
+            <h3 style="color:#0057be;">______ 产品优势 ______</h3>
             <span style="font-size:14px;">PRODUCT ADVANTAGE</span>
         </td>
     </tr>
@@ -107,11 +107,11 @@
             <div class="mian">
                 <div class="adframe">
 
-                    @foreach (var Advantageitem in ViewBag.advantageListShow)
+                    @foreach (var Advantageitem in ViewBag.productadvantageListShow)
                     {
                         <div class="adleft">
                             <div class="ico">
-                                <img style="width:50px;height:50px;margin-top: 10px;" src="/Content/Upload/@Advantageitem.ImageTwo" />
+                                <img style="width:50px;height:50px;margin-top: 10px;" src="/Content/Upload/@Advantageitem.ImageOne" />
                             </div>
                             <span class="title" style="font-size:10px;">
                                 @Advantageitem.Title

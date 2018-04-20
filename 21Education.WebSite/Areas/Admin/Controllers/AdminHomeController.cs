@@ -228,9 +228,8 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-            
-            var sysmodel = _sysmodelservice.Get().Where(e=>e.ParentId==id&&e.Id!="0").ToList();
-            
+            var sysmodel = _sysmodelservice.Get().Where(e => e.ParentId == id && e.Id != "0").ToList();
+
             var jsonData = (
                     from m in sysmodel
                     select new

@@ -25,12 +25,12 @@ namespace _21Education.MODEL
         /// <summary>
         /// 合作名称
         /// </summary>
-        [Display(Name = "合作名称")]
+        [Display(Name = "招聘名称")]
         public string Name { get; set; }
         /// <summary>
         /// 合作内容
         /// </summary>
-        [Display(Name = "合作内容")]
+        [Display(Name = "招聘简介")]
         public string Content { get; set; }
 
 

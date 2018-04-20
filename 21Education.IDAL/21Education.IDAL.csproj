@@ -49,6 +49,7 @@
     <Compile Include="IndexMainBusinessIDAL.cs" />
     <Compile Include="IndexAdvantageIDAL.cs" />
     <Compile Include="INewsService.cs" />
+    <Compile Include="IProductAdvantange.cs" />
     <Compile Include="ISuccess.cs" />
     <Compile Include="IAboutCompanyProfile.cs" />
     <Compile Include="IAboutCompanyHonor.cs" />

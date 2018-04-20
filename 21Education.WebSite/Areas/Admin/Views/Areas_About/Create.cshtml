@@ -3,6 +3,12 @@
     ViewBag.Title = "创建";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<style>
+    #table tr{
+       height:60px;
+    }
+</style>
+
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -34,15 +40,15 @@
 @using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
 {
     @Html.ValidationSummary(true)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Image)：
                 </td>
                 <td>
                     @Html.EditorFor(model => model.Image)
-                    <input id="Image" name="Image" type="file" />
+                    @*<input id="Image" name="Image" type="file" />*@
                 </td>
             </tr>
 

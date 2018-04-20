@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_Layout.cshtml";
+}
+<script src="~/Areas/Content/Scripts/jquery.easyui.plus.js"></script>
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>菜单表</title>
+</head>
+<body>
+    <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+    <div class="mvctool">
+        <input type="hidden" value="@Url.Action("Index").ToLower().TrimEnd("index".ToCharArray())" id="path" />
+        <input id="txtQuery" type="text" class="searchText">
+        <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+        <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
+        <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
+        <a id="btnDelete1" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;"/>删除</span></span></a><div class="datagrid-btn-separator"></div>
+        <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+    </div>
+    <table id="List"></table>
+    <script type="text/javascript">
+        $(function () {
+            $('#List').datagrid({
+                url: '@Url.Action("GetList")',
+                width: $(window).width() - 10,
+                methord: 'post',
+                height: $(window).height() - 35,
+                fitColumns: true,
+                sortName: 'CreateTime',
+                sortOrder: 'desc',
+                idField: 'Id',
+                pageSize: 15,
+                pageList: [15, 20, 30, 40, 50],
+                pagination: true,
+                striped: true, //奇偶行是否区分
+                singleSelect: true,//单选模式
+                rownumbers: true,//行号
+                columns: [[
+                    { field: 'MId', title: '编号', width: 80, align: 'center' },
+                    { field: 'Id', title: '标题', width: 80, align: 'center' },
+                    { field: 'Name', title: '名称', width: 80, align: 'center' },
+                    { field: 'Url', title: '路径', width: 80, align: 'center' },
+                    { field: 'Remark', title: '备注', width: 80, align: 'center' },
+                    { field: 'CreatePerson', title: '创建人', width: 80, align: 'center' },
+                    { field: 'CreateTime', title: '创建时间', width: 80, align: 'center' },
+                ]]
+            });
+        });
+        
+
+        $("#btnDelete1").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            alert(row);
+            if (row != null) {
+                $.messager.confirm('提示', '确定删除', function (r) {
+                    if (r) {
+                        $.post("Delete1?Id=" + row.Id, function (data) {
+                            if (data.type == 1)
+                                $("#List").datagrid('reload');
+                            $.messageBox5s('提示', data.message);
+                        }, "json");
+
+                    }
+                });
+            } else {
+                $.messageBox5s('提示', '请选择要操作的记录');
+
+            }
+        });
+
+    </script>
+</body>
+ 
+<script>
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
+    });
+
+
+</script>

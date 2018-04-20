@@ -28,11 +28,14 @@
         <td>
             <div id="companyinfo" style="">
                 <div style="float:left;padding:10px;font-size:14px;margin:20px;">
-                        <p>@ViewBag.companyinfoListShow.Address</p>
-                        <p>邮编：@ViewBag.companyinfoListShow.Email</p>
-                        <p>电话：@ViewBag.companyinfoListShow.Phone</p>
-                        <p>传真：@ViewBag.companyinfoListShow.Transmission</p>
-                        <p>网址：@ViewBag.companyinfoListShow.Website</p>
+                    @foreach (var item in ViewBag.companyinfoListShow)
+                    {
+                        <p>@item.Address</p>
+                        <p>邮编：@item.Email</p>
+                        <p>电话：@item.Phone</p>
+                        <p>传真：@item.Transmission</p>
+                        <p>网址：@item.Website</p>
+                    }
                 </div>
                 <div id="companyinfo" style="color:white;">
                     <!--百度地图容器-->
@@ -67,26 +70,31 @@
 <table class="table" id="joinproduce" border="0" style="margin-top:0px;">
     <tr style="text-align:center;height:80px;">
         <td colspan="2">
-            <h3>______ 招聘信息 ______</h3>
+            <h3>______ 招聘简介 ______</h3>
             <span>JOIN US</span>
         </td>
     </tr>
     <tr style="text-align:center;height:10px;">
         <td colspan="2"></td>
     </tr>
+
+    @foreach (var item in ViewBag.recruit)
+    {
         <tr>
             <td rowspan="3" style="width:50%;">
-                <img style="width:400px;height:200px;" src="/Content/Upload/@ViewBag.recruitimage.Image" />
+                <img style="width:400px;height:200px;" src="/Content/Upload/@item.Image" />
             </td>
         </tr>
         <tr>
             <td style="text-align:center;width:50%;">
-                <h4>@ViewBag.recruitimage.Name</h4>
-                <p style="padding:10px;line-height:30px;">@ViewBag.recruitimage.Content</p>
+                <h4>@item.Name</h4>
+                <p style="padding:10px;line-height:30px;">@Html.Raw(item.Content)</p>
                 <a href="/Contact/JoinUs" id="joinlink">查看详情</a>
             </td>
         </tr>
 
+    }
+      
 </table>
 
 

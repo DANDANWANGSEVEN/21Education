@@ -35,8 +35,6 @@ namespace _21Education.MODEL
         [Display(Name = "时间")]
         public DateTime?  RegistDate { get; set; }
 
-        [Display(Name = "登陆状态")]
-        public int loginstates { get; set; }
 
     }
 }

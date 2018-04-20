@@ -13,16 +13,16 @@ namespace _21Education.MODEL
     public class IndexAdvantage : _21Education.IOC.IEntity
     {
         /// <summary>
-        /// 品牌优势编号
+        /// 品牌优势
         /// </summary>
         public int Id { get; set; }
         /// <summary>
-        /// 优势标题
+        /// 品牌标题
         /// </summary>
         [Display(Name = "优势标题")]
         public string Title { get; set; }
         /// <summary>
-        /// 优势描述
+        /// 品牌描述
         /// </summary>
         [Display(Name = "优势描述")]
         public string desc { get; set; }

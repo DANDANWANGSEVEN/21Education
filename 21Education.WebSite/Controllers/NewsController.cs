@@ -55,6 +55,8 @@ namespace _21Education.WebSite.Controllers
             var newList = _newsService.Get().ToList();
             Expression<Func<News, bool>> filter = e => e.Id == n;
             News newsCurrent = _newsService.Get(filter).FirstOrDefault();
+            newsCurrent.ReadCount++;
+            _newsService.Update(newsCurrent);
             var currentIndex = newList.FindIndex(e => e.Id == newsCurrent.Id);
             var prev = currentIndex == 0 ? null : newList[currentIndex - 1];
             var next = currentIndex == _newsService.Count(null) - 1 ? null : newList[currentIndex + 1];

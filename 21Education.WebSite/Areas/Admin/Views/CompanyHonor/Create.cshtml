@@ -3,6 +3,16 @@
     ViewBag.Title = "创建公司荣誉";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<style>
+     #PublishedTime {
+        height: 32px;
+        width: 90%;
+    }
+     #table tr{
+       height:60px;
+    }
+</style>
+
 <script src="~/Content/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -33,7 +43,7 @@
 @using (Html.BeginForm("Create", "CompanyHonor", null, FormMethod.Post, new { Id = "CreateForm" }))
 {
     @Html.ValidationSummary(true)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
                 <td style="text-align:center;">

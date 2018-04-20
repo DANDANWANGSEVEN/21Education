@@ -4,7 +4,36 @@
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
 
+<style>
+    #Content {
+        display: none;
+    }
 
+    #Name{
+        height: 32px;
+        width: 90%;
+    }
+    #table tr{
+       height:60px;
+    }
+</style>
+<script src="~/Areas/Content/wangEditor.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    var $text1 = $('#Content')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
+    editor.customConfig.uploadImgServer = '/Admin/Common/UploadIn';  // 上传图片到服务器
+
+    editor.create()
+    // 初始化 textarea 的值
+    editor.txt.html($("#Content").val())
+    })
+</script>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
@@ -37,10 +66,10 @@
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Image)：
                 </td>
                 <td>
@@ -48,7 +77,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Name)：
                 </td>
                 <td>
@@ -56,10 +85,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Content)：
                 </td>
                 <td>
+                    <div id="div1"></div>
                     @Html.TextAreaFor(model => model.Content)
                 </td>
             </tr>

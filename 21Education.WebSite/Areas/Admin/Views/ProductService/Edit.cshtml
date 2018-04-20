@@ -3,8 +3,20 @@
     ViewBag.Title = "修改首页产品服务";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<style>
+    #BusinessDesc, #BusinessContent {
+        display: none;
+    }
 
-<script src="~/Areas/Content/release/wangEditor.min.js"></script>
+     #BusinessName,#PubTime{
+         height: 32px;
+        width: 90%;
+    }
+     #table tr{
+       height:60px;
+    }
+</style>
+<script src="~/Areas/Content/wangEditor.min.js"></script>
 <script type="text/javascript">
     $(function () {
         var E = window.wangEditor
@@ -14,11 +26,11 @@
             // 监控变化，同步更新到 textarea
             $text1.val(html)
         }
-        editor.customConfig.uploadImgServer = '/Admin/Common/Upload';  // 上传图片到服务器
+        editor.customConfig.uploadImgServer = '/Admin/Common/UploadIn';  // 上传图片到服务器
 
         editor.create()
         // 初始化 textarea 的值
-        $text1.val(editor.txt.html());
+        editor.txt.html($("#BusinessDesc").val());
 
 
         var editor2 = new E('#div2')
@@ -26,12 +38,12 @@
 
         editor2.customConfig.onchange = function (html) {
             // 监控变化，同步更新到 textarea
-            $text1.val(html)
+            $text2.val(html)
         }
-        editor2.customConfig.uploadImgServer = '/Admin/Common/Upload';  // 上传图片到服务器
+        editor2.customConfig.uploadImgServer = '/Admin/Common/UploadIn';  // 上传图片到服务器
 
         editor2.create()
-        $text2.val(editor.txt.html());
+        editor2.txt.html($("#BusinessContent").val());
 
     })
 </script>
@@ -67,10 +79,10 @@
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.BusinessName)：
                 </td>
                 <td>
@@ -78,7 +90,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.PubTime)：
                 </td>
                 <td>
@@ -86,7 +98,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Image)：
                 </td>
                 <td>
@@ -94,10 +106,11 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.BusinessDesc)：
                 </td>
                 <td>
+                    <lable style="color:red;">*请按照无序列表的格式填写</lable>
                     <div id="div1"></div>
                     @Html.TextAreaFor(model => model.BusinessDesc)
                 </td>

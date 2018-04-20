@@ -1,0 +1,129 @@
+﻿@model _21Education.MODEL.SysModule
+@{
+    ViewBag.Title = "修改菜单信息";
+    Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("#CreateForm").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data == 1) {
+                        window.parent.frameReturnByMes("成功");
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes("失败");
+                    }
+                }
+            });
+        });
+    });
+</script>
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Edit", "SysModules", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Id)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Id)
+                </td>
+
+                <td>@Html.ValidationMessageFor(model => model.Id)</td>
+
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Name)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Name)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.EnglishName)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.EnglishName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EnglishName)</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.ParentId)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.ParentId)
+                    @*<select name="ParentId" id="ParentId" style="width:200px;">
+                        @foreach (var item in @ViewBag.SelPName as IEnumerable<SelectListItem>)
+                        {
+                            <option selected value="@item.Value">@item.Text</option>
+                        }
+                    </select>*@
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Url)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Url)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Url)</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Sort)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Sort)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Sort)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Remark)：
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.Remark)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.State)：
+                </td>
+                <td>
+                    @*@Html.RadioButtonFor(Model => Model.State, new { @id = "0", @name = "启用" })启用
+
+                        @Html.RadioButtonFor(Model => Model.State, new { @id = "1", @name = "不启用" }) 不启用*@
+                    <input id="State" type="radio" name="State" value="true" />启用
+                    <input id="State" type="radio" name="State" value="fales" />不启用
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.State)</td>
+            </tr>
+
+          
+
+        </tbody>
+    </table>
+
+}

@@ -26,7 +26,7 @@ namespace _21Education.MODEL
         /// <summary>
         /// 友情链接地址
         /// </summary>
-        [Display(Name = "友情链接地址")]
+        [Display(Name = "链接地址")]
         public string FriendlyUrl { get; set; }
 
 

@@ -20,8 +20,10 @@
     </tr>
     <tr>
         <td>        
-                <div>@Html.Raw(ViewBag.compangprofileShow)</div>
- 
+            @foreach (var item in ViewBag.compangprofileShow)
+            {
+                <div>@Html.Raw(item.Article)</div>
+            }
         </td>
     </tr>
 </table>

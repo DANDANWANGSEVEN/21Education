@@ -27,7 +27,7 @@
                 text-decoration: underline;
             }
     </style>
-    <script>
+    @*<script>
         var ws = new WebSocket("ws://" + location.hostname + ":" + location.port + "/Admin/AdminHome/WebSocketService");
         ws.onclose = function () {
             $('#msg').append('<p>已经关闭</p>');
@@ -39,7 +39,7 @@
             ws.send(@Convert.ToInt32(AdminHomeController.logintype.offline));
             ws.close();
         });
-    </script>
+    </script>*@
 </head>
 <body class="easyui-layout">
     <div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">

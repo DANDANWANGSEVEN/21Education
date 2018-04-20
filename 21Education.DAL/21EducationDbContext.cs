@@ -28,6 +28,7 @@ namespace _21Education.DAL
         public DbSet<IndexAdvantage> IndexAdvantage { set; get; }
         public DbSet<News> News { set; get; }
         public DbSet<Success> Success { set; get; }
+        public DbSet<ProductAdvantage> ProductAdvantage { set; get; }
         #endregion
 
         #region 关于我们

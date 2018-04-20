@@ -18,12 +18,14 @@ namespace _21Education.WebSite.Controllers
     {
         IProduct _product;
         IndexAdvantageIDAL _advantageService;
+        IProductAdvantange _productadvantage; //产品服务页面产品优势 IProductAdvantange productadvantage,
         IFriendlyLink _friendlylinkservice;
-        public ProductController(IProduct product,IndexAdvantageIDAL advantageService, IFriendlyLink friendlylinkservice)
+        public ProductController(IProduct product, IndexAdvantageIDAL advantageService, IFriendlyLink friendlylinkservice, IProductAdvantange productadvantage)
         {
             _product = product;
             _advantageService = advantageService;
             _friendlylinkservice = friendlylinkservice;
+            _productadvantage = productadvantage;
         }
 
         #region  产品服务列表页
@@ -33,9 +35,10 @@ namespace _21Education.WebSite.Controllers
             var productTitle = _product.Get().OrderByDescending(e => e.Id).Take(12).ToList();
             ViewBag.productTitleShow = productTitle;
 
-            //品牌优势
-            var advantageList = _advantageService.Get().OrderByDescending(e => e.Id).Take(4).ToList();
-            ViewBag.advantageListShow = advantageList;
+            ////品牌优势
+            var productadvantageList = _productadvantage.Get().OrderByDescending(e => e.Id).Take(4).ToList();
+            ViewBag.productadvantageListShow = productadvantageList;
+
 
             var path = RouteData.GetPath();
             var page = RouteData.GetPage();
@@ -75,6 +78,8 @@ namespace _21Education.WebSite.Controllers
                 var productList = _product.Get().ToList();
                 Expression<Func<MODEL.Product, bool>> filter = e => e.Id == n;
                 MODEL.Product productCurrent = _product.Get(filter).FirstOrDefault();
+                productCurrent.ReadCount++;
+                _product.Update(productCurrent);
                 var currentIndex = productList.FindIndex(e => e.Id == productCurrent.Id);
                 var prev = currentIndex==0?null: productList[currentIndex - 1];
                 var next = currentIndex== _product.Count(null)-1?null: productList[currentIndex + 1];

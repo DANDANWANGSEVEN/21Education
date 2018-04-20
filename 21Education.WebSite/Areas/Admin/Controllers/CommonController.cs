@@ -14,8 +14,28 @@ namespace _21Education.WebSite.Areas.Admin.Controllers
     public class CommonController : Controller
     {
         public static readonly string fileSavePath = ConfigurationHelper.GetAppSetting("FileUploadPath").EndsWith("/") ? ConfigurationHelper.GetAppSetting("FileUploadPath") : ConfigurationHelper.GetAppSetting("FileUploadPath") + "/";
+
+        /// <summary>
+        /// 后台管理页面的上传图片
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult Upload()
+        {
+            var file = Request.Files[0];
+            if (file == null || file.InputStream.Length == 0) return Json(new { Code = 1, Message = "上传文件错误" });
+            var fileName = string.Format("{0}.{1}", Guid.NewGuid(), file.FileName.Split('.')[1]);
+            var savePath = Server.MapPath(fileSavePath) + fileName;
+            file.SaveAs(savePath);
+            return Json(new { Code = 0, Message = "上传成功", FileName = fileName });
+        }
+
+        /// <summary>
+        /// 富文本中的上传图片
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult UploadIn()
         {
             var files = Request.Files;
             List<string> filesPath = new List<string>();

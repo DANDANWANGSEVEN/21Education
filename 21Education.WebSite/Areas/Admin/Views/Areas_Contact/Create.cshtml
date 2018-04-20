@@ -3,7 +3,15 @@
     ViewBag.Title = "创建公司信息";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
-
+<style>
+    #Address, #Email, #Phone, #Transmission,#Website {
+        height: 32px;
+        width: 90%;
+    }
+     #table tr{
+       height:60px;
+    }
+</style>
 
 <script type="text/javascript">
     $(function () {
@@ -36,10 +44,10 @@
 @using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
 {
     @Html.ValidationSummary(true)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Address)：
                 </td>
                 <td>
@@ -50,7 +58,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Email)：
                 </td>
 
@@ -62,7 +70,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Phone)：
                 </td>
 

@@ -65,15 +65,15 @@ namespace _21Education.WebSite.Controllers
         }
         #endregion
 
-
         #region 成功案例内容页面
         public ActionResult SuccessContent(int n)
         {
             var successList = _successService.Get().ToList();
             Expression<Func<MODEL.Success, bool>> filter = e => e.Id == n;
             MODEL.Success successCurrent = _successService.Get(filter).FirstOrDefault();
+            successCurrent.ReadCount++;
+            _successService.Update(successCurrent);
             var currentIndex = successList.FindIndex(e => e.Id == successCurrent.Id);
-
             var prev = currentIndex==0?null:successList[currentIndex - 1];
             var next =currentIndex==_successService.Count(null)-1?null:successList[currentIndex + 1];
             return View(new SuccessContentViewModel { CurrentSuccess=successCurrent,PrevSuccess=prev,NextSuccess=next});

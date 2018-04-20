@@ -8,15 +8,19 @@
     #Content{
         display:none;
     }
-    input {
-        width: 100px;
+    #Title,#PubDate,#ReadCount,#PubPerson{
+        height:32px;
+        width:90%;
+    }
+    #table tr{
+       height:60px;
     }
 </style>
-<script src="~/Areas/Content/release/wangEditor.min.js"></script>
+<script src="~/Areas/Content/wangEditor.min.js"></script>
+
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
-            //editor.sync('#CreateForm');
                 $.ajax({
                     url: "@Url.Action("Create")",
                     type: "Post",
@@ -45,7 +49,7 @@
         // 监控变化，同步更新到 textarea
         $text1.val(html)
     }
-    editor.customConfig.uploadImgServer = '/Admin/Common/Upload';  // 上传图片到服务器
+    editor.customConfig.uploadImgServer = '/Admin/Common/UploadIn';  // 上传图片到服务器
 
     editor.create()
     // 初始化 textarea 的值
@@ -60,10 +64,10 @@
 @using (Html.BeginForm("Create", "Areas_News", null, FormMethod.Post, new { Id = "CreateForm" }))
 {
     @Html.ValidationSummary(true)
-    <table class="fromEditTable setTextWidth300">
+    <table id="table" class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Title)：
                 </td>
                 <td>
@@ -71,7 +75,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.PubDate)：
                 </td>
                 <td>
@@ -79,7 +83,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.ReadCount)：
                 </td>
                 <td>
@@ -87,7 +91,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.PubPerson)：
                 </td>
                 <td>
@@ -95,7 +99,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;width:100px;">
                     @Html.LabelFor(model => model.Content)
                 </td>
                 <td>

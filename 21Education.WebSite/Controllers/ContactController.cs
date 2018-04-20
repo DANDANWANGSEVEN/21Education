@@ -32,7 +32,7 @@ namespace _21Education.WebSite.Controllers
         public ActionResult ContactUs()
         {
             //公司信息
-            var companyinfoList = _contactcompanyinfo.Get().OrderBy(e=>e.Id).FirstOrDefault();
+            var companyinfoList = _contactcompanyinfo.Get().OrderBy(e=>e.Id).Take(1).ToList();
             ViewBag.companyinfoListShow = companyinfoList;
 
             //公司合作
@@ -40,8 +40,8 @@ namespace _21Education.WebSite.Controllers
             ViewBag.cooperateinfoListShow = cooperateinfoList;
 
             //招聘信息
-            var recruitinfoList = _contactrecruitinfo.Get().OrderBy(e => e.Id).FirstOrDefault();
-            ViewBag.recruitimage = recruitinfoList;
+            var recruitinfoList = _contactrecruitinfo.Get().OrderBy(e => e.Id).Take(1).ToList();
+            ViewBag.recruit = recruitinfoList;
 
             return View();
         }

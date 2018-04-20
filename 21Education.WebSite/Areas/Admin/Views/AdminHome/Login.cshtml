@@ -128,12 +128,12 @@
                                         alert("该用户已登录，不能重复登录!");
                                         return;
                                     }
-
                                 }
                             });
                         }
                         else {
                             $("#mes").text("验证码有误！");
+                            $("#ValidateCode").val('');
                             IsSub = true;
                             return;
                         }
@@ -142,46 +142,47 @@
             }
         }
     </script>
-    
+
 </head>
-<body style="background-image:url('/image/About_Honorbg.jpg')">
+<body style="background-color:#95a9c4;">
+    @*style="background:url('/image/About_Honorbg.jpg')"*@
     <div style="width:100%;height:auto;">
         <div style="height:200px;"></div>
-        <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:400px; height:230px;margin:auto; border:1px #ccc solid;">
-            <tr>
-                <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
+        <table id="LoginTb" style="margin-top:100px; background:#f7f7f7; width:600px; height:340px;margin:auto; border:1px #ccc solid;">
+            <tr align="center">
+                <td colspan="2" style="font-size: 24px;  font-weight: bold; padding: 5px 20px;">
                     欢迎登录北京世纪互联后台管理 LOGIN
                 </td>
             </tr>
-            <tr>
-                <td style="width: 80px; text-align: right">
+            <tr align="center">
+                <td style="width: 140px; text-align: right;">
                     用户名：
                 </td>
-                <td>
-                    <input id="UserName" name="UserName" type="text" />
+                <td align="left">
+                    <input id="UserName" name="UserName" type="text" style="width:300px;" />
                 </td>
             </tr>
-            <tr>
-                <td style="width: 80px; text-align: right;">
+            <tr align="center">
+                <td style="width: 140px; text-align: right;">
                     密 码：
                 </td>
-                <td>
-                    <input id="Password" name="Password" type="password" />
+                <td align="left">
+                    <input id="Password" name="Password" type="password" style="width:300px;" />
                 </td>
             </tr>
 
-            <tr>
-                <td style="width: 80px; text-align: right">
+            <tr align="center">
+                <td style="width: 140px; text-align: right;">
                     验证码：
                 </td>
-                <td>
-                    <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                <td align="left">
+                    <input style="width: 150px" type="text" name="ValidateCode" id="ValidateCode" />
                     <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Handler/verify_code.ashx" onclick="this.src=this.src+'?'" />
                     <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
 
                 </td>
             </tr>
-            <tr>
+            <tr align="center">
                 <td colspan="2">
                     <table style="width: 100%;">
                         <tr>
@@ -192,7 +193,7 @@
                                 <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
                             </td>
                             <td style="width: 100px;">
-                                <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="" style="padding:0px 10px;">登录</span></span></a> @*class="l-btn-text icon-ok"*@
+                                <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="" style="padding:0px 10px;">登录</span></span></a>
                             </td>
                         </tr>
                     </table>

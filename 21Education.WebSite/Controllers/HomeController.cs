@@ -86,5 +86,13 @@ namespace _21Education.WebSite.Controllers
             return View(viewModel);
         }
 
+
+        public ActionResult kindeditor()
+        {
+            return View();
+        }
+
+
+
     }
 }

@@ -38,7 +38,7 @@ namespace _21Education.MVC
 
             var json = new
             {
-                total = pager.totalRows,
+                total = Service.Count(null),
                 rows = ConvertImgPathToPhysicalPath(list)
             };
             return Json(json, JsonRequestBehavior.AllowGet);
@@ -73,11 +73,11 @@ namespace _21Education.MVC
             }
         }
 
-        public ActionResult Edit(int id)
+        public virtual ActionResult Edit(int id)
         {
             return View(Service.Get(id));
         }
-      
+
 
         [HttpPost]
         [ValidateInput(false)]
@@ -117,7 +117,7 @@ namespace _21Education.MVC
             TypeExtend<TEntity>.CopyTo(entity, result, true);
             properties.Where(filter).ToList().ForEach(property =>
             {
-                if (property.GetValue(entity, null) == null) return; 
+                if (property.GetValue(entity, null) == null) return;
                 property.SetValue(result, floderPath + property.GetValue(entity, null).ToString());
             });
             return result;

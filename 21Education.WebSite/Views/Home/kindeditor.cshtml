@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "kindeditor";
+}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Areas/Content/Kindeditor/css/WordPaster.css" rel="stylesheet" />
+    <link href="~/Areas/Content/Kindeditor/js/skygqbox.css" rel="stylesheet" />
+    <script src="~/Areas/Content/Kindeditor/js/kindeditor.js"></script>
+    @*<script src="~/Areas/Content/Kindeditor/js/kindeditor-min.js"></script>*@
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/json2.min.js"></script>
+    @*<script src="~/Areas/Content/Kindeditor/js/WordPaster/js/jquery-1.4.min.js"></script>*@
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/w.edge.js"></script>
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/w.app.js"></script>
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/w.file.js"></script>
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/skygqbox.js"></script>
+    <script src="~/Areas/Content/Kindeditor/js/WordPaster/js/WordPaster.js"></script>
+
+</head>
+<body>
+    <!--KindEditor编辑器-->
+    <textarea id="content1" name="content1" style="width:700px;height:300px;visibility:hidden;"></textarea>
+    <script type="text/javascript">
+
+
+
+            var pasterMgr = new WordPasterManager();
+            pasterMgr.Config["PostUrl"] = "http://localhost:45704/Areas/Content/Kindeditor/js/asp/upload.asp";
+            pasterMgr.Load();//
+
+            //加载kindeditor
+            KE.show({
+                id: 'content1'
+                , imageUploadJson: '../../asp.net/upload_json.ashx'
+                , fileManagerJson: '../../asp.net/file_manager_json.ashx'
+                , allowFileManager: true
+                , cssPath: './index.css'
+                , items: ['source', '|', 'fullscreen', 'undo', 'redo', 'print', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', 'imagepaster', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', '|', 'selectall', '-',
+                    'title', 'fontname', 'fontsize', '|', 'textcolor', 'bgcolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'removeformat', '|', 'image',
+                    'flash', 'media', 'advtable', 'hr', 'emoticons', 'link', 'unlink', '|', 'about']
+                , afterCreate: function (id) {
+                    //初始化
+                    pasterMgr.SetEditorID(id);
+                }
+            });
+
+
+       
+    </script>
+</body>
+</html>

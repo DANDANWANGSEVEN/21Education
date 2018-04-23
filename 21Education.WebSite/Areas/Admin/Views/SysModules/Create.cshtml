@@ -70,9 +70,9 @@
                 <td>
                     <select name="ParentId" id="ParentId" style="width:200px;">
                         @foreach (var item in @ViewBag.SelPName as IEnumerable<SelectListItem>)
-                        {
-                            <option selected value="@item.Value">@item.Text</option>
-                        }
+                {
+                    <option selected value="@item.Value">@item.Text</option>
+        }
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
@@ -112,9 +112,8 @@
                 <td>
                     @*@Html.RadioButtonFor(Model => Model.State, new { @id = "0", @name = "启用" })启用
 
-                        @Html.RadioButtonFor(Model => Model.State, new { @id = "1", @name = "不启用" }) 不启用*@
-                    <input id="State" type="radio" name="State" value="true" />启用
-
+                @Html.RadioButtonFor(Model => Model.State, new { @id = "1", @name = "不启用" }) 不启用*@
+                    <input id="State" type="radio" name="State" value="true" checked />启用
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.State)</td>
             </tr>
@@ -127,11 +126,18 @@
                 </td>
             </tr>
             <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.IsLast)：
+                </td>
                 <td>
-                    <input id="IsLast" type="text" name="IsLast" value="true" hidden="hidden" />
+                    @Html.RadioButtonFor(model => model.IsLast, true) 是
+                    @Html.RadioButtonFor(model => model.IsLast, false) 否
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <input id="CreateTime" type="text" name="CreateTime" value="@ViewData["CreateTime"]" hidden="hidden" />
                     <input id="Iconic" type="text" name="Iconic" value="无" hidden="hidden" />
-                    @*  <td>@Html.Hidden("CreateTime")</td>*@
                     <input id="Version" type="text" name="Version" value="@ViewData["CreateTime"]" hidden="hidden" />
                 </td>
             </tr>

@@ -9,6 +9,6 @@ namespace _21Education.IDAL
 {
     public  interface ISysModule : IService<MODEL.SysModule>
     {
-
+        
     }
 }

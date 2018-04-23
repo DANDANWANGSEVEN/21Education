@@ -3,26 +3,29 @@
     ViewBag.Title = "修改菜单信息";
     Layout = "~/Areas/Admin/Views/Shared/_Index_LayoutEdit.cshtml";
 }
+<style>
+    
+</style>
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
 
-            $.ajax({
-                url: "@Url.Action("Edit1")",
-                type: "Post",
-                data: $("#CreateForm").serialize(),
-                dataType: "json",
-                success: function (data) {
-                    if (data == 1) {
-                        window.parent.frameReturnByMes("成功");
-                        window.parent.frameReturnByReload(true);
-                        window.parent.frameReturnByClose()
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            window.parent.frameReturnByMes("成功");
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes("失败");
+                        }
                     }
-                    else {
-                        window.parent.frameReturnByMes("失败");
-                    }
-                }
-            });
+                });
         });
     });
 </script>
@@ -40,6 +43,7 @@
                     @Html.LabelFor(model => model.Id)：
                 </td>
                 <td>
+                    @Html.HiddenFor(model => model.MId)
                     @Html.EditorFor(model => model.Id)
                 </td>
 
@@ -69,13 +73,14 @@
                     @Html.LabelFor(model => model.ParentId)：
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.ParentId)
+                    @*@Html.EditorFor(model => model.ParentId)*@
                     @*<select name="ParentId" id="ParentId" style="width:200px;">
                         @foreach (var item in ViewBag.SelPName as IEnumerable<SelectListItem>)
-                        {
-                            <option selected value="@item.Value">@item.Text</option>
-                        }
+                {
+                    <option @(item.Selected==true?"selected":"") value="@item.Value">@item.Text</option>
+        }
                     </select>*@
+                    @Html.DropDownListFor(model => model.ParentId,ViewBag.SelPName as IEnumerable<SelectListItem>)
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
             </tr>
@@ -112,16 +117,43 @@
                     @Html.LabelFor(model => model.State)：
                 </td>
                 <td>
-                    @*@Html.RadioButtonFor(Model => Model.State, new { @id = "0", @name = "启用" })启用
-
-                        @Html.RadioButtonFor(Model => Model.State, new { @id = "1", @name = "不启用" }) 不启用*@
-                    <input id="State" type="radio" name="State" value="true" />启用
+                    <input id="State" type="radio" name="State" value="true" checked />启用
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.State)</td>
             </tr>
-
-          
-
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.IsLast)：
+                </td>
+                <td>
+                    @Html.RadioButtonFor(model => model.IsLast, true) 子菜单
+                    @Html.RadioButtonFor(model => model.IsLast, false) 主菜单
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.CreatePerson)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.CreatePerson)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.CreateTime)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.CreateTime)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    @Html.LabelFor(model => model.Version)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Version)
+                </td>
+            </tr>
         </tbody>
     </table>
 

@@ -33,7 +33,7 @@ namespace _21Education.MODEL
         public string CreatePerson { get; set; }
         [Display(Name = "时间")]
         public DateTime? CreateTime { get; set; }
-        [Display(Name = "是否最后")]
+        [Display(Name = "菜单类型")]
         public bool IsLast { get; set; }
         [Display(Name = "版本")]
         public DateTime? Version { get; set; }

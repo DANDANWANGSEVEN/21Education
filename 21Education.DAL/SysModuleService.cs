@@ -18,5 +18,18 @@ namespace _21Education.DAL
         }
 
         public override DbSet<SysModule> CurrentDbSet => (DbContext as _21EducationDbContext).SysModule;
+
+
+        public override void Update(SysModule item, bool saveImmediately = true)
+        {
+            var editModel = CurrentDbSet.Find(item.MId);
+            TypeExtend<SysModule>.CopyTo(item, editModel);
+            if (saveImmediately)
+            {
+                SaveChanges();
+            }
+        }
+
+
     }
 }

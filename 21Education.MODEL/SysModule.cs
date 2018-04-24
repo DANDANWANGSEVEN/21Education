@@ -10,10 +10,11 @@ namespace _21Education.MODEL
     public class SysModule : _21Education.IOC.IEntity
     {
         [Key]
+        [Display(Name = "主键编号")]
         public int MId { get; set; }
-        [Display(Name = "树标题")]
+        [Display(Name = "树标题（唯一）")]
         public string Id { get; set; }
-        [Display(Name = "名称")]
+        [Display(Name = "中文名称")]
         public string Name { get; set; }
         [Display(Name = "英文名称")]
         public string EnglishName { get; set; }
